@@ -1,8 +1,3 @@
-const config = {
-    api: {
-        baseURL: ""
-    }
-
-};
+const config = {};
 
 export default config;

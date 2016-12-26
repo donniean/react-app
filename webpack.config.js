@@ -23,11 +23,6 @@ module.exports = {
         ]
     },
     devtool: "source-map",
-    devServer: {
-        inline: true,
-        hot: true,
-        clientLogLevel: "error" // error, warning, info or none
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({ title: "Hello React", template: __dirname + "/src/index.html" }),
@@ -35,13 +30,3 @@ module.exports = {
         // new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
     ]
 };
-
-/* {
-    test: /\.css$/,
-    loader: "style-loader!css-loader"
-}, */
-
-/* {
-    test: /\.css$/,
-    loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-}, */

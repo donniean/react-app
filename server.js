@@ -5,10 +5,11 @@ var WebpackDevServer = require("webpack-dev-server");
 var config = require("./webpack.config");
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    hot: true,
     noInfo: true,
+    hot: true,
     historyApiFallback: true,
-    clientLogLevel: "error" // error, warning, info or none; not work ?
+    stats: { colors: true },
+    clientLogLevel: "error" // error, warning, info or none
 }).listen(port, ip, function(err, result) {
     if (err) {
         console.log(err);

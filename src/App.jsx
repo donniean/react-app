@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-class Hello extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -10,4 +10,4 @@ class Hello extends React.Component {
     }
 }
 
-export default Hello;
+export default App;

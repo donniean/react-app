@@ -12,7 +12,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            outline: none;
         }
         
         body {
@@ -224,6 +223,7 @@
                     self.updateList();
                     self.addTodo();
                     self.deleteTodo();
+                    self.updateTodo();
                     self.changeStatus();
                 },
                 getlistElement: function() {
@@ -255,7 +255,7 @@
                             '<div id="' + id + '" class="item ' + status.toLowerCase() + '" data-status="' + status + '">',
                             '    <input type="checkbox" class="change-status" ' + (status === "Completed" ? "checked" : "") + ' />',
                             '    <label class="todo">' + content + '</label>',
-                            '    <input type="text" class="todo hide" />',
+                            '    <input type="text" class="todo hide" value="' + content + '" />',
                             '    <button type="button" class="delete hide">X</button>',
                             '</div>'
                         ].join("");
@@ -296,6 +296,33 @@
                             self.updateList();
                         }
                     }, false);
+                },
+                updateTodo: function() {
+                    var self = this;
+                    document.getElementById("list").addEventListener("dblclick", function(e) {
+                        var target = e.target;
+                        var input = target.nextSibling.nextSibling;
+                        if (target.tagName.toLowerCase() === "label" && target.className === "todo") {
+                            var content = input.value;
+                            target.style.display = "none";
+                            input.style.display = "inline-block";
+                            input.focus();
+                            input.value = content; // 光标在右边
+                        }
+                    }, false);
+                    document.getElementById("list").addEventListener("blur", function(e) {
+                        var target = e.target;
+                        var todo = target.previousSibling.previousSibling;
+                        if (target.tagName.toLowerCase() === "input" && target.className === "todo hide") {
+                            var itemElement = target.parentNode;
+                            target.style.display = "none";
+                            todo.style.display = "inline-block";
+                            todo.innerText = target.value;
+                            var todo = self.getTodo(itemElement);
+                            todos.update(todo);
+                            self.updateList();
+                        }
+                    }, true);
                 },
                 changeStatus: function() {
                     var self = this;

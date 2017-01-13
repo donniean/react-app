@@ -19,13 +19,17 @@
             background-color: #f5f5f5;
         }
         
+        button {
+            cursor: pointer;
+        }
+        
         .root {
             margin: 0 auto;
             width: 600px;
         }
         
         .title {
-            margin-bottom: 20px;
+            margin: 20px 0;
             text-align: center;
             color: rgba(175, 47, 47, 0.15)
         }
@@ -34,7 +38,7 @@
             background-color: #ffffff;
         }
         
-        .new {
+        .header {
             border-bottom: 1px solid #ededed;
         }
         
@@ -42,7 +46,6 @@
             margin-left: 10px;
             padding: 5px;
             height: 30px;
-            cursor: pointer;
         }
         
         .new-todo {
@@ -69,7 +72,12 @@
             border-bottom: 1px solid #ededed;
         }
         
-        .completed,
+        .completed>label.todo {
+            color: #d9d9d9;
+            text-decoration: line-through;
+        }
+        
+        .change-status,
         .delete {
             width: 50px;
         }
@@ -86,7 +94,34 @@
         .delete {
             border: 0;
             background-color: transparent;
-            cursor: pointer;
+        }
+        
+        .footer {
+            padding: 10px;
+        }
+        
+        .footer>* {
+            margin: 0 15px;
+            color: rgb(119, 119, 119);
+        }
+        
+        .footer>a {
+            padding: 5px;
+            text-decoration: none;
+        }
+        
+        .footer>a.active {
+            border: 1px solid rgba(175, 47, 47, 0.2);
+        }
+        
+        .clear-completed {
+            border: 0;
+            background-color: transparent;
+            font-size: 16px;
+        }
+        
+        .hide {
+            display: none;
         }
 
     </style>
@@ -96,25 +131,225 @@
     <div id="root" class="root">
         <h1 class="title">todos</h1>
         <div class="main">
-            <div class="new">
-                <button type="button" class="all-completed">All Completed</button>
-                <input type="text" class="new-todo" name="" value="" placeholder="What needs to be done?" />
+            <div class="header">
+                <form id="addTodo">
+                    <button type="button" class="all-completed">All Completed</button>
+                    <input type="text" id="newTodo" class="new-todo" name="" value="" placeholder="What needs to be done?" />
+                </form>
             </div>
-            <div class="list">
-                <div class="item">
-                    <input type="checkbox" class="completed" />
+            <div id="list" class="list">
+                <!-- <div class="item">
+                    <input type="checkbox" class="change-status" />
                     <label class="todo">dsfegffg</label>
+                    <input type="text" class="todo hide" />
                     <button type="button" class="delete">X</button>
-                </div>
-                <div class="item">
-                    <input type="checkbox" class="completed" />
-                    <!-- <label class="todo">dsfegffg</label> -->
-                    <input type="text" class="todo" />
-                    <button type="button" class="delete">X</button>
-                </div>
+                </div> -->
+            </div>
+            <div id="footer" class="footer hide">
+                <span>
+                    <span id="activeCount">0</span><span> items left</span>
+                </span>
+                <a href="#">All</a>
+                <a href="#">Active</a>
+                <a href="#">Completed</a>
+                <button type="button" class="clear-completed">Clear Completed</button>
             </div>
         </div>
     </div>
+    <script>
+        (function() {
+            /* 数据处理 */
+            var todos = {
+                get: function() {
+                    var json = localStorage.getItem("todos");
+                    var list = JSON.parse(json) || [];
+                    return list;
+                },
+                set: function(list) {
+                    localStorage.setItem("todos", JSON.stringify(list));
+                },
+                find: function(id) {
+                    var self = this;
+                    var list = self.get();
+                    for (var i = 0, len = list.length; i < len; i++) {
+                        var item = list[i] || {};
+                        if (id === item.id) {
+                            return i;
+                        }
+                    }
+                },
+                add: function(newItem) {
+                    var self = this;
+                    var list = self.get();
+                    list.push(newItem);
+                    self.set(list);
+                },
+                del: function(id) {
+                    var self = this;
+                    var list = self.get();
+                    var index = self.find(id);
+                    list.splice(index, 1);
+                    self.set(list);
+                },
+                update: function(newItem) {
+                    var self = this;
+                    var list = self.get();
+                    var id = newItem.id;
+                    var index = self.find(id);
+                    list.splice(index, 1, newItem);
+                    self.set(list);
+                },
+                filter: function(status) {
+                    var self = this;
+                    var list = self.get();
+                    if (status) {
+                        return list.filter(function(value) {
+                            return value.status === status;
+                        });
+                    } else {
+                        return list;
+                    }
+                },
+                getCount: function(status) {
+                    var self = this;
+                    var list = self.filter(status);
+                    return list.length;
+                }
+            };
+
+            /* 视图 */
+            var view = {
+                init: function() {
+                    var self = this;
+                    self.updateList();
+                    self.addTodo();
+                    self.deleteTodo();
+                    self.changeStatus();
+                },
+                getlistElement: function() {
+                    return document.getElementById("list");
+                },
+                getTodo: function(itemElement) {
+                    var id = itemElement.id;
+                    var status = itemElement.getAttribute("data-status");
+                    var content = itemElement.getElementsByClassName("todo")[0].innerText;
+                    var todo = {
+                        id: id,
+                        status: status,
+                        content: content
+                    };
+                    return todo;
+                },
+                updateList: function() {
+                    var self = this;
+                    var listElement = self.getlistElement();
+                    var list = todos.get();
+                    var htmlCodes = "";
+                    var arr = [];
+                    for (var i = 0, len = list.length; i < len; i++) {
+                        var item = list[i] || {};
+                        var id = item.id;
+                        var status = item.status;
+                        var content = item.content;
+                        var str = [
+                            '<div id="' + id + '" class="item ' + status.toLowerCase() + '" data-status="' + status + '">',
+                            '    <input type="checkbox" class="change-status" ' + (status === "Completed" ? "checked" : "") + ' />',
+                            '    <label class="todo">' + content + '</label>',
+                            '    <input type="text" class="todo hide" />',
+                            '    <button type="button" class="delete hide">X</button>',
+                            '</div>'
+                        ].join("");
+                        arr.push(str);
+                    }
+                    htmlCodes = arr.join("");
+                    listElement.innerHTML = htmlCodes;
+                    self.showDeleteButton();
+                    self.showFooter();
+                    self.updateActiveCount();
+                },
+                addTodo: function() {
+                    var self = this;
+                    document.getElementById("addTodo").addEventListener("submit", function(e) {
+                        var newTodoElement = document.getElementById("newTodo");
+                        var id = String((new Date()).valueOf()); // 以时间戳作为id
+                        var status = "Active";
+                        var content = newTodoElement.value;
+                        var newItem = {
+                            id: id,
+                            status: status,
+                            content: content
+                        };
+                        todos.add(newItem);
+                        self.updateList();
+                        newTodoElement.value = "";
+                        e.preventDefault();
+                    }, false);
+                },
+                deleteTodo: function() {
+                    var self = this;
+                    document.getElementById("list").addEventListener("click", function(e) {
+                        var target = e.target;
+                        if (target.tagName.toLowerCase() === "button" && target.className === "delete hide") {
+                            var itemElement = target.parentNode;
+                            var todo = self.getTodo(itemElement);
+                            todos.del(todo.id);
+                            self.updateList();
+                        }
+                    }, false);
+                },
+                changeStatus: function() {
+                    var self = this;
+                    document.getElementById("list").addEventListener("change", function(e) {
+                        var target = e.target;
+                        if (target.tagName.toLowerCase() === "input" && target.className === "change-status") {
+                            var itemElement = target.parentNode;
+                            if (target.checked) {
+                                itemElement.setAttribute("data-status", "Completed");
+                            } else {
+                                itemElement.setAttribute("data-status", "Active");
+                            }
+                            var todo = self.getTodo(itemElement);
+                            todos.update(todo);
+                            self.updateList();
+                        }
+                    }, false);
+                },
+                showDeleteButton: function() {
+                    var self = this;
+                    var listElement = self.getlistElement();
+                    var items = document.getElementsByClassName("item");
+                    var arr = Array.prototype.slice.call(items); // 将HTMLCollection（Object）转换为Array
+                    for (var i = 0, len = arr.length; i < len; i++) {
+                        var item = arr[i];
+                        item.addEventListener("mouseover", function() {
+                            var deleteButton = this.lastChild;
+                            deleteButton.style.display = "inline-block";
+                        }, false);
+                        item.addEventListener("mouseout", function() {
+                            var deleteButton = this.lastChild;
+                            deleteButton.style.display = "none";
+                        }, false);
+                    }
+                },
+                showFooter: function() {
+                    var footer = document.getElementById("footer");
+                    if (todos.get().length > 0) {
+                        footer.style.display = "block";
+                    } else {
+                        footer.style.display = "none";
+                    }
+                },
+                updateActiveCount: function() {
+                    var activeCountElement = document.getElementById("activeCount");
+                    var activeCount = todos.getCount("Active");
+                    activeCountElement.innerText = activeCount;
+                }
+            };
+
+            view.init();
+        })();
+
+    </script>
 </body>
 
 </html>

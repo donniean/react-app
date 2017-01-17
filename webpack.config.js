@@ -17,8 +17,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.(js|jsx)$/, loaders: ["react-hot-loader", "babel-loader?presets[]=es2015,presets[]=react"], include: path.join(__dirname, "src") },
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            // { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+            { test: /\.(css|scss)$/, loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"] },
             { test: /\.(png|jpg)$/, loader: "url-loader?limit=524288" }
         ]
     },
@@ -26,7 +25,6 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({ title: "Hello React", template: __dirname + "/src/index.html" }),
-        new ExtractTextPlugin("styles.css"),
-        // new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
+        new ExtractTextPlugin("styles.css")
     ]
 };

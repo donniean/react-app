@@ -5,7 +5,7 @@ class App extends React.Component {
         super(props);
     }
     render() {
-        return <h1 className="test">Hello React</h1>;
+        return <h1>Hello React</h1>;
     }
 }
 

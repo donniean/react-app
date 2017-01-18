@@ -17,7 +17,9 @@ module.exports = {
             { test: /\.(png|jpg)$/, loader: "url-loader?limit=524288" }
         ]
     },
-    postcss: [autoprefixer],
+    postcss: [autoprefixer({
+        browsers: ["last 100 versions", "> 1%"]
+    })],
     devtool: "source-map",
     plugins: [
         new HtmlWebpackPlugin({ title: "Hello React", template: __dirname + "/src/index.html" }),

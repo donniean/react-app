@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import config from "./config.js";
 
-const comm = {};
+const app = {};
 
-export default comm;
+export default app;

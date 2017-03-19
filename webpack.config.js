@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackMerge = require("webpack-merge");
 
-const commonEntry = ["./src/index.jsx"];
+const commonEntry = ["babel-polyfill", "./src/index.jsx"];
 const publicPath = "/";
 
 const commonConfig = {

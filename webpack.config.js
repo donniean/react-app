@@ -90,8 +90,10 @@ const commonConfig = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "Hello React",
-            template: path.join(__dirname, "/src/index.html")
-        })
+            template: path.join(__dirname, "/src/index.html"),
+            favicon: "./favicon.ico"
+        }),
+        new ExtractTextPlugin("[name].[chunkhash].css")
     ]
 };
 
@@ -101,7 +103,6 @@ const productionConfig = {
         filename: "[name].[chunkhash].js"
     },
     plugins: [
-        new ExtractTextPlugin("styles.[chunkhash].css"),
         new webpack.optimize.UglifyJsPlugin({
             comments: false,
             sourceMap: true
@@ -123,7 +124,6 @@ const developmentConfig = {
         publicPath: publicPath
     },
     plugins: [
-        new ExtractTextPlugin("styles.[hash].css"),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
     ]

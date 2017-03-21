@@ -1,4 +1,4 @@
-const enableCommonsChunkPlugin = true;
+const enableCommonsChunkPlugin = false;
 const path = require("path");
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer")({ browsers: ["last 100 versions", "> 1%"] });

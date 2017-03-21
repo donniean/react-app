@@ -1,12 +1,40 @@
+const enableCommonsChunkPlugin = true;
 const path = require("path");
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer")({ browsers: ["last 100 versions", "> 1%"] });
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackMerge = require("webpack-merge");
+const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
+    name: "vendor",
+    filename: "vendor.js",
+    minChunks: function(module, count) {
+        return module.resource && (/module/).test(module.resource);
+    }
+});
 
-const commonEntry = ["babel-polyfill", "./src/index.jsx"];
+const commonEntry = {
+    app: ["./src/index.jsx"]
+};
+
 const publicPath = "/";
+
+const getCompleteEntry = function(env) {
+    let entry = {};
+    for (const key in commonEntry) {
+        let value = commonEntry[key];
+        value = ["babel-polyfill"].concat(value);
+        if (env === "development") {
+            value = [
+                "react-hot-loader/patch",
+                "webpack-dev-server/client?http://127.0.0.1:8080",
+                "webpack/hot/only-dev-server"
+            ].concat(value);
+        }
+        entry[key] = value;
+    }
+    return entry;
+};
 
 const commonConfig = {
     output: {
@@ -68,12 +96,12 @@ const commonConfig = {
 };
 
 const productionConfig = {
-    entry: commonEntry,
+    entry: getCompleteEntry("production"),
     output: {
-        filename: "bundle.min.[chunkhash].js"
+        filename: "[name].[chunkhash].js"
     },
     plugins: [
-        new ExtractTextPlugin("styles.min.[chunkhash].css"),
+        new ExtractTextPlugin("styles.[chunkhash].css"),
         new webpack.optimize.UglifyJsPlugin({
             comments: false,
             sourceMap: true
@@ -84,16 +112,10 @@ const productionConfig = {
 };
 
 const developmentConfig = {
+    entry: getCompleteEntry("development"),
     output: {
+        filename: "[name].[hash].js",
         publicPath: publicPath
-    },
-    entry: [
-        "react-hot-loader/patch",
-        "webpack-dev-server/client?http://127.0.0.1:8080",
-        "webpack/hot/only-dev-server"
-    ].concat(commonEntry),
-    output: {
-        filename: "bundle.[hash].js"
     },
     devServer: {
         hot: true,
@@ -109,6 +131,7 @@ const developmentConfig = {
 
 module.exports = function(env) {
     let config = null;
+    enableCommonsChunkPlugin && commonConfig.plugins.push(CommonsChunkPlugin);
     if (env === "production") {
         config = webpackMerge(commonConfig, productionConfig);
     } else {

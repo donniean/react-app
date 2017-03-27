@@ -86,16 +86,14 @@ JsonpMainTemplatePlugin.prototype.apply = function(mainTemplate) {
 				"return Promise.resolve();"
 			]),
 			"",
-			"// an Promise means \"currently loading\".",
+			"// a Promise means \"currently loading\".",
 			"if(installedChunks[chunkId]) {",
 			this.indent([
 				"return installedChunks[chunkId][2];"
 			]),
 			"}",
-			"// start chunk loading",
-			"var head = document.getElementsByTagName('head')[0];",
-			this.applyPluginsWaterfall("jsonp-script", "", chunk, hash),
 			"",
+			"// setup Promise in chunk cache",
 			"var promise = new Promise(function(resolve, reject) {",
 			this.indent([
 				"installedChunks[chunkId] = [resolve, reject];"
@@ -103,7 +101,11 @@ JsonpMainTemplatePlugin.prototype.apply = function(mainTemplate) {
 			"});",
 			"installedChunks[chunkId][2] = promise;",
 			"",
+			"// start chunk loading",
+			"var head = document.getElementsByTagName('head')[0];",
+			this.applyPluginsWaterfall("jsonp-script", "", chunk, hash),
 			"head.appendChild(script);",
+			"",
 			"return promise;"
 		]);
 	});

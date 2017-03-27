@@ -134,8 +134,8 @@ or are automatically applied via regex from your webpack configuration.
 |:--:|:----:|:----------|
 |<a href="https://github.com/webpack/script-loader">`<script>`</a>|![script-npm]|Executes a JavaScript file once in global context (like in script tag), requires are not parsed|
 |<a href="https://github.com/babel/babel-loader"><img width="48" height="48" title="babel-loader" src="https://worldvectorlogo.com/logos/babel-10.svg"></a>|![babel-npm]|Loads ES2015+ code and transpiles to ES5 using <a href="https://github.com/babel/babel">Babel</a>|
-|<a href="https://github.com/jupl/traceur-loader"><img width="48" height="48" src="https://google.github.com/traceur-compiler/logo/tc.svg"></a>|![traceur-npm]|Loads ES2015+ code and transpiles to ES5 using [Traceur](https://github.com/google/traceur)|
-|<a href="https://github.com/andreypopp/typescript-loader"><img width="48" height="48" src="https://cdn.rawgit.com/Microsoft/TypeScript/master/doc/logo.svg"></a>|![type-npm]|Loads TypeScript like JavaScript|
+|<a href="https://github.com/jupl/traceur-loader"><img width="48" height="48" src="https://google.github.com/traceur-compiler/logo/tc.svg"></a>|![traceur-npm]|Loads ES2015+ code and transpiles to ES5 using [Traceur](https://github.com/google/traceur-compiler)|
+|<a href="https://github.com/TypeStrong/ts-loader"><img width="48" height="48" src="https://cdn.rawgit.com/Microsoft/TypeScript/master/doc/logo.svg"></a>|![type-npm]|Loads TypeScript like JavaScript|
 |<a href="https://github.com/webpack/coffee-loader"><img width="48" height="48" src="https://worldvectorlogo.com/logos/coffeescript.svg"></a>|![coffee-npm]|Loads CoffeeScript like JavaScript|
 
 
@@ -143,7 +143,7 @@ or are automatically applied via regex from your webpack configuration.
 [babel-npm]: https://img.shields.io/npm/v/babel-loader.svg
 [traceur-npm]: https://img.shields.io/npm/v/traceur-loader.svg
 [coffee-npm]: https://img.shields.io/npm/v/coffee-loader.svg
-[type-npm]: https://img.shields.io/npm/v/typescript-loader.svg
+[type-npm]: https://img.shields.io/npm/v/ts-loader.svg
 
 #### Templating
 
@@ -222,12 +222,12 @@ webpack supports ES2015+, CommonJS and AMD modules **out of the box**. It perfor
 analysis on the AST of your code. It even has an evaluation engine to evaluate
 simple expressions. This allows you to **support most existing libraries** out of the box.
 
-### [Code Splitting](https://webpack.github.io/docs/code-splitting.html)
+### [Code Splitting](https://webpack.js.org/guides/code-splitting/)
 
 webpack allows you to split your codebase into multiple chunks. Chunks are
 loaded asynchronously at runtime. This reduces the initial loading time.
 
-### [Optimizations](https://webpack.github.io/docs/optimization.html)
+### [Optimizations](https://webpack.js.org/guides/production-build/)
 
 webpack can do many optimizations to **reduce the output size of your
 JavaScript** by deduplicating frequently used modules, minifying, and giving
@@ -322,9 +322,17 @@ This is how we use the donations:
 * Infrastructure cost
 * Fees for money handling
 
-### Early Backers and Sponsors
 
-We had other sources of donations before starting to use OpenCollective. We want to acknowledge these early sponsors and backers, but donations were not public and we are not sure of donors want to stay anonymous. So if you want to be in this list, just drop @sokra a note via mail (`t____.k____@gmail.com`, insert fullname here).
+<h2 align="center">Premium Partners</h2>
+
+<a href="https://www.ag-grid.com/?utm_source=webpack&utm_medium=banner&utm_campaign=sponsorship" target="_blank"><img align="center" src="https://raw.githubusercontent.com/webpack/media/2b399d58/horiz-banner-ad-ag-grid.png">
+</a>
+
+<h2 align="center">Other Backers and Sponsors</h2>
+
+We had other sources of donations before starting to use OpenCollective (or people that can't donate via OpenCollective). We want to acknowledge these sponsors and backers, but donations were not public and we are not sure of donors want to stay anonymous. So if you want to be in this list, just send a PR.
+
+[Google Angular Team](https://angular.io/), [Architects.io](http://architects.io/), [Microapps](http://microapps.com/)
 
 <h2 align="center">Sponsors</h2>
 

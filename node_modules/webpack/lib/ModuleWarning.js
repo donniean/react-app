@@ -4,17 +4,20 @@
 */
 "use strict";
 
+const cleanUp = require("./ErrorHelpers").cleanUp;
+
 class ModuleWarning extends Error {
+
 	constructor(module, warning) {
 		super();
 
-		if(Error.hasOwnProperty("captureStackTrace")) {
-			Error.captureStackTrace(this, this.constructor);
-		}
 		this.name = "ModuleWarning";
 		this.module = module;
-		this.message = warning;
+		this.message = warning && typeof warning === "object" && warning.message ? warning.message : warning;
 		this.warning = warning;
+		this.details = warning && typeof warning === "object" && warning.stack ? cleanUp(warning.stack, this.message) : undefined;
+
+		Error.captureStackTrace(this, this.constructor);
 	}
 }
 

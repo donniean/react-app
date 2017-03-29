@@ -7,10 +7,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackMerge = require("webpack-merge");
 const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
     name: "vendor",
-    filename: "vendor.js",
-    minChunks: function(module, count) {
-        return module.resource && (/module/).test(module.resource);
-    }
+    filename: "vendor.js"
 });
 
 const commonEntry = {
@@ -89,6 +86,7 @@ const commonConfig = {
     devtool: "source-map",
     plugins: [
         new HtmlWebpackPlugin({
+            filename: "index.html",
             title: "Hello React",
             template: path.join(__dirname, "/src/index.html"),
             favicon: "./favicon.ico"

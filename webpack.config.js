@@ -57,7 +57,13 @@ const HtmlWebpackPluginList = (function() {
                 title: title,
                 template: path.join(__dirname, "/src/index.html"),
                 favicon: "./favicon.ico",
-                chunks: ["vendor", name]
+                chunks: ["vendor", name],
+                minify: {
+                    collapseWhitespace: true,
+                    minifyCSS: true,
+                    minifyJS: true,
+                    removeComments: true
+                }
             })
         );
     }

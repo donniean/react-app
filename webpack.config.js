@@ -10,9 +10,21 @@ const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
     filename: "vendor.js"
 });
 
-const commonEntry = {
-    app: ["./src/index.jsx"]
-};
+const pageList = [{
+    name: "app", // 输出的js文件名
+    filename: "index", // 输入的jsx文件名，输出的html文件名
+    title: "" // 输出的html的title
+}];
+
+const commonEntry = (function() {
+    let commonEntry = {};
+    for (const page of pageList) {
+        const name = page.name;
+        const filename = page.filename;
+        commonEntry[name] = "./src/" + filename + ".jsx";
+    }
+    return commonEntry;
+})();
 
 const publicPath = "/";
 
@@ -32,6 +44,25 @@ const getCompleteEntry = function(env) {
     }
     return entry;
 };
+
+const HtmlWebpackPluginList = (function() {
+    let list = [];
+    for (const page of pageList) {
+        const name = page.name;
+        const filename = page.filename;
+        const title = page.title || "";
+        list.push(
+            new HtmlWebpackPlugin({
+                filename: filename + ".html",
+                title: title,
+                template: path.join(__dirname, "/src/index.html"),
+                favicon: "./favicon.ico",
+                chunks: ["vendor", name]
+            })
+        );
+    }
+    return list;
+})();
 
 const commonConfig = {
     output: {
@@ -84,15 +115,9 @@ const commonConfig = {
         }]
     },
     devtool: "source-map",
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: "index.html",
-            title: "Hello React",
-            template: path.join(__dirname, "/src/index.html"),
-            favicon: "./favicon.ico"
-        }),
-        new ExtractTextPlugin("[name].[chunkhash].css")
-    ]
+    plugins: HtmlWebpackPluginList.concat([
+        new ExtractTextPlugin("css/[name].[chunkhash].css")
+    ])
 };
 
 const productionConfig = {

@@ -16,6 +16,34 @@ class Stats {
 		this.hash = compilation.hash;
 	}
 
+	static filterWarnings(warnings, warningsFilter) {
+		// we dont have anything to filter so all warnings can be shown
+		if(!warningsFilter) {
+			return warnings;
+		}
+
+		// create a chain of filters
+		// if they return "true" a warning should be surpressed
+		const normalizedWarningsFilters = [].concat(warningsFilter).map(filter => {
+			if(typeof filter === "string") {
+				return warning => warning.indexOf(filter) > -1;
+			}
+
+			if(filter instanceof RegExp) {
+				return warning => filter.test(warning);
+			}
+
+			if(typeof filter === "function") {
+				return filter;
+			}
+
+			throw new Error(`Can only filter warnings with Strings or RegExps. (Given: ${filter})`);
+		});
+		return warnings.filter(warning => {
+			return !normalizedWarningsFilters.some(check => check(warning));
+		});
+	}
+
 	hasWarnings() {
 		return this.compilation.warnings.length > 0;
 	}
@@ -70,6 +98,7 @@ class Stats {
 		const showErrors = optionOrFallback(options.errors, true);
 		const showErrorDetails = optionOrFallback(options.errorDetails, !forToString);
 		const showWarnings = optionOrFallback(options.warnings, true);
+		const warningsFilter = optionOrFallback(options.warningsFilter, null);
 		const showPublicPath = optionOrFallback(options.publicPath, !forToString);
 		const excludeModules = [].concat(optionOrFallback(options.exclude, [])).map(str => {
 			if(typeof str !== "string") return str;
@@ -155,7 +184,7 @@ class Stats {
 
 		const obj = {
 			errors: compilation.errors.map(formatError),
-			warnings: compilation.warnings.map(formatError)
+			warnings: Stats.filterWarnings(compilation.warnings.map(formatError), warningsFilter)
 		};
 
 		//We just hint other renderers since actually omitting
@@ -270,9 +299,7 @@ class Stats {
 						type: reason.dependency.type,
 						userRequest: reason.dependency.userRequest
 					};
-					const dep = reason.dependency;
-					if(dep.templateModules) obj.templateModules = dep.templateModules.map(module => module.id);
-					const locInfo = formatLocation(dep.loc);
+					const locInfo = formatLocation(reason.dependency.loc);
 					if(locInfo) obj.loc = locInfo;
 					return obj;
 				}).sort((a, b) => a.moduleId - b.moduleId);
@@ -614,7 +641,6 @@ class Stats {
 					colors.normal(reason.type);
 					colors.normal(" ");
 					colors.cyan(reason.userRequest);
-					if(reason.templateModules) colors.cyan(reason.templateModules.join(" "));
 					colors.normal(" [");
 					colors.normal(reason.moduleId);
 					colors.normal("] ");
@@ -758,6 +784,7 @@ class Stats {
 				newline();
 			}
 		}
+
 		if(obj._showWarnings && obj.warnings) {
 			obj.warnings.forEach(warning => {
 				newline();

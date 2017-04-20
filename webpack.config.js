@@ -98,7 +98,7 @@ const commonConfig = {
             test: /\.(png|jpg)$/,
             use: {
                 loader: "url-loader",
-                options: { limit: 524288 }
+                options: { limit: 8192 }
             }
         }]
     },

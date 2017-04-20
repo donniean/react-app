@@ -1,4 +1,17 @@
+/**
+ * User Config
+ */
 const enableCommonsChunkPlugin = false;
+const enableSourceMap = true;
+const pageList = [{
+    name: "app", // 输出的js文件名
+    filename: "index", // 输入的jsx文件名，输出的html文件名
+    title: "" // 输出的html的title
+}];
+
+/**
+ * Webpack Config
+ */
 const path = require("path");
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer")({ browsers: ["last 100 versions", "> 1%"] });
@@ -9,12 +22,6 @@ const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
     name: "vendor",
     filename: "vendor.js"
 });
-
-const pageList = [{
-    name: "app", // 输出的js文件名
-    filename: "index", // 输入的jsx文件名，输出的html文件名
-    title: "" // 输出的html的title
-}];
 
 const commonEntry = (function() {
     let commonEntry = {};
@@ -88,6 +95,70 @@ const commonConfig = {
             }],
             include: path.join(__dirname, "src")
         }, {
+            test: /\.(png|jpg)$/,
+            use: {
+                loader: "url-loader",
+                options: { limit: 524288 }
+            }
+        }]
+    },
+    plugins: HtmlWebpackPluginList.concat([
+        new ExtractTextPlugin("css/[name].[chunkhash].css")
+    ])
+};
+
+const productionConfig = {
+    entry: getCompleteEntry("production"),
+    output: {
+        filename: "[name].[chunkhash].js"
+    },
+    module: {
+        rules: [{
+            test: /\.(css|scss)$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [{
+                    loader: "css-loader",
+                    options: {
+                        sourceMap: enableSourceMap
+                    }
+                }, {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: function() {
+                            return [autoprefixer];
+                        }
+                    }
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        outputStyle: "expanded",
+                        sourceMap: enableSourceMap,
+                        sourceMapContents: enableSourceMap
+                    }
+                }]
+            })
+        }]
+    },
+    devtool: enableSourceMap ? "source-map" : false,
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            sourceMap: enableSourceMap
+        }),
+        new webpack.LoaderOptionsPlugin({ minimize: true }),
+        new webpack.DefinePlugin({ "process.env": { "NODE_ENV": JSON.stringify("production") } })
+    ]
+};
+
+const developmentConfig = {
+    entry: getCompleteEntry("development"),
+    output: {
+        filename: "[name].[hash].js",
+        publicPath: publicPath
+    },
+    module: {
+        rules: [{
             test: /\.(css|scss)$/,
             use: ExtractTextPlugin.extract({
                 fallback: "style-loader",
@@ -112,41 +183,9 @@ const commonConfig = {
                     }
                 }]
             })
-        }, {
-            test: /\.(png|jpg)$/,
-            use: {
-                loader: "url-loader",
-                options: { limit: 524288 }
-            }
         }]
     },
     devtool: "source-map",
-    plugins: HtmlWebpackPluginList.concat([
-        new ExtractTextPlugin("css/[name].[chunkhash].css")
-    ])
-};
-
-const productionConfig = {
-    entry: getCompleteEntry("production"),
-    output: {
-        filename: "[name].[chunkhash].js"
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            comments: false,
-            sourceMap: true
-        }),
-        new webpack.LoaderOptionsPlugin({ minimize: true }),
-        new webpack.DefinePlugin({ "process.env": { "NODE_ENV": JSON.stringify("production") } })
-    ]
-};
-
-const developmentConfig = {
-    entry: getCompleteEntry("development"),
-    output: {
-        filename: "[name].[hash].js",
-        publicPath: publicPath
-    },
     devServer: {
         hot: true,
         contentBase: path.resolve(__dirname, "build"),

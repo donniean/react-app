@@ -2,7 +2,7 @@
  * User Config
  */
 const enableCommonsChunkPlugin = false;
-const enableSourceMap = true;
+const enableSourceMap = false;
 const pageList = [{
     name: "app", // 输出的js文件名
     filename: "index", // 输入的jsx文件名，输出的html文件名

@@ -98,7 +98,11 @@ const commonConfig = {
             test: /\.(png|jpg)$/,
             use: {
                 loader: "url-loader",
-                options: { limit: 8192 }
+                options: {
+                    limit: 8192,
+                    name: "images/[name].[hash].[ext]",
+                    publicPath: "../"
+                }
             }
         }]
     },

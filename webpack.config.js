@@ -62,7 +62,7 @@ const HtmlWebpackPluginList = (function() {
             new HtmlWebpackPlugin({
                 filename: filename + ".html",
                 title: title,
-                template: path.join(__dirname, "/src/index.html"),
+                template: path.join(__dirname, "/src/templates/index.html"),
                 favicon: "./favicon.ico",
                 chunks: ["vendor", name],
                 minify: {

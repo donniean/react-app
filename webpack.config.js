@@ -107,7 +107,7 @@ const commonConfig = {
         }]
     },
     plugins: HtmlWebpackPluginList.concat([
-        new ExtractTextPlugin("css/[name].[chunkhash].css")
+        new ExtractTextPlugin("[name].[chunkhash].css")
     ])
 };
 

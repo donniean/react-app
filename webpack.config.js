@@ -79,7 +79,7 @@ const HtmlWebpackPluginList = (function() {
 
 const commonConfig = {
     output: {
-        path: path.resolve(__dirname, "build")
+        path: path.resolve(__dirname, "dist")
     },
     module: {
         rules: [{
@@ -192,7 +192,7 @@ const developmentConfig = {
     devtool: "source-map",
     devServer: {
         hot: true,
-        contentBase: path.resolve(__dirname, "build"),
+        contentBase: path.resolve(__dirname, "dist"),
         publicPath: publicPath
     },
     plugins: [

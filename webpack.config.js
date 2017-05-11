@@ -129,6 +129,7 @@ const productionConfig = {
                 }, {
                     loader: "postcss-loader",
                     options: {
+                        sourceMap: enableSourceMap,
                         plugins: function() {
                             return [autoprefixer];
                         }
@@ -174,6 +175,7 @@ const developmentConfig = {
                 }, {
                     loader: "postcss-loader",
                     options: {
+                        sourceMap: true,
                         plugins: function() {
                             return [autoprefixer];
                         }

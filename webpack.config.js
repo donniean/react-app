@@ -86,15 +86,7 @@ const commonConfig = {
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
-            use: [{
-                loader: "babel-loader",
-                query: {
-                    presets: [
-                        ["es2015", { "modules": false }],
-                        "react"
-                    ]
-                }
-            }],
+            use: [{ loader: "babel-loader" }],
             include: path.join(__dirname, "src")
         }, {
             test: /\.(png|jpg)$/,

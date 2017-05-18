@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.jsx";
 
-import "./sass/index.scss";
+import "./sass/App.scss";
 
 ReactDOM.render(
     <App />,

@@ -42,6 +42,7 @@
     },
     "dependencies": {
         "babel-polyfill": "^6.26.0",
-        "normalize.css": "^7.0.0"
+        "normalize.css": "^7.0.0",
+        "react-router-dom": "^4.2.2"
     }
 }

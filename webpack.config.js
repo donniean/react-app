@@ -24,7 +24,7 @@ const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
     filename: "vendor.js"
 });
 
-const commonEntry = (function() {
+const commonEntry = (() => {
     let commonEntry = {};
     for (const page of pageList) {
         const name = page.name;
@@ -36,7 +36,7 @@ const commonEntry = (function() {
 
 const publicPath = "/";
 
-const getCompleteEntry = function(env) {
+const getCompleteEntry = env => {
     let entry = {};
     for (const key in commonEntry) {
         let value = commonEntry[key];
@@ -53,7 +53,42 @@ const getCompleteEntry = function(env) {
     return entry;
 };
 
-const HtmlWebpackPluginList = (function() {
+const getModule = env => {
+    let sourceMap = true;
+    if (env === "production") {
+        sourceMap = enableSourceMap;
+    }
+    const module = {
+        rules: [{
+            test: /\.(css|scss)$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [{
+                    loader: "css-loader",
+                    options: {
+                        sourceMap: sourceMap
+                    }
+                }, {
+                    loader: "postcss-loader",
+                    options: {
+                        sourceMap: sourceMap,
+                        plugins: [autoprefixer]
+                    }
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        outputStyle: "expanded",
+                        sourceMap: sourceMap,
+                        sourceMapContents: sourceMap
+                    }
+                }]
+            })
+        }]
+    };
+    return module;
+};
+
+const HtmlWebpackPluginList = (() => {
     let list = [];
     for (const page of pageList) {
         const name = page.name;
@@ -110,35 +145,7 @@ const productionConfig = {
     output: {
         filename: "[name].[chunkhash].js"
     },
-    module: {
-        rules: [{
-            test: /\.(css|scss)$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [{
-                    loader: "css-loader",
-                    options: {
-                        sourceMap: enableSourceMap
-                    }
-                }, {
-                    loader: "postcss-loader",
-                    options: {
-                        sourceMap: enableSourceMap,
-                        plugins: function() {
-                            return [autoprefixer];
-                        }
-                    }
-                }, {
-                    loader: "sass-loader",
-                    options: {
-                        outputStyle: "expanded",
-                        sourceMap: enableSourceMap,
-                        sourceMapContents: enableSourceMap
-                    }
-                }]
-            })
-        }]
-    },
+    module: getModule("production"),
     devtool: enableSourceMap ? "source-map" : false,
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
@@ -156,35 +163,7 @@ const developmentConfig = {
         filename: "[name].[hash].js",
         publicPath: publicPath
     },
-    module: {
-        rules: [{
-            test: /\.(css|scss)$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [{
-                    loader: "css-loader",
-                    options: {
-                        sourceMap: true
-                    }
-                }, {
-                    loader: "postcss-loader",
-                    options: {
-                        sourceMap: true,
-                        plugins: function() {
-                            return [autoprefixer];
-                        }
-                    }
-                }, {
-                    loader: "sass-loader",
-                    options: {
-                        outputStyle: "expanded",
-                        sourceMap: true,
-                        sourceMapContents: true
-                    }
-                }]
-            })
-        }]
-    },
+    module: getModule("development"),
     devtool: "source-map",
     devServer: {
         hot: true,
@@ -197,7 +176,7 @@ const developmentConfig = {
     ]
 };
 
-module.exports = function(env) {
+module.exports = env => {
     let config = null;
     enableCommonsChunkPlugin && commonConfig.plugins.push(CommonsChunkPlugin);
     if (env === "production") {

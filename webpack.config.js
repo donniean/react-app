@@ -18,6 +18,7 @@ const webpack = require("webpack");
 const autoprefixer = require("autoprefixer")({ browsers: ["last 100 versions", "> 1%"] });
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const webpackMerge = require("webpack-merge");
 const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
     name: "vendor",
@@ -153,7 +154,8 @@ const productionConfig = {
             sourceMap: enableSourceMap
         }),
         new webpack.LoaderOptionsPlugin({ minimize: true }),
-        new webpack.DefinePlugin({ "process.env": { "NODE_ENV": JSON.stringify("production") } })
+        new webpack.DefinePlugin({ "process.env": { "NODE_ENV": JSON.stringify("production") } }),
+        new CleanWebpackPlugin(["dist"]),
     ]
 };
 

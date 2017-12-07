@@ -1,5 +1,5 @@
-import "whatwg-fetch";
-import config from "./config.js";
+import 'whatwg-fetch';
+import config from './config.js';
 
 const app = {};
 

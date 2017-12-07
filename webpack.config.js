@@ -4,25 +4,25 @@
 const enableCommonsChunkPlugin = false;
 const enableSourceMap = false;
 const pageList = [{
-    name: "app", // 输出的js文件名
-    filename: "index", // 输入的jsx文件名，输出的html文件名
-    title: "Hello React", // 输出的html的title
-    template: "index" // 模板名
+    name: 'app', // 输出的js文件名
+    filename: 'index', // 输入的jsx文件名，输出的html文件名
+    title: 'Hello React', // 输出的html的title
+    template: 'index' // 模板名
 }];
 
 /**
  * Webpack Config
  */
-const path = require("path");
-const webpack = require("webpack");
-const autoprefixer = require("autoprefixer")({ browsers: ["last 100 versions", "> 1%"] });
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const webpackMerge = require("webpack-merge");
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer')({ browsers: ['last 100 versions', '> 1%'] });
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpackMerge = require('webpack-merge');
 const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
-    name: "vendor",
-    filename: "vendor.js"
+    name: 'vendor',
+    filename: 'vendor.js'
 });
 
 const commonEntry = (() => {
@@ -30,23 +30,23 @@ const commonEntry = (() => {
     for (const page of pageList) {
         const name = page.name;
         const filename = page.filename;
-        commonEntry[name] = "./src/" + filename + ".jsx";
+        commonEntry[name] = './src/' + filename + '.jsx';
     }
     return commonEntry;
 })();
 
-const publicPath = "/";
+const publicPath = '/';
 
 const getCompleteEntry = env => {
     let entry = {};
     for (const key in commonEntry) {
         let value = commonEntry[key];
-        value = ["babel-polyfill"].concat(value);
-        if (env === "development") {
+        value = ['babel-polyfill'].concat(value);
+        if (env === 'development') {
             value = [
-                "react-hot-loader/patch",
-                "webpack-dev-server/client?http://127.0.0.1:8080",
-                "webpack/hot/only-dev-server"
+                'react-hot-loader/patch',
+                'webpack-dev-server/client?http://127.0.0.1:8080',
+                'webpack/hot/only-dev-server'
             ].concat(value);
         }
         entry[key] = value;
@@ -56,29 +56,29 @@ const getCompleteEntry = env => {
 
 const getModule = env => {
     let sourceMap = true;
-    if (env === "production") {
+    if (env === 'production') {
         sourceMap = enableSourceMap;
     }
     const module = {
         rules: [{
             test: /\.(css|scss)$/,
             use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
+                fallback: 'style-loader',
                 use: [{
-                    loader: "css-loader",
+                    loader: 'css-loader',
                     options: {
                         sourceMap: sourceMap
                     }
                 }, {
-                    loader: "postcss-loader",
+                    loader: 'postcss-loader',
                     options: {
                         sourceMap: sourceMap,
                         plugins: [autoprefixer]
                     }
                 }, {
-                    loader: "sass-loader",
+                    loader: 'sass-loader',
                     options: {
-                        outputStyle: "expanded",
+                        outputStyle: 'expanded',
                         sourceMap: sourceMap,
                         sourceMapContents: sourceMap
                     }
@@ -94,15 +94,15 @@ const HtmlWebpackPluginList = (() => {
     for (const page of pageList) {
         const name = page.name;
         const filename = page.filename;
-        const title = page.title || "";
+        const title = page.title || '';
         const template = page.template;
         list.push(
             new HtmlWebpackPlugin({
-                filename: filename + ".html",
+                filename: filename + '.html',
                 title: title,
-                template: path.join(__dirname, "/src/templates/" + template + ".html"),
-                favicon: "./favicon.ico",
-                chunks: ["vendor", name],
+                template: path.join(__dirname, '/src/templates/' + template + '.html'),
+                favicon: './favicon.ico',
+                chunks: ['vendor', name],
                 minify: {
                     collapseWhitespace: true,
                     minifyCSS: true,
@@ -117,59 +117,59 @@ const HtmlWebpackPluginList = (() => {
 
 const commonConfig = {
     output: {
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
-            use: [{ loader: "babel-loader" }],
-            include: path.join(__dirname, "src")
+            use: [{ loader: 'babel-loader' }],
+            include: path.join(__dirname, 'src')
         }, {
             test: /\.(png|jpg)$/,
             use: {
-                loader: "url-loader",
+                loader: 'url-loader',
                 options: {
                     limit: 8192,
-                    name: "images/[name].[hash].[ext]",
-                    publicPath: "../"
+                    name: 'images/[name].[hash].[ext]',
+                    publicPath: '../'
                 }
             }
         }]
     },
     plugins: HtmlWebpackPluginList.concat([
-        new ExtractTextPlugin("[name].[chunkhash].css")
+        new ExtractTextPlugin('[name].[chunkhash].css')
     ])
 };
 
 const productionConfig = {
-    entry: getCompleteEntry("production"),
+    entry: getCompleteEntry('production'),
     output: {
-        filename: "[name].[chunkhash].js"
+        filename: '[name].[chunkhash].js'
     },
-    module: getModule("production"),
-    devtool: enableSourceMap ? "source-map" : false,
+    module: getModule('production'),
+    devtool: enableSourceMap ? 'source-map' : false,
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             comments: false,
             sourceMap: enableSourceMap
         }),
         new webpack.LoaderOptionsPlugin({ minimize: true }),
-        new webpack.DefinePlugin({ "process.env": { "NODE_ENV": JSON.stringify("production") } }),
-        new CleanWebpackPlugin(["dist"]),
+        new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } }),
+        new CleanWebpackPlugin(['dist']),
     ]
 };
 
 const developmentConfig = {
-    entry: getCompleteEntry("development"),
+    entry: getCompleteEntry('development'),
     output: {
-        filename: "[name].[hash].js",
+        filename: '[name].[hash].js',
         publicPath: publicPath
     },
-    module: getModule("development"),
-    devtool: "source-map",
+    module: getModule('development'),
+    devtool: 'source-map',
     devServer: {
         hot: true,
-        contentBase: path.resolve(__dirname, "dist"),
+        contentBase: path.resolve(__dirname, 'dist'),
         publicPath: publicPath
     },
     plugins: [
@@ -181,7 +181,7 @@ const developmentConfig = {
 module.exports = env => {
     let config = null;
     enableCommonsChunkPlugin && commonConfig.plugins.push(CommonsChunkPlugin);
-    if (env === "production") {
+    if (env === 'production') {
         config = webpackMerge(commonConfig, productionConfig);
     } else {
         config = webpackMerge(commonConfig, developmentConfig);

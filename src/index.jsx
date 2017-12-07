@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App.jsx";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.jsx';
 
-import "./sass/App.scss";
+import './sass/App.scss';
 
 ReactDOM.render(
     <App />,
-    document.getElementById("root")
+    document.getElementById('root')
 );
 
 module.hot && module.hot.accept();

@@ -119,6 +119,15 @@ const commonConfig = {
     },
     module: {
         rules: [{
+            test: /\.(html)$/,
+            use: [{
+                loader: 'html-loader',
+                options: {
+                    attrs: ['img:src', ':data-src'],
+                    interpolate: true
+                }
+            }]
+        }, {
             test: /\.(js|jsx)$/,
             use: [{ loader: 'babel-loader' }],
             include: path.join(__dirname, 'src')
@@ -132,15 +141,6 @@ const commonConfig = {
                     publicPath: './'
                 }
             }
-        }, {
-            test: /\.(html)$/,
-            use: [{
-                loader: 'html-loader',
-                options: {
-                    attrs: ['img:src', ':data-src'],
-                    interpolate: true
-                }
-            }]
         }]
     },
     plugins: HtmlWebpackPluginList.concat([

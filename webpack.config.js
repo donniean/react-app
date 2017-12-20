@@ -141,6 +141,15 @@ const commonConfig = {
                     publicPath: './'
                 }
             }
+        }, {
+            test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+            use: {
+                loader: 'url-loader',
+                options: {
+                    name: 'fonts/[name].[hash].[ext]',
+                    publicPath: './'
+                }
+            }
         }]
     },
     plugins: HtmlWebpackPluginList.concat([

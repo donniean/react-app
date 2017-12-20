@@ -132,7 +132,7 @@ const commonConfig = {
             use: [{ loader: 'babel-loader' }],
             include: path.join(__dirname, 'src')
         }, {
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpe?g|gif)$/,
             use: {
                 loader: 'url-loader',
                 options: {

@@ -6,7 +6,6 @@ const enableSourceMap = false;
 const pageList = [{
     name: 'app', // 输出的js文件名
     filename: 'index', // 输入的jsx文件名，输出的html文件名
-    title: 'Hello React', // 输出的html的title
     template: 'index' // 模板名
 }];
 
@@ -98,7 +97,6 @@ const HtmlWebpackPluginList = (() => {
         const template = page.template;
         list.push(
             new HtmlWebpackPlugin({
-                title: title,
                 filename: filename + '.html',
                 template: path.join(__dirname, '/src/templates/' + template + '.html'),
                 favicon: './favicon.ico',
@@ -136,7 +134,7 @@ const commonConfig = {
             }
         }, {
             test: /\.(html)$/,
-            use: ['ejs-loader', {
+            use: [{
                 loader: 'html-loader',
                 options: {
                     attrs: ['img:src', ':data-src'],

@@ -144,9 +144,9 @@ const commonConfig = {
         }, {
             test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
             use: {
-                loader: 'url-loader',
+                loader: 'file-loader',
                 options: {
-                    name: 'fonts/[name].[hash].[ext]',
+                    name: 'fonts/[name].[ext]',
                     publicPath: './'
                 }
             }

@@ -98,17 +98,17 @@ const HtmlWebpackPluginList = (() => {
         const template = page.template;
         list.push(
             new HtmlWebpackPlugin({
-                filename: filename + '.html',
                 title: title,
+                filename: filename + '.html',
                 template: path.join(__dirname, '/src/templates/' + template + '.html'),
                 favicon: './favicon.ico',
-                chunks: ['vendor', name],
                 minify: {
                     collapseWhitespace: true,
                     minifyCSS: true,
                     minifyJS: true,
                     removeComments: true
-                }
+                },
+                chunks: ['vendor', name]
             })
         );
     }
@@ -134,6 +134,15 @@ const commonConfig = {
                     publicPath: '../'
                 }
             }
+        }, {
+            test: /\.(html)$/,
+            use: ['ejs-loader', {
+                loader: 'html-loader',
+                options: {
+                    attrs: ['img:src', ':data-src'],
+                    interpolate: true
+                }
+            }]
         }]
     },
     plugins: HtmlWebpackPluginList.concat([

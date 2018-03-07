@@ -3,18 +3,22 @@
  */
 const enableCommonsChunkPlugin = false;
 const enableSourceMap = false;
-const pageList = [{
-    name: 'app', // 输出的js文件名
-    filename: 'index', // 输入的jsx文件名，输出的html文件名
-    template: 'index' // 模板名
-}];
+const pageList = [
+    {
+        name: 'app', // 输出的js文件名
+        filename: 'index', // 输入的jsx文件名，输出的html文件名
+        template: 'index' // 模板名
+    }
+];
 
 /**
  * Webpack Config
  */
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer')({ browsers: ["> 0.5%", "last 2 versions"] });
+const autoprefixer = require('autoprefixer')({
+    browsers: ['> 0.5%', 'last 2 versions']
+});
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -59,31 +63,37 @@ const getModule = env => {
         sourceMap = enableSourceMap;
     }
     const module = {
-        rules: [{
-            test: /\.(css|scss)$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [{
-                    loader: 'css-loader',
-                    options: {
-                        sourceMap: sourceMap
-                    }
-                }, {
-                    loader: 'postcss-loader',
-                    options: {
-                        sourceMap: sourceMap,
-                        plugins: [autoprefixer]
-                    }
-                }, {
-                    loader: 'sass-loader',
-                    options: {
-                        outputStyle: 'expanded',
-                        sourceMap: sourceMap,
-                        sourceMapContents: sourceMap
-                    }
-                }]
-            })
-        }]
+        rules: [
+            {
+                test: /\.(css|scss)$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: sourceMap
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: sourceMap,
+                                plugins: [autoprefixer]
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                outputStyle: 'expanded',
+                                sourceMap: sourceMap,
+                                sourceMapContents: sourceMap
+                            }
+                        }
+                    ]
+                })
+            }
+        ]
     };
     return module;
 };
@@ -98,7 +108,10 @@ const HtmlWebpackPluginList = (() => {
         list.push(
             new HtmlWebpackPlugin({
                 filename: filename + '.html',
-                template: path.join(__dirname, '/src/templates/' + template + '.html'),
+                template: path.join(
+                    __dirname,
+                    '/src/templates/' + template + '.html'
+                ),
                 favicon: './favicon.ico',
                 minify: {
                     collapseWhitespace: true,
@@ -118,39 +131,46 @@ const commonConfig = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
-            test: /\.(html)$/,
-            use: [{
-                loader: 'html-loader',
-                options: {
-                    attrs: ['img:src', ':data-src'],
-                    interpolate: true
+        rules: [
+            {
+                test: /\.(html)$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            attrs: ['img:src', ':data-src'],
+                            interpolate: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                use: [{ loader: 'babel-loader' }],
+                include: path.join(__dirname, 'src')
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: 'images/[name].[hash].[ext]',
+                        publicPath: './'
+                    }
                 }
-            }]
-        }, {
-            test: /\.(js|jsx)$/,
-            use: [{ loader: 'babel-loader' }],
-            include: path.join(__dirname, 'src')
-        }, {
-            test: /\.(png|jpe?g|gif)$/,
-            use: {
-                loader: 'url-loader',
-                options: {
-                    limit: 8192,
-                    name: 'images/[name].[hash].[ext]',
-                    publicPath: './'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/[name].[ext]',
+                        publicPath: './'
+                    }
                 }
             }
-        }, {
-            test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
-            use: {
-                loader: 'file-loader',
-                options: {
-                    name: 'fonts/[name].[ext]',
-                    publicPath: './'
-                }
-            }
-        }]
+        ]
     },
     plugins: HtmlWebpackPluginList.concat([
         new ExtractTextPlugin('[name].[chunkhash].css')
@@ -170,8 +190,10 @@ const productionConfig = {
             sourceMap: enableSourceMap
         }),
         new webpack.LoaderOptionsPlugin({ minimize: true }),
-        new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } }),
-        new CleanWebpackPlugin(['dist']),
+        new webpack.DefinePlugin({
+            'process.env': { NODE_ENV: JSON.stringify('production') }
+        }),
+        new CleanWebpackPlugin(['dist'])
     ]
 };
 

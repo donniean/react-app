@@ -14,7 +14,7 @@ const pageList = [{
  */
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer')({ browsers: ['last 100 versions', '> 1%'] });
+const autoprefixer = require('autoprefixer')({ browsers: ["> 0.5%", "last 2 versions"] });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');

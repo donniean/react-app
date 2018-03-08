@@ -1,7 +1,6 @@
 /**
  * User Config
  */
-const enableCommonsChunkPlugin = false;
 const enableSourceMap = false;
 const pageList = [
     {
@@ -23,10 +22,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
-const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    filename: 'vendor.js'
-});
 
 const commonEntry = (() => {
     let commonEntry = {};
@@ -172,6 +167,10 @@ const commonConfig = {
             }
         ]
     },
+    optimization: {
+        // TODO: splitChunks
+        splitChunks: {}
+    },
     plugins: HtmlWebpackPluginList.concat([
         new ExtractTextPlugin('[name].[chunkhash].css')
     ])
@@ -185,14 +184,7 @@ const productionConfig = {
     module: getModule('production'),
     devtool: enableSourceMap ? 'source-map' : false,
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            comments: false,
-            sourceMap: enableSourceMap
-        }),
-        new webpack.LoaderOptionsPlugin({ minimize: true }),
-        new webpack.DefinePlugin({
-            'process.env': { NODE_ENV: JSON.stringify('production') }
-        }),
+        // new webpack.LoaderOptionsPlugin({ minimize: true }),
         new CleanWebpackPlugin(['dist'])
     ]
 };
@@ -211,18 +203,19 @@ const developmentConfig = {
         publicPath: publicPath
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        new webpack.HotModuleReplacementPlugin()
+        // new webpack.NamedModulesPlugin()
     ]
 };
 
 module.exports = env => {
     let config = null;
-    enableCommonsChunkPlugin && commonConfig.plugins.push(CommonsChunkPlugin);
     if (env === 'production') {
         config = webpackMerge(commonConfig, productionConfig);
     } else {
         config = webpackMerge(commonConfig, developmentConfig);
     }
+    console.log(env);
+    config.mode = env;
     return config;
 };

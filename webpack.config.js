@@ -183,10 +183,7 @@ const productionConfig = {
     },
     module: getModule('production'),
     devtool: enableSourceMap ? 'source-map' : false,
-    plugins: [
-        // new webpack.LoaderOptionsPlugin({ minimize: true }),
-        new CleanWebpackPlugin(['dist'])
-    ]
+    plugins: [new CleanWebpackPlugin(['dist'])]
 };
 
 const developmentConfig = {
@@ -202,10 +199,7 @@ const developmentConfig = {
         contentBase: path.resolve(__dirname, 'dist'),
         publicPath: publicPath
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-        // new webpack.NamedModulesPlugin()
-    ]
+    plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 
 module.exports = env => {

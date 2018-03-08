@@ -1,0 +1,13 @@
+**/.git/
+**/.svn/
+**/.hg/
+**/CVS/
+**/.DS_Store/
+**/node_modules/
+**/lib/
+**/libs/
+**/*.min.*
+/typings/
+/jsconfig.json
+/build/
+/dist/

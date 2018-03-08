@@ -1,0 +1,6 @@
+**/node_modules/
+**/lib/
+**/libs/
+**/*.min.js
+/build/
+/dist/

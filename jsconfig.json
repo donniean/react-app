@@ -1,15 +1,16 @@
 {
-    "compilerOptions": {
-        "target": "ES6",
-        "module": "commonjs",
-        "allowSyntheticDefaultImports": true
-    },
-    "exclude": [
-        "node_modules",
-        "bower_components",
-        "jspm_packages",
-        "dist",
-        "tmp",
-        "temp"
-    ]
+  "compilerOptions": {
+    "target": "es2015",
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "es6"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "bower_components",
+    "tmp",
+    "temp",
+    "jspm_packages"
+  ]
 }

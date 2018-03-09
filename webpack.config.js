@@ -209,7 +209,6 @@ module.exports = env => {
     } else {
         config = webpackMerge(commonConfig, developmentConfig);
     }
-    console.log(env);
     config.mode = env;
     return config;
 };

@@ -202,13 +202,13 @@ const developmentConfig = {
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 
-module.exports = env => {
+module.exports = (env, argv) => {
     let config = null;
-    if (env === 'production') {
+    const mode = argv.mode;
+    if (mode === 'production') {
         config = webpackMerge(commonConfig, productionConfig);
     } else {
         config = webpackMerge(commonConfig, developmentConfig);
     }
-    config.mode = env;
     return config;
 };

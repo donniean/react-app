@@ -1,4 +1,4 @@
-### macOS
+# macOS
 .DS_Store
 
 # Windows
@@ -8,12 +8,12 @@ Thumbs.db
 .idea
 *.iml
 
-### Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# Visual Studio Code
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
 
 # Xcode
 build/
@@ -78,7 +78,7 @@ node_modules/
 jspm_packages/
 
 # Typescript v1 declaration files
-typings/
+# typings/
 
 # Optional npm cache directory
 .npm

@@ -23,6 +23,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
+/**
+ * { app: './src/index.jsx' }
+ */
 const commonEntry = (() => {
     let commonEntry = {};
     for (const page of pageList) {
@@ -35,6 +38,24 @@ const commonEntry = (() => {
 
 const publicPath = '/';
 
+/**
+ * development
+ *
+ * { app: [ 'babel-polyfill', './src/index.jsx' ] }
+ *
+ *
+ * production
+ *
+ * {
+ *   "app": [
+ *     "react-hot-loader/patch",
+ *     "webpack-dev-server/client?http://127.0.0.1:8080",
+ *     "webpack/hot/only-dev-server",
+ *     "babel-polyfill",
+ *     "./src/index.jsx"
+ *   ]
+ * }
+ */
 const getCompleteEntry = env => {
     let entry = {};
     for (const key in commonEntry) {
@@ -98,7 +119,6 @@ const HtmlWebpackPluginList = (() => {
     for (const page of pageList) {
         const name = page.name;
         const filename = page.filename;
-        const title = page.title || '';
         const template = page.template;
         list.push(
             new HtmlWebpackPlugin({

@@ -222,10 +222,9 @@ const developmentConfig = {
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 
-module.exports = (env, argv, c) => {
+module.exports = (env, argv) => {
     console.log(env);
     console.log(argv);
-    console.log(c);
     let config = null;
     const mode = argv.mode;
     if (mode === 'production') {

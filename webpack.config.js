@@ -11,7 +11,7 @@ const pageList = [
 ];
 
 /**
- * Webpack Config
+ * webpack Config
  */
 const path = require('path');
 const webpack = require('webpack');
@@ -75,9 +75,7 @@ const getCompleteEntry = env => {
 
 const getModule = env => {
     let sourceMap = true;
-    if (env === 'production') {
-        sourceMap = enableProductionSourceMap;
-    }
+    env === 'production' && (sourceMap = enableProductionSourceMap);
     const module = {
         rules: [
             {
@@ -187,24 +185,9 @@ const commonConfig = {
             }
         ]
     },
-    optimization: {
-        // TODO: splitChunks
-        splitChunks: {}
-    },
     plugins: HtmlWebpackPluginList.concat([
         new ExtractTextPlugin('[name].[chunkhash].css')
     ])
-};
-
-const productionConfig = {
-    mode: 'production',
-    entry: getCompleteEntry('production'),
-    output: {
-        filename: '[name].[chunkhash].js'
-    },
-    module: getModule('production'),
-    devtool: enableProductionSourceMap ? 'source-map' : false,
-    plugins: [new CleanWebpackPlugin(['dist'])]
 };
 
 const developmentConfig = {
@@ -224,12 +207,23 @@ const developmentConfig = {
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 
+const productionConfig = {
+    mode: 'production',
+    entry: getCompleteEntry('production'),
+    output: {
+        filename: '[name].[chunkhash].js'
+    },
+    module: getModule('production'),
+    devtool: enableProductionSourceMap ? 'source-map' : false,
+    plugins: [new CleanWebpackPlugin(['dist'])]
+};
+
 module.exports = env => {
     let config = null;
-    if (env === 'production') {
-        config = webpackMerge(commonConfig, productionConfig);
-    } else if (env === 'development') {
+    if (env === 'development') {
         config = webpackMerge(commonConfig, developmentConfig);
+    } else if (env === 'production') {
+        config = webpackMerge(commonConfig, productionConfig);
     }
     return config;
 };

@@ -197,6 +197,7 @@ const commonConfig = {
 };
 
 const productionConfig = {
+    mode: 'production',
     entry: getCompleteEntry('production'),
     output: {
         filename: '[name].[chunkhash].js'
@@ -207,6 +208,7 @@ const productionConfig = {
 };
 
 const developmentConfig = {
+    mode: 'development',
     entry: getCompleteEntry('development'),
     output: {
         filename: '[name].[hash].js',
@@ -222,14 +224,11 @@ const developmentConfig = {
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 
-module.exports = (env, argv) => {
-    console.log(env);
-    console.log(argv);
+module.exports = env => {
     let config = null;
-    const mode = argv.mode;
-    if (mode === 'production') {
+    if (env === 'production') {
         config = webpackMerge(commonConfig, productionConfig);
-    } else {
+    } else if (env === 'development') {
         config = webpackMerge(commonConfig, developmentConfig);
     }
     return config;

@@ -5,8 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --progress --colors --mode development",
-    "build": "webpack --progress --colors -p --mode production"
+    "dev": "webpack-dev-server --progress --colors --env development",
+    "build": "webpack --progress --colors --env production"
   },
   "repository": {
     "type": "git",

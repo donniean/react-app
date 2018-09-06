@@ -213,7 +213,7 @@ const developmentConfig = {
         publicPath: publicPath
     },
     module: getModule('development'),
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     devServer: {
         hot: true,
         contentBase: path.resolve(__dirname, 'dist'),

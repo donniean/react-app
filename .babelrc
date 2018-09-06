@@ -1,16 +1,18 @@
 {
-    "presets": [
-        ["env", {
-            "targets": {
-                // "browsers": ["last 2 versions", "safari >= 7", "ie >= 9"]
-                "uglify": true
-            },
-            "modules": false,
-            "useBuiltIns": true
-        }],
-        "react"
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["safari >= 7", "ie >= 9", "defaults"],
+          "uglify": true
+        },
+        "modules": false,
+        // TODO: learn
+        "useBuiltIns": "entry"
+      }
     ],
-    "plugins": [
-        "react-hot-loader/babel"
-    ]
+    "@babel/preset-react"
+  ],
+  "plugins": ["react-hot-loader/babel"]
 }

@@ -15,9 +15,9 @@ const pageList = [
  */
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer')({
-    browsers: ['> 0.5%', 'last 2 versions']
-});
+/* const autoprefixer = require('autoprefixer')({
+    browsers: ['safari >= 7', 'ie >= 9', 'defaults']
+}); */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -41,7 +41,7 @@ const publicPath = '/';
 /**
  * development
  *
- * { app: [ 'babel-polyfill', './src/index.jsx' ] }
+ * { app: [ '@babel/polyfill', './src/index.jsx' ] }
  *
  *
  * production
@@ -51,7 +51,7 @@ const publicPath = '/';
  *     "react-hot-loader/patch",
  *     "webpack-dev-server/client?http://127.0.0.1:8080",
  *     "webpack/hot/only-dev-server",
- *     "babel-polyfill",
+ *     "@babel/polyfill",
  *     "./src/index.jsx"
  *   ]
  * }
@@ -60,7 +60,7 @@ const getCompleteEntry = env => {
     let entry = {};
     for (const key in commonEntry) {
         let value = commonEntry[key];
-        value = ['babel-polyfill'].concat(value);
+        value = ['@babel/polyfill'].concat(value);
         if (env === 'development') {
             value = [
                 'react-hot-loader/patch',
@@ -89,13 +89,13 @@ const getModule = env => {
                                 sourceMap: sourceMap
                             }
                         },
-                        {
+                        /* {
                             loader: 'postcss-loader',
                             options: {
                                 sourceMap: sourceMap,
                                 plugins: [autoprefixer]
                             }
-                        },
+                        }, */
                         {
                             loader: 'sass-loader',
                             options: {

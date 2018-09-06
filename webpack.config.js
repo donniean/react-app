@@ -1,7 +1,7 @@
 /**
  * User Config
  */
-const enableSourceMap = false;
+const enableProductionSourceMap = false;
 const pageList = [
     {
         name: 'app', // 输出的js文件名
@@ -76,7 +76,7 @@ const getCompleteEntry = env => {
 const getModule = env => {
     let sourceMap = true;
     if (env === 'production') {
-        sourceMap = enableSourceMap;
+        sourceMap = enableProductionSourceMap;
     }
     const module = {
         rules: [
@@ -202,7 +202,7 @@ const productionConfig = {
         filename: '[name].[chunkhash].js'
     },
     module: getModule('production'),
-    devtool: enableSourceMap ? 'source-map' : false,
+    devtool: enableProductionSourceMap ? 'source-map' : false,
     plugins: [new CleanWebpackPlugin(['dist'])]
 };
 

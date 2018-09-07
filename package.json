@@ -5,8 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --progress --colors --env development",
-    "build": "webpack --progress --colors --env production"
+    "dev": "NODE_ENV=development webpack-dev-server --progress --colors",
+    "build": "NODE_ENV=production webpack --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -50,8 +50,5 @@
     "normalize.css": "^8.0.0",
     "react-router-dom": "^4.3.1"
   },
-  "browserslist": [
-    "defaults",
-    "ie >= 9"
-  ]
+  "browserslist": ["defaults", "ie >= 9"]
 }

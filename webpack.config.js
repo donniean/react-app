@@ -6,6 +6,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
 const { pageList, enableProductionSourceMap, publicPath } = require('./config');
+const env = process.env.NODE_ENV;
+console.log('ENV', env);
 
 /**
  * output
@@ -46,7 +48,7 @@ const commonEntry = (() => {
  * }
  *
  */
-const getEntry = env => {
+const entry = (() => {
     let entry = {};
     for (const key in commonEntry) {
         let value = commonEntry[key];
@@ -61,7 +63,7 @@ const getEntry = env => {
         entry[key] = value;
     }
     return entry;
-};
+})();
 
 const HtmlWebpackPluginList = (() => {
     let list = [];
@@ -90,48 +92,46 @@ const HtmlWebpackPluginList = (() => {
     return list;
 })();
 
-const getModule = env => {
+const styleRule = (() => {
     let sourceMap = true;
     env === 'production' && (sourceMap = enableProductionSourceMap);
-    const module = {
-        rules: [
+    const rule = {
+        test: /\.(css|scss)$/,
+        use: [
             {
-                test: /\.(css|scss)$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    /* {
-                        loader: 'style-loader'
-                    }, */
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: sourceMap
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: sourceMap
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            outputStyle: 'expanded',
-                            sourceMap: sourceMap,
-                            sourceMapContents: sourceMap
-                        }
-                    }
-                ]
+                loader: MiniCssExtractPlugin.loader
+            },
+            /* {
+                loader: 'style-loader'
+            }, */
+            {
+                loader: 'css-loader',
+                options: {
+                    sourceMap: sourceMap
+                }
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    sourceMap: sourceMap
+                }
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    outputStyle: 'expanded',
+                    sourceMap: sourceMap,
+                    sourceMapContents: sourceMap
+                }
             }
         ]
     };
-    return module;
-};
+    return rule;
+})();
 
 const commonConfig = {
+    mode: env,
+    entry: entry,
     output: {
         path: path.resolve(__dirname, 'dist')
     },
@@ -149,6 +149,7 @@ const commonConfig = {
                     }
                 ]
             },
+            styleRule,
             {
                 test: /\.(js|jsx)$/,
                 use: [{ loader: 'babel-loader' }],
@@ -186,13 +187,10 @@ const commonConfig = {
 };
 
 const developmentConfig = {
-    mode: 'development',
-    entry: getEntry('development'),
     output: {
         filename: '[name].[hash].js',
         publicPath: publicPath
     },
-    module: getModule('development'),
     devtool: 'eval-source-map',
     devServer: {
         hot: true,
@@ -203,19 +201,15 @@ const developmentConfig = {
 };
 
 const productionConfig = {
-    mode: 'production',
-    entry: getEntry('production'),
     output: {
         filename: '[name].[chunkhash].js'
     },
-    module: getModule('production'),
     devtool: enableProductionSourceMap ? 'source-map' : false,
     plugins: [new CleanWebpackPlugin(['dist'])]
 };
 
-module.exports = env => {
+module.exports = () => {
     let config = null;
-    process.env.NODE_ENV = env;
     if (env === 'development') {
         config = webpackMerge(commonConfig, developmentConfig);
     } else if (env === 'production') {

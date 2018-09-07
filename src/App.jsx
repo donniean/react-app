@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './sass/App.scss';
-import logo from './images/react.png';
+import logo from './images/logo.png';
 
 class App extends React.Component {
     constructor(props) {

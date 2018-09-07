@@ -7,7 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
-const { pageList, prodSourceMap, publicPath } = require('./config');
+const { prodSourceMap, publicPath, pageList } = require('./config');
 
 const env = process.env.NODE_ENV;
 const devMode = env === 'development';
@@ -106,10 +106,7 @@ const styleRule = (() => {
         test: /\.(css|scss)$/,
         use: [
             {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                    sourceMap: sourceMap
-                }
+                loader: MiniCssExtractPlugin.loader
             },
             /* {
                 loader: 'style-loader',
@@ -219,10 +216,20 @@ const prodConfig = {
         filename: '[name].[chunkhash].js'
     },
     devtool: prodSourceMap ? 'source-map' : false,
+    // https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53
     optimization: {
         minimizer: [
             // TODO: cssnano
-            new OptimizeCSSAssetsPlugin(),
+            new OptimizeCSSAssetsPlugin({
+                cssProcessorOptions: {
+                    map: prodSourceMap
+                        ? {
+                              inline: false,
+                              annotation: true
+                          }
+                        : { inline: true }
+                }
+            }),
             new UglifyJsPlugin({ sourceMap: prodSourceMap })
         ]
     },

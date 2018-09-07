@@ -89,13 +89,9 @@ const getModule = env => {
                                 sourceMap: sourceMap
                             }
                         },
-                        /* {
-                            loader: 'postcss-loader',
-                            options: {
-                                sourceMap: sourceMap,
-                                plugins: [autoprefixer]
-                            }
-                        }, */
+                        {
+                            loader: 'postcss-loader'
+                        },
                         {
                             loader: 'sass-loader',
                             options: {

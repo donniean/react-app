@@ -3,9 +3,8 @@
     [
       "@babel/preset-env",
       {
-        "targets": {},
         "modules": false,
-        "useBuiltIns": "entry"
+        "useBuiltIns": "usage"
       }
     ],
     "@babel/preset-react"

@@ -15,9 +15,6 @@ const pageList = [
  */
 const path = require('path');
 const webpack = require('webpack');
-/* const autoprefixer = require('autoprefixer')({
-    browsers: ['safari >= 7', 'ie >= 9', 'defaults']
-}); */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -90,7 +87,10 @@ const getModule = env => {
                             }
                         },
                         {
-                            loader: 'postcss-loader'
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: sourceMap
+                            }
                         },
                         {
                             loader: 'sass-loader',
@@ -216,6 +216,7 @@ const productionConfig = {
 
 module.exports = env => {
     let config = null;
+    process.env.NODE_ENV = env;
     if (env === 'development') {
         config = webpackMerge(commonConfig, developmentConfig);
     } else if (env === 'production') {

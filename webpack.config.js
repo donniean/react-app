@@ -5,8 +5,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
-const { pageList, enableProductionSourceMap, publicPath } = require('./config');
+const { pageList, prodSourceMap, publicPath } = require('./config');
+
 const env = process.env.NODE_ENV;
+const devMode = env === 'development';
+const prodMode = env === 'production';
+
 console.log('ENV', env);
 
 /**
@@ -32,11 +36,6 @@ const commonEntry = (() => {
  *
  * development
  *
- * { app: [ '@babel/polyfill', './src/index.jsx' ] }
- *
- *
- * production
- *
  * {
  *   "app": [
  *     "react-hot-loader/patch",
@@ -46,6 +45,11 @@ const commonEntry = (() => {
  *     "./src/index.jsx"
  *   ]
  * }
+ *
+ *
+ * production
+ *
+ * { app: [ '@babel/polyfill', './src/index.jsx' ] }
  *
  */
 const entry = (() => {
@@ -94,7 +98,7 @@ const HtmlWebpackPluginList = (() => {
 
 const styleRule = (() => {
     let sourceMap = true;
-    env === 'production' && (sourceMap = enableProductionSourceMap);
+    prodMode && (sourceMap = prodSourceMap);
     const rule = {
         test: /\.(css|scss)$/,
         use: [
@@ -186,7 +190,7 @@ const commonConfig = {
     ])
 };
 
-const developmentConfig = {
+const devConfig = {
     output: {
         filename: '[name].[hash].js',
         publicPath: publicPath
@@ -200,20 +204,20 @@ const developmentConfig = {
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 
-const productionConfig = {
+const prodConfig = {
     output: {
         filename: '[name].[chunkhash].js'
     },
-    devtool: enableProductionSourceMap ? 'source-map' : false,
+    devtool: prodSourceMap ? 'source-map' : false,
     plugins: [new CleanWebpackPlugin(['dist'])]
 };
 
 module.exports = () => {
     let config = null;
     if (env === 'development') {
-        config = webpackMerge(commonConfig, developmentConfig);
+        config = webpackMerge(commonConfig, devConfig);
     } else if (env === 'production') {
-        config = webpackMerge(commonConfig, productionConfig);
+        config = webpackMerge(commonConfig, prodConfig);
     }
     return config;
 };

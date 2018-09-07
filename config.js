@@ -1,4 +1,4 @@
-const enableProductionSourceMap = false;
+const prodSourceMap = false;
 
 const pageList = [
     {
@@ -10,4 +10,4 @@ const pageList = [
 
 const publicPath = '/';
 
-module.exports = { pageList, enableProductionSourceMap, publicPath };
+module.exports = { pageList, prodSourceMap, publicPath };

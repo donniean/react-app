@@ -105,18 +105,18 @@ const styleRule = (() => {
     const rule = {
         test: /\.(css|scss)$/,
         use: [
-            /* {
+            {
                 loader: MiniCssExtractPlugin.loader,
                 options: {
                     sourceMap: sourceMap
                 }
-            }, */
-            {
+            },
+            /* {
                 loader: 'style-loader',
                 options: {
                     sourceMap: sourceMap
                 }
-            },
+            }, */
             {
                 loader: 'css-loader',
                 options: {
@@ -204,7 +204,8 @@ const devConfig = {
         filename: '[name].[hash].js',
         publicPath: publicPath
     },
-    devtool: 'eval-source-map',
+    // TODO: source-map
+    devtool: 'cheap-module-source-map',
     devServer: {
         hot: true,
         contentBase: path.resolve(__dirname, 'dist'),
@@ -219,11 +220,11 @@ const prodConfig = {
     },
     devtool: prodSourceMap ? 'source-map' : false,
     optimization: {
-        /* minimizer: [
+        minimizer: [
             // TODO: cssnano
             new OptimizeCSSAssetsPlugin(),
             new UglifyJsPlugin({ sourceMap: prodSourceMap })
-        ] */
+        ]
     },
     plugins: [new CleanWebpackPlugin(['dist'])]
 };

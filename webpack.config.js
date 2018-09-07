@@ -69,6 +69,14 @@ const entry = (() => {
 
 const HtmlWebpackPluginList = (() => {
     let list = [];
+    const minify = prodMode
+        ? {
+              collapseWhitespace: true,
+              minifyCSS: true,
+              minifyJS: true,
+              removeComments: true
+          }
+        : false;
     for (const page of pageList) {
         const name = page.name;
         const filename = page.filename;
@@ -81,12 +89,7 @@ const HtmlWebpackPluginList = (() => {
                     '/src/templates/' + template + '.html'
                 ),
                 favicon: './favicon.ico',
-                minify: {
-                    collapseWhitespace: true,
-                    minifyCSS: true,
-                    minifyJS: true,
-                    removeComments: true
-                },
+                minify: minify,
                 chunks: ['vendor', name]
             })
         );

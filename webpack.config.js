@@ -1,8 +1,3 @@
-const { pageList, enableProductionSourceMap } = require('./config');
-
-/**
- * webpack Config
- */
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,8 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
+const { pageList, enableProductionSourceMap } = require('./config');
+
 /**
+ * output
+ *
  * { app: './src/index.jsx' }
+ *
  */
 const commonEntry = (() => {
     let commonEntry = {};
@@ -26,6 +26,10 @@ const commonEntry = (() => {
 const publicPath = '/';
 
 /**
+ *
+ * output
+ *
+ *
  * development
  *
  * { app: [ '@babel/polyfill', './src/index.jsx' ] }
@@ -42,6 +46,7 @@ const publicPath = '/';
  *     "./src/index.jsx"
  *   ]
  * }
+ *
  */
 const getCompleteEntry = env => {
     let entry = {};

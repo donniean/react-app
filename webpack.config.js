@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
-const { pageList, enableProductionSourceMap } = require('./config');
+const { pageList, enableProductionSourceMap, publicPath } = require('./config');
 
 /**
  * output
@@ -22,8 +22,6 @@ const commonEntry = (() => {
     }
     return commonEntry;
 })();
-
-const publicPath = '/';
 
 /**
  *
@@ -72,31 +70,34 @@ const getModule = env => {
         rules: [
             {
                 test: /\.(css|scss)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: sourceMap
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                sourceMap: sourceMap
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                outputStyle: 'expanded',
-                                sourceMap: sourceMap,
-                                sourceMapContents: sourceMap
-                            }
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    /* {
+                        loader: 'style-loader'
+                    }, */
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: sourceMap
                         }
-                    ]
-                })
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: sourceMap
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            outputStyle: 'expanded',
+                            sourceMap: sourceMap,
+                            sourceMapContents: sourceMap
+                        }
+                    }
+                ]
             }
         ]
     };
@@ -177,7 +178,10 @@ const commonConfig = {
         ]
     },
     plugins: HtmlWebpackPluginList.concat([
-        new ExtractTextPlugin('[name].[chunkhash].css')
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
+        })
     ])
 };
 

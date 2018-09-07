@@ -8,4 +8,6 @@ const pageList = [
     }
 ];
 
-module.exports = { pageList, enableProductionSourceMap };
+const publicPath = '/';
+
+module.exports = { pageList, enableProductionSourceMap, publicPath };

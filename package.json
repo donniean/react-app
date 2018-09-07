@@ -25,10 +25,10 @@
     "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
     "react": "^16.4.2",
@@ -50,5 +50,8 @@
     "normalize.css": "^8.0.0",
     "react-router-dom": "^4.3.1"
   },
-  "browserslist": ["defaults", "ie >= 9"]
+  "browserslist": [
+    "defaults",
+    "ie >= 9"
+  ]
 }

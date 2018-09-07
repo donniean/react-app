@@ -1,4 +1,4 @@
-const prodSourceMap = false;
+const prodSourceMap = true;
 
 const pageList = [
     {

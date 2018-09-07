@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
@@ -185,8 +187,8 @@ const commonConfig = {
     },
     plugins: HtmlWebpackPluginList.concat([
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
+            filename: '[name].[hash].css',
+            chunkFilename: '[id].[hash].css'
         })
     ])
 };
@@ -210,6 +212,13 @@ const prodConfig = {
         filename: '[name].[chunkhash].js'
     },
     devtool: prodSourceMap ? 'source-map' : false,
+    optimization: {
+        minimizer: [
+            // TODO: cssnano
+            new OptimizeCSSAssetsPlugin(),
+            new UglifyJsPlugin({ sourceMap: prodSourceMap })
+        ]
+    },
     plugins: [new CleanWebpackPlugin(['dist'])]
 };
 

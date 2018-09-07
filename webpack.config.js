@@ -46,7 +46,7 @@ const commonEntry = (() => {
  * }
  *
  */
-const getCompleteEntry = env => {
+const getEntry = env => {
     let entry = {};
     for (const key in commonEntry) {
         let value = commonEntry[key];
@@ -62,6 +62,33 @@ const getCompleteEntry = env => {
     }
     return entry;
 };
+
+const HtmlWebpackPluginList = (() => {
+    let list = [];
+    for (const page of pageList) {
+        const name = page.name;
+        const filename = page.filename;
+        const template = page.template;
+        list.push(
+            new HtmlWebpackPlugin({
+                filename: filename + '.html',
+                template: path.join(
+                    __dirname,
+                    '/src/templates/' + template + '.html'
+                ),
+                favicon: './favicon.ico',
+                minify: {
+                    collapseWhitespace: true,
+                    minifyCSS: true,
+                    minifyJS: true,
+                    removeComments: true
+                },
+                chunks: ['vendor', name]
+            })
+        );
+    }
+    return list;
+})();
 
 const getModule = env => {
     let sourceMap = true;
@@ -103,33 +130,6 @@ const getModule = env => {
     };
     return module;
 };
-
-const HtmlWebpackPluginList = (() => {
-    let list = [];
-    for (const page of pageList) {
-        const name = page.name;
-        const filename = page.filename;
-        const template = page.template;
-        list.push(
-            new HtmlWebpackPlugin({
-                filename: filename + '.html',
-                template: path.join(
-                    __dirname,
-                    '/src/templates/' + template + '.html'
-                ),
-                favicon: './favicon.ico',
-                minify: {
-                    collapseWhitespace: true,
-                    minifyCSS: true,
-                    minifyJS: true,
-                    removeComments: true
-                },
-                chunks: ['vendor', name]
-            })
-        );
-    }
-    return list;
-})();
 
 const commonConfig = {
     output: {
@@ -187,7 +187,7 @@ const commonConfig = {
 
 const developmentConfig = {
     mode: 'development',
-    entry: getCompleteEntry('development'),
+    entry: getEntry('development'),
     output: {
         filename: '[name].[hash].js',
         publicPath: publicPath
@@ -204,7 +204,7 @@ const developmentConfig = {
 
 const productionConfig = {
     mode: 'production',
-    entry: getCompleteEntry('production'),
+    entry: getEntry('production'),
     output: {
         filename: '[name].[chunkhash].js'
     },

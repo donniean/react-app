@@ -105,12 +105,18 @@ const styleRule = (() => {
     const rule = {
         test: /\.(css|scss)$/,
         use: [
-            {
-                loader: MiniCssExtractPlugin.loader
-            },
             /* {
-                loader: 'style-loader'
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    sourceMap: sourceMap
+                }
             }, */
+            {
+                loader: 'style-loader',
+                options: {
+                    sourceMap: sourceMap
+                }
+            },
             {
                 loader: 'css-loader',
                 options: {
@@ -213,11 +219,11 @@ const prodConfig = {
     },
     devtool: prodSourceMap ? 'source-map' : false,
     optimization: {
-        minimizer: [
+        /* minimizer: [
             // TODO: cssnano
             new OptimizeCSSAssetsPlugin(),
             new UglifyJsPlugin({ sourceMap: prodSourceMap })
-        ]
+        ] */
     },
     plugins: [new CleanWebpackPlugin(['dist'])]
 };

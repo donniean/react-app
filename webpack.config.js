@@ -11,8 +11,6 @@ const env = process.env.NODE_ENV;
 const devMode = env === 'development';
 const prodMode = env === 'production';
 
-console.log('ENV', env);
-
 /**
  * output
  *

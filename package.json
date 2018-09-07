@@ -50,9 +50,5 @@
     "font-awesome": "^4.7.0",
     "normalize.css": "^8.0.0",
     "react-router-dom": "^4.3.1"
-  },
-  "browserslist": [
-    "defaults",
-    "ie >= 9"
-  ]
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './sass/App.scss';
+import logo from './images/react.png';
 
 class App extends React.Component {
     constructor(props) {
@@ -8,7 +9,12 @@ class App extends React.Component {
     }
 
     render() {
-        return <h1 className="title">Hello React</h1>;
+        return (
+            <div>
+                <h1 className="title">Hello React</h1>
+                <img src={logo} />
+            </div>
+        );
     }
 }
 

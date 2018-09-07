@@ -3,12 +3,8 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "browsers": ["safari >= 7", "ie >= 9", "defaults"],
-          "uglify": true
-        },
+        "targets": {},
         "modules": false,
-        // TODO: learn
         "useBuiltIns": "entry"
       }
     ],

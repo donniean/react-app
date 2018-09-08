@@ -95,10 +95,11 @@ const HtmlWebpackPluginList = (() => {
         const template = page.template;
         list.push(
             new HtmlWebpackPlugin({
+                title: 'abc',
                 filename: filename + '.html',
                 template: path.join(
                     __dirname,
-                    '/src/templates/' + template + '.html'
+                    '/src/templates/' + template + '.ejs'
                 ),
                 favicon: './favicon.ico',
                 minify: minify,

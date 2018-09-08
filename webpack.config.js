@@ -1,3 +1,12 @@
+/**
+ *
+ * TODO:
+ *
+ * loaders
+ * plugins
+ * publicPath
+ *
+ */
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -57,13 +66,13 @@ const entry = (() => {
     for (const key in commonEntry) {
         let value = commonEntry[key];
         value = ['@babel/polyfill'].concat(value);
-        if (env === 'development') {
-            value = [
+        devMode &&
+            (value = [
                 'react-hot-loader/patch',
                 'webpack-dev-server/client?http://127.0.0.1:8080',
                 'webpack/hot/only-dev-server'
-            ].concat(value);
-        }
+            ].concat(value));
+
         entry[key] = value;
     }
     return entry;

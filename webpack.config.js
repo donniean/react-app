@@ -9,7 +9,7 @@ const webpackMerge = require('webpack-merge');
 
 const { prodSourceMap, publicPath, pageList } = require('./config');
 
-const env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV && process.env.NODE_ENV.trim();
 const devMode = env === 'development';
 const prodMode = env === 'production';
 
@@ -238,10 +238,11 @@ const prodConfig = {
 
 module.exports = () => {
     let config = null;
-    if (env === 'development') {
+    if (devMode) {
         config = webpackMerge(commonConfig, devConfig);
-    } else if (env === 'production') {
+    } else if (prodMode) {
         config = webpackMerge(commonConfig, prodConfig);
     }
+
     return config;
 };

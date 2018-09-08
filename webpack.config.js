@@ -5,6 +5,7 @@
  * loaders
  * plugins
  * publicPath
+ * guide
  *
  */
 const path = require('path');

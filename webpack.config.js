@@ -91,11 +91,12 @@ const HtmlWebpackPluginList = (() => {
         : false;
     for (const page of pageList) {
         const name = page.name;
+        const title = page.title;
         const filename = page.filename;
         const template = page.template;
         list.push(
             new HtmlWebpackPlugin({
-                title: 'abc',
+                title: title,
                 filename: filename + '.html',
                 template: path.join(
                     __dirname,

@@ -7,6 +7,7 @@
  * publicPath
  * devServer, HotModuleReplacementPlugin, react-hot-loader, module.hot.accept
  * Font Awesome
+ * OptimizeCSSAssetsPlugin, cssnano
  *
  */
 const path = require('path');
@@ -215,7 +216,6 @@ const prodConfig = {
     // https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53
     optimization: {
         minimizer: [
-            // TODO: cssnano
             new OptimizeCSSAssetsPlugin({
                 cssProcessorOptions: {
                     map: prodSourceMap

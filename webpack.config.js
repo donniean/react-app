@@ -5,7 +5,8 @@
  * npm install
  * guide
  * publicPath
- * devServer, HotModuleReplacementPlugin, react-hot-loader
+ * devServer, HotModuleReplacementPlugin, react-hot-loader, module.hot.accept
+ * Font Awesome
  *
  */
 const path = require('path');

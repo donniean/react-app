@@ -2,10 +2,10 @@
  *
  * TODO:
  *
- * loaders
- * plugins
- * publicPath
+ * npm install
  * guide
+ * publicPath
+ * devServer, HotModuleReplacementPlugin, react-hot-loader
  *
  */
 const path = require('path');
@@ -43,21 +43,12 @@ const commonEntry = (() => {
  *
  * output
  *
- *
- * development
- *
  * {
  *   "app": [
- *     "react-hot-loader/patch",
  *     "@babel/polyfill",
  *     "./src/index.jsx"
  *   ]
  * }
- *
- *
- * production
- *
- * { app: [ '@babel/polyfill', './src/index.jsx' ] }
  *
  */
 const entry = (() => {
@@ -65,12 +56,6 @@ const entry = (() => {
     for (const key in commonEntry) {
         let value = commonEntry[key];
         value = ['@babel/polyfill'].concat(value);
-        devMode &&
-            (value = [
-                'react-hot-loader/patch'
-                // 'webpack-dev-server/client?http://127.0.0.1:8080',
-                // 'webpack/hot/only-dev-server'
-            ].concat(value));
         entry[key] = value;
     }
     return entry;

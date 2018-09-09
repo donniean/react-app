@@ -35,7 +35,6 @@
     "postcss-loader": "^3.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-hot-loader": "^4.3.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
@@ -50,6 +49,7 @@
     "autoprefixer": "^9.1.5",
     "font-awesome": "^4.7.0",
     "normalize.css": "^8.0.0",
+    "react-hot-loader": "^4.3.6",
     "react-router-dom": "^4.3.1"
   }
 }

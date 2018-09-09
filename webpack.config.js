@@ -90,10 +90,10 @@ const HtmlWebpackPluginList = (() => {
           }
         : false;
     for (const page of pageList) {
-        const name = page.name;
         const title = page.title;
         const filename = page.filename;
         const template = page.template;
+        const name = page.name;
         list.push(
             new HtmlWebpackPlugin({
                 title: title,

@@ -49,8 +49,6 @@ const commonEntry = (() => {
  * {
  *   "app": [
  *     "react-hot-loader/patch",
- *     "webpack-dev-server/client?http://127.0.0.1:8080",
- *     "webpack/hot/only-dev-server",
  *     "@babel/polyfill",
  *     "./src/index.jsx"
  *   ]
@@ -69,11 +67,10 @@ const entry = (() => {
         value = ['@babel/polyfill'].concat(value);
         devMode &&
             (value = [
-                'react-hot-loader/patch',
-                'webpack-dev-server/client?http://127.0.0.1:8080',
-                'webpack/hot/only-dev-server'
+                'react-hot-loader/patch'
+                // 'webpack-dev-server/client?http://127.0.0.1:8080',
+                // 'webpack/hot/only-dev-server'
             ].concat(value));
-
         entry[key] = value;
     }
     return entry;
@@ -213,11 +210,12 @@ const devConfig = {
         filename: '[name].[hash].js',
         publicPath: publicPath
     },
-    // TODO: source-map
     devtool: 'cheap-module-source-map',
     devServer: {
-        hot: true,
         contentBase: path.resolve(__dirname, 'dist'),
+        host: '127.0.0.1',
+        hot: true,
+        port: 8080,
         publicPath: publicPath
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]

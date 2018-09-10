@@ -1,7 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 
-import './sass/App.scss';
+import './styles/App.scss';
 import logo from './images/logo.png';
 
 class App extends React.Component {

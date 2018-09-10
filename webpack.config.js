@@ -2,8 +2,6 @@
  *
  * TODO:
  *
- * guide
- * publicPath
  * devServer, HotModuleReplacementPlugin, react-hot-loader, module.hot.accept
  * OptimizeCSSAssetsPlugin, cssnano
  *
@@ -17,7 +15,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
-const { prodSourceMap, publicPath, pageList } = require('./config');
+const { prodSourceMap, pageList } = require('./config');
 
 const env = process.env.NODE_ENV && process.env.NODE_ENV.trim();
 const devMode = env === 'development';
@@ -165,8 +163,7 @@ const commonConfig = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        name: 'images/[name].[hash].[ext]',
-                        publicPath: './'
+                        name: 'images/[name].[hash].[ext]'
                     }
                 }
             },
@@ -175,8 +172,7 @@ const commonConfig = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: 'fonts/[name].[ext]',
-                        publicPath: './'
+                        name: 'fonts/[name].[ext]'
                     }
                 }
             }
@@ -192,16 +188,14 @@ const commonConfig = {
 
 const devConfig = {
     output: {
-        filename: '[name].[hash].js',
-        publicPath: publicPath
+        filename: '[name].[hash].js'
     },
     devtool: 'cheap-module-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         host: '127.0.0.1',
         hot: true,
-        port: 8080,
-        publicPath: publicPath
+        port: 8080
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
 };

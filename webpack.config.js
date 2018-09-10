@@ -22,6 +22,7 @@ const devMode = env === 'development';
 const prodMode = env === 'production';
 
 /**
+ *
  * output
  *
  * { app: './src/index.jsx' }

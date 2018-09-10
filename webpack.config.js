@@ -2,11 +2,9 @@
  *
  * TODO:
  *
- * npm install
  * guide
  * publicPath
  * devServer, HotModuleReplacementPlugin, react-hot-loader, module.hot.accept
- * Font Awesome
  * OptimizeCSSAssetsPlugin, cssnano
  *
  */

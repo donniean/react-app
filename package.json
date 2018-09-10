@@ -46,7 +46,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "autoprefixer": "^9.1.5",
-    "font-awesome": "^4.7.0",
     "normalize.css": "^8.0.0",
     "react-hot-loader": "^4.3.6",
     "react-router-dom": "^4.3.1",

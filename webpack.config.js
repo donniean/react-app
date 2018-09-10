@@ -200,7 +200,7 @@ const devConfig = {
         contentBase: path.resolve(__dirname, 'dist'),
         host: '127.0.0.1',
         hot: true,
-        port: 8081,
+        port: 8080,
         publicPath: publicPath
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]

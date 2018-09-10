@@ -1,5 +1,4 @@
 const prodSourceMap = true;
-const publicPath = '/';
 
 const pageList = [
     {
@@ -10,4 +9,4 @@ const pageList = [
     }
 ];
 
-module.exports = { prodSourceMap, publicPath, pageList };
+module.exports = { prodSourceMap, pageList };

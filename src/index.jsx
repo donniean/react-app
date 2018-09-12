@@ -10,8 +10,6 @@
  * immutable
  * router
  *
- * styled-components
- *
  */
 
 import React from 'react';

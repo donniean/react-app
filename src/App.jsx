@@ -2,11 +2,22 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
-import './styles/App.scss';
 import logo from './images/logo.png';
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
 const Title = styled.h1`
+    font-size: 10vw;
     color: #61dafb;
+`;
+
+const Image = styled.img`
+    width: 20vw;
 `;
 
 class App extends React.Component {
@@ -16,10 +27,10 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <Container>
+                <Image src={logo} />
                 <Title>Hello React</Title>
-                <img src={logo} />
-            </div>
+            </Container>
         );
     }
 }

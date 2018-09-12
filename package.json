@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/acmilank22/react-webpack-boilerplate#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
-    "babel-plugin-styled-components": "^1.6.4",
+    "babel-plugin-styled-components": "^1.7.1",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
@@ -39,7 +39,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
-    "webpack": "^4.17.2",
+    "webpack": "^4.18.0",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
@@ -51,6 +51,6 @@
     "react-hot-loader": "^4.3.6",
     "react-router-dom": "^4.3.1",
     "styled-components": "^4.0.0-beta.3",
-    "whatwg-fetch": "^2.0.4"
+    "whatwg-fetch": "^3.0.0"
   }
 }

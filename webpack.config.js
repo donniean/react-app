@@ -232,6 +232,5 @@ module.exports = () => {
     } else if (prodMode) {
         config = webpackMerge(commonConfig, prodConfig);
     }
-
     return config;
 };

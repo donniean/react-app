@@ -1,8 +1,13 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
+import styled from 'styled-components';
 
 import './styles/App.scss';
 import logo from './images/logo.png';
+
+const Title = styled.h1`
+    color: #61dafb;
+`;
 
 class App extends React.Component {
     constructor(props) {
@@ -12,7 +17,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1 className="title">Hello React</h1>
+                <Title>Hello React</Title>
                 <img src={logo} />
             </div>
         );

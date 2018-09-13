@@ -7,8 +7,9 @@
  * fetch-middleware
  *
  * react
+ * prop-types
  * redux
- * saga
+ * thunk
  * immutable
  * router
  *

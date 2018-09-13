@@ -4,7 +4,6 @@
  *
  * structure
  *
- * bem
  * fetch-middleware
  *
  * react

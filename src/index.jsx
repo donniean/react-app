@@ -10,7 +10,7 @@
  * react
  * prop-types
  * redux
- * thunk
+ * thunk/saga
  * immutable
  * router
  *

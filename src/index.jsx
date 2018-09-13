@@ -4,6 +4,8 @@
  *
  * structure
  *
+ * fetch-middleware
+ *
  * react
  * redux
  * saga

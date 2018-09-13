@@ -50,7 +50,9 @@
     "normalize.css": "^8.0.0",
     "polished": "^2.0.3",
     "react-hot-loader": "^4.3.6",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
     "styled-components": "^4.0.0-beta.3",
     "whatwg-fetch": "^3.0.0"
   }

@@ -1,6 +1,6 @@
 const prodSourceMap = true;
 
-const pageList = [
+const htmlList = [
     {
         title: 'Hello React', // 输出的html title
         filename: 'index', // 输入的jsx文件名，输出的html文件名
@@ -9,4 +9,4 @@ const pageList = [
     }
 ];
 
-module.exports = { prodSourceMap, pageList };
+module.exports = { prodSourceMap, htmlList };

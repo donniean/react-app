@@ -16,7 +16,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
-const { prodSourceMap, pageList } = require('./config');
+const { prodSourceMap, htmlList } = require('./config');
 
 const env = process.env.NODE_ENV && process.env.NODE_ENV.trim();
 const devMode = env === 'development';
@@ -31,9 +31,9 @@ const prodMode = env === 'production';
  */
 const commonEntry = (() => {
     let commonEntry = {};
-    for (const page of pageList) {
-        const name = page.name;
-        const filename = page.filename;
+    for (const html of htmlList) {
+        const name = html.name;
+        const filename = html.filename;
         commonEntry[name] = './src/' + filename + '.jsx';
     }
     return commonEntry;
@@ -71,11 +71,11 @@ const HtmlWebpackPluginList = (() => {
               removeComments: true
           }
         : false;
-    for (const page of pageList) {
-        const title = page.title;
-        const filename = page.filename;
-        const template = page.template;
-        const name = page.name;
+    for (const html of htmlList) {
+        const title = html.title;
+        const filename = html.filename;
+        const template = html.template;
+        const name = html.name;
         list.push(
             new HtmlWebpackPlugin({
                 title: title,

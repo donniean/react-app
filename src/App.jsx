@@ -2,7 +2,9 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
-import GlobalStyle from './assets/styles/GlobalStyle';
+import { colorPrimary } from './assets/styles/variables';
+
+import GlobalStyle from './components/GlobalStyle';
 
 import logo from './assets/images/logo.png';
 
@@ -15,7 +17,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
     font-size: 10vw;
-    color: #61dafb;
+    color: ${colorPrimary};
 `;
 
 const Image = styled.img`

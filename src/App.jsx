@@ -11,7 +11,6 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10vw;
 `;
 
 const Title = styled.h1`
@@ -20,6 +19,7 @@ const Title = styled.h1`
 `;
 
 const Image = styled.img`
+    margin-top: 10vw;
     width: 20vw;
 `;
 

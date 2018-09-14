@@ -84,7 +84,6 @@ const HtmlWebpackPluginList = (() => {
                     __dirname,
                     '/src/templates/' + template + '.ejs'
                 ),
-                favicon: './src/assets/images/favicon.ico',
                 minify: minify,
                 chunks: ['vendor', name]
             })
@@ -181,7 +180,10 @@ const commonConfig = {
         ]
     },
     plugins: HtmlWebpackPluginList.concat([
-        new FaviconsWebpackPlugin('./src/assets/images/logo.png'),
+        new FaviconsWebpackPlugin({
+            logo: './src/assets/images/logo.png',
+            prefix: 'assets/icons-[hash]/'
+        }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'

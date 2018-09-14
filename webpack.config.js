@@ -26,7 +26,7 @@ const prodMode = env === 'production';
  *
  * output
  *
- * { app: './src/index.jsx' }
+ * { app: './src/index.js' }
  *
  */
 const commonEntry = (() => {
@@ -34,7 +34,7 @@ const commonEntry = (() => {
     for (const html of htmlList) {
         const name = html.name;
         const filename = html.filename;
-        commonEntry[name] = './src/' + filename + '.jsx';
+        commonEntry[name] = './src/' + filename + '.js';
     }
     return commonEntry;
 })();
@@ -46,7 +46,7 @@ const commonEntry = (() => {
  * {
  *   "app": [
  *     "@babel/polyfill",
- *     "./src/index.jsx"
+ *     "./src/index.js"
  *   ]
  * }
  *

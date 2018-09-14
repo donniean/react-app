@@ -2,13 +2,13 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
-import { colorPrimary } from './assets/styles/variables';
+import { colorPrimary } from '../../assets/styles/variables';
 
-import GlobalStyle from './components/GlobalStyle';
+import GlobalStyle from '../../components/GlobalStyle';
 
-import logo from './assets/images/logo.png';
+import logo from '../../assets/images/logo.png';
 
-const Container = styled.div`
+const AppWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,11 +32,11 @@ class App extends React.Component {
 
     render() {
         return (
-            <Container>
+            <AppWrapper>
                 <GlobalStyle />
                 <Image src={logo} />
                 <Title>Hello React</Title>
-            </Container>
+            </AppWrapper>
         );
     }
 }

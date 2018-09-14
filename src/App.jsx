@@ -2,9 +2,9 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
-import GlobalStyle from './styles/GlobalStyle';
+import GlobalStyle from './assets/styles/GlobalStyle';
 
-import logo from './images/logo.png';
+import logo from './assets/images/logo.png';
 
 const Container = styled.div`
     display: flex;

@@ -83,7 +83,7 @@ const HtmlWebpackPluginList = (() => {
                     __dirname,
                     '/src/templates/' + template + '.ejs'
                 ),
-                favicon: './favicon.ico',
+                favicon: './src/assets/images/favicon.ico',
                 minify: minify,
                 chunks: ['vendor', name]
             })
@@ -164,7 +164,7 @@ const commonConfig = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        name: 'images/[name].[hash].[ext]'
+                        name: 'assets/images/[name].[hash].[ext]'
                     }
                 }
             },
@@ -173,7 +173,7 @@ const commonConfig = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: 'fonts/[name].[ext]'
+                        name: 'assets/fonts/[name].[ext]'
                     }
                 }
             }
@@ -181,15 +181,15 @@ const commonConfig = {
     },
     plugins: HtmlWebpackPluginList.concat([
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css'
+            filename: 'css/[name].[hash].css',
+            chunkFilename: 'css/[id].[hash].css'
         })
     ])
 };
 
 const devConfig = {
     output: {
-        filename: '[name].[hash].js'
+        filename: 'js/[name].[hash].js'
     },
     devtool: 'cheap-module-source-map',
     devServer: {
@@ -203,7 +203,7 @@ const devConfig = {
 
 const prodConfig = {
     output: {
-        filename: '[name].[chunkhash].js'
+        filename: 'js/[name].[chunkhash].js'
     },
     devtool: prodSourceMap ? 'source-map' : false,
     // https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53

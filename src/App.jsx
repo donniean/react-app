@@ -2,6 +2,8 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
+import GlobalStyle from './styles/GlobalStyle';
+
 import logo from './images/logo.png';
 
 const Container = styled.div`
@@ -28,6 +30,7 @@ class App extends React.Component {
     render() {
         return (
             <Container>
+                <GlobalStyle />
                 <Image src={logo} />
                 <Title>Hello React</Title>
             </Container>

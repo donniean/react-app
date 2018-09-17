@@ -1,15 +1,15 @@
 const config = {
-    presets: [
-        [
-            '@babel/preset-env',
-            {
-                modules: false,
-                useBuiltIns: 'usage'
-            }
-        ],
-        '@babel/preset-react'
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        modules: false,
+        useBuiltIns: 'usage'
+      }
     ],
-    plugins: ['react-hot-loader/babel', 'babel-plugin-styled-components']
+    '@babel/preset-react'
+  ],
+  plugins: ['react-hot-loader/babel', 'babel-plugin-styled-components']
 };
 
 module.exports = config;

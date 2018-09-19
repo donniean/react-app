@@ -9,36 +9,36 @@ import GlobalStyle from '../../components/GlobalStyle';
 import logo from '../../assets/images/logo.png';
 
 const AppWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.h1`
-    font-size: 10vw;
-    color: ${colorPrimary};
+  font-size: 10vw;
+  color: ${colorPrimary};
 `;
 
 const Image = styled.img`
-    margin-top: 10vw;
-    width: 20vw;
+  margin-top: 10vw;
+  width: 20vw;
 `;
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <AppWrapper>
-                <GlobalStyle />
-                <Image src={logo} />
-                <Title>Hello React</Title>
-            </AppWrapper>
-        );
-    }
+  render() {
+    return (
+      <AppWrapper>
+        <GlobalStyle />
+        <Image src={logo} />
+        <Title>Hello React</Title>
+      </AppWrapper>
+    );
+  }
 }
 
 export default hot(module)(App);

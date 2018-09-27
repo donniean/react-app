@@ -133,7 +133,8 @@ const commonConfig = {
   mode: env,
   entry: entry,
   output: {
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -195,6 +196,7 @@ const devConfig = {
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
+    historyApiFallback: true,
     host: '0.0.0.0',
     hot: true,
     port: 8080

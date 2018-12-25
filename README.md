@@ -1,6 +1,6 @@
 # react-webpack-boilerplate
 
-```npm
+```shell
 npm install
 
 npm run dev

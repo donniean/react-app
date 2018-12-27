@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -17,13 +17,8 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  margin-top: ${vw(48)};
+  margin: ${vw(48)} 0;
   width: ${vw(180)};
-`;
-
-const Title = styled.h1`
-  font-size: ${vw(48)};
-  color: ${colorPrimary};
 `;
 
 const Button = styled.button`
@@ -39,7 +34,6 @@ function Login() {
     <Container>
       <DocumentTitle>Login</DocumentTitle>
       <Image src={logo} />
-      <Title>Login</Title>
       <Button>Login</Button>
     </Container>
   );

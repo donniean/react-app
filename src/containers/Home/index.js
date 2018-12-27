@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { colorPrimary } from '../../assets/styles/variables';
@@ -18,7 +18,8 @@ const Title = styled.h1`
 
 const Button = styled.button`
   border: 0;
-  padding: ${vw(50)};
+  border-radius: ${vw(10)};
+  padding: ${vw(20)};
   background-color: ${colorPrimary};
   color: #ffffff;
 `;

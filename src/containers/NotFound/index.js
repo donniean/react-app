@@ -1,10 +1,14 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { colorPrimary } from '../../assets/styles/variables';
+import { vw } from '../../assets/styles/helpers';
+
+const Title = styled.h1`
+  font-size: ${vw(64)};
+`;
 
 function NotFound() {
-  return <h1>Not Found</h1>;
+  return <Title>Not Found</Title>;
 }
 
 export default NotFound;

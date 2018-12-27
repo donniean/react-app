@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import DocumentTitle from '../../components/DocumentTitle';
+
 import { colorPrimary } from '../../assets/styles/variables';
 import { vw } from '../../assets/styles/helpers';
 
@@ -27,6 +29,7 @@ const Button = styled.button`
 function Home() {
   return (
     <Container>
+      <DocumentTitle>Home</DocumentTitle>
       <Title>Home</Title>
       <Button>Logout</Button>
     </Container>

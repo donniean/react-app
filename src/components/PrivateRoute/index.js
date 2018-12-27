@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function PrivateRoute({ component: Component, ...rest }) {
-  const isAuthenticated = sessionStorage.getItem(isAuthenticated);
+  const isAuthenticated = localStorage.getItem(isAuthenticated);
 
   return (
     <Route

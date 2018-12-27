@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Redirect, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import DocumentTitle from '../../components/DocumentTitle';
@@ -30,11 +30,23 @@ const Button = styled.button`
 `;
 
 function Login() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem('isAuthenticated')
+  );
+
+  const handleClick = () => {
+    setIsAuthenticated(1);
+  };
+
+  useEffect(() => {
+    console.log(isAuthenticated);
+  });
+
   return (
     <Container>
       <DocumentTitle>Login</DocumentTitle>
       <Image src={logo} />
-      <Button>Login</Button>
+      <Button onClick={handleClick}>Login</Button>
     </Container>
   );
 }

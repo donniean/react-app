@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import DocumentTitle from '../../components/DocumentTitle';
+
 import { vw } from '../../assets/styles/helpers';
 
 const Title = styled.h1`
@@ -8,7 +10,12 @@ const Title = styled.h1`
 `;
 
 function NotFound() {
-  return <Title>Not Found</Title>;
+  return (
+    <div>
+      <DocumentTitle>404</DocumentTitle>
+      <Title>Not Found</Title>
+    </div>
+  );
 }
 
 export default NotFound;

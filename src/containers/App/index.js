@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { hot } from 'react-hot-loader';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { colorPrimary } from '../../assets/styles/variables';
 
 import GlobalStyle from '../../components/GlobalStyle';
+import PrivateRoute from '../../components/PrivateRoute';
 
-import logo from '../../assets/images/logo.png';
+import Login from '../Login';
+import Home from '../Home';
+import User from '../User';
+import NotFound from '../NotFound';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -15,27 +20,19 @@ const AppWrapper = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1`
-  font-size: 10vw;
-  color: ${colorPrimary};
-`;
+const auth = 0;
 
-const Image = styled.img`
-  margin-top: 10vw;
-  width: 20vw;
-`;
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class App extends PureComponent {
   render() {
     return (
       <AppWrapper>
         <GlobalStyle />
-        <Image src={logo} />
-        <Title>Hello React</Title>
+        <Switch>
+          <Route exact path="/auth/login" component={Login} />
+          <PrivateRoute path="/" component={Home} />
+          <Route exact path="/error/404" component={NotFound} />
+          <Redirect to="/error/404" />
+        </Switch>
       </AppWrapper>
     );
   }

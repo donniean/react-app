@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import DocumentTitle from '../../components/DocumentTitle';
@@ -31,7 +32,9 @@ function Home() {
     <Container>
       <DocumentTitle>Home</DocumentTitle>
       <Title>Home</Title>
-      <Button>Logout</Button>
+      <Link to="/auth/login">
+        <Button>Logout </Button>
+      </Link>
     </Container>
   );
 }

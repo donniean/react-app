@@ -10,7 +10,6 @@ import PrivateRoute from '../../components/PrivateRoute';
 
 import Login from '../Login';
 import Home from '../Home';
-import User from '../User';
 import NotFound from '../NotFound';
 
 const AppWrapper = styled.div`
@@ -20,22 +19,18 @@ const AppWrapper = styled.div`
   align-items: center;
 `;
 
-const auth = 0;
-
-class App extends PureComponent {
-  render() {
-    return (
-      <AppWrapper>
-        <GlobalStyle />
-        <Switch>
-          <Route exact path="/auth/login" component={Login} />
-          <PrivateRoute path="/" component={Home} />
-          <Route exact path="/error/404" component={NotFound} />
-          <Redirect to="/error/404" />
-        </Switch>
-      </AppWrapper>
-    );
-  }
+function App() {
+  return (
+    <AppWrapper>
+      <GlobalStyle />
+      <Switch>
+        <Route exact path="/auth/login" component={Login} />
+        <PrivateRoute path="/" component={Home} />
+        <Route exact path="/error/404" component={NotFound} />
+        <Redirect to="/error/404" />
+      </Switch>
+    </AppWrapper>
+  );
 }
 
 export default hot(module)(App);

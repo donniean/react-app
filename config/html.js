@@ -1,4 +1,4 @@
-const title = '党建宝';
+const title = 'React Webpack Boilerplate';
 
 const htmlList = [
   {

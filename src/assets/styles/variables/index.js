@@ -1,4 +1,4 @@
-const colorPrimary = '#d01913';
+const colorPrimary = '#61dafb';
 
 const variables = {
   color: {

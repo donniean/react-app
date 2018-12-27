@@ -16,27 +16,33 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1`
-  font-size: 10vw;
-  color: ${colorPrimary};
-`;
-
 const Image = styled.img`
-  margin-top: 10vw;
+  margin-top: ${vw(48)};
   width: ${vw(180)};
 `;
 
-class Login extends PureComponent {
-  render() {
-    return (
-      <Container>
-        <DocumentTitle>登录</DocumentTitle>
-        <Image src={logo} />
-        <Title>Login</Title>
-        <Link to="/home">Home</Link>
-      </Container>
-    );
-  }
+const Title = styled.h1`
+  font-size: ${vw(48)};
+  color: ${colorPrimary};
+`;
+
+const Button = styled.button`
+  border: 0;
+  border-radius: ${vw(10)};
+  padding: ${vw(20)};
+  background-color: ${colorPrimary};
+  color: #ffffff;
+`;
+
+function Login() {
+  return (
+    <Container>
+      <DocumentTitle>Login</DocumentTitle>
+      <Image src={logo} />
+      <Title>Login</Title>
+      <Button>Login</Button>
+    </Container>
+  );
 }
 
 export default Login;

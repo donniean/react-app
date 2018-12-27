@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const isAuthenticated = 1;
-
 function PrivateRoute({ component: Component, ...rest }) {
+  const isAuthenticated = sessionStorage.getItem(isAuthenticated);
+
   return (
     <Route
       render={props =>

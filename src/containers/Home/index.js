@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -28,12 +28,20 @@ const Button = styled.button`
 `;
 
 function Home() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount(count + 1);
+    console.log(count);
+  };
+
   return (
     <Container>
       <DocumentTitle>Home</DocumentTitle>
+      <Button onClick={handleClick}>click {count}</Button>
       <Title>Home</Title>
       <Link to="/auth/login">
-        <Button>Logout </Button>
+        <Button>Logout</Button>
       </Link>
     </Container>
   );

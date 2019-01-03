@@ -9,10 +9,6 @@ import logo from '../../assets/images/logo.png';
 
 import request from '../../utils/request';
 
-(async function() {
-  const a = await fetch('https://www.baidu.com/', { method: 'GET' });
-})();
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;

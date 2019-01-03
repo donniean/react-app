@@ -1,48 +1,42 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import DocumentTitle from '../../components/DocumentTitle';
 
 import { colorPrimary } from '../../assets/styles/variables';
 import { vw } from '../../assets/styles/helpers';
+import logo from '../../assets/images/logo.png';
+
+import request from '../../utils/request';
+
+(async function() {
+  const a = await fetch('https://www.baidu.com/', { method: 'GET' });
+})();
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: ${vw(32)};
 `;
 
 const Title = styled.h1`
-  font-size: ${vw(48)};
+  font-size: ${vw(64)};
   color: ${colorPrimary};
 `;
 
-const Button = styled.button`
-  border: 0;
-  border-radius: ${vw(10)};
-  padding: ${vw(20)};
-  background-color: ${colorPrimary};
-  color: #ffffff;
+const Image = styled.img`
+  width: ${vw(256)};
+  vertical-align: bottom;
 `;
 
 function Home() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-    console.log(count);
-  };
-
   return (
     <Container>
-      <DocumentTitle>Home</DocumentTitle>
-      <Button onClick={handleClick}>click {count}</Button>
-      <Title>Home</Title>
-      <Link to="/auth/login">
-        <Button>Logout</Button>
-      </Link>
+      <DocumentTitle>Hello React</DocumentTitle>
+      <Image src={logo} />
+      <Title>Hello React</Title>
     </Container>
   );
 }

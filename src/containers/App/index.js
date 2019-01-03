@@ -6,11 +6,9 @@ import styled from 'styled-components';
 import { colorPrimary } from '../../assets/styles/variables';
 
 import GlobalStyle from '../../components/GlobalStyle';
-import PrivateRoute from '../../components/PrivateRoute';
 
-import Login from '../Login';
-import Home from '../Home';
-import NotFound from '../NotFound';
+import Home from '../../routes/Home';
+import NotFound from '../../routes/NotFound';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -24,8 +22,7 @@ function App() {
     <AppWrapper>
       <GlobalStyle />
       <Switch>
-        <Route exact path="/auth/login" component={Login} />
-        <PrivateRoute path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/error/404" component={NotFound} />
         <Redirect to="/error/404" />
       </Switch>

@@ -1,31 +1,19 @@
 import 'whatwg-fetch';
 import { merge } from 'lodash';
 
-import { version, baseURL } from '../../config/';
+import { baseURL } from '../../config/';
 
-function request(url, options = {}, settings = {}) {
+function request(url, options = {}) {
   const defaultOptions = {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     }
   };
-  const defaultSettings = {
-    isHandleError: false,
-    loading: true,
-    loadingMsg: '加载中...',
-    mask: true
-  };
-  const token = getToken();
-
-  url = `${baseURL}?ifname=${url}&ifversion=${1.0}`;
-  token && (url = `${url}&api_token=${token}`);
+  url = `${baseURL}${url}`;
   options = merge({}, defaultOptions, options);
-  settings = merge({}, defaultSettings, settings);
 
   let { body, data } = options;
-  const { isHandleError, loading, loadingMsg, mask } = settings;
-
   if (data) {
     if (!body) {
       body = JSON.stringify(data);
@@ -39,11 +27,6 @@ function request(url, options = {}, settings = {}) {
     .then(response => response.json())
     .then(handleData)
     .catch(handleError);
-}
-
-function getToken() {
-  const token = localStorage.getItem('token');
-  return token;
 }
 
 function checkStatus(response) {
@@ -91,7 +74,8 @@ function handleError(error) {
       message = '请求错误！请检查网络！';
       break;
   }
-  console.error(type, message);
+  error.message = message;
+  console.error(error);
 }
 
 export default request;

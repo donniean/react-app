@@ -1,3 +1,3 @@
-const baseURLs = ['', 'http://dangjian.linyantech.com/api/apiarticle'];
+const baseURLs = ['', ''];
 
 export default baseURLs;

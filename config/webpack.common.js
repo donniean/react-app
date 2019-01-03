@@ -142,7 +142,7 @@ const commonConfig = {
   },
   plugins: HtmlWebpackPluginList.concat([
     new FaviconsWebpackPlugin({
-      logo: path.resolve(srcPath, 'assets/images/logo.png'),
+      logo: path.resolve(publicPath, 'favicon.png'),
       prefix: 'assets/icons-[hash]/',
       title: faviconAppTitle,
       icons: {

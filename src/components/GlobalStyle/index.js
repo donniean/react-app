@@ -1,6 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 
-const GlobalStyle = createGlobalStyle`${normalize()}`;
+const GlobalStyle = createGlobalStyle`
+  ${normalize()}
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div#root {
+    display: flex;
+    flex: 1;
+  }
+`;
 
 export default GlobalStyle;

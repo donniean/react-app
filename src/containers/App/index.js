@@ -5,28 +5,21 @@ import styled from 'styled-components';
 
 import { colorPrimary } from '../../assets/styles/variables';
 
+import FlexWrapper from '../../layouts/FlexWrapper';
 import GlobalStyle from '../../components/GlobalStyle';
 
 import Home from '../../routes/Home';
 import NotFound from '../../routes/NotFound';
 
-const AppWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 function App() {
   return (
-    <AppWrapper>
+    <FlexWrapper>
       <GlobalStyle />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/error/404" component={NotFound} />
-        <Redirect to="/error/404" />
+        <Route component={NotFound} />
       </Switch>
-    </AppWrapper>
+    </FlexWrapper>
   );
 }
 

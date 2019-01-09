@@ -3,11 +3,26 @@ import styled from 'styled-components';
 
 import Page from '../../components/Page';
 
+import { vw } from '../../styles/helpers';
+
 function NotFound() {
-  const Title = styled.h1``;
+  const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: ${vw(32)};
+  `;
+
+  const Title = styled.h1`
+    font-size: ${vw(48)};
+  `;
+
   return (
     <Page title="404">
-      <Title>Not Found</Title>
+      <Container>
+        <Title>Not Found</Title>
+      </Container>
     </Page>
   );
 }

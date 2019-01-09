@@ -18,6 +18,7 @@ function Home() {
   `;
 
   const Title = styled.h1`
+    margin-top: ${vw(36)};
     font-size: ${vw(64)};
     color: ${colorPrimary};
   `;

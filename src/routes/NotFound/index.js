@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Page from '../../components/Page';
-import FlexWrapper from '../../components/FlexWrapper';
+import FlexContainer from '../../components/FlexContainer';
 
 import { vw } from '../../styles/helpers';
 
-const Wrapper = styled(FlexWrapper)`
+const Wrapper = styled(FlexContainer)`
   flex: 1;
   align-items: center;
 `;

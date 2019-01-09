@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Page from '../../components/Page';
-import FlexWrapper from '../../components/FlexWrapper';
+import FlexContainer from '../../components/FlexContainer';
 
 import { colorPrimary } from '../../styles/variables';
 import { vw } from '../../styles/helpers';
 
 import logo from '../../assets/images/logo.png';
 
-const Wrapper = styled(FlexWrapper)`
+const Wrapper = styled(FlexContainer)`
   justify-content: center;
   align-items: center;
   padding: ${vw(32)};

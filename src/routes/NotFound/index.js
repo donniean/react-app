@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { colorPrimary } from '../../assets/styles/variables';
+import Page from '../../components/Page';
 
 function NotFound() {
-  return <h1>Not Found</h1>;
+  const Title = styled.h1``;
+  return (
+    <Page title="404">
+      <Title>Not Found</Title>
+    </Page>
+  );
 }
 
 export default NotFound;

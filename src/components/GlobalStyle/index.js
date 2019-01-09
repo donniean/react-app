@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
+  h1 {
+    margin: 0;
+  }
+
   div#root {
     display: flex;
     flex: 1;

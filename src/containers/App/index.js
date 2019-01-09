@@ -1,11 +1,8 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import styled from 'styled-components';
+import { Switch, Route } from 'react-router-dom';
 
-import { colorPrimary } from '../../assets/styles/variables';
-
-import FlexWrapper from '../../layouts/FlexWrapper';
+import FlexWrapper from '../../components/FlexWrapper';
 import GlobalStyle from '../../components/GlobalStyle';
 
 import Home from '../../routes/Home';

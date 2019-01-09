@@ -9,11 +9,11 @@ import GlobalStyle from '../../components/GlobalStyle';
 import Home from '../../routes/Home';
 import NotFound from '../../routes/NotFound';
 
-function App() {
-  const AppWrapper = styled(FlexWrapper)`
-    flex: 1;
-  `;
+const AppWrapper = styled(FlexWrapper)`
+  flex: 1;
+`;
 
+function App() {
   return (
     <AppWrapper>
       <GlobalStyle />

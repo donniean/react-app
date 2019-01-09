@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import FlexWrapper from '../FlexWrapper';
 import DocumentTitle from '../DocumentTitle';
 
-function Page({ title, children, ...rest }) {
-  const Wrapper = styled(FlexWrapper)`
-    flex: 1;
-  `;
+const Wrapper = styled(FlexWrapper)`
+  flex: 1;
+`;
 
+function Page({ title, children, ...rest }) {
   return (
     <Wrapper {...rest}>
       <DocumentTitle>{title}</DocumentTitle>

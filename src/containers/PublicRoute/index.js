@@ -13,8 +13,7 @@ function PublicRoute({
         isAuthenticated ? (
           <Redirect
             to={{
-              pathname: '/auth/login',
-              search: `?${JSON.stringify(props)}`
+              pathname: '/auth/login'
             }}
           />
         ) : (

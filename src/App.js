@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-
+import { HashRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
 
 import FlexCol from './components/FlexCol';
 import GlobalStyle from './styles/GlobalStyle';
-
-import Home from './routes/Home';
-import NotFound from './routes/NotFound';
+import Routes from './routes';
 
 const AppWrapper = styled(FlexCol)`
   flex: 1;
@@ -16,15 +13,12 @@ const AppWrapper = styled(FlexCol)`
 
 function App() {
   return (
-    <AppWrapper>
+    <Fragment>
       <GlobalStyle />
       <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes />
       </Router>
-    </AppWrapper>
+    </Fragment>
   );
 }
 

@@ -15,8 +15,7 @@ function PrivateRoute({
         ) : (
           <Redirect
             to={{
-              pathname: '/auth/login',
-              search: `?${JSON.stringify(props)}`
+              pathname: '/auth/login'
             }}
           />
         )

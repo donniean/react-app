@@ -2,11 +2,10 @@ import React from 'react';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
 
-import FlexContainer from '../FlexContainer';
+import FlexCol from '../FlexCol';
 import DocumentTitle from '../DocumentTitle';
 
-const Wrapper = styled(FlexContainer)`
-  flex-direction: row;
+const Wrapper = styled(FlexCol)`
   flex: 1;
 `;
 

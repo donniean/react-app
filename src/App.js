@@ -4,11 +4,11 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import FlexCol from '../../components/FlexCol';
-import GlobalStyle from '../../styles/GlobalStyle';
+import FlexCol from './components/FlexCol';
+import GlobalStyle from './styles/GlobalStyle';
 
-import Home from '../../routes/Home';
-import NotFound from '../../routes/NotFound';
+import Home from './routes/Home';
+import NotFound from './routes/NotFound';
 
 const AppWrapper = styled(FlexCol)`
   flex: 1;

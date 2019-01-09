@@ -13,7 +13,7 @@ function PublicRoute({
         isAuthenticated ? (
           <Redirect
             to={{
-              pathname: '/auth/login'
+              pathname: '/'
             }}
           />
         ) : (

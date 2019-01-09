@@ -2,27 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Page from '../../components/Page';
+import FlexWrapper from '../../components/FlexWrapper';
 
 import { vw } from '../../styles/helpers';
 
 function NotFound() {
-  const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  const Wrapper = styled(FlexWrapper)`
+    flex: 1;
     align-items: center;
-    padding: ${vw(32)};
   `;
 
   const Title = styled.h1`
+    margin-top: ${vw(128)};
     font-size: ${vw(48)};
   `;
 
   return (
     <Page title="404">
-      <Container>
+      <Wrapper>
         <Title>Not Found</Title>
-      </Container>
+      </Wrapper>
     </Page>
   );
 }

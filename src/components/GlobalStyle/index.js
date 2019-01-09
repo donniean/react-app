@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
   div#root {
     display: flex;
+    flex-direction: column;
     flex: 1;
   }
 `;

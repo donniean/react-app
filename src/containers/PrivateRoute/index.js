@@ -26,8 +26,7 @@ function PrivateRoute({
 }
 
 PrivateRoute.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
-    .isRequired,
+  component: propTypes.node.isRequired,
   path: PropTypes.string
 };
 

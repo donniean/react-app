@@ -20,7 +20,7 @@ function Page({ title, children, ...rest }) {
 
 Page.propTypes = {
   title: propTypes.string,
-  children: propTypes.oneOfType([propTypes.func, propTypes.element])
+  children: propTypes.node
 };
 
 Page.defaultProps = {

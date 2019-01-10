@@ -26,7 +26,7 @@ function PublicRoute({
 }
 
 PublicRoute.propTypes = {
-  component: propTypes.node.isRequired,
+  component: PropTypes.element.isRequired,
   path: PropTypes.string
 };
 

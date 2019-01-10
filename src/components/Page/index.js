@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import FlexCol from '../FlexCol';
@@ -19,8 +19,8 @@ function Page({ title, children, ...rest }) {
 }
 
 Page.propTypes = {
-  title: propTypes.string,
-  children: propTypes.node
+  title: PropTypes.string,
+  children: PropTypes.node
 };
 
 Page.defaultProps = {

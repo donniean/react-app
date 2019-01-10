@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { vw } from '../../styles/helpers';
+
 import Page from '../../components/Page';
 import FlexCol from '../../components/FlexCol';
-
-import { vw } from '../../styles/helpers';
 
 const Wrapper = styled(FlexCol)`
   flex: 1;

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { vw } from '../../styles/helpers';
+
 import Page from '../../components/Page';
 import FlexCol from '../../components/FlexCol';
-
-import { defaultTheme } from '../../styles/themes';
-import { vw } from '../../styles/helpers';
 
 import logo from '../../assets/images/logo.png';
 
@@ -18,7 +17,7 @@ const Wrapper = styled(FlexCol)`
 const Title = styled.h1`
   margin-top: ${vw(36)};
   font-size: ${vw(64)};
-  color: ${defaultTheme.color.primary};
+  color: ${props => props.theme.color.primary};
 `;
 
 const Image = styled.img`

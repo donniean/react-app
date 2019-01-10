@@ -1,23 +1,22 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
 import { HashRouter as Router } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
-import FlexCol from './components/FlexCol';
 import GlobalStyle from './styles/GlobalStyle';
-import Routes from './routes';
+import { defaultTheme as theme } from './styles/themes';
 
-const AppWrapper = styled(FlexCol)`
-  flex: 1;
-`;
+import Routes from './routes';
 
 function App() {
   return (
     <Fragment>
       <GlobalStyle />
-      <Router>
-        <Routes />
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Routes />
+        </Router>
+      </ThemeProvider>
     </Fragment>
   );
 }

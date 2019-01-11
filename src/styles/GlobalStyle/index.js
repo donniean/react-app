@@ -17,6 +17,20 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  input,
+  button,
+  textarea {
+    appearance: none;
+    outline: 0;
+    box-shadow: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  textarea {
+    resize: none;
+  }
+
   div#root {
     display: flex;
     flex-direction: column;

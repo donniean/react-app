@@ -43,8 +43,9 @@ function checkStatus(response) {
 
 function handleData(data) {
   const status = data.status;
+  const isLoading = false;
   if (status === 1) {
-    return data;
+    return { data, isLoading };
   } else {
     const error = new Error();
     error.type = 0;
@@ -62,6 +63,7 @@ function handleData(data) {
  */
 function handleError(error) {
   const { type, data, response } = error;
+  const isLoading = false;
   let message = '';
   switch (type) {
     case 0:
@@ -75,7 +77,8 @@ function handleError(error) {
       break;
   }
   error.message = message;
-  console.error(error);
+  console.error(type, message);
+  return { error, isLoading };
 }
 
 export default request;

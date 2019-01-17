@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
   }
 
   h1 {

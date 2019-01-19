@@ -20,8 +20,6 @@ const GlobalStyle = createGlobalStyle`
   input,
   button,
   textarea {
-    appearance: none;
-    outline: 0;
     border: 0;
   }
 

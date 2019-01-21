@@ -1,8 +1,8 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const { prodSourceMap } = require('./');
+const { prodSourceMap } = require('.');
 const { root: rootPath } = require('./paths');
 
 const prodConfig = {
@@ -10,9 +10,9 @@ const prodConfig = {
     filename: 'js/[name].[chunkhash].js'
   },
   devtool: prodSourceMap ? 'source-map' : false,
-  // TODO: https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53 , cssnano
   optimization: {
     minimizer: [
+      // TODO: https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53 , cssnano
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
           map: prodSourceMap
@@ -20,7 +20,7 @@ const prodConfig = {
             : { inline: true }
         }
       }),
-      new UglifyJsPlugin({ sourceMap: prodSourceMap })
+      new TerserPlugin({ sourceMap: prodSourceMap })
     ]
   },
   plugins: [new CleanWebpackPlugin(['dist'], { root: rootPath })]

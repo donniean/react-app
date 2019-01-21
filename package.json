@@ -57,6 +57,7 @@
     "qs": "^6.6.0",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.6.3",
+    "react-portal": "^4.2.0",
     "react-router-dom": "^4.4.0-beta.6",
     "sanitize.css": "^8.0.0",
     "styled-components": "^4.1.3",

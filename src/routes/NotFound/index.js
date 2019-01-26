@@ -16,9 +16,9 @@ const Title = styled.h1`
   font-size: ${vw(48)};
 `;
 
-function NotFound() {
+function NotFound({ documentTitle }) {
   return (
-    <Page title="404">
+    <Page documentTitle={documentTitle}>
       <Wrapper>
         <Title>Not Found</Title>
       </Wrapper>

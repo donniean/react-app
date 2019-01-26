@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import AuthRoute from '../containers/AuthRoute';
+
 import Home from './Home';
 import NotFound from './NotFound';
 
@@ -13,7 +15,7 @@ function Routes() {
   return (
     <Switch>
       {routes.map((route, index) => (
-        <Route key={index} {...route} />
+        <AuthRoute key={index} {...route} />
       ))}
     </Switch>
   );

@@ -25,9 +25,9 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
-function Home() {
+function Home({ documentTitle }) {
   return (
-    <Page title="Hello React">
+    <Page documentTitle={documentTitle}>
       <Wrapper>
         <Image src={logo} />
         <Title>Hello React</Title>

@@ -16,7 +16,7 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
           const next = getNextURL(location);
           const search = getSearchStr({ next });
           return isAuthenticated ? (
-            <Component title={title} {...props} />
+            <Component documentTitle={title} {...props} />
           ) : (
             <Redirect
               to={{
@@ -40,7 +40,7 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
               }}
             />
           ) : (
-            <Component title={title} {...props} />
+            <Component documentTitle={title} {...props} />
           )
         }
         {...rest}
@@ -49,7 +49,7 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
   } else {
     return (
       <Route
-        render={props => <Component title={title} {...props} />}
+        render={props => <Component documentTitle={title} {...props} />}
         {...rest}
       />
     );

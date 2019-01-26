@@ -13,10 +13,10 @@ const Wrapper = styled(FlexCol)`
   background-color: ${props => props.bg || props.theme.bg.primary};
 `;
 
-function Page({ title, children, ...rest }) {
+function Page({ documentTitle, children, ...rest }) {
   return (
     <Wrapper {...rest}>
-      <DocumentTitle>{title}</DocumentTitle>
+      <DocumentTitle>{documentTitle}</DocumentTitle>
       {children}
     </Wrapper>
   );

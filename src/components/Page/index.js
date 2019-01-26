@@ -23,12 +23,12 @@ function Page({ documentTitle, children, ...rest }) {
 }
 
 Page.propTypes = {
-  title: PropTypes.string,
+  documentTitle: PropTypes.string,
   children: PropTypes.node
 };
 
 Page.defaultProps = {
-  title: '',
+  documentTitle: '',
   children: null
 };
 

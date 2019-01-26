@@ -5,8 +5,8 @@ import Home from './Home';
 import NotFound from './NotFound';
 
 const routes = [
-  { component: Home, path: '/', exact: true, auth: 1 },
-  { component: NotFound }
+  { component: Home, path: '/', exact: true, auth: 1, title: 'Hello React' },
+  { component: NotFound, title: '404' }
 ];
 
 function Routes() {

@@ -16,7 +16,7 @@ const Wrapper = styled(FlexCol)`
 function Page({ title, children, ...rest }) {
   return (
     <Wrapper {...rest}>
-      <DocumentTitle title={title} />
+      <DocumentTitle>{title}</DocumentTitle>
       {children}
     </Wrapper>
   );

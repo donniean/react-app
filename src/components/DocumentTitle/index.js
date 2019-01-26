@@ -2,16 +2,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
-function DocumentTitle({ title }) {
-  return <Helmet title={title} />;
+function DocumentTitle({ children }) {
+  return <Helmet title={children} />;
 }
 
 DocumentTitle.propTypes = {
-  title: PropTypes.string
+  children: PropTypes.string
 };
 
 DocumentTitle.defaultProps = {
-  title: ''
+  children: ''
 };
 
 export default DocumentTitle;

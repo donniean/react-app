@@ -1,27 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function AuthRoute({
-  auth,
-  component: Component,
-  isAuthenticated = false,
-  ...rest
-}) {
+import { getSearchStr, getNextURL } from '../../utils/url';
+
+function AuthRoute({ auth, component: Component, title, ...rest }) {
+  const token = localStorage.getItem('token');
+  const [isAuthenticated, setIsAuthenticated] = useState(!!token);
+
   if (auth === 1) {
     return (
       <Route
-        render={props =>
-          isAuthenticated ? (
-            <Component {...props} />
+        render={props => {
+          const { location } = props;
+          const next = getNextURL(location);
+          const search = getSearchStr({ next });
+          return isAuthenticated ? (
+            <Component title={title} {...props} />
           ) : (
             <Redirect
               to={{
-                pathname: '/auth/login'
+                pathname: '/auth/login',
+                search
               }}
             />
-          )
-        }
+          );
+        }}
         {...rest}
       />
     );
@@ -36,14 +40,19 @@ function AuthRoute({
               }}
             />
           ) : (
-            <Component {...props} />
+            <Component title={title} {...props} />
           )
         }
         {...rest}
       />
     );
   } else {
-    return <Route component={Component} {...rest} />;
+    return (
+      <Route
+        render={props => <Component title={title} {...props} />}
+        {...rest}
+      />
+    );
   }
 }
 

@@ -97,7 +97,7 @@ const commonConfig = {
   entry: entry,
   output: {
     path: distPath,
-    publicPath: '/'
+    publicPath: ''
   },
   module: {
     rules: [

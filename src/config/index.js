@@ -1,8 +1,9 @@
+import { version, pageSize } from './app';
 import api from './api';
 import baseURLs from './baseURLs';
 
-const env = 0;
+const env = 1;
 
 const baseURL = baseURLs[env];
 
-export { env, api, baseURL, routes };
+export { env, version, baseURL, api, pageSize };

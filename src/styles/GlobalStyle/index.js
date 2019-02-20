@@ -11,15 +11,18 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
+    user-select: none;
+    /* -webkit-touch-callout: none; */
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
 
   input,
   button,
   textarea {
+    outline: 0;
     border: 0;
   }
 

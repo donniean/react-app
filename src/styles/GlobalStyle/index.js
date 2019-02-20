@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     background-color: #ffffff;
     user-select: none;
-    /* -webkit-touch-callout: none; */
+    -webkit-touch-callout: none;
   }
 
   h1, h2, h3, h4, h5, h6, p {
@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
   input,
   button,
   textarea {
+    appearance: none;
     outline: 0;
     border: 0;
   }

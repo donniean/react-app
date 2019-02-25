@@ -13,7 +13,7 @@
     "url": "git+https://github.com/acmilank22/react-webpack-boilerplate.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/acmilank22/react-webpack-boilerplate/issues"
   },

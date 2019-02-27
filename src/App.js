@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 import { Router } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default hot(module)(App);
+export default hot(App);

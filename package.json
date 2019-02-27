@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@hot-loader/react-dom": "^16.8.3",
     "autoprefixer": "^9.4.9",
     "history": "^4.7.2",
     "lodash": "^4.17.11",

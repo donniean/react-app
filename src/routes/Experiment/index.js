@@ -21,7 +21,8 @@ const StyleTabList = styled(TabList)`
   margin: 0;
   padding: 0;
 
-  transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  /* transition: transform 0.3s ease; */
+  transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1);
   will-change: transform;
 `;
 
@@ -42,7 +43,7 @@ function MyTabList({ children }) {
   const [lastTranslateX, setLastTranslateX] = useState(translateX);
 
   function getNewTranslateX({ dir, deltaX }) {
-    const computedTranslateX = lastTranslateX - deltaX + 10;
+    const computedTranslateX = lastTranslateX - deltaX;
     let newTranslateX = 0;
     if (dir === 'Left') {
       if (computedTranslateX > minTranslateX) {

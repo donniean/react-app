@@ -36,41 +36,50 @@ const StyleTab = styled(Tab)`
 
 function MyTabList({ children }) {
   const count = Children.count(children);
-  const minX = -(count - 4) * (screen.width / 4);
+  const minTranslateX = -(count - 4) * (screen.width / 4);
 
   const [translateX, setTranslateX] = useState(0);
+  const [lastTranslateX, setLastTranslateX] = useState(translateX);
+
+  function getNewTranslateX({ dir, deltaX }) {
+    const computedTranslateX = lastTranslateX - deltaX + 10;
+    let newTranslateX = 0;
+    if (dir === 'Left') {
+      if (computedTranslateX > minTranslateX) {
+        newTranslateX = computedTranslateX;
+      } else {
+        newTranslateX = minTranslateX;
+      }
+    } else if (dir === 'Right') {
+      if (computedTranslateX < 0) {
+        newTranslateX = computedTranslateX;
+      } else {
+        newTranslateX = 0;
+      }
+    }
+    return newTranslateX;
+  }
 
   function handleSwiping(eventData) {
-    console.log(eventData);
     const { dir, deltaX } = eventData;
-    setTranslateX(prevTranslateX => {
-      const newTranslateX = prevTranslateX - deltaX / 5;
-      if (dir === 'Left') {
-        if (translateX > minX) {
-          return newTranslateX;
-        } else {
-          return minX;
-        }
-      } else if (dir === 'Right') {
-        if (translateX < 0) {
-          return newTranslateX;
-        } else {
-          return 0;
-        }
-      }
-    });
+    console.log('swiping', deltaX);
+    const newTranslateX = getNewTranslateX({ dir, deltaX });
+    setTranslateX(newTranslateX);
   }
 
   function handleSwiped(eventData) {
-    console.log(eventData);
-    const { deltaX } = eventData;
-    if (translateX <= 0) {
-      setTranslateX(prevTranslateX => prevTranslateX - 10);
+    const { dir, deltaX } = eventData;
+    console.log('swiped', deltaX);
+    if (['Left', 'Right'].includes(dir)) {
+      const newTranslateX = getNewTranslateX({ dir, deltaX });
+      // setTranslateX(newTranslateX);
+      setLastTranslateX(newTranslateX);
     }
   }
 
   const handlers = useSwipeable({
-    onSwiping: handleSwiping
+    onSwiping: handleSwiping,
+    onSwiped: handleSwiped
     // onSwipedLeft: handleSwiped,
     // onSwipedRight: handleSwiped
   });

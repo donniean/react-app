@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Tabs as ReactTabs } from 'react-tabs';
+import { ReactTabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 const StyledTabs = styled(ReactTabs)`
@@ -9,8 +9,8 @@ const StyledTabs = styled(ReactTabs)`
   flex-direction: column;
 `;
 
-function Tabs({ children, ...rest }) {
+function TabPanel({ children, ...rest }) {
   return <StyledTabs {...rest}>{children}</StyledTabs>;
 }
 
-export default Tabs;
+export default TabPanel;

@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import Tabs from './components/Tabs';
+import TabList from './components/TabList';
+import Tab from './components/Tab';
+import TabPanelList from './components/TabPanelList';
+import TabPanel from './components/TabPanel';
 
-const FlexCol = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export default FlexCol;
+export { Tabs, TabList, Tab, TabPanelList, TabPanel };

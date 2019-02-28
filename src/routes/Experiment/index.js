@@ -11,6 +11,14 @@ import { useSwipeable } from 'react-swipeable';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
+/* import {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanelList,
+  TabPanel
+} from '../../components/Tabs'; */
+
 const list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const Container = styled.div`

@@ -76,4 +76,8 @@ function TabPanelList({ children, ...rest }) {
   );
 }
 
+TabPanelList.defaultProps = {};
+
+TabPanelList.propTypes = {};
+
 export default TabPanelList;

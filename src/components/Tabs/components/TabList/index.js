@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useSwipeable } from 'react-swipeable';
 import { TabList as ReactTabList } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+// import 'react-tabs/style/react-tabs.css';
 
 const Container = styled.div`
   overflow-x: hidden;
@@ -79,5 +79,9 @@ function TabList({ children, ...rest }) {
 }
 
 TabList.tabsRole = 'TabList';
+
+TabList.defaultProps = {};
+
+TabList.propTypes = {};
 
 export default TabList;

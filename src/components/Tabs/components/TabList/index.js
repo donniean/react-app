@@ -1,7 +1,9 @@
-import React, { Children, useState } from 'react';
+import React, { Children, cloneElement, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TabList as ReactTabList } from 'react-tabs';
+import findIndex from 'lodash/findIndex';
+import { SizeMe } from 'react-sizeme';
 
 import useAnimation from '../../hooks/useAnimation';
 
@@ -19,9 +21,22 @@ const StyledTabList = styled(ReactTabList)`
 `;
 
 function TabList({ children, ...rest }) {
-  const count = Children.count(children);
-  const minTranslateX = -(count - 4) * (screen.width / 4);
+  let index = 0;
+  let widthList = [];
+  const [minTranslateX, setMinTranslateX] = useState(0);
   const { handlers, translateX } = useAnimation({ minTranslateX });
+
+  useEffect(() => {
+    console.log(widthList);
+    for (const key of widthList) {
+      const value = widthList[key];
+      console.log(value);
+    }
+    // const allWidth = widthList.reduce(
+    //   (previousValue, currentValue) => previousValue + currentValue
+    // );
+    // console.log(allWidth);
+  });
 
   return (
     <Container>
@@ -30,7 +45,20 @@ function TabList({ children, ...rest }) {
         {...handlers}
         {...rest}
       >
-        {children}
+        {Children.map(children, child => (
+          <SizeMe>
+            {({ size }) => {
+              console.log(child);
+              const { key } = child;
+              const { width } = size;
+              widthList[index++] = {
+                key,
+                width
+              };
+              return child;
+            }}
+          </SizeMe>
+        ))}
       </StyledTabList>
     </Container>
   );

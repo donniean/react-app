@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Children, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import { useSwipeable } from 'react-swipeable';
 import { TabList as ReactTabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 

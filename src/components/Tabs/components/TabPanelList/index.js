@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Children, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useSwipeable } from 'react-swipeable';
 
 const Container = styled.div`
   overflow-x: hidden;
@@ -73,7 +75,5 @@ function TabPanelList({ children, ...rest }) {
     </Container>
   );
 }
-
-MyTab.tabsRole = 'Tab';
 
 export default TabPanelList;

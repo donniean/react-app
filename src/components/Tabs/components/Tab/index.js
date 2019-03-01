@@ -1,16 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactTabs } from 'react-tabs';
+import { Tab as ReactTab } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-const StyledTabs = styled(ReactTabs)`
+const StyleTab = styled(ReactTab)`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 25%;
+  padding: 20px;
 `;
 
 function Tab({ children, ...rest }) {
-  return <StyledTabs {...rest}>{children}</StyledTabs>;
+  return <StyleTab {...rest}>{children}</StyleTab>;
 }
 
 export default Tab;

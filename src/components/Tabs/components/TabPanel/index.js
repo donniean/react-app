@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactTabs } from 'react-tabs';
+import { TabPanel as ReactTabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-const StyledTabs = styled(ReactTabs)`
-  display: flex;
-  flex-direction: column;
-`;
+const StyledTabPanel = styled(ReactTabPanel)``;
 
 function TabPanel({ children, ...rest }) {
-  return <StyledTabs {...rest}>{children}</StyledTabs>;
+  return <StyledTabPanel {...rest}>{children}</StyledTabPanel>;
 }
 
 export default TabPanel;

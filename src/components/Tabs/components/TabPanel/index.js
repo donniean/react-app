@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { TabPanel as ReactTabPanel } from 'react-tabs';
-// import 'react-tabs/style/react-tabs.css';
 
-const StyledTabPanel = styled(ReactTabPanel)``;
+const StyledTabPanel = styled(ReactTabPanel)`
+  flex-shrink: 0;
+  width: 100%;
+`;
 
 function TabPanel({ children, ...rest }) {
   return <StyledTabPanel {...rest}>{children}</StyledTabPanel>;

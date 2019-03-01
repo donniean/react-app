@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Tab as ReactTab } from 'react-tabs';
-// import 'react-tabs/style/react-tabs.css';
 
 const StyleTab = styled(ReactTab)`
   display: flex;

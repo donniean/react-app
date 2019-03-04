@@ -2,10 +2,30 @@ import React, { Children, cloneElement, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TabList as ReactTabList } from 'react-tabs';
-import findIndex from 'lodash/findIndex';
-import { SizeMe } from 'react-sizeme';
+import { withSize } from 'react-sizeme';
+import Measure from 'react-measure';
 
 import useAnimation from '../../hooks/useAnimation';
+
+const a = [
+  { k: '.$0', width: 80.1875 },
+  { k: '.$1', width: 87.15625 },
+  { k: '.$2', width: 79.78125 },
+  { k: '.$3', width: 80.140625 },
+  { k: '.$4', width: 80.40625 },
+  { k: '.$5', width: 98.703125 },
+  { k: '.$6', width: 80.3125 },
+  { k: '.$7', width: 79.234375 },
+  { k: '.$8', width: 80.328125 },
+  { k: '.$9', width: 80.3125 }
+];
+let sum = a.reduce((p, c) => p.width + c.width);
+
+sum = 0;
+a.forEach(({ width }) => {
+  sum += width;
+});
+console.log(sum);
 
 const Container = styled.div`
   overflow-x: hidden;
@@ -20,22 +40,29 @@ const StyledTabList = styled(ReactTabList)`
   will-change: transform;
 `;
 
-function TabList({ children, ...rest }) {
-  let index = 0;
-  let widthList = [];
+function TabList({ size, children, ...rest }) {
+  const [widthList, setWidthList] = useState([]);
   const [minTranslateX, setMinTranslateX] = useState(0);
   const { handlers, translateX } = useAnimation({ minTranslateX });
 
-  useEffect(() => {
-    console.log(widthList);
-    for (const key of widthList) {
-      const value = widthList[key];
-      console.log(value);
+  function setWidth({ index, width }) {
+    // console.log('TabList', index, width, widthList);
+    const newWidthList = Object.assign([], widthList);
+    if (width > 0) {
+      newWidthList[index] = width;
+      setWidthList(newWidthList);
     }
-    // const allWidth = widthList.reduce(
-    //   (previousValue, currentValue) => previousValue + currentValue
-    // );
-    // console.log(allWidth);
+  }
+
+  function onSize(index, { width }) {
+    console.log(arguments);
+    setWidthList([width]);
+  }
+
+  console.log(widthList);
+
+  useEffect(() => {
+    // console.log(widthList);
   });
 
   return (
@@ -45,21 +72,15 @@ function TabList({ children, ...rest }) {
         {...handlers}
         {...rest}
       >
-        {Children.map(children, child => (
-          <SizeMe>
-            {({ size }) => {
-              console.log(child);
-              const { key } = child;
-              const { width } = size;
-              const i = findIndex(widthList, { key });
-              widthList[index++] = {
-                key,
-                width
-              };
-              return child;
-            }}
-          </SizeMe>
-        ))}
+        {Children.map(children, (child, index) =>
+          cloneElement(child, {
+            index,
+            setWidth,
+            onSize: index => {
+              console.log(index);
+            }
+          })
+        )}
       </StyledTabList>
     </Container>
   );
@@ -71,4 +92,4 @@ TabList.defaultProps = {};
 
 TabList.propTypes = {};
 
-export default TabList;
+export default withSize()(TabList);

@@ -51,6 +51,7 @@ function TabList({ children, ...rest }) {
               console.log(child);
               const { key } = child;
               const { width } = size;
+              const i = findIndex(widthList, { key });
               widthList[index++] = {
                 key,
                 width

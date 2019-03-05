@@ -42,13 +42,13 @@ function TabList({ size, children, ...rest }) {
     widthList.length > 0 ? size.width - widthList.reduce((p, c) => p + c) : 0;
   const { handlers, translateX } = useAnimation({ minTranslateX });
 
-  const style = { transform: `translateX(-5px)`, color: '' };
-
-  console.log(style);
-
   return (
     <Container>
-      <StyledTabList style={style} {...handlers} {...rest}>
+      <StyledTabList
+        style={{ transform: `translateX(${translateX}px)` }}
+        {...handlers}
+        {...rest}
+      >
         {Children.map(children, (child, index) =>
           cloneElement(child, {
             onSize: ({ width }) => {

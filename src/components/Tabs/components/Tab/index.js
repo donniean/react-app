@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sizeMe from 'react-sizeme';
 
-import { Tab as ReactTab } from 'react-tabs';
-
-const StyleTab = styled(ReactTab)`
+const StyleTab = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,4 +20,4 @@ Tab.defaultProps = {};
 
 Tab.propTypes = {};
 
-export default sizeMe()(Tab);
+export default Tab;

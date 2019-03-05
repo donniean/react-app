@@ -1,8 +1,13 @@
-import React, { Children, cloneElement, useState, useEffect } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  useState,
+  useEffect,
+  useRef
+} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TabList as ReactTabList } from 'react-tabs';
-import { withSize } from 'react-sizeme';
+import sizeMe, { SizeMe, withSize } from 'react-sizeme';
 
 import useAnimation from '../../hooks/useAnimation';
 
@@ -10,7 +15,11 @@ const Container = styled.div`
   overflow-x: hidden;
 `;
 
-const StyledTabList = styled(ReactTabList)`
+function TabListContainer() {
+  return <SizeMe>{({ width }) => <Container width={width} />}</SizeMe>;
+}
+
+const StyledTabList = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
@@ -38,12 +47,18 @@ function TabList({ size, children, ...rest }) {
 
   useEffect(() => {});
 
+  const ref = useRef(null);
+
   const minTranslateX =
-    widthList.length > 0 ? size.width - widthList.reduce((p, c) => p + c) : 0;
+    widthList.length > 0
+      ? ref.current.clientWidth - widthList.reduce((p, c) => p + c)
+      : 0;
   const { handlers, translateX } = useAnimation({ minTranslateX });
 
+  console.log(ref);
+
   return (
-    <Container>
+    <Container ref={ref}>
       <StyledTabList
         style={{ transform: `translateX(${translateX}px)` }}
         {...handlers}
@@ -51,9 +66,9 @@ function TabList({ size, children, ...rest }) {
       >
         {Children.map(children, (child, index) =>
           cloneElement(child, {
-            onSize: ({ width }) => {
-              handleSize({ index, width });
-            }
+            // onSize: ({ width }) => {
+            //   handleSize({ index, width });
+            // }
           })
         )}
       </StyledTabList>
@@ -61,10 +76,8 @@ function TabList({ size, children, ...rest }) {
   );
 }
 
-TabList.tabsRole = 'TabList';
-
 TabList.defaultProps = {};
 
 TabList.propTypes = {};
 
-export default withSize()(TabList);
+export default TabList;

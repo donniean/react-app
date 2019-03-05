@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Tabs as ReactTabs } from 'react-tabs';
 
-const StyledTabs = styled(ReactTabs)`
+const StyledTabs = styled.div`
   display: flex;
   flex-direction: column;
 `;

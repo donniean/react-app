@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { TabPanel as ReactTabPanel } from 'react-tabs';
-
-const StyledTabPanel = styled(ReactTabPanel)`
+const StyledTabPanel = styled.div`
   flex-shrink: 0;
   width: 100%;
 `;

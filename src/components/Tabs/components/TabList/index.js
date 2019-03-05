@@ -66,9 +66,9 @@ function TabList({ size, children, ...rest }) {
       >
         {Children.map(children, (child, index) =>
           cloneElement(child, {
-            // onSize: ({ width }) => {
-            //   handleSize({ index, width });
-            // }
+            onSize: ({ width }) => {
+              handleSize({ index, width });
+            }
           })
         )}
       </StyledTabList>

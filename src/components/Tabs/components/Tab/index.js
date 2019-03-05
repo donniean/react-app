@@ -8,7 +8,6 @@ const StyleTab = styled.li`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  /* width: 25%; */
   padding: 20px;
 `;
 

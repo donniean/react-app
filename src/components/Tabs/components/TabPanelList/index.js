@@ -8,7 +8,7 @@ const Container = styled.div`
   overflow-x: hidden;
 `;
 
-const StyleTabPanelList = styled.div`
+const List = styled.div`
   display: flex;
   margin: 0;
   padding: 0;
@@ -26,13 +26,13 @@ function TabPanelList({ children, ...rest }) {
 
   return (
     <Container>
-      <StyleTabPanelList
+      <List
         style={{ transform: `translate(${translateX}px, 0)` }}
         {...handlers}
         {...rest}
       >
         {children}
-      </StyleTabPanelList>
+      </List>
     </Container>
   );
 }

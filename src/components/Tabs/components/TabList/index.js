@@ -1,13 +1,6 @@
-import React, {
-  Children,
-  cloneElement,
-  useState,
-  useEffect,
-  useRef
-} from 'react';
+import React, { Children, cloneElement, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sizeMe, { SizeMe, withSize } from 'react-sizeme';
 
 import useAnimation from '../../hooks/useAnimation';
 
@@ -15,23 +8,17 @@ const Container = styled.div`
   overflow-x: hidden;
 `;
 
-function TabListContainer() {
-  return <SizeMe>{({ width }) => <Container width={width} />}</SizeMe>;
-}
-
-const StyledTabList = styled.ul`
+const List = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
-
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   will-change: transform;
 `;
 
 function TabList({ size, children, ...rest }) {
   const [widthList, setWidthList] = useState([]);
-  // const [minTranslateX, setMinTranslateX] = useState(0);
-  // const { handlers, translateX } = useAnimation({ minTranslateX });
+  const ref = useRef(null);
 
   function setWidth({ index, width }) {
     if (width > 0) {
@@ -45,21 +32,30 @@ function TabList({ size, children, ...rest }) {
     setWidth({ index, width });
   }
 
-  useEffect(() => {});
+  function getMinTranslateX() {
+    let [minTranslateX, containerWidth, listWidth] = [0, 0, 0];
+    const conditionRef = ref && ref.current;
+    const conditionWidthList = widthList.length > 0;
+    if (conditionRef) {
+      containerWidth = ref.current.clientWidth;
+    }
+    if (conditionWidthList) {
+      listWidth = widthList.reduce((p, c) => p + c);
+    }
+    if (conditionRef && conditionWidthList) {
+      minTranslateX = containerWidth - listWidth;
+    }
+    return minTranslateX;
+  }
 
-  const ref = useRef(null);
-
-  const minTranslateX =
-    widthList.length > 0
-      ? ref.current.clientWidth - widthList.reduce((p, c) => p + c)
-      : 0;
+  const minTranslateX = getMinTranslateX();
   const { handlers, translateX } = useAnimation({ minTranslateX });
 
-  console.log(ref);
+  console.log(translateX);
 
   return (
     <Container ref={ref}>
-      <StyledTabList
+      <List
         style={{ transform: `translateX(${translateX}px)` }}
         {...handlers}
         {...rest}
@@ -71,7 +67,7 @@ function TabList({ size, children, ...rest }) {
             }
           })
         )}
-      </StyledTabList>
+      </List>
     </Container>
   );
 }

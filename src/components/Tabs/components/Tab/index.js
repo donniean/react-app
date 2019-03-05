@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sizeMe, { SizeMe, withSize } from 'react-sizeme';
+import sizeMe from 'react-sizeme';
 
 import { Tab as ReactTab } from 'react-tabs';
 
@@ -14,14 +14,7 @@ const StyleTab = styled(ReactTab)`
   padding: 20px;
 `;
 
-function Tab({ index, size, setWidth, children, ...rest }) {
-  // console.log(index, size);
-  // const { width } = size;
-
-  useEffect(() => {
-    // setWidth({ index, width });
-  }, []);
-
+function Tab({ children, ...rest }) {
   return <StyleTab {...rest}>{children}</StyleTab>;
 }
 

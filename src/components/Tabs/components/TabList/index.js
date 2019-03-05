@@ -3,24 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TabList as ReactTabList } from 'react-tabs';
 import { withSize } from 'react-sizeme';
-import Measure from 'react-measure';
 
 import useAnimation from '../../hooks/useAnimation';
-
-const a = [
-  80.1875,
-  77.578125,
-  89.125,
-  99.578125,
-  110.359375,
-  118.359375,
-  129.71875,
-  133.9375,
-  149.671875,
-  159.375
-];
-let sum = a.reduce((p, c) => p + c);
-console.log(sum);
 
 const Container = styled.div`
   overflow-x: hidden;
@@ -37,8 +21,8 @@ const StyledTabList = styled(ReactTabList)`
 
 function TabList({ size, children, ...rest }) {
   const [widthList, setWidthList] = useState([]);
-  const [minTranslateX, setMinTranslateX] = useState(0);
-  const { handlers, translateX } = useAnimation({ minTranslateX });
+  // const [minTranslateX, setMinTranslateX] = useState(0);
+  // const { handlers, translateX } = useAnimation({ minTranslateX });
 
   function setWidth({ index, width }) {
     if (width > 0) {
@@ -48,33 +32,25 @@ function TabList({ size, children, ...rest }) {
     }
   }
 
-  function getAllWidth() {
-    const allWidth =
-      widthList.length > 0 ? widthList.reduce((p, c) => p + c) : 0;
-  }
-
   function handleSize({ index, width }) {
     setWidth({ index, width });
   }
 
   useEffect(() => {});
 
-  console.log(
-    widthList,
-    widthList.length > 0 ? widthList.reduce((p, c) => p + c) : 0
-  );
+  const minTranslateX =
+    widthList.length > 0 ? size.width - widthList.reduce((p, c) => p + c) : 0;
+  const { handlers, translateX } = useAnimation({ minTranslateX });
+
+  const style = { transform: `translateX(-5px)`, color: '' };
+
+  console.log(style);
 
   return (
     <Container>
-      <StyledTabList
-        style={{ transform: `translate(${translateX}px, 0)` }}
-        {...handlers}
-        {...rest}
-      >
+      <StyledTabList style={style} {...handlers} {...rest}>
         {Children.map(children, (child, index) =>
           cloneElement(child, {
-            index,
-            setWidth,
             onSize: ({ width }) => {
               handleSize({ index, width });
             }

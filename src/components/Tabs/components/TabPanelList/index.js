@@ -1,4 +1,4 @@
-import React, { Children, useState } from 'react';
+import React, { Children, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -19,15 +19,17 @@ const List = styled.div`
 
 function TabPanelList({ children, ...rest }) {
   const count = Children.count(children);
-  const minTranslateX = -(count - 1) * screen.width;
+  const ref = useRef(null);
+  const containerWidth = ref && ref.current && ref.current.clientWidth;
+  const minTranslateX = -(count - 1) * 100;
   const { handlers, translateX, lastTranslateX } = useAnimation({
     minTranslateX
   });
 
   return (
-    <Container>
+    <Container ref={ref}>
       <List
-        style={{ transform: `translate(${translateX}px, 0)` }}
+        style={{ transform: `translate(${translateX}%, 0)` }}
         {...handlers}
         {...rest}
       >

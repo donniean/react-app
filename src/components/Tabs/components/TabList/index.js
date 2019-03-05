@@ -8,23 +8,18 @@ import Measure from 'react-measure';
 import useAnimation from '../../hooks/useAnimation';
 
 const a = [
-  { k: '.$0', width: 80.1875 },
-  { k: '.$1', width: 87.15625 },
-  { k: '.$2', width: 79.78125 },
-  { k: '.$3', width: 80.140625 },
-  { k: '.$4', width: 80.40625 },
-  { k: '.$5', width: 98.703125 },
-  { k: '.$6', width: 80.3125 },
-  { k: '.$7', width: 79.234375 },
-  { k: '.$8', width: 80.328125 },
-  { k: '.$9', width: 80.3125 }
+  80.1875,
+  77.578125,
+  89.125,
+  99.578125,
+  110.359375,
+  118.359375,
+  129.71875,
+  133.9375,
+  149.671875,
+  159.375
 ];
-let sum = a.reduce((p, c) => p.width + c.width);
-
-sum = 0;
-a.forEach(({ width }) => {
-  sum += width;
-});
+let sum = a.reduce((p, c) => p + c);
 console.log(sum);
 
 const Container = styled.div`
@@ -46,24 +41,28 @@ function TabList({ size, children, ...rest }) {
   const { handlers, translateX } = useAnimation({ minTranslateX });
 
   function setWidth({ index, width }) {
-    // console.log('TabList', index, width, widthList);
-    const newWidthList = Object.assign([], widthList);
     if (width > 0) {
-      newWidthList[index] = width;
+      widthList[index] = width;
+      const newWidthList = Object.assign([], widthList);
       setWidthList(newWidthList);
     }
   }
 
-  function onSize(index, { width }) {
-    console.log(arguments);
-    setWidthList([width]);
+  function getAllWidth() {
+    const allWidth =
+      widthList.length > 0 ? widthList.reduce((p, c) => p + c) : 0;
   }
 
-  console.log(widthList);
+  function handleSize({ index, width }) {
+    setWidth({ index, width });
+  }
 
-  useEffect(() => {
-    // console.log(widthList);
-  });
+  useEffect(() => {});
+
+  console.log(
+    widthList,
+    widthList.length > 0 ? widthList.reduce((p, c) => p + c) : 0
+  );
 
   return (
     <Container>
@@ -76,8 +75,8 @@ function TabList({ size, children, ...rest }) {
           cloneElement(child, {
             index,
             setWidth,
-            onSize: index => {
-              console.log(index);
+            onSize: ({ width }) => {
+              handleSize({ index, width });
             }
           })
         )}

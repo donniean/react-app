@@ -19,4 +19,4 @@ Tab.defaultProps = {};
 
 Tab.propTypes = {};
 
-export default Tab;
+export default sizeMe()(Tab);

@@ -23,7 +23,7 @@ const prodConfig = {
       new TerserPlugin({ sourceMap: prodSourceMap })
     ]
   },
-  plugins: [new CleanWebpackPlugin(['dist'], { root: rootPath })]
+  plugins: [new CleanWebpackPlugin()]
 };
 
 module.exports = prodConfig;

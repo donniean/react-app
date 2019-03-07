@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
     background-color: #ffffff;
     user-select: none;
     -webkit-touch-callout: none;

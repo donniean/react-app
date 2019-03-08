@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
 
 import useAnimation from '../../hooks/useAnimation';
+import TabListBorder from '../TabListBorder';
 
 const Container = styled.div`
   overflow-x: hidden;
 `;
 
 const List = styled.ul`
+  position: relative;
   display: flex;
   margin: 0;
   padding: 0;
@@ -66,6 +68,7 @@ function TabList({ children, ...rest }) {
             }
           })
         )}
+        <TabListBorder />
       </List>
     </Container>
   );

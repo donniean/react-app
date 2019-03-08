@@ -3,7 +3,7 @@ import { useSwipeable } from 'react-swipeable';
 
 import { getTranslateX } from '../../utils/animation';
 
-function useAnimation({ type = 0, minTranslateX }) {
+function useAnimation({ minTranslateX }) {
   const [translateX, setTranslateX] = useState(0);
   const [lastTranslateX, setLastTranslateX] = useState(translateX);
 

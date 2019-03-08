@@ -13,6 +13,8 @@ function Tabs({ children, ...rest }) {
 
 Tabs.defaultProps = {};
 
-Tabs.propTypes = {};
+Tabs.propTypes = {
+  children: PropTypes.node
+};
 
 export default Tabs;

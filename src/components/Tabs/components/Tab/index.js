@@ -17,6 +17,8 @@ function Tab({ children, ...rest }) {
 
 Tab.defaultProps = {};
 
-Tab.propTypes = {};
+Tab.propTypes = {
+  children: PropTypes.node
+};
 
 export default sizeMe()(Tab);

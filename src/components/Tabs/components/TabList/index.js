@@ -1,6 +1,7 @@
 import React, { Children, cloneElement, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import SwipeableViews from 'react-swipeable-views';
 
 import useAnimation from '../../hooks/useAnimation';
 
@@ -16,7 +17,7 @@ const List = styled.ul`
   will-change: transform;
 `;
 
-function TabList({ size, children, ...rest }) {
+function TabList({ children, ...rest }) {
   const [widthList, setWidthList] = useState([]);
   const ref = useRef(null);
 
@@ -51,8 +52,6 @@ function TabList({ size, children, ...rest }) {
   const minTranslateX = getMinTranslateX();
   const { handlers, translateX } = useAnimation({ minTranslateX });
 
-  console.log(translateX);
-
   return (
     <Container ref={ref}>
       <List
@@ -74,6 +73,8 @@ function TabList({ size, children, ...rest }) {
 
 TabList.defaultProps = {};
 
-TabList.propTypes = {};
+TabList.propTypes = {
+  children: PropTypes.node
+};
 
 export default TabList;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -7,13 +7,18 @@ const StyledTabs = styled.div`
   flex-direction: column;
 `;
 
-function Tabs({ children, ...rest }) {
+function Tabs({ defaultIndex, children, ...rest }) {
   return <StyledTabs {...rest}>{children}</StyledTabs>;
 }
 
-Tabs.defaultProps = {};
+Tabs.defaultProps = {
+  defaultIndex: 0,
+  activeColor: '#61dafb'
+};
 
 Tabs.propTypes = {
+  defaultIndex: PropTypes.number,
+  activeColor: PropTypes.string,
   children: PropTypes.node
 };
 

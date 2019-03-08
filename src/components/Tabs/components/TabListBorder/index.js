@@ -7,7 +7,7 @@ const Border = styled.div`
   bottom: 0;
   height: 3px;
   width: 50px;
-  background-color: #61dafb;
+  background-color: ${props => props.color},
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   will-change: transform;
 `;
@@ -15,6 +15,7 @@ const Border = styled.div`
 const translateX = 0;
 
 function TabListBorder({ ...rest }) {
+  console.log(rest);
   return <Border style={{ transform: `translateX(${translateX}px)` }} />;
 }
 

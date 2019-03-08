@@ -19,7 +19,7 @@ const List = styled.ul`
   will-change: transform;
 `;
 
-function TabList({ children, ...rest }) {
+function TabList({ activeColor, children, ...rest }) {
   const [widthList, setWidthList] = useState([]);
   const ref = useRef(null);
 
@@ -68,7 +68,7 @@ function TabList({ children, ...rest }) {
             }
           })
         )}
-        <TabListBorder />
+        <TabListBorder color={activeColor} />
       </List>
     </Container>
   );
@@ -77,6 +77,7 @@ function TabList({ children, ...rest }) {
 TabList.defaultProps = {};
 
 TabList.propTypes = {
+  activeColor: PropTypes.string,
   children: PropTypes.node
 };
 

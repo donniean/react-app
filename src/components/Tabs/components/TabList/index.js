@@ -27,7 +27,7 @@ const List = styled.ul`
 `;
 
 function TabList({ children, ...rest }) {
-  const { index: activeIndex } = useContext(Context);
+  const { index: activeIndex, activeColor } = useContext(Context);
 
   const [widthList, setWidthList] = useState([]);
   const ref = useRef(null);
@@ -74,7 +74,9 @@ function TabList({ children, ...rest }) {
           cloneElement(child, {
             index,
             activeIndex,
+            activeColor,
             onSize: ({ width }) => {
+              console.log(index, width);
               handleSize({ index, width });
             }
           })

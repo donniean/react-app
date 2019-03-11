@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sizeMe from 'react-sizeme';
@@ -11,17 +11,20 @@ const StyleTab = styled.li`
   align-items: center;
   flex-shrink: 0;
   padding: 10px;
-  color: ${props => console.log(props)};
 `;
 
-function Tab({ index, activeIndex, children, ...rest }) {
-  const { activeColor } = useContext(Context);
+function getColor({ index, activeIndex, activeColor }) {
   const color = index === activeIndex ? activeColor : '';
+  console.log(index);
+  return color;
+}
 
-  const a = { color: 'red' };
+function Tab({ index, children, ...rest }) {
+  const ref = useRef(null);
+  console.log(index, ref, ref && ref.current && ref.current.clientWidth);
 
   return (
-    <StyleTab className={a} style={{ color }} {...rest}>
+    <StyleTab ref={ref} {...rest}>
       {children}
     </StyleTab>
   );

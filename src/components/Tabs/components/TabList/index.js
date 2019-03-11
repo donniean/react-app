@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
 
-import { Context, Provider } from '../../context';
+import { Context } from '../../context';
 import useAnimation from '../../hooks/useAnimation';
 import TabListBorder from '../TabListBorder';
 
@@ -27,8 +27,7 @@ const List = styled.ul`
 `;
 
 function TabList({ children, ...rest }) {
-  const context = useContext(Context);
-  console.log(context);
+  const { index: activeIndex } = useContext(Context);
 
   const [widthList, setWidthList] = useState([]);
   const ref = useRef(null);
@@ -73,6 +72,8 @@ function TabList({ children, ...rest }) {
       >
         {Children.map(children, (child, index) =>
           cloneElement(child, {
+            index,
+            activeIndex,
             onSize: ({ width }) => {
               handleSize({ index, width });
             }

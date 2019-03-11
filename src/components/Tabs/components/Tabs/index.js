@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -10,8 +10,10 @@ const StyledTabs = styled.div`
 `;
 
 function Tabs({ defaultIndex, children, ...rest }) {
+  const [index, setIndex] = useState(defaultIndex);
+
   return (
-    <Provider defaultIndex={defaultIndex} {...rest}>
+    <Provider index={index} setIndex={setIndex} {...rest}>
       <StyledTabs>{children}</StyledTabs>
     </Provider>
   );

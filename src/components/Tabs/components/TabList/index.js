@@ -1,8 +1,15 @@
-import React, { Children, cloneElement, useState, useRef } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  useState,
+  useContext,
+  useRef
+} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
 
+import { Context, Provider } from '../../context';
 import useAnimation from '../../hooks/useAnimation';
 import TabListBorder from '../TabListBorder';
 
@@ -19,7 +26,10 @@ const List = styled.ul`
   will-change: transform;
 `;
 
-function TabList({ activeColor, children, ...rest }) {
+function TabList({ children, ...rest }) {
+  const context = useContext(Context);
+  console.log(context);
+
   const [widthList, setWidthList] = useState([]);
   const ref = useRef(null);
 
@@ -68,7 +78,7 @@ function TabList({ activeColor, children, ...rest }) {
             }
           })
         )}
-        <TabListBorder color={activeColor} />
+        <TabListBorder />
       </List>
     </Container>
   );
@@ -77,7 +87,6 @@ function TabList({ activeColor, children, ...rest }) {
 TabList.defaultProps = {};
 
 TabList.propTypes = {
-  activeColor: PropTypes.string,
   children: PropTypes.node
 };
 

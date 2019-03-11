@@ -1,14 +1,10 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 
-let defaultValue = {};
-
-const setValue = function() {};
-
 const Context = createContext();
 
-function Provider({ children }) {
-  return <Context.Provider value={defaultValue}>{children}</Context.Provider>;
+function Provider({ children, ...rest }) {
+  return <Context.Provider value={rest}>{children}</Context.Provider>;
 }
 
 Provider.defaultProps = {};

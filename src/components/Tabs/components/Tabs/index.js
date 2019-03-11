@@ -2,13 +2,19 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { Context, Provider } from '../../context';
+
 const StyledTabs = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
 function Tabs({ defaultIndex, children, ...rest }) {
-  return <StyledTabs {...rest}>{children}</StyledTabs>;
+  return (
+    <Provider defaultIndex={defaultIndex} {...rest}>
+      <StyledTabs>{children}</StyledTabs>
+    </Provider>
+  );
 }
 
 Tabs.defaultProps = {

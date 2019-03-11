@@ -15,7 +15,6 @@ const Border = styled.div`
 const translateX = 0;
 
 function TabListBorder({ ...rest }) {
-  console.log(rest);
   return <Border style={{ transform: `translateX(${translateX}px)` }} />;
 }
 

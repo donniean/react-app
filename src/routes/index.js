@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import AuthRoute from '../containers/AuthRoute';
 
 import Home from './Home';
-import Experiment from './Experiment';
 import NotFound from './NotFound';
 
 const routes = [

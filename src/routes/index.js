@@ -9,13 +9,6 @@ import NotFound from './NotFound';
 
 const routes = [
   { component: Home, path: '/', exact: true, auth: 0, title: 'Hello React' },
-  {
-    component: Experiment,
-    path: '/experiment',
-    exact: true,
-    auth: 0,
-    title: 'experiment'
-  },
   { component: NotFound, title: '404' }
 ];
 

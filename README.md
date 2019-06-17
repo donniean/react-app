@@ -1,4 +1,4 @@
-# react-webpack-boilerplate
+# react-app-boilerplate
 
 ```shell
 npm install

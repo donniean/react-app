@@ -1,4 +1,4 @@
-const title = 'React Webpack Boilerplate';
+const title = 'React App Boilerplate';
 
 const htmlList = [
   {

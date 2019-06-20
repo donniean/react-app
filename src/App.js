@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Router } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from './styles/GlobalStyle';
 import { defaultTheme as theme } from './styles/themes';
@@ -22,5 +22,12 @@ function App() {
     </Fragment>
   );
 }
+
+const url = 'api/data/api.svt?f=zdg.task.scene.list';
+fetch(url, {
+  method: 'POST'
+})
+  .then(response => response.json())
+  .then(res => console.log(res));
 
 export default hot(App);

@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import merge from 'lodash/merge';
 
-function fetchData(url, options = {}) {
+function fetchBase(url, options = {}) {
   const defaultOptions = {
     method: 'POST',
     headers: {
@@ -79,4 +79,4 @@ function handleError(error) {
   return Promise.reject(error);
 }
 
-export default fetchData;
+export default fetchBase;

@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 
 import { baseURL } from '../../config/';
-import fetchData from './fetchData';
+import fetchBase from './fetchBase';
 
 async function request(url, options, settings = {}) {
   const defaultSettings = {
@@ -16,7 +16,7 @@ async function request(url, options, settings = {}) {
   url = `${baseURL}${url}`;
 
   try {
-    const data = await fetchData(url, options);
+    const data = await fetchBase(url, options);
     return data;
   } catch (error) {
     throw error;

@@ -1,6 +1,6 @@
 const title = 'React App Boilerplate';
 
-const htmlList = [
+const pages = [
   {
     input: {
       html: 'index',
@@ -16,4 +16,4 @@ const htmlList = [
 
 const faviconAppTitle = title;
 
-module.exports = { htmlList, faviconAppTitle };
+module.exports = { pages, faviconAppTitle };

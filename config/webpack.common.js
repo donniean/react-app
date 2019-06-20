@@ -5,7 +5,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const { prodSourceMap } = require('./');
-const { htmlList, faviconAppTitle } = require('./html');
+const { pages, faviconAppTitle } = require('./pages');
 const { env, prodMode } = require('./env');
 const { public: publicPath, src: srcPath, dist: distPath } = require('./paths');
 
@@ -14,9 +14,9 @@ const { public: publicPath, src: srcPath, dist: distPath } = require('./paths');
  */
 const entry = (() => {
   let entry = {};
-  for (const item of htmlList) {
-    const inputJSName = item.input.js;
-    const outputJSName = item.output.js;
+  for (const page of pages) {
+    const inputJSName = page.input.js;
+    const outputJSName = page.output.js;
     const entryPath = path.resolve(srcPath, inputJSName);
     entry[outputJSName] = ['@babel/polyfill', entryPath];
   }
@@ -32,8 +32,8 @@ const HtmlWebpackPluginList = (() => {
     removeComments: true
   };
   const minify = prodMode ? minifyOptions : false;
-  for (const item of htmlList) {
-    const { input, output } = item;
+  for (const page of pages) {
+    const { input, output } = page;
     const inputHTML = input.html;
     const outputHTML = output.html;
     const title = output.htmlTitle;

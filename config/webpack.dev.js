@@ -18,16 +18,7 @@ const devConfig = {
     historyApiFallback: true,
     host: '0.0.0.0',
     hot: true,
-    port: 8080,
-    proxy: {
-      '/proxyApi': {
-        target: 'http://zdg.zdtx123.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/proxyApi': ''
-        }
-      }
-    }
+    port: 8080
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

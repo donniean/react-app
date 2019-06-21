@@ -23,11 +23,4 @@ function App() {
   );
 }
 
-const url = 'api/data/api.svt?f=zdg.task.scene.list';
-fetch(url, {
-  method: 'POST'
-})
-  .then(response => response.json())
-  .then(res => console.log(res));
-
 export default hot(App);

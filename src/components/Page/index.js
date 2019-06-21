@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import FlexCol from '../FlexCol';
-import DocumentTitle from '../DocumentTitle';
 
 const Wrapper = styled(FlexCol)`
   flex: 1;
@@ -14,12 +13,7 @@ const Wrapper = styled(FlexCol)`
 `;
 
 function Page({ documentTitle, children, ...rest }) {
-  return (
-    <Wrapper {...rest}>
-      <DocumentTitle>{documentTitle}</DocumentTitle>
-      {children}
-    </Wrapper>
-  );
+  return <Wrapper {...rest}>{children}</Wrapper>;
 }
 
 Page.propTypes = {

@@ -1,7 +1,8 @@
+const rewireStyledComponents = require('react-app-rewire-styled-components');
+
 module.exports = {
-  webpack: function(config, env) {
-    console.log(JSON.stringify(config));
-    console.log(env);
+  webpack(config, env) {
+    config = rewireStyledComponents(config, env);
     return config;
   }
 };

@@ -6,7 +6,7 @@ import { getSearchObj, getSearchStr, getNextURL } from '../../utils/url';
 
 function AuthRoute({ auth, component: Component, title, ...rest }) {
   const token = localStorage.getItem('token');
-  const [isAuthenticated, setIsAuthenticated] = useState(!!token);
+  const isAuthenticated = !!token;
 
   if (auth === 1) {
     return (

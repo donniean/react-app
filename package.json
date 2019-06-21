@@ -25,7 +25,6 @@
   "dependencies": {
     "history": "^4.9.0",
     "react": "^16.8.6",
-    "react-app-rewire-favicons-plugin": "^1.0.0",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",

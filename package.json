@@ -28,7 +28,10 @@
     "react-app-rewire-favicons-plugin": "^1.0.0",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "sanitize.css": "^10.0.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.1",

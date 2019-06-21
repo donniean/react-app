@@ -9,6 +9,17 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "directories": {
     "doc": "docs"
   },
@@ -55,6 +66,9 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "customize-cra": "^0.2.13",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "1.18.2",
     "react-app-rewired": "^2.1.3"
   }
 }

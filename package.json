@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
     "history": "^4.9.0",
     "react": "^16.8.6",
     "react-app-rewire-hot-loader": "^2.0.1",

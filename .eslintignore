@@ -1,0 +1,11 @@
+**/.git/
+**/.svn/
+**/.hg/
+**/CVS/
+**/.DS_Store/
+**/node_modules/
+**/lib/
+**/libs/
+**/build/
+**/dist/
+**/*.min.*

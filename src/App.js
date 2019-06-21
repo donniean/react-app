@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default hot(App);
+export default (process.env.NODE_ENV === 'development' ? hot(App) : App);

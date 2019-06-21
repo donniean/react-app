@@ -29,7 +29,7 @@ function Home({ documentTitle }) {
     <Page documentTitle={documentTitle}>
       <Wrapper>
         <Image src={logo} />
-         <Title>Hello React</Title>
+        <Title>Hello React</Title>
       </Wrapper>
     </Page>
   );

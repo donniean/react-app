@@ -1,5 +1,6 @@
 # TODOs
 
+- [ ] .browserslistrc
 - [ ] babel-plugin-transform-react-remove-prop-types
 - [ ] favicons-webpack-plugin
 - [ ] documentTitle

@@ -15,13 +15,12 @@ const Wrapper = styled(FlexCol)`
 `;
 
 const Title = styled.h1`
-  margin-top: ${vw(36)};
-  font-size: ${vw(64)};
+  font-size: ${vw(32)};
   color: ${props => props.theme.color.primary};
 `;
 
 const Image = styled.img`
-  width: ${vw(256)};
+  width: ${vw(128)};
   vertical-align: bottom;
 `;
 

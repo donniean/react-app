@@ -1,4 +1,4 @@
-const { override, addWebpackAlias } = require('customize-cra');
+const { addWebpackAlias } = require('customize-cra');
 
 module.exports = (config, env) => {
   if (env === 'development') {

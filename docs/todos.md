@@ -7,5 +7,6 @@
 - [ ] documentTitle
 - [ ] polyfill
 - [ ] module.hot
-- [ ] react-hot-loader
+- [x] react-hot-loader
 - [ ] proxy
+- [ ] Prettier

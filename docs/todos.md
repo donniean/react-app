@@ -9,4 +9,4 @@
 - [x] module.hot
 - [x] react-hot-loader
 - [ ] proxy
-- [ ] prettier
+- [x] prettier

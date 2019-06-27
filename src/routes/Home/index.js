@@ -6,7 +6,7 @@ import { vw } from '../../styles/helpers';
 import Page from '../../components/Page';
 import FlexCol from '../../components/FlexCol';
 
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.svg';
 
 const Wrapper = styled(FlexCol)`
   justify-content: center;

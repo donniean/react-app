@@ -2,11 +2,21 @@
 
 ## Use
 
+install
+
 ```shell
 npm install
+```
 
+develop
+
+```shell
 npm start
+```
 
+build
+
+```shell
 npm run build
 ```
 

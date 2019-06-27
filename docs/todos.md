@@ -1,12 +1,12 @@
 # TODOs
 
 - [x] .browserslistrc
-- [x] manifest
-- [ ] babel-plugin-transform-react-remove-prop-types
+- [ ] proxy
 - [ ] favicons-webpack-plugin
-- [ ] documentTitle
-- [x] polyfill
+- [ ] ~~babel-plugin-transform-react-remove-prop-types~~
 - [ ] ~~module.hot~~
 - [x] react-hot-loader
-- [ ] proxy
 - [x] prettier
+- [x] polyfill
+- [x] manifest
+- [ ] documentTitle

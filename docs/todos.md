@@ -6,7 +6,7 @@
 - [ ] favicons-webpack-plugin
 - [ ] documentTitle
 - [x] polyfill
-- [ ] module.hot
+- [ ] ~~module.hot~~
 - [x] react-hot-loader
 - [ ] proxy
 - [x] prettier

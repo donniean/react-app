@@ -32,6 +32,6 @@ npm run build
 /path/public/
 ```
 
-set `head` in `index.html`
-set `short_name` and `name` in `manifest.json`
+set `head` in `index.html`  
+set `short_name` and `name` in `manifest.json`  
 replace `favicon.ico`

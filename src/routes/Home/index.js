@@ -25,6 +25,7 @@ const Image = styled.img`
 `;
 
 function Home({ documentTitle }) {
+  console.log(documentTitle);
   return (
     <Page documentTitle={documentTitle}>
       <Wrapper>

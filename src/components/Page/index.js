@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTitle } from 'react-use';
 
 import FlexCol from '../FlexCol';
 
@@ -12,6 +13,8 @@ const Wrapper = styled(FlexCol)`
 `;
 
 function Page({ documentTitle, children, ...rest }) {
+  useTitle(documentTitle);
+
   return <Wrapper {...rest}>{children}</Wrapper>;
 }
 

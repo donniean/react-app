@@ -2,7 +2,7 @@
 
 - [x] homepage
 - [x] .browserslistrc
-- [ ] proxy
+- [x] proxy
 - [ ] favicons-webpack-plugin
 - [ ] ~~babel-plugin-transform-react-remove-prop-types~~
 - [ ] ~~module.hot~~

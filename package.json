@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/acmilank22/react-app-boilerplate/issues"
   },
-  "homepage": "",
+  "proxy": "",
   "eslintConfig": {
     "extends": "react-app"
   },

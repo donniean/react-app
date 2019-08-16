@@ -1,8 +1,10 @@
 # react-app-boilerplate
 
 - [react-app-boilerplate](#react-app-boilerplate)
-  - [Use](#Use)
-  - [Config](#Config)
+  - [Use](#use)
+  - [Config](#config)
+    - [package.json](#packagejson)
+    - [public/](#public)
 
 ## Use
 
@@ -27,6 +29,12 @@ npm run build
 ---
 
 ## Config
+
+### package.json
+
+set `proxy`
+
+### public/
 
 ```shell
 cd public

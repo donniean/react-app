@@ -8,7 +8,6 @@ module.exports = {
     config = rewireReactHotLoader(config, env);
     config = rewireReactHotLoaderReactDom(config, env);
     config = rewireStyledComponents(config, env);
-    console.log(config);
     return config;
   }
 };

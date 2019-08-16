@@ -1,6 +1,6 @@
 # TODOs
 
-- [ ] homepage
+- [x] homepage
 - [x] .browserslistrc
 - [ ] proxy
 - [ ] favicons-webpack-plugin

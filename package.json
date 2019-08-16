@@ -9,17 +9,6 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.{html,js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "directories": {
     "doc": "docs"
   },
@@ -77,5 +66,16 @@
     "sanitize.css": "^11.0.0",
     "styled-components": "^4.3.2",
     "whatwg-fetch": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{html,js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

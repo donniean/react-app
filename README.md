@@ -4,6 +4,7 @@
   - [Use](#use)
   - [Config](#config)
     - [package.json](#packagejson)
+    - [.env](#env)
     - [public/](#public)
 
 ## Use
@@ -32,9 +33,13 @@ npm run build
 
 ### package.json
 
-set `proxy`
+[set `proxy`](https://create-react-app.dev/docs/proxying-api-requests-in-development)
 
-### public/
+### [.env](https://create-react-app.dev/docs/adding-custom-environment-variables#adding-development-environment-variables-in-env)
+
+[set `GENERATE_SOURCEMAP` and `EXTEND_ESLINT`](https://create-react-app.dev/docs/advanced-configuration)
+
+### [public/](https://create-react-app.dev/docs/using-the-public-folder)
 
 ```shell
 cd public

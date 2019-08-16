@@ -613,3 +613,5 @@ $RECYCLE.BIN/
 build/
 dist/
 miniprogram_npm/
+!.env
+!.env.test

@@ -10,4 +10,4 @@
 - [x] prettier
 - [x] polyfill
 - [x] manifest
-- [ ] documentTitle
+- [x] documentTitle

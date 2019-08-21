@@ -3,9 +3,9 @@
 - [x] homepage
 - [x] .browserslistrc
 - [x] proxy
-- [ ] favicons-webpack-plugin
+- [ ] ~~favicons-webpack-plugin~~
 - [ ] ~~babel-plugin-transform-react-remove-prop-types~~
-- [x] ~~module.hot~~
+- [x] module.hot
 - [x] react-hot-loader
 - [x] prettier
 - [x] polyfill

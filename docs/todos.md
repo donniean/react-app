@@ -11,3 +11,4 @@
 - [x] polyfill
 - [x] manifest
 - [x] documentTitle
+- [ ] styled-theming

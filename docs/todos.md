@@ -14,4 +14,4 @@
 - [ ] GlobalStyle
 - [ ] config: env and baseURLs remove
 - [ ] request
-- [ ] add Loading
+- [ ] add GlobalContainer

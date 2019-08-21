@@ -12,3 +12,4 @@
 - [x] manifest
 - [x] documentTitle
 - [ ] GlobalStyle
+- [ ] config: env and baseURLs remove

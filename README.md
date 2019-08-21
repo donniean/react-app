@@ -6,6 +6,7 @@
     - [package.json](#packagejson)
     - [.env](#env)
     - [public/](#public)
+    - [src/config](#srcconfig)
 
 ## Use
 
@@ -50,3 +51,11 @@ set `head` in `index.html`
 set `short_name` and `name` in `manifest.json`
 
 replace `favicon.ico`
+
+### src/config
+
+```shell
+cd src/config
+```
+
+set `baseURL`

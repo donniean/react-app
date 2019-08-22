@@ -15,4 +15,5 @@
 - [ ] config: env and baseURLs remove
 - [ ] request
 - [ ] add GlobalContainer
-- [ ] import global-variables
+- [ ] import global-variables place
+- [ ] config theme

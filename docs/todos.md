@@ -17,3 +17,4 @@
 - [ ] add GlobalContainer
 - [ ] import global-variables place
 - [ ] config theme
+- [ ] Page background-color

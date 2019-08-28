@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { vw } from '../../styles/helpers';
@@ -35,5 +36,9 @@ function Home({ documentTitle }) {
     </Page>
   );
 }
+
+Home.propTypes = {
+  documentTitle: PropTypes.string
+};
 
 export default Home;

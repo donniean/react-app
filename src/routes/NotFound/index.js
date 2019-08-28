@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { vw } from '../../styles/helpers';
@@ -26,5 +27,9 @@ function NotFound({ documentTitle }) {
     </Page>
   );
 }
+
+NotFound.propTypes = {
+  documentTitle: PropTypes.string
+};
 
 export default NotFound;

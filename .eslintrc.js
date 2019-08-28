@@ -21,7 +21,6 @@ module.exports = {
   rules: {
     curly: 'warn',
     'default-case': 'warn',
-    'no-empty-function': 'warn',
     'no-extra-bind': 'warn',
     'no-extra-label': 'warn',
     'no-useless-call': 'warn',
@@ -41,7 +40,9 @@ module.exports = {
     'node/no-unsupported-features/node-builtins': [
       'error',
       { version: '>=10.0.0', ignores: [] }
-    ]
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
   parserOptions: {
     ecmaVersion: 2018,

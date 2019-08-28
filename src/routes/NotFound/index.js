@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import { vw } from '../../styles/helpers';
 
 import Page from '../../components/Page';
-import FlexCol from '../../components/FlexCol';
 
-const Wrapper = styled(FlexCol)`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   align-items: center;
 `;

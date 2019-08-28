@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import { vw } from '../../styles/helpers';
 
 import Page from '../../components/Page';
-import FlexCol from '../../components/FlexCol';
 
 import logo from '../../assets/images/logo.svg';
 
-const Wrapper = styled(FlexCol)`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: ${vw(32)};

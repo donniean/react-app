@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTitle } from 'react-use';
 
-import FlexCol from '../FlexCol';
-
-const Wrapper = styled(FlexCol)`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

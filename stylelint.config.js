@@ -1,8 +1,8 @@
 module.exports = {
   extends: [
     'stylelint-config-standard',
-    'stylelint-prettier/recommended',
-    'stylelint-config-styled-components'
+    'stylelint-config-styled-components',
+    'stylelint-prettier/recommended'
   ],
   rules: {
     'color-named': ['never', { ignore: ['inside-function'] }],

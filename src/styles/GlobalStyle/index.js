@@ -1,6 +1,6 @@
 import 'sanitize.css';
-import 'sanitize.css/typography.css';
 import 'sanitize.css/forms.css';
+import 'sanitize.css/typography.css';
 
 import { createGlobalStyle } from 'styled-components';
 

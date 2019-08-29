@@ -1,9 +1,7 @@
-import { version, pageSize } from './app';
+import app from './app';
 import api from './api';
-import baseURLs from './baseURLs';
+import baseURL from './baseURL';
 
-const env = 1;
+const { theme, pageSize } = app;
 
-const baseURL = baseURLs[env];
-
-export { env, version, baseURL, api, pageSize };
+export { theme, pageSize, baseURL, api };

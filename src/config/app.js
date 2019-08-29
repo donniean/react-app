@@ -1,5 +1,4 @@
-const version = '1.0';
-const pageSize = 10;
+const theme = 'defaults';
+const pageSize = 999999;
 
-export { version, pageSize };
-export default { version, pageSize };
+export default { theme, pageSize };

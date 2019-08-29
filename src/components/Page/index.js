@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: ${props => props.bg || props.theme.bg.primary};
+  background-color: ${({ backgroundColor, theme }) =>
+    backgroundColor || theme.bg.primary};
 `;
 
 function Page({ documentTitle, children, ...rest }) {

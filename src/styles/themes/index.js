@@ -1,6 +1,3 @@
-import defaultTheme from './default.js';
+import defaults from './defaults';
 
-const themes = { defaultTheme };
-
-export { defaultTheme };
-export default themes;
+export default { defaults };

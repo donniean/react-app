@@ -13,11 +13,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  html {
-    font-size: 100%;
-	  line-height: 1;
-  }
-
   body {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
@@ -38,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     appearance: none;
     outline: 0;
     border: 0;
+    border-radius: 0;
   }
 `;
 

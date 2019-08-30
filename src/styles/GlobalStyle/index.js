@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  html {
+    font-size: 100%;
+    line-height: 1.5;
+  }
+
   body {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
@@ -25,6 +30,10 @@ const GlobalStyle = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   input,

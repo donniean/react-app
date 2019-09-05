@@ -341,74 +341,6 @@ typings/
 .expo
 __generated__
 
-### ReactNative.Linux Stack ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-# .nfs files are created when an open file is removed but is still being accessed
-.nfs*
-
-### ReactNative.Buck Stack ###
-buck-out/
-.buckconfig.local
-.buckd/
-.buckversion
-.fakebuckversion
-
-### ReactNative.Xcode Stack ###
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
-## User settings
-xcuserdata/
-
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
-*.xcscmblueprint
-*.xccheckout
-
-## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
-DerivedData/
-*.moved-aside
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-
-## Xcode Patch
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-
-### ReactNative.Gradle Stack ###
-.gradle
-
-# Ignore Gradle GUI config
-gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# Cache of project
-.gradletasknamecache
-
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
-
 ### ReactNative.Android Stack ###
 # Built application files
 *.apk
@@ -488,6 +420,74 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+### ReactNative.Linux Stack ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### ReactNative.Buck Stack ###
+buck-out/
+.buckconfig.local
+.buckd/
+.buckversion
+.fakebuckversion
+
+### ReactNative.Xcode Stack ###
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## User settings
+xcuserdata/
+
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+*.xcscmblueprint
+*.xccheckout
+
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Xcode Patch
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
+### ReactNative.Gradle Stack ###
+.gradle
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
 
 ### ReactNative.Node Stack ###
 # Logs

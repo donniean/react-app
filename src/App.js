@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from './config';
 import GlobalStyle from './styles/GlobalStyle';
 import themes from './styles/themes';
-import history from './utils/history';
 import Routes from './routes';
 
 function App() {
@@ -14,9 +13,9 @@ function App() {
     <Fragment>
       <GlobalStyle />
       <ThemeProvider theme={themes[theme]}>
-        <Router history={history}>
+        <HashRouter>
           <Routes />
-        </Router>
+        </HashRouter>
       </ThemeProvider>
     </Fragment>
   );

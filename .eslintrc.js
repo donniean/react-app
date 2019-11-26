@@ -55,11 +55,20 @@ module.exports = {
       files: [
         'webpack.js',
         'webpack.*.js',
-        '**/config-overrides/**/*.js',
+        'rollup.js',
+        'rollup.*.js',
         'gulpfile.js',
-        'gulpfile.*.js'
+        'gulpfile.*.js',
+        'postcss.config.js',
+        'postcss.*.js',
+        'config-overrides.js',
+        'config-overrides.*.js',
+        '**/config-overrides/**/*.js'
       ],
-      rules: { 'node/no-unpublished-require': 'off' }
+      rules: {
+        'node/no-unpublished-import': 'off',
+        'node/no-unpublished-require': 'off'
+      }
     }
   ]
 };

@@ -19,6 +19,6 @@ module.exports = {
     'selector-attribute-quotes': ['always', { severity: 'warning' }],
     'selector-list-comma-space-after': ['always-single-line'],
     'no-unknown-animations': true
-  }
-  // processors: ['stylelint-processor-styled-components']
+  },
+  processors: ['stylelint-processor-styled-components']
 };

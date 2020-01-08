@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { vw } from '../../styles/helpers';
+import { u } from '../../styles/helpers';
 
 import Page from '../../components/Page';
 
@@ -13,16 +13,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ${vw(32)};
+  padding: ${u(32)};
 `;
 
 const Title = styled.h1`
-  font-size: ${vw(32)};
+  font-size: ${u(32)};
   color: ${props => props.theme.color.primary};
 `;
 
 const Image = styled.img`
-  width: ${vw(128)};
+  width: ${u(128)};
   vertical-align: bottom;
 `;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { vw } from '../../styles/helpers';
+import { u } from '../../styles/helpers';
 
 import Page from '../../components/Page';
 
@@ -14,8 +14,8 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-top: ${vw(128)};
-  font-size: ${vw(48)};
+  margin-top: ${u(128)};
+  font-size: ${u(48)};
 `;
 
 function NotFound({ documentTitle }) {

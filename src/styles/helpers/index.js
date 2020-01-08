@@ -1,13 +1,13 @@
-function vw(px) {
+function u(px) {
   const value = parseFloat(px);
-  const vw = (value * 100) / 750;
-  const unit = 'vw';
-  return `${vw + unit}`;
+  const u = (value * 100) / 750;
+  const unit = 'u';
+  return `${u + unit}`;
 }
 
 const helpers = {
-  vw
+  u
 };
 
-export { vw };
+export { u };
 export default helpers;

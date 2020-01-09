@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { css } from 'emotion';
 
 import { u } from '../../styles/helpers';
 
@@ -33,13 +32,6 @@ function Home({ documentTitle }) {
       <Wrapper>
         <Image src={logo} />
         <Title>Hello React</Title>
-        <div
-          className={css`
-            color: #f02;
-          `}
-        >
-          ok
-        </div>
       </Wrapper>
     </Page>
   );

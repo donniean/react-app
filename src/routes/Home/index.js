@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // TODO: TEST
-import useSWR from 'swr';
+import useSWR, { mutate } from 'swr';
 import request from '../../utils/request';
 
 import { u } from '../../styles/helpers';
@@ -28,6 +28,8 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
+const Button = styled.button``;
+
 const fetcher = url =>
   request(url, { method: 'GET' }, { baseURL: 'https://api.github.com' });
 
@@ -40,6 +42,13 @@ function Home({ documentTitle }) {
       <Wrapper>
         <Image src={logo} />
         <Title>Hello React</Title>
+        <Button
+          onClick={() => {
+            mutate('/repositories');
+          }}
+        >
+          Button
+        </Button>
       </Wrapper>
     </Page>
   );

@@ -35,6 +35,5 @@ export default (url, options, settings = {}) => {
   settings = merge({}, defaultSettings, settings);
   const { baseURL, apiPath } = settings;
   url = `${baseURL}${apiPath}${url}`;
-  console.log(url);
   return fetchBase(url, options).then(handleData);
 };

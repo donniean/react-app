@@ -3,10 +3,13 @@ import merge from 'lodash/merge';
 import { baseURL, apiPath } from '../../config/';
 import fetchBase from './fetchBase';
 
+const defaultOptions = {
+  method: 'POST'
+};
+
 const defaultSettings = {
   baseURL,
   apiPath,
-  baseApiPath: '',
   isShowLoading: true,
   isShowError: true,
   isHandleTokenInvalid: true,
@@ -28,7 +31,10 @@ function handleData(data) {
 }
 
 export default (url, options, settings = {}) => {
+  options = merge({}, defaultOptions, options);
   settings = merge({}, defaultSettings, settings);
-  console.log(settings);
+  const { baseURL, apiPath } = settings;
+  url = `${baseURL}${apiPath}${url}`;
+  console.log(url);
   return fetchBase(url, options).then(handleData);
 };

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import useSWR from 'swr';
+import request from '../../utils/request';
 
 import { u } from '../../styles/helpers';
 import Page from '../../components/Page';
@@ -26,16 +28,11 @@ const Image = styled.img`
 `;
 
 const fetcher = url =>
-  fetch(url)
-    /* .then(r => {
-      console.log(r);
-      r.json();
-    }) */
-    .catch(error => Promise.reject(error));
+  request(url, { method: 'GET' }, { baseURL: 'https://api.github.com' });
 
 function Home({ documentTitle }) {
   const { data, error } = useSWR('/repositories', fetcher);
-  console.log(data, error);
+  console.log('useSWR', data, error);
 
   return (
     <Page documentTitle={documentTitle}>

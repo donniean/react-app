@@ -2,7 +2,6 @@ import 'whatwg-fetch';
 import merge from 'lodash/merge';
 
 const defaultOptions = {
-  method: 'POST',
   headers: {
     'content-type': 'application/json'
   }

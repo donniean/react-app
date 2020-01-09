@@ -58,4 +58,4 @@ replace `favicon.ico`
 cd src/config
 ```
 
-set `baseURLDev` and `apiPath`
+set `baseURL` and `apiPath`

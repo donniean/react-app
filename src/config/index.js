@@ -1,7 +1,5 @@
-import app from './app';
+import { theme, pageSize } from './app';
+import { baseURL, apiPath } from './url';
 import api from './api';
-import baseURL from './baseURL';
 
-const { theme, pageSize } = app;
-
-export { theme, pageSize, baseURL, api };
+export { theme, pageSize, baseURL, apiPath, api };

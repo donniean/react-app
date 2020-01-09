@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import useSWR from 'swr';
 
 import { u } from '../../styles/helpers';
-
 import Page from '../../components/Page';
-
 import logo from '../../assets/images/logo.svg';
 
 const Wrapper = styled.div`
@@ -26,7 +25,12 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
+const fetcher = url => fetch(url).then(r => r.json());
+
 function Home({ documentTitle }) {
+  const { data, error } = useSWR('/repositories', fetcher);
+  console.log(data, error);
+
   return (
     <Page documentTitle={documentTitle}>
       <Wrapper>

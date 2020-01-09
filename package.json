@@ -53,6 +53,7 @@
     "react-scripts": "^3.3.0",
     "react-use": "^13.14.3",
     "styled-components": "^5.0.0-rc.3",
+    "swr": "^0.1.16",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
@@ -80,5 +81,5 @@
     "stylelint-prettier": "^1.1.2",
     "stylelint-processor-styled-components": "^1.9.0"
   },
-  "proxy": ""
+  "proxy": "https://api.github.com"
 }

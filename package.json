@@ -81,5 +81,5 @@
     "stylelint-prettier": "^1.1.2",
     "stylelint-processor-styled-components": "^1.9.0"
   },
-  "proxy": "https://api.github.com"
+  "proxy": "https://api.github0.com"
 }

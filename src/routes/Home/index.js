@@ -25,7 +25,13 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
-const fetcher = url => fetch(url).then(r => r.json());
+const fetcher = url =>
+  fetch(url)
+    /* .then(r => {
+      console.log(r);
+      r.json();
+    }) */
+    .catch(error => Promise.reject(error));
 
 function Home({ documentTitle }) {
   const { data, error } = useSWR('/repositories', fetcher);

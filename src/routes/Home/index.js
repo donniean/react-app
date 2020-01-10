@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// TODO: TEST
-import useSWR, { mutate } from 'swr';
-import request from '../../utils/request';
-
 import { u } from '../../styles/helpers';
 import Page from '../../components/Page';
 import logo from '../../assets/images/logo.svg';
@@ -28,37 +24,12 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
-const Button = styled.button`
-  border-radius: ${u(12)};
-  padding: ${u(24)};
-  background-color: ${({ theme }) => theme.color.primary};
-  color: #fff;
-  cursor: pointer;
-
-  &:active {
-    opacity: 0.7;
-  }
-`;
-
-const fetcher = url =>
-  request(url, { method: 'GET' }, { baseURL: 'https://api.github.com' });
-
 function Home({ documentTitle }) {
-  const { data, error } = useSWR('/repositories', fetcher);
-  console.log('useSWR', data, error);
-
   return (
     <Page documentTitle={documentTitle}>
       <Wrapper>
         <Image src={logo} />
         <Title>Hello React</Title>
-        <Button
-          onClick={() => {
-            mutate('/repositories');
-          }}
-        >
-          Button
-        </Button>
       </Wrapper>
     </Page>
   );

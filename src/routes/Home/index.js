@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   font-size: ${u(32)};
-  color: ${props => props.theme.color.primary};
+  color: ${({ theme }) => theme.color.primary};
 `;
 
 const Image = styled.img`
@@ -28,7 +28,17 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
-const Button = styled.button``;
+const Button = styled.button`
+  border-radius: ${u(12)};
+  padding: ${u(24)};
+  background-color: ${({ theme }) => theme.color.primary};
+  color: #fff;
+  cursor: pointer;
+
+  &:active {
+    opacity: 0.7;
+  }
+`;
 
 const fetcher = url =>
   request(url, { method: 'GET' }, { baseURL: 'https://api.github.com' });

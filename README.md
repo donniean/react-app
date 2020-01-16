@@ -55,7 +55,7 @@ replace `favicon.ico`
 ### src/config
 
 ```shell
-cd src/config
+cd src/configs/url.js
 ```
 
 set `baseURL` and `apiPath`

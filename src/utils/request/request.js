@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { baseURL, apiPath } from '../../config/';
+import { baseURL, apiPath } from '../../configs/url';
 import fetchBase from './fetchBase';
 
 const defaultOptions = {

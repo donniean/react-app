@@ -21,12 +21,12 @@ function Page({ documentTitle, children, ...rest }) {
 
 Page.propTypes = {
   documentTitle: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Page.defaultProps = {
   documentTitle: '',
-  children: null
+  children: null,
 };
 
 export default Page;

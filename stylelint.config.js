@@ -2,7 +2,7 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-styled-components',
-    'stylelint-prettier/recommended'
+    'stylelint-prettier/recommended',
   ],
   rules: {
     'color-named': ['never', { ignore: ['inside-function'] }],
@@ -14,11 +14,11 @@ module.exports = {
     'property-no-vendor-prefix': [true, { severity: 'warning' }],
     'declaration-block-no-redundant-longhand-properties': [
       true,
-      { severity: 'warning' }
+      { severity: 'warning' },
     ],
     'selector-attribute-quotes': ['always', { severity: 'warning' }],
     'selector-list-comma-space-after': ['always-single-line'],
-    'no-unknown-animations': true
+    'no-unknown-animations': true,
   },
-  processors: ['stylelint-processor-styled-components']
+  processors: ['stylelint-processor-styled-components'],
 };

@@ -7,6 +7,7 @@
         "eslint",
         "stylelint",
         "htmlhint",
+        "commitlint",
         "lint-staged",
         "gitignore",
         "gitattributes",

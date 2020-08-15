@@ -1,13 +1,13 @@
 {
-  "name": "react-app-boilerplate",
+  "name": "react-app",
   "version": "1.0.0",
   "description": "",
   "bugs": {
-    "url": "https://github.com/acmilank22/react-app-boilerplate/issues"
+    "url": "https://github.com/acmilank22/react-app/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acmilank22/react-app-boilerplate.git"
+    "url": "git+https://github.com/acmilank22/react-app.git"
   },
   "license": "MIT",
   "author": "",

@@ -1,6 +1,6 @@
 # react-app
 
-- [react-app-boilerplate](#react-app-boilerplate)
+- [react-app](#react-app)
   - [Use](#use)
   - [Config](#config)
     - [package.json](#packagejson)

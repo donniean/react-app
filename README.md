@@ -1,4 +1,4 @@
-# react-app-boilerplate
+# react-app
 
 - [react-app-boilerplate](#react-app-boilerplate)
   - [Use](#use)

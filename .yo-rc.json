@@ -1,5 +1,5 @@
 {
-  "@acmilank22/generator-configs": {
+  "@donniean/generator-configs": {
     "promptValues": {
       "configs": [
         "editorconfig",

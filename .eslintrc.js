@@ -58,7 +58,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        'webpack.js',
+        'webpack.base.js',
         'webpack.*.js',
         'rollup.js',
         'rollup.*.js',

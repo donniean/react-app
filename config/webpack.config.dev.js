@@ -1,6 +1,8 @@
 const webpack = require('webpack');
+const { merge } = require('webpack-merge');
 
 const { dist: distPath } = require('./paths');
+const baseConfig = require('./webpack.config.base');
 
 const devConfig = {
   output: {
@@ -16,11 +18,11 @@ const devConfig = {
   devServer: {
     contentBase: distPath,
     historyApiFallback: true,
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     hot: true,
     port: 8080,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };
 
-module.exports = devConfig;
+module.exports = merge(baseConfig, devConfig);

@@ -1,36 +1,35 @@
-import 'whatwg-fetch';
 import merge from 'lodash/merge';
 
 const defaultOptions = {
   headers: {
-    'content-type': 'application/json'
-  }
+    'content-type': 'application/json',
+  },
 };
 
 function checkStatus(response) {
   const { status, statusText } = response;
   if (status >= 200 && status < 300) {
     return response;
-  } else {
-    const error = new Error(statusText);
-    error.response = response;
-    return Promise.reject(error);
   }
+  const error = new Error(statusText);
+  error.response = response;
+  return Promise.reject(error);
 }
 
 export default (url, options = {}) => {
-  options = merge({}, defaultOptions, options);
-  let { body, data } = options;
+  let opts = merge({}, defaultOptions, options);
+  const { data } = opts;
+  let { body } = opts;
 
   if (data) {
     if (!body) {
       body = JSON.stringify(data);
-      options = merge({ body }, options);
+      opts = merge({ body }, opts);
     }
-    data && delete options.data;
+    delete opts.data;
   }
 
   return fetch(url, options)
     .then(checkStatus)
-    .then(response => response.json());
+    .then((response) => response.json());
 };

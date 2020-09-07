@@ -7,15 +7,22 @@ import Home from './Home';
 import NotFound from './NotFound';
 
 const routes = [
-  { component: Home, path: '/', exact: true, auth: 0, title: 'Hello React' },
-  { component: NotFound, title: '404' }
+  {
+    key: 0,
+    component: Home,
+    path: '/',
+    exact: true,
+    auth: 0,
+    title: 'Hello React',
+  },
+  { key: 1, component: NotFound, title: '404' },
 ];
 
 function Routes() {
   return (
     <Switch>
-      {routes.map((route, index) => (
-        <AuthRoute key={index} {...route} />
+      {routes.map(({ key, ...props }) => (
+        <AuthRoute key={key} {...props} />
       ))}
     </Switch>
   );

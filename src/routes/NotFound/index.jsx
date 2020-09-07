@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { u } from '../../styles/helpers';
-
-import Page from '../../components/Page';
+import { vw } from '@/styles/helpers';
+import Page from '@/components/Page';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,8 +13,8 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-top: ${u(128)};
-  font-size: ${u(48)};
+  margin-top: ${vw(128)};
+  font-size: ${vw(48)};
 `;
 
 function NotFound({ documentTitle }) {
@@ -29,7 +28,11 @@ function NotFound({ documentTitle }) {
 }
 
 NotFound.propTypes = {
-  documentTitle: PropTypes.string
+  documentTitle: PropTypes.string,
+};
+
+NotFound.defaultProps = {
+  documentTitle: '',
 };
 
 export default NotFound;

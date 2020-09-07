@@ -11,7 +11,7 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
   if (auth === 1) {
     return (
       <Route
-        render={props => {
+        render={(props) => {
           const { location } = props;
           const next = getNextURL(location);
           const search = getSearchStr({ next });
@@ -21,7 +21,7 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
             <Redirect
               to={{
                 pathname: '/auth/login',
-                search
+                search,
               }}
             />
           );
@@ -29,16 +29,17 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
         {...rest}
       />
     );
-  } else if (auth === -1) {
+  }
+  if (auth === -1) {
     return (
       <Route
-        render={props => {
+        render={(props) => {
           const { location } = props;
           const { next = '' } = getSearchObj(location);
           return isAuthenticated ? (
             <Redirect
               to={{
-                pathname: next
+                pathname: next,
               }}
             />
           ) : (
@@ -48,27 +49,33 @@ function AuthRoute({ auth, component: Component, title, ...rest }) {
         {...rest}
       />
     );
-  } else {
-    return (
-      <Route
-        render={props => <Component documentTitle={title} {...props} />}
-        {...rest}
-      />
-    );
   }
+  return (
+    <Route
+      render={(props) => <Component documentTitle={title} {...props} />}
+      {...rest}
+    />
+  );
 }
 
 AuthRoute.propTypes = {
   auth: PropTypes.number,
   component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
     .isRequired,
-  path: PropTypes.string
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    pathname: PropTypes.string,
+    search: PropTypes.string,
+  }),
+  path: PropTypes.string,
 };
 
 AuthRoute.defaultProps = {
   auth: 0,
-  component: null,
-  path: null
+  title: '',
+  location: {},
+  path: '',
 };
 
 export default AuthRoute;

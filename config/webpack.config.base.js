@@ -1,8 +1,9 @@
 const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBar = require('webpackbar');
 
 const { prodSourceMap } = require('.');
 const { env, isProductionEnv } = require('./env');
@@ -43,7 +44,7 @@ const getStyleLoaders = ({ useCSSModules } = {}) => {
 
 module.exports = {
   mode: env,
-  entry: [resolve(srcPath, 'index.js')],
+  entry: resolve(srcPath, 'index.js'),
   output: {
     path: distPath,
     publicPath: '',
@@ -56,28 +57,20 @@ module.exports = {
         include: srcPath,
       },
       {
-        test: /\.(html)$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              attrs: ['img:src', ':data-src'],
-              interpolate: true,
-            },
-          },
-        ],
+        test: /\.(handlebars|hbs)$/,
+        loader: 'handlebars-loader',
       },
       {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /\.module\.(sa|sc|c)ss$/,
+        test: /\.(sass|scss|css)$/,
+        exclude: /\.module\.(sass|scss|css)$/,
         use: getStyleLoaders(),
       },
       {
-        test: /\.module\.(sa|sc|c)ss$/,
+        test: /\.module\.(sass|scss|css)$/,
         use: getStyleLoaders({ useCSSModules: true }),
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         use: {
           loader: 'url-loader',
           options: {
@@ -88,6 +81,7 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+        include: /\/fonts\//,
         use: {
           loader: 'file-loader',
           options: {
@@ -98,6 +92,8 @@ module.exports = {
     ],
   },
   resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [srcPath, resolve('node_modules')],
     alias: {
       '@': srcPath,
     },
@@ -105,36 +101,19 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React App',
-      filename: 'index.html',
-      template: resolve(publicPath, 'index.ejs'),
-      minify: {
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-        removeComments: true,
-      },
-      chunks: ['vendor', 'app'],
+      template: resolve(publicPath, 'index.handlebars'),
+      inject: true,
+      favicon: resolve(publicPath, 'favicon.png'),
     }),
-    new FaviconsWebpackPlugin({
+    // TODO: Not Support Webpack 5
+    /* new FaviconsWebpackPlugin({
       logo: resolve(publicPath, 'favicon.png'),
       prefix: 'assets/icons-[hash]/',
-      title: 'React App',
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: false,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: true,
-      },
-    }),
+    }), */
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       chunkFilename: 'css/[id].[hash].css',
     }),
+    new WebpackBar(),
   ],
 };

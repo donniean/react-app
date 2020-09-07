@@ -1,8 +1,13 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const { merge } = require('webpack-merge');
 
 const { prodSourceMap } = require('.');
+const baseConfig = require('./webpack.config.base');
+
+const smp = new SpeedMeasurePlugin();
 
 const prodConfig = {
   output: {
@@ -25,4 +30,4 @@ const prodConfig = {
   plugins: [new CleanWebpackPlugin()],
 };
 
-module.exports = prodConfig;
+module.exports = smp.wrap(merge(baseConfig, prodConfig));

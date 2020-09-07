@@ -7,14 +7,12 @@ const ignoreQueryPrefix = true;
 const addQueryPrefix = true;
 
 function getSearchObj({ search }) {
-  const obj = qs.parse(search, { ignoreQueryPrefix });
-  return obj;
+  return qs.parse(search, { ignoreQueryPrefix });
 }
 
 function getSearchStr(obj) {
-  const newObj = omitBy(obj, value => !value);
-  const str = qs.stringify(newObj, { addQueryPrefix });
-  return str;
+  const newObj = omitBy(obj, (value) => !value);
+  return qs.stringify(newObj, { addQueryPrefix });
 }
 
 function getNextURL({ pathname, search }) {
@@ -23,22 +21,19 @@ function getNextURL({ pathname, search }) {
     pathname
   );
   if (isIndex) {
-    return '' + search;
-  } else {
-    return pathname + search;
+    return `${search}`;
   }
+  return pathname + search;
 }
 
 function mergeObjToSearchObj({ location, obj }) {
   const currentObj = getSearchObj(location);
-  const newObj = merge({}, currentObj, obj);
-  return newObj;
+  return merge({}, currentObj, obj);
 }
 
 function mergeObjToSearchStr({ location, obj }) {
   const newObj = mergeObjToSearchObj({ location, obj });
-  const str = getSearchStr({ newObj });
-  return str;
+  return getSearchStr({ newObj });
 }
 
 export {
@@ -46,5 +41,5 @@ export {
   getSearchStr,
   getNextURL,
   mergeObjToSearchObj,
-  mergeObjToSearchStr
+  mergeObjToSearchStr,
 };

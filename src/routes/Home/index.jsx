@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { u } from '../../styles/helpers';
-import Page from '../../components/Page';
-import logo from '../../assets/images/logo.svg';
+import { vw } from '@/styles/helpers';
+import Page from '@/components/Page';
+import logo from '@/assets/images/logo.svg';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ${u(32)};
+  padding: ${vw(32)};
 `;
 
 const Title = styled.h1`
-  font-size: ${u(32)};
+  font-size: ${vw(32)};
   color: ${({ theme }) => theme.color.primary};
 `;
 
 const Image = styled.img`
-  width: ${u(128)};
+  width: ${vw(128)};
   vertical-align: bottom;
 `;
 
@@ -36,7 +36,11 @@ function Home({ documentTitle }) {
 }
 
 Home.propTypes = {
-  documentTitle: PropTypes.string
+  documentTitle: PropTypes.string,
+};
+
+Home.defaultProps = {
+  documentTitle: '',
 };
 
 export default Home;

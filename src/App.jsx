@@ -1,23 +1,23 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { theme } from './configs/app';
+import { THEME } from './constants';
 import GlobalStyle from './styles/GlobalStyle';
 import themes from './styles/themes';
 import Routes from './routes';
 
 function App() {
   return (
-    <Fragment>
+    <>
       <GlobalStyle />
-      <ThemeProvider theme={themes[theme]}>
+      <ThemeProvider theme={themes[THEME]}>
         <HashRouter>
           <Routes />
         </HashRouter>
       </ThemeProvider>
-    </Fragment>
+    </>
   );
 }
 

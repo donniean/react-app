@@ -19,8 +19,8 @@ const devConfig = {
     contentBase: distPath,
     historyApiFallback: true,
     host: '127.0.0.1',
-    hot: true,
     port: 8080,
+    hot: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };

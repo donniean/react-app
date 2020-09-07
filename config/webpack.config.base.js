@@ -5,14 +5,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 
-const { prodSourceMap } = require('.');
+const { GENERATE_SOURCEMAP } = require('./constants');
 const { env, isProductionEnv } = require('./env');
-const { public: publicPath, src: srcPath, dist: distPath } = require('./paths');
+const {
+  nodeModules: nodeModulesPath,
+  public: publicPath,
+  src: srcPath,
+  dist: distPath,
+} = require('./paths');
 
 const getStyleLoaders = ({ useCSSModules } = {}) => {
   let sourceMap = true;
   if (isProductionEnv) {
-    sourceMap = prodSourceMap;
+    sourceMap = GENERATE_SOURCEMAP;
   }
   return [
     {
@@ -44,7 +49,7 @@ const getStyleLoaders = ({ useCSSModules } = {}) => {
 
 module.exports = {
   mode: env,
-  entry: resolve(srcPath, 'index.js'),
+  entry: resolve(srcPath, 'index'),
   output: {
     path: distPath,
     publicPath: '',
@@ -53,8 +58,20 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: [{ loader: 'babel-loader' }],
+        exclude: nodeModulesPath,
+        enforce: 'pre',
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            fix: true,
+          },
+        },
+      },
+      {
+        test: /\.(js|jsx)$/,
         include: srcPath,
+        exclude: nodeModulesPath,
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.(handlebars|hbs)$/,
@@ -92,12 +109,13 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-    modules: [srcPath, resolve('node_modules')],
+    modules: [nodeModulesPath, srcPath],
+    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
     alias: {
       '@': srcPath,
     },
   },
+  target: 'web',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React App',

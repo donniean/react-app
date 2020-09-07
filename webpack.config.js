@@ -1,17 +1,17 @@
 const webpackMerge = require('webpack-merge');
 
-const { devMode, prodMode } = require('./config/env');
+const { isDevelopmentEnv, isProductionEnv } = require('./config/env');
 
-const commonConfig = require('./config/webpack.common');
-const devConfig = require('./config/webpack.dev');
-const prodConfig = require('./config/webpack.prod');
+const baseConfig = require('./config/webpack.config.base');
+const devConfig = require('./config/webpack.config.dev');
+const prodConfig = require('./config/webpack.config.prod');
 
 module.exports = () => {
   let config = null;
-  if (devMode) {
-    config = webpackMerge(commonConfig, devConfig);
-  } else if (prodMode) {
-    config = webpackMerge(commonConfig, prodConfig);
+  if (isDevelopmentEnv) {
+    config = webpackMerge(baseConfig, devConfig);
+  } else if (isProductionEnv) {
+    config = webpackMerge(baseConfig, prodConfig);
   }
   return config;
 };

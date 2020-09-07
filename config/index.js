@@ -1,3 +1,3 @@
-const prodSourceMap = true;
-
-module.exports = { prodSourceMap };
+module.exports = {
+  prodSourceMap: true,
+};

@@ -24,24 +24,6 @@ module.exports = {
     ecmaFeatures: { jsx: true },
   },
   rules: {
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: [
-          'webpack.js',
-          'webpack.*.js',
-          'rollup.js',
-          'rollup.*.js',
-          'gulpfile.js',
-          'gulpfile.*.js',
-          'postcss.config.js',
-          'postcss.*.js',
-          'config-overrides.js',
-          'config-overrides.*.js',
-          '**/config-overrides/**/*.js',
-        ],
-      },
-    ],
     'node/no-unsupported-features/es-builtins': [
       'error',
       { version: '>=12.0.0', ignores: [] },
@@ -58,7 +40,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        'webpack.base.js',
+        'webpack.js',
         'webpack.*.js',
         'rollup.js',
         'rollup.*.js',
@@ -66,9 +48,6 @@ module.exports = {
         'gulpfile.*.js',
         'postcss.config.js',
         'postcss.*.js',
-        'config-overrides.js',
-        'config-overrides.*.js',
-        '**/config-overrides/**/*.js',
       ],
       rules: {
         'node/no-unpublished-import': 'off',

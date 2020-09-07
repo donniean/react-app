@@ -3,7 +3,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const { prodSourceMap } = require('.');
-const { root: rootPath } = require('./paths');
 
 const prodConfig = {
   output: {

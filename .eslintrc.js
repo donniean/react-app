@@ -23,16 +23,7 @@ module.exports = {
     parser: 'babel-eslint',
     ecmaFeatures: { jsx: true },
   },
-  settings: {
-    'import/resolver': {
-      node: {},
-      webpack: {
-        config: './config/webpack.config.dev.js',
-      },
-    },
-  },
   rules: {
-    'react/jsx-props-no-spreading': 'off',
     'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-builtins': [
       'error',
@@ -46,6 +37,7 @@ module.exports = {
       'error',
       { version: '>=12.0.0', ignores: [] },
     ],
+    'react/jsx-props-no-spreading': 'off',
   },
   overrides: [
     {
@@ -65,4 +57,10 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/resolver': {
+      node: {},
+      webpack: { config: './config/webpack.config.dev.js' },
+    },
+  },
 };

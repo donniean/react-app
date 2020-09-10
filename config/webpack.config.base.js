@@ -111,7 +111,7 @@ module.exports = {
   },
   resolve: {
     modules: [nodeModulesPath, srcPath],
-    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
+    extensions: ['.js', '.jsx', '.json'],
     alias: {
       '@': srcPath,
     },

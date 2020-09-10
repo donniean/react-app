@@ -9,14 +9,14 @@ import logo from '@/assets/images/logo.svg';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: ${vw(32)};
 `;
 
 const Title = styled.h1`
-  font-size: ${vw(32)};
   color: ${({ theme }) => theme.color.primary};
+  font-size: ${vw(32)};
 `;
 
 const Image = styled.img`

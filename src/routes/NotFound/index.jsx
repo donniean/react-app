@@ -7,8 +7,8 @@ import Page from '@/components/Page';
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
   align-items: center;
 `;
 

@@ -35,10 +35,10 @@ const GlobalStyle = createGlobalStyle`
   input,
   button,
   textarea {
-    appearance: none;
-    outline: 0;
     border: 0;
     border-radius: 0;
+    outline: 0;
+    appearance: none;
   }
 `;
 

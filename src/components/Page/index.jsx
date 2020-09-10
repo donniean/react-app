@@ -5,12 +5,12 @@ import { useTitle } from 'react-use';
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
   overflow-y: auto;
+  background-color: ${({ backgroundcolor, theme }) =>
+    backgroundcolor || theme.bg.primary};
   -webkit-overflow-scrolling: touch;
-  background-color: ${({ backgroundColor, theme }) =>
-    backgroundColor || theme.bg.primary};
 `;
 
 function Page({ documentTitle, children, ...rest }) {

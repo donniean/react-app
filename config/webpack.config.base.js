@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 
+const eslintFormatter = require('eslint-formatter-friendly');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 
@@ -64,6 +64,7 @@ module.exports = {
           loader: 'eslint-loader',
           options: {
             fix: true,
+            formatter: eslintFormatter,
           },
         },
       },
@@ -122,12 +123,8 @@ module.exports = {
       template: resolve(publicPath, 'index.handlebars'),
       inject: true,
       favicon: resolve(publicPath, 'favicon.png'),
+      hash: true,
     }),
-    // TODO: Not Support Webpack 5
-    /* new FaviconsWebpackPlugin({
-      logo: resolve(publicPath, 'favicon.png'),
-      prefix: 'assets/icons-[hash]/',
-    }), */
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       chunkFilename: 'css/[id].[hash].css',

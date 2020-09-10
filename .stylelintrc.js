@@ -1,9 +1,11 @@
 module.exports = {
   extends: [
     'stylelint-config-standard',
+    'stylelint-config-rational-order',
     'stylelint-config-styled-components',
     'stylelint-prettier/recommended',
   ],
+  plugins: ['stylelint-order'],
   rules: {
     'color-named': ['never', { ignore: ['inside-function'] }],
     'font-family-name-quotes': 'always-where-recommended',
@@ -20,5 +22,4 @@ module.exports = {
     'selector-list-comma-space-after': ['always-single-line'],
     'no-unknown-animations': true,
   },
-  processors: ['stylelint-processor-styled-components'],
 };

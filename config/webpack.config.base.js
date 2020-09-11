@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 
-const eslintFormatter = require('eslint-formatter-friendly');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
@@ -64,7 +63,6 @@ module.exports = {
           loader: 'eslint-loader',
           options: {
             fix: true,
-            formatter: eslintFormatter,
           },
         },
       },

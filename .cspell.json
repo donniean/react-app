@@ -12,6 +12,7 @@
     "gitattributes",
     "htmlhint",
     "htmlhintrc",
+    "huskyrc",
     "miniprogram",
     "prettierignore",
     "sourcemap",

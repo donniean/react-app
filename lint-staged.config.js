@@ -4,4 +4,5 @@ module.exports = {
     'git add',
   ],
   '*.{js,jsx,html,vue}': ['eslint --fix', 'git add'],
+  '*.*': ['cspell'],
 };

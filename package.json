@@ -20,6 +20,7 @@
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html,vue}\" --format friendly",
     "stylelint": "npx stylelint --fix \"**/*.{css,scss,js,jsx,vue}\"",
     "lint": "npm run prettier && npm run eslint && npm run stylelint",
+    "cspell": "cspell \"**/**\"",
     "commit": "git-cz"
   },
   "husky": {
@@ -67,6 +68,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",
+    "cspell": "^4.1.0",
     "css-loader": "^4.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv-webpack": "^2.0.0",

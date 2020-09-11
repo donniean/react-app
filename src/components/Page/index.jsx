@@ -8,8 +8,8 @@ const Wrapper = styled.div`
   flex: 1;
   flex-direction: column;
   overflow-y: auto;
-  background-color: ${({ backgroundcolor, theme }) =>
-    backgroundcolor || theme.bg.primary};
+  background-color: ${({ backgroundColor, theme }) =>
+    backgroundColor || theme.bg.primary};
   -webkit-overflow-scrolling: touch;
 `;
 

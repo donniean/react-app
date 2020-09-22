@@ -13,6 +13,7 @@
     "devtool",
     "donniean",
     "editorconfig",
+    "eslint",
     "eslintignore",
     "favicons",
     "gitattributes",

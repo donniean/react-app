@@ -3,6 +3,6 @@
   <component name="PrettierConfiguration">
     <option name="myRunOnSave" value="true" />
     <option name="myRunOnReformat" value="true" />
-    <option name="myFilesPattern" value="{**/*,*}.{js,ts,jsx,tsx,json,html,vue,css,less,scss,md,yaml}" />
+    <option name="myFilesPattern" value="{**/*,*}.{js,jsx,json,html,css,less,scss,md,yaml}" />
   </component>
 </project>

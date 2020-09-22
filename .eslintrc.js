@@ -18,13 +18,23 @@ module.exports = {
   },
   plugins: ['html'],
   root: true,
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    parser: 'babel-eslint',
-    ecmaFeatures: { jsx: true },
-  },
   rules: {
+    'no-useless-call': 'error',
+    'init-declarations': ['error', 'always'],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling', 'index'],
+          'object',
+          'unknown',
+        ],
+        'newlines-between': 'always',
+      },
+    ],
     'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-builtins': [
       'error',
@@ -39,6 +49,12 @@ module.exports = {
       { version: '>=12.0.0', ignores: [] },
     ],
     'react/jsx-props-no-spreading': 'off',
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    parser: 'babel-eslint',
+    ecmaFeatures: { jsx: true },
   },
   overrides: [
     {

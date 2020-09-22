@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions">
+    <enabled-global>
+      <option value="stylelint-css" />
+      <option value="stylelint-jsx" />
+      <option value="stylelint-js" />
+      <option value="stylelint-scss" />
+    </enabled-global>
+  </component>
+</project>

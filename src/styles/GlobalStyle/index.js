@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+const globalStyle = css`
   *,
   *::before,
   *::after {
@@ -19,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  ol, ul {
+  ol,
+  ul {
     list-style: none;
   }
 
@@ -41,5 +42,7 @@ const GlobalStyle = createGlobalStyle`
     appearance: none;
   }
 `;
+
+const GlobalStyle = createGlobalStyle(globalStyle);
 
 export default GlobalStyle;

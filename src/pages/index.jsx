@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 
 import AuthRoute from '../containers/AuthRoute';
-
 import Home from './Home';
 import NotFound from './NotFound';
 

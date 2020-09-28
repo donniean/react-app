@@ -9,8 +9,6 @@ module.exports = {
   rules: {
     'color-named': ['never', { ignore: ['inside-function'] }],
     'font-family-name-quotes': 'always-where-recommended',
-    'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
-    'selector-type-no-unknown': [true, { ignoreTypes: ['page'] }],
     'value-keyword-case': ['lower', { ignoreKeywords: [/^[a-z]+[A-Z][a-z]*/] }],
     'shorthand-property-no-redundant-values': true,
     'property-no-vendor-prefix': true,

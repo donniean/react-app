@@ -15,8 +15,9 @@ module.exports = {
     es6: true,
     es2017: true,
     es2020: true,
+    es2021: true,
   },
-  plugins: ['html'],
+  plugins: ['html', 'simple-import-sort'],
   root: true,
   rules: {
     'no-useless-call': 'error',
@@ -51,7 +52,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: 'module',
     parser: 'babel-eslint',
     ecmaFeatures: { jsx: true },
@@ -71,6 +72,26 @@ module.exports = {
       rules: {
         'node/no-unpublished-import': 'off',
         'node/no-unpublished-require': 'off',
+      },
+    },
+    {
+      files: ['./src/**/*.{js,jsx,html}'],
+      rules: {
+        'sort-imports': 'off',
+        'import/order': 'off',
+        'simple-import-sort/sort': [
+          'error',
+          {
+            groups: [
+              ['^react', '^prop-types', '^@?\\w'],
+              [
+                '^(@/(constants|containers|components|hooks|contexts|services|utils|pages))(/.*|$)',
+              ],
+              ['^\\.', '^\\u0000'],
+              ['^(@/styles)(/.*|$)', '^.+\\.s?css$', '^(@/assets)(/.*|$)'],
+            ],
+          },
+        ],
       },
     },
   ],

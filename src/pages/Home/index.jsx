@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { vw } from '@/styles/helpers';
 import Page from '@/components/Page';
+
+import { vw } from '@/styles/helpers';
 import logo from '@/assets/images/logo.svg';
 
 const Wrapper = styled.div`

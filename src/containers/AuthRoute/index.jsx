@@ -1,8 +1,8 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getSearchObj, getSearchStr, getNextURL } from '../../utils/url';
+import { getNextURL, getSearchObj, getSearchStr } from '../../utils/url';
 
 function AuthRoute({ auth, component: Component, title, ...rest }) {
   const token = localStorage.getItem('token');

@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { vw } from '@/styles/helpers';
 import Page from '@/components/Page';
+
+import { vw } from '@/styles/helpers';
 
 const Wrapper = styled.div`
   display: flex;

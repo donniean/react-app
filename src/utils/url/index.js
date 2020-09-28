@@ -1,5 +1,5 @@
-import merge from 'lodash/merge';
 import includes from 'lodash/includes';
+import merge from 'lodash/merge';
 import omitBy from 'lodash/omitBy';
 import qs from 'qs';
 

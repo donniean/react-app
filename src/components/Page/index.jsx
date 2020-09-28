@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTitle } from 'react-use';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useTitle } from 'react-use';
 
 const Wrapper = styled.div`
   display: flex;

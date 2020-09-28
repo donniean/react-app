@@ -85,7 +85,7 @@ module.exports = {
             groups: [
               ['^react', '^prop-types', '^@?\\w'],
               [
-                '^(@/(constants|containers|components|hooks|contexts|services|utils|pages))(/.*|$)',
+                '^(@/(constants|containers|components|routes|pages|hooks|contexts|services|utils))(/.*|$)',
               ],
               ['^\\.', '^\\u0000'],
               ['^(@/styles)(/.*|$)', '^.+\\.s?css$', '^(@/assets)(/.*|$)'],

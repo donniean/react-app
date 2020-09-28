@@ -4,7 +4,7 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { THEME } from '@/constants';
-import Routes from '@/pages';
+import Routes from '@/routes';
 
 import GlobalStyle from '@/styles/GlobalStyle';
 import themes from '@/styles/themes';

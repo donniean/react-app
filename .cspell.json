@@ -33,14 +33,16 @@
     "wechat"
   ],
   "ignorePaths": [
+    "**/.idea/**",
+    "**/.vscode/**",
     "**/dist/**",
     "**/build/**",
     "**/libs/**",
     "**/*.min.*",
-    "**/package.json",
-    "**/package-lock.json",
     "**/.gitattributes",
     "**/.gitignore",
-    "**/.htmlhintrc"
+    "**/.htmlhintrc",
+    "**/package.json",
+    "**/package-lock.json"
   ]
 }

@@ -9,6 +9,7 @@ const baseConfig = require('./webpack.config.base');
 const devConfig = {
   output: {
     filename: 'js/[name].[hash].js',
+    chunkFilename: 'js/[name].[hash].js',
   },
   devtool: 'cheap-module-source-map',
   // TODO: devServer

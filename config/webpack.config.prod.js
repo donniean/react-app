@@ -12,10 +12,15 @@ const smp = new SpeedMeasurePlugin();
 
 const prodConfig = {
   output: {
-    filename: 'js/[name].[chunkhash].js',
+    filename: 'js/[name].[contenthash].js',
+    chunkFilename: 'js/[name].[contenthash].js',
   },
   devtool: GENERATE_SOURCEMAP ? 'source-map' : false,
   optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: false,
+    },
     minimizer: [
       // TODO: https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53 , cssnano
       new OptimizeCSSAssetsPlugin({

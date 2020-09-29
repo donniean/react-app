@@ -114,7 +114,7 @@ module.exports = {
         use: {
           loader: 'url-loader',
           options: {
-            limit: 8192,
+            limit: 1024 * 10,
             name: 'assets/images/[name].[hash].[ext]',
           },
         },
@@ -149,8 +149,8 @@ module.exports = {
     }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-      chunkFilename: 'css/[id].[hash].css',
+      filename: 'css/[name].[contenthash].css',
+      chunkFilename: 'css/[id].[contenthash].css',
     }),
     new WebpackBar(),
     new FriendlyErrorsWebpackPlugin(),

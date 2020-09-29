@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -22,4 +21,4 @@ function App() {
   );
 }
 
-export default process.env.NODE_ENV === 'development' ? hot(App) : App;
+export default App;

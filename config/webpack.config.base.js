@@ -4,9 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const { GENERATE_SOURCEMAP } = require('./constants');
-const { env, isProductionEnv } = require('./env');
+const { env, isDevelopmentEnv, isProductionEnv } = require('./env');
 const {
   nodeModules: nodeModulesPath,
   public: publicPath,
@@ -71,7 +72,16 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: srcPath,
         exclude: nodeModulesPath,
-        use: [{ loader: 'babel-loader' }],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins: [isDevelopmentEnv && 'react-refresh/babel'].filter(
+                Boolean
+              ),
+            },
+          },
+        ],
       },
       {
         test: /\.(handlebars|hbs)$/,
@@ -130,5 +140,6 @@ module.exports = {
       chunkFilename: 'css/[id].[hash].css',
     }),
     new WebpackBar(),
+    new FriendlyErrorsWebpackPlugin(),
   ],
 };

@@ -8,11 +8,7 @@ module.exports = {
     ],
     '@babel/preset-react',
   ],
-  plugins: [
-    'react-hot-loader/babel',
-    'babel-plugin-styled-components',
-    'lodash',
-  ],
+  plugins: ['babel-plugin-styled-components', 'lodash'],
   env: {
     production: {
       plugins: ['transform-react-remove-prop-types'],

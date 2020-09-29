@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+/* cspell: disable-next-line */
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const { dist: distPath } = require('./paths');
 const baseConfig = require('./webpack.config.base');
@@ -9,20 +11,19 @@ const devConfig = {
     filename: 'js/[name].[hash].js',
   },
   devtool: 'cheap-module-source-map',
-  resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
-  },
-  // TODO: devServer, HotModuleReplacementPlugin, react-hot-loader, module.hot.accept
+  // TODO: devServer
   devServer: {
     contentBase: distPath,
     historyApiFallback: true,
     host: '127.0.0.1',
     port: 8080,
     hot: true,
+    quiet: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
+  ],
 };
 
 module.exports = merge(baseConfig, devConfig);

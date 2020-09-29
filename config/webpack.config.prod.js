@@ -2,6 +2,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
 
 const { GENERATE_SOURCEMAP } = require('./constants');
@@ -27,7 +28,10 @@ const prodConfig = {
       new TerserPlugin({ sourceMap: GENERATE_SOURCEMAP }),
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    process.env.ANALYZE && new BundleAnalyzerPlugin(),
+  ].filter(Boolean),
 };
 
 module.exports = smp.wrap(merge(baseConfig, prodConfig));

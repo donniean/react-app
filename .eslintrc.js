@@ -75,7 +75,7 @@ module.exports = {
       },
     },
     {
-      files: ['./src/**/*.{js,jsx,html}'],
+      files: ['./src/**/*.{js,jsx}'],
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',

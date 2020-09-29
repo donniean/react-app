@@ -17,18 +17,33 @@ const {
 
 const getStyleLoaders = ({ useCSSModules } = {}) => {
   let sourceMap = true;
+  let modules = false;
   if (isProductionEnv) {
     sourceMap = GENERATE_SOURCEMAP;
   }
+  if (useCSSModules) {
+    if (isDevelopmentEnv) {
+      modules = {
+        localIdentName: '[path][name]__[local]',
+      };
+    }
+    if (isProductionEnv) {
+      modules = true;
+    }
+  }
+
   return [
     {
       loader: MiniCssExtractPlugin.loader,
+      options: {
+        hmr: isDevelopmentEnv,
+      },
     },
     {
       loader: 'css-loader',
       options: {
         sourceMap,
-        modules: useCSSModules,
+        modules,
       },
     },
     {
@@ -40,9 +55,7 @@ const getStyleLoaders = ({ useCSSModules } = {}) => {
     {
       loader: 'sass-loader',
       options: {
-        outputStyle: 'expanded',
         sourceMap,
-        sourceMapContents: sourceMap,
       },
     },
   ];

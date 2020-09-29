@@ -12,14 +12,12 @@
   },
   "license": "MIT",
   "author": "Donnie An",
-  "main": "",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --color",
     "build": "cross-env NODE_ENV=production webpack --progress --color",
     "prettier": "npx prettier \"**/*.{js,jsx,css,scss,html,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx,html}\"",
     "stylelint": "npx stylelint --fix \"**/*.{js,jsx,html}\"",
-    "lint": "npm run prettier && npm run eslint && npm run stylelint",
     "cspell": "cspell \"**/*\"",
     "commit": "git-cz"
   },

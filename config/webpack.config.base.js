@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 
@@ -123,6 +124,7 @@ module.exports = {
       favicon: resolve(publicPath, 'favicon.png'),
       hash: true,
     }),
+    new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       chunkFilename: 'css/[id].[hash].css',

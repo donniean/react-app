@@ -10,8 +10,11 @@ module.exports = {
   ],
   plugins: ['babel-plugin-styled-components', 'lodash'],
   env: {
+    development: {
+      plugins: ['react-refresh/babel'],
+    },
     production: {
-      plugins: ['transform-react-remove-prop-types', 'react-refresh/babel'],
+      plugins: ['transform-react-remove-prop-types'],
     },
   },
 };

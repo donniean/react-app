@@ -13,8 +13,8 @@
   "license": "MIT",
   "author": "Donnie An",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --color",
-    "build": "cross-env NODE_ENV=production webpack --progress --color",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "analyze": "cross-env ANALYZE=true npm run build",
     "prettier": "npx prettier \"**/*.{js,jsx,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx}\"",

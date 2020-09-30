@@ -15,8 +15,6 @@ const {
   dist: distPath,
 } = require('./paths');
 
-console.log(env);
-
 const getStyleLoaders = ({ useCSSModules } = {}) => {
   let sourceMap = true;
   let modules = false;

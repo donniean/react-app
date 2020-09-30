@@ -145,7 +145,11 @@ module.exports = {
       favicon: resolve(publicPath, 'favicon.png'),
       hash: true,
     }),
-    new ESLintPlugin({ extensions: ['js', 'jsx'], fix: true }),
+    new ESLintPlugin({
+      context: 'src',
+      extensions: ['js', 'jsx'],
+      fix: true,
+    }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
     // TODO: WebpackBar & Webpack 5
     new WebpackBar(),

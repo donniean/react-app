@@ -11,7 +11,7 @@ module.exports = {
   plugins: ['babel-plugin-styled-components', 'lodash'],
   env: {
     production: {
-      plugins: ['transform-react-remove-prop-types'],
+      plugins: ['transform-react-remove-prop-types', 'react-refresh/babel'],
     },
   },
 };

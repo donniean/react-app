@@ -12,7 +12,7 @@ const {
   GENERATE_SOURCEMAP,
   DOCUMENT_TITLE,
 } = require('./constants');
-const { env, isDevelopmentEnv, isProductionEnv } = require('./env');
+const { env, isEnvDevelopment, isEnvProduction } = require('./env');
 const {
   nodeModules: nodeModulesPath,
   public: publicPath,
@@ -23,25 +23,26 @@ const {
 const getStyleLoaders = ({ useCSSModules } = {}) => {
   let sourceMap = true;
   let modules = false;
-  if (isProductionEnv) {
+  if (isEnvProduction) {
     sourceMap = GENERATE_SOURCEMAP;
   }
   if (useCSSModules) {
-    if (isDevelopmentEnv) {
+    if (isEnvDevelopment) {
       modules = {
         localIdentName: '[path][name]__[local]',
       };
     }
-    if (isProductionEnv) {
+    if (isEnvProduction) {
       modules = true;
     }
   }
 
   return [
-    {
+    isEnvDevelopment && 'style-loader',
+    isEnvProduction && {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        hmr: isDevelopmentEnv,
+        hmr: isEnvDevelopment,
       },
     },
     {
@@ -63,7 +64,7 @@ const getStyleLoaders = ({ useCSSModules } = {}) => {
         sourceMap,
       },
     },
-  ];
+  ].filter(Boolean);
 };
 
 module.exports = {
@@ -79,16 +80,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: srcPath,
         exclude: nodeModulesPath,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              plugins: [isDevelopmentEnv && 'react-refresh/babel'].filter(
-                Boolean
-              ),
-            },
-          },
-        ],
+        loader: 'babel-loader',
       },
       {
         test: /\.(handlebars|hbs)$/,
@@ -109,7 +101,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1024 * 10,
-            name: isDevelopmentEnv
+            name: isEnvDevelopment
               ? '[name].[ext]'
               : '[name].[contenthash].[ext]',
             outputPath: 'assets/images',

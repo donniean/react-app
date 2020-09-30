@@ -18,9 +18,6 @@ const prodConfig = {
   },
   devtool: GENERATE_SOURCEMAP ? 'source-map' : false,
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
     minimizer: [
       // TODO: https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53 , cssnano
       new OptimizeCSSAssetsPlugin({
@@ -32,6 +29,9 @@ const prodConfig = {
       }),
       new TerserPlugin({ sourceMap: GENERATE_SOURCEMAP }),
     ],
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),

@@ -1,12 +1,12 @@
-const { isDevelopmentEnv, isProductionEnv } = require('./config/env');
+const { isEnvDevelopment, isEnvProduction } = require('./config/env');
 const devConfig = require('./config/webpack.config.dev');
 const prodConfig = require('./config/webpack.config.prod');
 
 module.exports = () => {
   let config = null;
-  if (isDevelopmentEnv) {
+  if (isEnvDevelopment) {
     config = devConfig;
-  } else if (isProductionEnv) {
+  } else if (isEnvProduction) {
     config = prodConfig;
   }
   return config;

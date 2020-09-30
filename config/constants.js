@@ -1,3 +1,3 @@
 module.exports = {
-  GENERATE_SOURCEMAP: false,
+  GENERATE_SOURCEMAP: true,
 };

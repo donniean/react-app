@@ -15,6 +15,8 @@ const {
   dist: distPath,
 } = require('./paths');
 
+console.log(env);
+
 const getStyleLoaders = ({ useCSSModules } = {}) => {
   let sourceMap = true;
   let modules = false;
@@ -115,7 +117,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1024 * 10,
-            name: 'assets/images/[name].[hash].[ext]',
+            name: 'assets/images/[name].[contenthash].[ext]',
           },
         },
       },
@@ -152,6 +154,7 @@ module.exports = {
       filename: 'css/[name].[contenthash].css',
       chunkFilename: 'css/[id].[contenthash].css',
     }),
+    // TODO: WebpackBar & Webpack 5
     new WebpackBar(),
     new FriendlyErrorsWebpackPlugin(),
   ],

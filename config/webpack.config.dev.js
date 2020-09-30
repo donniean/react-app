@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /* cspell: disable-next-line */
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
@@ -8,8 +9,8 @@ const baseConfig = require('./webpack.config.base');
 
 const devConfig = {
   output: {
-    filename: 'js/[name].[contenthash].js',
-    chunkFilename: 'js/[name].[contenthash].js',
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].chunk.js',
   },
   devtool: 'cheap-module-source-map',
   // TODO: devServer
@@ -20,6 +21,10 @@ const devConfig = {
     quiet: true,
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[name].chunk.css',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
   ],

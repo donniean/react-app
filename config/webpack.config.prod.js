@@ -1,6 +1,7 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
@@ -12,8 +13,8 @@ const baseConfig = require('./webpack.config.base');
 
 const prodConfig = {
   output: {
-    filename: 'js/[id].[contenthash].js',
-    chunkFilename: 'js/[id].[contenthash].js',
+    filename: 'js/[name].[contenthash].js',
+    chunkFilename: 'js/[name].[contenthash].chunk.js',
   },
   devtool: GENERATE_SOURCEMAP ? 'source-map' : false,
   optimization: {
@@ -34,6 +35,10 @@ const prodConfig = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash].css',
+      chunkFilename: 'css/[name].[contenthash].chunk.css',
+    }),
     process.env.ANALYZE && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
 };

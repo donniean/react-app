@@ -1,12 +1,17 @@
 const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
-const { GENERATE_SOURCEMAP } = require('./constants');
+const {
+  PUBLIC_PATH,
+  GENERATE_SOURCEMAP,
+  DOCUMENT_TITLE,
+} = require('./constants');
 const { env, isDevelopmentEnv, isProductionEnv } = require('./env');
 const {
   nodeModules: nodeModulesPath,
@@ -66,21 +71,10 @@ module.exports = {
   entry: resolve(srcPath, 'index'),
   output: {
     path: distPath,
-    publicPath: '',
+    publicPath: PUBLIC_PATH,
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: nodeModulesPath,
-        enforce: 'pre',
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            fix: true,
-          },
-        },
-      },
       {
         test: /\.(js|jsx)$/,
         include: srcPath,
@@ -115,7 +109,10 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1024 * 10,
-            name: 'assets/images/[name].[contenthash].[ext]',
+            name: isDevelopmentEnv
+              ? '[name].[ext]'
+              : '[name].[contenthash].[ext]',
+            outputPath: 'assets/images',
           },
         },
       },
@@ -125,7 +122,8 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'assets/fonts/[name].[ext]',
+            name: '[name].[ext]',
+            outputPath: 'assets/fonts',
           },
         },
       },
@@ -141,17 +139,14 @@ module.exports = {
   target: 'web',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React App',
+      title: DOCUMENT_TITLE,
       template: resolve(publicPath, 'index.handlebars'),
       inject: true,
       favicon: resolve(publicPath, 'favicon.png'),
       hash: true,
     }),
+    new ESLintPlugin({ extensions: ['js', 'jsx'], fix: true }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/[id].[contenthash].css',
-    }),
     // TODO: WebpackBar & Webpack 5
     new WebpackBar(),
     new FriendlyErrorsWebpackPlugin(),

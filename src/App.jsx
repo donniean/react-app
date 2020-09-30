@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { THEME } from '@/constants';
@@ -13,9 +13,9 @@ function App() {
     <>
       <GlobalStyle />
       <ThemeProvider theme={themes[THEME]}>
-        <HashRouter>
+        <Router>
           <Routes />
-        </HashRouter>
+        </Router>
       </ThemeProvider>
     </>
   );

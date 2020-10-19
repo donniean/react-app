@@ -27,7 +27,7 @@ const prodConfig = {
             : { inline: true },
         },
       }),
-      new TerserPlugin({ sourceMap: GENERATE_SOURCEMAP }),
+      new TerserPlugin(),
     ],
     splitChunks: {
       chunks: 'all',

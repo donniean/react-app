@@ -30,12 +30,12 @@
   "dependencies": {
     "immer": "^7.0.14",
     "lodash": "^4.17.20",
+    "moment": "^2.29.1",
     "polished": "^4.0.3",
     "prop-types": "^15.7.2",
     "qs": "^6.9.4",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-portal": "^4.2.1",
     "react-router-dom": "^5.2.0",
     "react-use": "^15.3.4",
     "styled-components": "^5.2.0",

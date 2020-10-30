@@ -17,7 +17,7 @@ const devConfig = {
     contentBase: distPath,
     historyApiFallback: true,
     hot: true,
-    quiet: true,
+    stats: 'errors-warnings',
     proxy: PROXY,
   },
   plugins: [

@@ -1,10 +1,11 @@
 const { resolve } = require('path');
 
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackBar = require('webpackbar');
+// const WebpackBar = require('webpackbar');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const {
@@ -129,6 +130,7 @@ module.exports = {
     },
   },
   target: 'web',
+  stats: 'errors-warnings',
   plugins: [
     new HtmlWebpackPlugin({
       title: DOCUMENT_TITLE,
@@ -143,8 +145,8 @@ module.exports = {
       fix: true,
     }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
-    // TODO: WebpackBar & Webpack 5, 99%
-    new WebpackBar(),
     new FriendlyErrorsWebpackPlugin(),
+    new webpack.ProgressPlugin(),
+    // new WebpackBar(),
   ],
 };

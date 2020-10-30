@@ -40,6 +40,5 @@ const prodConfig = {
   ].filter(Boolean),
 };
 
-// TODO: SpeedMeasurePlugin & Webpack 5
 // module.exports = smp.wrap(merge(baseConfig, prodConfig));
 module.exports = merge(baseConfig, prodConfig);

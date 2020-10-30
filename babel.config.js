@@ -8,7 +8,11 @@ module.exports = {
     ],
     '@babel/preset-react',
   ],
-  plugins: ['lodash'],
+  plugins: [
+    '@babel/plugin-syntax-dynamic-import',
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+  ],
   env: {
     development: {
       plugins: ['babel-plugin-styled-components', 'react-refresh/babel'],
@@ -23,6 +27,7 @@ module.exports = {
           },
         ],
         'transform-react-remove-prop-types',
+        'lodash',
       ],
     },
   },

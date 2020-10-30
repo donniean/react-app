@@ -88,7 +88,12 @@ module.exports = {
                 '^(@/(constants|containers|components|routes|pages|hooks|contexts|services|utils))(/.*|$)',
               ],
               ['^\\.', '^\\u0000'],
-              ['^(@/styles)(/.*|$)', '^.+\\.s?css$', '^(@/assets)(/.*|$)'],
+              [
+                '^(@/styles)(/.*|$)',
+                '^.+\\.module.s?css$',
+                '^.+\\.s?css$',
+                '^(@/assets)(/.*|$)',
+              ],
             ],
           },
         ],

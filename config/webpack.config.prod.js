@@ -19,12 +19,9 @@ const prodConfig = {
   devtool: GENERATE_SOURCEMAP ? 'source-map' : false,
   optimization: {
     minimizer: [
-      // TODO: https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/53 , cssnano
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
-          map: GENERATE_SOURCEMAP
-            ? { inline: false, annotation: true }
-            : { inline: true },
+          map: GENERATE_SOURCEMAP ? { inline: false, annotation: true } : false,
         },
       }),
       new TerserPlugin(),

@@ -143,7 +143,7 @@ module.exports = {
       fix: true,
     }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
-    // TODO: WebpackBar & Webpack 5
+    // TODO: WebpackBar & Webpack 5, 99%
     new WebpackBar(),
     new FriendlyErrorsWebpackPlugin(),
   ],

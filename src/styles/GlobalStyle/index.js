@@ -7,6 +7,8 @@ const globalStyle = css`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: 0;
   }
 
   html {
@@ -15,8 +17,10 @@ const globalStyle = css`
   }
 
   body {
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
+    padding: constant(safe-area-inset-top) constant(safe-area-inset-right)
+      constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   ol,
@@ -36,9 +40,7 @@ const globalStyle = css`
   input,
   button,
   textarea {
-    border: 0;
     border-radius: 0;
-    outline: 0;
     appearance: none;
   }
 `;

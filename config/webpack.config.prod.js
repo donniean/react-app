@@ -1,4 +1,4 @@
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -19,9 +19,15 @@ const prodConfig = {
   devtool: GENERATE_SOURCEMAP ? 'source-map' : false,
   optimization: {
     minimizer: [
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          map: GENERATE_SOURCEMAP ? { inline: false, annotation: true } : false,
+      new CssMinimizerPlugin({
+        sourceMap: GENERATE_SOURCEMAP,
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
         },
       }),
       new TerserPlugin(),

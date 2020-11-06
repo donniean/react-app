@@ -214,9 +214,11 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+.parcel-cache
 
 # Next.js build output
 .next
@@ -266,6 +268,7 @@ dist
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.ionide
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -296,16 +299,17 @@ $RECYCLE.BIN/
 ### yarn ###
 # https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
 
-# .yarn/unplugged and .yarn/build-state.yml should likely always be ignored since
-# they typically hold machine-specific build artifacts. Ignoring them might however
-# prevent Zero-Installs from working (to prevent this, set enableScripts to false).
-.yarn/unplugged
-.yarn/build-state.yml
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 
-# .yarn/cache and .pnp.* may be safely ignored, but you'll need to run yarn install
-# to regenerate them between each branch switch.
-# Uncomment the following lines if you're not using Zero-Installs:
-# .yarn/cache
+# if you are NOT using Zero-installs, then:
+# comment the following lines
+!.yarn/cache
+
+# and uncomment the following lines
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/grunt,jetbrains,macos,node,sass,visualstudiocode,windows,yarn

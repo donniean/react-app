@@ -31,9 +31,6 @@ function Home({ documentTitle }) {
       <Wrapper>
         <Image src={logo} />
         <Title>Hello React</Title>
-        <b>bold</b>
-        <strong>strong</strong>
-        <i>ital</i>
       </Wrapper>
     </Page>
   );

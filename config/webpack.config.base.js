@@ -1,12 +1,11 @@
 const { resolve } = require('path');
 
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const WebpackBar = require('webpackbar');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const WebpackBar = require('webpackbar');
+// const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const {
   PUBLIC_PATH,
@@ -42,9 +41,6 @@ const getStyleLoaders = ({ useCSSModules } = {}) => {
     isEnvDevelopment && 'style-loader',
     isEnvProduction && {
       loader: MiniCssExtractPlugin.loader,
-      options: {
-        hmr: isEnvDevelopment,
-      },
     },
     {
       loader: 'css-loader',
@@ -145,8 +141,7 @@ module.exports = {
       fix: true,
     }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
-    new FriendlyErrorsWebpackPlugin(),
-    new webpack.ProgressPlugin(),
-    // new WebpackBar(),
+    // new FriendlyErrorsWebpackPlugin(),
+    new WebpackBar(),
   ],
 };

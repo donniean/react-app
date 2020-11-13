@@ -3,15 +3,7 @@ import { useTitle } from 'react-use';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  overflow-y: auto;
-  background-color: ${({ backgroundColor, theme }) =>
-    backgroundColor || theme.bg.primary};
-  -webkit-overflow-scrolling: touch;
-`;
+const Wrapper = styled.div``;
 
 function Page({ documentTitle, children, ...rest }) {
   useTitle(documentTitle);

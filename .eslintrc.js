@@ -79,7 +79,7 @@ module.exports = {
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',
-        'simple-import-sort/sort': [
+        'simple-import-sort/imports': [
           'error',
           {
             groups: [

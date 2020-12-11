@@ -94,7 +94,8 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        use: {
+        type: 'asset/inline',
+        /* use: {
           loader: 'url-loader',
           options: {
             limit: 1024 * 10,
@@ -103,17 +104,21 @@ module.exports = {
               : '[name].[contenthash].[ext]',
             outputPath: 'assets/images',
           },
+        }, */
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        type: 'asset',
+        generator: {
+          filename: 'assets/images/[name].[contenthash][ext][query]',
         },
       },
       {
         test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+        type: 'asset/resource',
         include: /\/fonts\//,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'assets/fonts',
-          },
+        generator: {
+          filename: 'assets/fonts/[name].[contenthash][ext][query]',
         },
       },
     ],

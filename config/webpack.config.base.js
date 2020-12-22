@@ -5,7 +5,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
-// const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const {
   PUBLIC_PATH,
@@ -146,7 +145,6 @@ module.exports = {
       fix: true,
     }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
-    // new FriendlyErrorsWebpackPlugin(),
     new WebpackBar(),
   ],
 };

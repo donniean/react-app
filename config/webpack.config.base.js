@@ -93,20 +93,6 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        type: 'asset/inline',
-        /* use: {
-          loader: 'url-loader',
-          options: {
-            limit: 1024 * 10,
-            name: isEnvDevelopment
-              ? '[name].[ext]'
-              : '[name].[contenthash].[ext]',
-            outputPath: 'assets/images',
-          },
-        }, */
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset',
         generator: {
           filename: 'assets/images/[name].[contenthash][ext][query]',

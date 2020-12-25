@@ -95,7 +95,9 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset',
         generator: {
-          filename: 'assets/images/[name].[contenthash][ext][query]',
+          filename: `assets/images/[name].${
+            isEnvProduction ? '[contenthash]' : ''
+          }[ext][query]`,
         },
       },
       {
@@ -103,7 +105,9 @@ module.exports = {
         type: 'asset/resource',
         include: /\/fonts\//,
         generator: {
-          filename: 'assets/fonts/[name].[contenthash][ext][query]',
+          filename: `assets/fonts/[name].${
+            isEnvProduction ? '[contenthash]' : ''
+          }[ext][query]`,
         },
       },
     ],

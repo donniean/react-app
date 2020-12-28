@@ -139,6 +139,6 @@ module.exports = {
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
     new WebpackBar(),
     new WebpackNotifierPlugin({ emoji: true }),
-    new CleanTerminalPlugin({ onlyInWatchMode: false }),
+    new CleanTerminalPlugin(),
   ],
 };

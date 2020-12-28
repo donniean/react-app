@@ -5,7 +5,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
-const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
 const {
@@ -138,9 +138,7 @@ module.exports = {
     }),
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
     new WebpackBar(),
-    new WebpackBuildNotifierPlugin({
-      logo: resolve(publicPath, 'favicon.png'),
-    }),
-    new CleanTerminalPlugin(),
+    new WebpackNotifierPlugin({ emoji: true }),
+    new CleanTerminalPlugin({ onlyInWatchMode: false }),
   ],
 };

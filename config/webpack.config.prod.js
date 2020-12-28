@@ -36,6 +36,7 @@ const prodConfig = {
       chunks: 'all',
     },
   },
+  stats: 'normal',
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

@@ -21,21 +21,17 @@ const {
   dist: distPath,
 } = require('./paths');
 
-const getStyleLoaders = ({ useCSSModules } = {}) => {
-  let sourceMap = true;
-  let modules = false;
+const getStyleLoaders = () => {
+  let [sourceMap, modules] = [true, { auto: true }];
+
+  if (isEnvDevelopment) {
+    modules = {
+      ...modules,
+      localIdentName: '[path][name]__[local]',
+    };
+  }
   if (isEnvProduction) {
     sourceMap = GENERATE_SOURCEMAP;
-  }
-  if (useCSSModules) {
-    if (isEnvDevelopment) {
-      modules = {
-        localIdentName: '[path][name]__[local]',
-      };
-    }
-    if (isEnvProduction) {
-      modules = true;
-    }
   }
 
   return [
@@ -86,12 +82,7 @@ module.exports = {
       },
       {
         test: /\.(sass|scss|css)$/,
-        exclude: /\.module\.(sass|scss|css)$/,
         use: getStyleLoaders(),
-      },
-      {
-        test: /\.module\.(sass|scss|css)$/,
-        use: getStyleLoaders({ useCSSModules: true }),
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,

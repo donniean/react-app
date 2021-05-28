@@ -20,7 +20,6 @@ const prodConfig = {
   optimization: {
     minimizer: [
       new CssMinimizerPlugin({
-        sourceMap: GENERATE_SOURCEMAP,
         minimizerOptions: {
           preset: [
             'default',

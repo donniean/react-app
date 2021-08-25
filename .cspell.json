@@ -11,6 +11,7 @@
     "contenthash",
     "cosmiconfig",
     "devtool",
+    "dockerignore",
     "donniean",
     "editorconfig",
     "eslint",
@@ -47,6 +48,8 @@
     "**/.gitignore",
     "**/.htmlhintrc",
     "**/package.json",
-    "**/package-lock.json"
+    "**/package-lock.json",
+    "**/Dockerfile",
+    "**/.dockerignore"
   ]
 }

@@ -1,13 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/grunt,jetbrains,macos,node,sass,visualstudiocode,windows,yarn
-# Edit at https://www.toptal.com/developers/gitignore?templates=grunt,jetbrains,macos,node,sass,visualstudiocode,windows,yarn
-
-### grunt ###
-# Grunt usually compiles files inside this directory
-dist/
-
-# Grunt usually preprocesses files such as coffeescript, compass... inside the .tmp directory
-.tmp/
+# Created by https://www.toptal.com/developers/gitignore/api/jetbrains,macos,node,sass,visualstudiocode,windows,yarn
+# Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains,macos,node,sass,visualstudiocode,windows,yarn
 
 ### JetBrains ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -327,8 +320,16 @@ $RECYCLE.BIN/
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/grunt,jetbrains,macos,node,sass,visualstudiocode,windows,yarn
+# End of https://www.toptal.com/developers/gitignore/api/jetbrains,macos,node,sass,visualstudiocode,windows,yarn
 
 ### Custom ###
 build/
 miniprogram_npm/
+!.env
+!.env.local
+!.env.development
+!.env.test
+!.env.production
+!.env.development.local
+!.env.test.local
+!.env.production.local

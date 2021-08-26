@@ -19,7 +19,7 @@
     "prettier": "npx prettier \"**/*.{js,jsx,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx}\"",
     "stylelint": "npx stylelint --fix \"**/*.{css,scss,js,jsx}\"",
-    "cspell": "cspell \"**/*\"",
+    "cspell": "cspell \"**\"",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
     "commit": "git-cz"

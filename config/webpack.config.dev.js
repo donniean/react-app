@@ -14,10 +14,14 @@ const devConfig = {
   },
   devtool: 'cheap-module-source-map',
   devServer: {
-    contentBase: distPath,
+    static: {
+      directory: distPath,
+    },
     historyApiFallback: true,
     hot: true,
-    stats: 'errors-warnings',
+    devMiddleware: {
+      stats: 'errors-warnings',
+    },
     proxy: PROXY,
   },
   plugins: [

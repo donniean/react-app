@@ -6,7 +6,6 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const WebpackNotifierPlugin = require('webpack-notifier');
-const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
 const {
   PUBLIC_PATH,
@@ -130,6 +129,5 @@ module.exports = {
     new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
     new WebpackBar(),
     new WebpackNotifierPlugin({ emoji: true }),
-    new CleanTerminalPlugin(),
   ],
 };

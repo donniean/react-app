@@ -1,6 +1,6 @@
-const { isEnvDevelopment, isEnvProduction } = require('./config/env');
-const devConfig = require('./config/webpack.config.dev');
-const prodConfig = require('./config/webpack.config.prod');
+const { isEnvDevelopment, isEnvProduction } = require('./webpack/env');
+const devConfig = require('./webpack/webpack.config.dev');
+const prodConfig = require('./webpack/webpack.config.prod');
 
 module.exports = () => {
   let config = null;

@@ -112,7 +112,6 @@ module.exports = {
     },
   },
   target: 'web',
-  stats: 'errors-warnings',
   plugins: [
     new HtmlWebpackPlugin({
       title: DOCUMENT_TITLE,

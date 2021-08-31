@@ -117,6 +117,7 @@ fabric.properties
 # Icon must end with two \r
 Icon
 
+
 # Thumbnails
 ._*
 
@@ -322,14 +323,13 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,macos,node,sass,visualstudiocode,windows,yarn
 
-### Custom ###
 build/
 miniprogram_npm/
+
 !.env
-!.env.local
-!.env.development
-!.env.test
-!.env.production
-!.env.development.local
-!.env.test.local
-!.env.production.local
+!.env.*
+.env.local
+.env.*.local
+
+config/local.*
+config/local-*.*

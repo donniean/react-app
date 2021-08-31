@@ -1,11 +1,14 @@
+const config = require('config');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 /* cspell: disable-next-line */
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const { PROXY } = require('./constants');
 const { dist: distPath } = require('./paths');
 const baseConfig = require('./webpack.config.base');
+
+const PORT = config.get('PORT');
+const PROXY = config.get('PROXY');
 
 const devConfig = {
   output: {
@@ -14,15 +17,16 @@ const devConfig = {
   },
   devtool: 'cheap-module-source-map',
   devServer: {
+    port: PORT,
+    proxy: PROXY,
+    historyApiFallback: true,
+    hot: true,
     static: {
       directory: distPath,
     },
-    historyApiFallback: true,
-    hot: true,
     devMiddleware: {
       stats: 'errors-warnings',
     },
-    proxy: PROXY,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

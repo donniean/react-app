@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 
+const config = require('config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
@@ -7,11 +8,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
-const {
-  PUBLIC_PATH,
-  GENERATE_SOURCEMAP,
-  DOCUMENT_TITLE,
-} = require('./constants');
 const { env, isEnvDevelopment, isEnvProduction } = require('./env');
 const {
   nodeModules: nodeModulesPath,
@@ -19,6 +15,10 @@ const {
   src: srcPath,
   dist: distPath,
 } = require('./paths');
+
+const PUBLIC_PATH = config.get('PUBLIC_PATH');
+const GENERATE_SOURCEMAP = config.get('GENERATE_SOURCEMAP');
+const DOCUMENT_TITLE = config.get('DOCUMENT_TITLE');
 
 const getStyleLoaders = () => {
   let [sourceMap, modules] = [true, { auto: true }];

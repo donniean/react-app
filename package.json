@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
-    "analyze": "cross-env ANALYZE=true npm run build",
+    "analyze": "cross-env NODE_ENV=development ANALYZE=true npm run build",
     "prettier": "npx prettier \"**/*.{js,jsx,css,scss,json,md}\"",
     "eslint": "npx eslint --fix \"**/*.{js,jsx}\"",
     "stylelint": "npx stylelint --fix \"**/*.{css,scss,js,jsx}\"",
@@ -61,6 +61,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^4.2.4",
+    "config": "^3.3.6",
     "cross-env": "^7.0.3",
     "cspell": "^5.8.2",
     "css-loader": "^6.2.0",

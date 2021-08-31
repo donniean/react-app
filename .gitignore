@@ -117,6 +117,7 @@ fabric.properties
 # Icon must end with two \r
 Icon
 
+
 # Thumbnails
 ._*
 
@@ -332,3 +333,4 @@ miniprogram_npm/
 
 config/local.*
 config/local-*.*
+1

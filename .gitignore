@@ -256,6 +256,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
+
 ### Sass ###
 .sass-cache/
 *.css.map

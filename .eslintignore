@@ -3,6 +3,7 @@
 **/.hg/
 **/CVS/
 **/.DS_Store/
+**/.cache/
 **/node_modules/
 **/libs/
 **/build/

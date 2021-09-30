@@ -5,20 +5,11 @@ module.exports = {
     'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
-  env: {
-    browser: true,
-    node: true,
-    commonjs: true,
-    'shared-node-browser': true,
-    amd: true,
-    es6: true,
-    es2017: true,
-    es2020: true,
-    es2021: true,
-  },
-  plugins: ['html', 'simple-import-sort'],
-  root: true,
   rules: {
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsFor: ['draft'] },
+    ],
     'no-useless-call': 'error',
     'init-declarations': ['error', 'always'],
     'import/order': [
@@ -36,24 +27,28 @@ module.exports = {
       },
     ],
     'node/no-missing-import': 'off',
-    'node/no-unsupported-features/es-builtins': [
-      'error',
-      { version: '>=14.0.0', ignores: [] },
-    ],
     'node/no-unsupported-features/es-syntax': [
       'error',
       { version: '>=14.0.0', ignores: ['modules'] },
     ],
-    'node/no-unsupported-features/node-builtins': [
-      'error',
-      { version: '>=14.0.0', ignores: [] },
-    ],
     'react/jsx-props-no-spreading': 'off',
   },
+  env: {
+    browser: true,
+    node: true,
+    commonjs: true,
+    'shared-node-browser': true,
+    amd: true,
+    es6: true,
+    es2017: true,
+    es2020: true,
+    es2021: true,
+  },
+  root: true,
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 2021,
+    ecmaVersion: 'latest',
     sourceType: 'module',
-    parser: 'babel-eslint',
     ecmaFeatures: { jsx: true },
   },
   overrides: [
@@ -61,11 +56,8 @@ module.exports = {
       files: [
         '**/webpack.js',
         '**/webpack.*.js',
-        '**/rollup.js',
-        '**/rollup.*.js',
-        '**/gulpfile.js',
-        '**/gulpfile.*.js',
-        '**/postcss.config.js',
+        '**/webpack.ts',
+        '**/webpack.*.ts',
         '**/postcss.*.js',
       ],
       rules: {
@@ -84,7 +76,7 @@ module.exports = {
             groups: [
               ['^react', '^prop-types', '^@?\\w'],
               [
-                '^(@/(constants|containers|components|routes|pages|hooks|contexts|services|utils))(/.*|$)',
+                '^(@/(constants|containers|components|routes|pages|hooks|contexts|api|services|utils))(/.*|$)',
               ],
               ['^\\.', '^\\u0000'],
               [
@@ -105,4 +97,5 @@ module.exports = {
       webpack: { config: './webpack/webpack.config.dev.js' },
     },
   },
+  plugins: ['simple-import-sort'],
 };

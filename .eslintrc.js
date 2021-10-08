@@ -1,14 +1,55 @@
 module.exports = {
+  root: true,
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    requireConfigFile: false,
+    ecmaFeatures: { jsx: true },
+  },
+  env: {
+    browser: true,
+    node: true,
+    commonjs: true,
+    'shared-node-browser': true,
+    amd: true,
+    es6: true,
+    es2017: true,
+    es2020: true,
+    es2021: true,
+  },
+  plugins: ['simple-import-sort'],
   extends: [
     'airbnb',
     'airbnb/hooks',
     'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
+  settings: {
+    'import/resolver': {
+      webpack: { config: './webpack/webpack.config.dev.js' },
+    },
+  },
   rules: {
     'no-param-reassign': [
       'error',
-      { props: true, ignorePropertyModificationsFor: ['draft'] },
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'acc',
+          'accumulator',
+          'e',
+          'ctx',
+          'context',
+          'req',
+          'request',
+          'res',
+          'response',
+          '$scope',
+          'staticContext',
+          'draft',
+        ],
+      },
     ],
     'no-useless-call': 'error',
     'init-declarations': ['error', 'always'],
@@ -32,24 +73,6 @@ module.exports = {
       { version: '>=14.0.0', ignores: ['modules'] },
     ],
     'react/jsx-props-no-spreading': 'off',
-  },
-  env: {
-    browser: true,
-    node: true,
-    commonjs: true,
-    'shared-node-browser': true,
-    amd: true,
-    es6: true,
-    es2017: true,
-    es2020: true,
-    es2021: true,
-  },
-  root: true,
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    ecmaFeatures: { jsx: true },
   },
   overrides: [
     {
@@ -91,11 +114,4 @@ module.exports = {
       },
     },
   ],
-  settings: {
-    'import/resolver': {
-      node: {},
-      webpack: { config: './webpack/webpack.config.dev.js' },
-    },
-  },
-  plugins: ['simple-import-sort'],
 };

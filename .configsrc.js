@@ -13,7 +13,12 @@ module.exports = {
     prettier: true,
     eslint: [
       true,
-      { 'eslint-plugin-simple-import-sort': [true, { files: ['./src/**/*'] }] },
+      {
+        'eslint-plugin-simple-import-sort': [true, { files: ['./src/**/*'] }],
+        'eslint-plugin-import': {
+          'resolver-webpack-config-file': './webpack/webpack.config.dev.js',
+        },
+      },
     ],
     stylelint: [true, { 'styled-components': true }],
     cspell: true,

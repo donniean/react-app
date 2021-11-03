@@ -1,8 +1,10 @@
 module.exports = {
   root: true,
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    project: './tsconfig.json',
+    sourceType: 'module',
+    requireConfigFile: false,
   },
   env: {
     browser: true,
@@ -18,17 +20,16 @@ module.exports = {
   plugins: ['simple-import-sort'],
   extends: [
     'airbnb',
-    'airbnb-typescript',
     'airbnb/hooks',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
   settings: {
-    'import/resolver': { webpack: { config: './webpack.config.alias.js' } },
+    'import/resolver': {
+      webpack: { config: './webpack/webpack.config.dev.js' },
+    },
   },
   rules: {
     'no-param-reassign': [
@@ -68,6 +69,10 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 'off',
+    'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/prefer-query-selector': 'off',
+    'unicorn/prevent-abbreviations': 'off',
     'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-syntax': [
       'error',
@@ -76,10 +81,27 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.js'],
+      files: ['!(./src/**/*.{js,jsx,ts,tsx})'],
       rules: {
         'unicorn/prefer-module': 'off',
       },
+    },
+    {
+      files: ['**/*.{ts,tsx}'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      extends: [
+        // 'airbnb',
+        'airbnb-typescript',
+        // 'airbnb/hooks',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        // 'plugin:promise/recommended',
+        // 'plugin:unicorn/recommended',
+        // 'plugin:node/recommended',
+        // 'plugin:prettier/recommended',
+      ],
     },
     {
       files: [
@@ -97,7 +119,6 @@ module.exports = {
       rules: {
         'node/no-unpublished-import': 'off',
         'node/no-unpublished-require': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
       },
     },
     {

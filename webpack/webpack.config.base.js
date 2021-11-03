@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const path = require('path');
 
 const config = require('config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -62,7 +62,7 @@ const getStyleLoaders = () => {
 
 module.exports = {
   mode: env,
-  entry: resolve(srcPath, 'index'),
+  entry: path.resolve(srcPath, 'index'),
   output: {
     path: distPath,
     publicPath: PUBLIC_PATH,
@@ -115,9 +115,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: DOCUMENT_TITLE,
-      template: resolve(publicPath, 'index.handlebars'),
+      template: path.resolve(publicPath, 'index.handlebars'),
       inject: true,
-      favicon: resolve(publicPath, 'favicon.png'),
+      favicon: path.resolve(publicPath, 'favicon.png'),
       hash: true,
     }),
     new ESLintPlugin({

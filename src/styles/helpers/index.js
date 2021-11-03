@@ -1,5 +1,5 @@
 function vw(px) {
-  const number = parseFloat(px);
+  const number = Number.parseFloat(px);
   const value = (number * 100) / 750;
   const unit = 'vw';
   return `${value + unit}`;

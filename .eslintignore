@@ -9,3 +9,4 @@
 **/build/
 **/dist/
 **/*.min.*
+.eslintrc.js

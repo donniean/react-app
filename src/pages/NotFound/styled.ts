@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { vw } from '@/styles/helpers';
-
 const Wrapper = styled.div`
   display: flex;
   flex: 1;
@@ -10,8 +8,8 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-top: ${vw(128)};
-  font-size: ${vw(48)};
+  margin-top: 128px;
+  font-size: 48px;
 `;
 
 export { Wrapper, Title };

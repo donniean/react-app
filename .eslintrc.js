@@ -5,7 +5,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     requireConfigFile: false,
-    ecmaFeatures: { jsx: true },
   },
   env: {
     browser: true,
@@ -18,10 +17,11 @@ module.exports = {
     es2020: true,
     es2021: true,
   },
-  plugins: ['simple-import-sort'],
   extends: [
     'airbnb',
     'airbnb/hooks',
+    'plugin:promise/recommended',
+    'plugin:unicorn/recommended',
     'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
@@ -52,7 +52,6 @@ module.exports = {
       },
     ],
     'no-useless-call': 'error',
-    'init-declarations': ['error', 'always'],
     'import/order': [
       'error',
       {
@@ -67,29 +66,39 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'react/jsx-props-no-spreading': 'off',
+    'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/prefer-query-selector': 'off',
+    'unicorn/prevent-abbreviations': 'off',
     'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-syntax': [
       'error',
       { version: '>=14.0.0', ignores: ['modules'] },
     ],
-    'react/jsx-props-no-spreading': 'off',
   },
   overrides: [
     {
-      files: [
-        '**/webpack.js',
-        '**/webpack.*.js',
-        '**/webpack.ts',
-        '**/webpack.*.ts',
-        '**/postcss.*.js',
-      ],
-      rules: {
-        'node/no-unpublished-import': 'off',
-        'node/no-unpublished-require': 'off',
+      files: ['**/*.{ts,tsx}'],
+      parserOptions: {
+        project: './tsconfig.json',
       },
+      settings: {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
+      },
+      extends: [
+        'airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:prettier/recommended',
+      ],
     },
     {
-      files: ['./src/**/*.{js,jsx}'],
+      files: ['./src/**/*.{js,jsx,ts,tsx}'],
+      plugins: ['simple-import-sort'],
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',
@@ -111,6 +120,30 @@ module.exports = {
             ],
           },
         ],
+      },
+    },
+    {
+      files: ['!(./src/**/*.{js,jsx,ts,tsx})'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
+    {
+      files: [
+        '**/webpack.js',
+        '**/webpack.*.js',
+        '**/webpack.ts',
+        '**/webpack.*.ts',
+        '**/rollup.config.js',
+        '**/rollup.*.js',
+        '**/rollup.config.ts',
+        '**/rollup.*.ts',
+        '**/postcss.*.js',
+        '**/docusaurus.config.js',
+      ],
+      rules: {
+        'node/no-unpublished-import': 'off',
+        'node/no-unpublished-require': 'off',
       },
     },
   ],

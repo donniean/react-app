@@ -1,21 +1,25 @@
-import includes from 'lodash/includes';
-import merge from 'lodash/merge';
-import omitBy from 'lodash/omitBy';
-import qs from 'qs';
+import { includes, merge, omitBy } from 'lodash';
+import * as qs from 'qs';
 
 const ignoreQueryPrefix = true;
 const addQueryPrefix = true;
 
-function getSearchObj({ search }) {
+function getSearchObj({ search }: { search: string }) {
   return qs.parse(search, { ignoreQueryPrefix });
 }
 
-function getSearchStr(obj) {
+function getSearchStr(obj: Record<string, unknown>) {
   const newObj = omitBy(obj, (value) => !value);
   return qs.stringify(newObj, { addQueryPrefix });
 }
 
-function getNextURL({ pathname, search }) {
+function getNextURL({
+  pathname,
+  search,
+}: {
+  pathname: string;
+  search: string;
+}) {
   const isIndex = includes(
     ['', '/', undefined, null, 'undefined', 'null'],
     pathname
@@ -26,12 +30,24 @@ function getNextURL({ pathname, search }) {
   return pathname + search;
 }
 
-function mergeObjToSearchObj({ location, obj }) {
+function mergeObjToSearchObj({
+  location,
+  obj,
+}: {
+  location: { search: string };
+  obj: Record<string, unknown>;
+}) {
   const currentObj = getSearchObj(location);
   return merge({}, currentObj, obj);
 }
 
-function mergeObjToSearchStr({ location, obj }) {
+function mergeObjToSearchStr({
+  location,
+  obj,
+}: {
+  location: { search: string };
+  obj: Record<string, unknown>;
+}) {
   const newObj = mergeObjToSearchObj({ location, obj });
   return getSearchStr({ newObj });
 }

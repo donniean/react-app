@@ -21,10 +21,7 @@ module.exports = {
       extends: ['stylelint-config-styled-components'],
       rules: {
         'no-empty-source': null,
-        'value-keyword-case': [
-          'lower',
-          { ignoreKeywords: [/^[a-z]+[A-Z][a-z]*/] },
-        ],
+        'value-keyword-case': null,
       },
     },
   ],

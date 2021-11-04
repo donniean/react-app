@@ -6,6 +6,7 @@ module.exports = {
         modules: false,
       },
     ],
+    '@babel/preset-typescript',
     '@babel/preset-react',
   ],
   plugins: [
@@ -25,7 +26,6 @@ module.exports = {
             fileName: false,
           },
         ],
-        'transform-react-remove-prop-types',
         'lodash',
       ],
     },

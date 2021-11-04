@@ -17,7 +17,6 @@ module.exports = {
     es2020: true,
     es2021: true,
   },
-  plugins: ['simple-import-sort'],
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -53,7 +52,6 @@ module.exports = {
       },
     ],
     'no-useless-call': 'error',
-    'init-declarations': ['error', 'always'],
     'import/order': [
       'error',
       {
@@ -81,48 +79,26 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['!(./src/**/*.{js,jsx,ts,tsx})'],
-      rules: {
-        'unicorn/prefer-module': 'off',
-      },
-    },
-    {
       files: ['**/*.{ts,tsx}'],
       parserOptions: {
         project: './tsconfig.json',
       },
+      settings: {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
+      },
       extends: [
-        // 'airbnb',
         'airbnb-typescript',
-        // 'airbnb/hooks',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        // 'plugin:promise/recommended',
-        // 'plugin:unicorn/recommended',
-        // 'plugin:node/recommended',
-        // 'plugin:prettier/recommended',
+        'plugin:prettier/recommended',
       ],
-    },
-    {
-      files: [
-        '**/webpack.js',
-        '**/webpack.*.js',
-        '**/webpack.ts',
-        '**/webpack.*.ts',
-        '**/rollup.config.js',
-        '**/rollup.*.js',
-        '**/rollup.config.ts',
-        '**/rollup.*.ts',
-        '**/postcss.*.js',
-        '**/docusaurus.config.js',
-      ],
-      rules: {
-        'node/no-unpublished-import': 'off',
-        'node/no-unpublished-require': 'off',
-      },
     },
     {
       files: ['./src/**/*.{js,jsx,ts,tsx}'],
+      plugins: ['simple-import-sort'],
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',
@@ -144,6 +120,30 @@ module.exports = {
             ],
           },
         ],
+      },
+    },
+    {
+      files: ['!(./src/**/*.{js,jsx,ts,tsx})'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
+    {
+      files: [
+        '**/webpack.js',
+        '**/webpack.*.js',
+        '**/webpack.ts',
+        '**/webpack.*.ts',
+        '**/rollup.config.js',
+        '**/rollup.*.js',
+        '**/rollup.config.ts',
+        '**/rollup.*.ts',
+        '**/postcss.*.js',
+        '**/docusaurus.config.js',
+      ],
+      rules: {
+        'node/no-unpublished-import': 'off',
+        'node/no-unpublished-require': 'off',
       },
     },
   ],

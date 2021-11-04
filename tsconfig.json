@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "outDir": "build/lib",
+    "outDir": "dist",
     "target": "es5",
     "module": "esnext",
     "lib": ["DOM", "ESNext"],
@@ -14,7 +14,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "allowJs": false,
+    "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
@@ -24,7 +24,7 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "@": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],

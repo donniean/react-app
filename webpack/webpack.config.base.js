@@ -2,6 +2,7 @@ const path = require('path');
 
 const config = require('config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -70,7 +71,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         include: srcPath,
         exclude: nodeModulesPath,
         loader: 'babel-loader',
@@ -106,7 +107,7 @@ module.exports = {
   },
   resolve: {
     modules: [nodeModulesPath, srcPath],
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       '@': srcPath,
     },
@@ -120,12 +121,16 @@ module.exports = {
       favicon: path.resolve(publicPath, 'favicon.png'),
       hash: true,
     }),
+    new ForkTsCheckerWebpackPlugin(),
     new ESLintPlugin({
       context: 'src',
-      extensions: ['js', 'jsx'],
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
       fix: true,
     }),
-    new StylelintPlugin({ files: 'src/**/*.(css|scss|js|jsx)', fix: true }),
+    new StylelintPlugin({
+      files: 'src/**/*.(css|scss|js|jsx|ts|tsx)',
+      fix: true,
+    }),
     new WebpackBar(),
     new WebpackNotifierPlugin({ emoji: true }),
   ],

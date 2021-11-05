@@ -2,6 +2,7 @@ module.exports = {
   plugins: ['stylelint-order'],
   extends: [
     'stylelint-config-standard',
+    'stylelint-config-standard-scss',
     'stylelint-config-rational-order',
     'stylelint-prettier/recommended',
   ],
@@ -12,16 +13,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.{scss}'],
-      extends: ['stylelint-config-standard-scss'],
-    },
-    {
       files: ['**/*.{js,jsx,ts,tsx}'],
       customSyntax: '@stylelint/postcss-css-in-js',
       extends: ['stylelint-config-styled-components'],
       rules: {
         'no-empty-source': null,
         'value-keyword-case': null,
+        'scss/operator-no-unspaced': null,
       },
     },
   ],

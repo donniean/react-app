@@ -19,7 +19,7 @@ module.exports = {
       rules: {
         'no-empty-source': null,
         'value-keyword-case': null,
-        /* cspell: disable-next-line */
+        /* cSpell: disable-next-line */
         'scss/operator-no-unspaced': null,
       },
     },

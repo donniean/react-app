@@ -22,7 +22,6 @@ module.exports = {
     'airbnb/hooks',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
-    'plugin:node/recommended',
     'plugin:prettier/recommended',
   ],
   settings: {
@@ -67,15 +66,18 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 'off',
-    'unicorn/filename-case': 'off',
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          kebabCase: true,
+          pascalCase: true,
+        },
+      },
+    ],
     'unicorn/no-null': 'off',
     'unicorn/prefer-query-selector': 'off',
     'unicorn/prevent-abbreviations': 'off',
-    'node/no-missing-import': 'off',
-    'node/no-unsupported-features/es-syntax': [
-      'error',
-      { version: '>=14.0.0', ignores: ['modules'] },
-    ],
   },
   overrides: [
     {
@@ -126,24 +128,6 @@ module.exports = {
       files: ['!(./src/**/*.{js,jsx,ts,tsx})'],
       rules: {
         'unicorn/prefer-module': 'off',
-      },
-    },
-    {
-      files: [
-        '**/webpack.js',
-        '**/webpack.*.js',
-        '**/webpack.ts',
-        '**/webpack.*.ts',
-        '**/rollup.config.js',
-        '**/rollup.*.js',
-        '**/rollup.config.ts',
-        '**/rollup.*.ts',
-        '**/postcss.*.js',
-        '**/docusaurus.config.js',
-      ],
-      rules: {
-        'node/no-unpublished-import': 'off',
-        'node/no-unpublished-require': 'off',
       },
     },
   ],

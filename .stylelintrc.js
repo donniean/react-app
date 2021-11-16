@@ -19,8 +19,6 @@ module.exports = {
       rules: {
         'no-empty-source': null,
         'value-keyword-case': null,
-        /* cSpell: disable-next-line */
-        'scss/operator-no-unspaced': null,
       },
     },
   ],

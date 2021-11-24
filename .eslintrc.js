@@ -65,6 +65,14 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'function-declaration',
+        unnamedComponents: 'function-expression',
+      },
+    ],
+    'react/jsx-key': 'error',
     'react/jsx-props-no-spreading': 'off',
     'unicorn/filename-case': [
       'error',
@@ -76,6 +84,7 @@ module.exports = {
       },
     ],
     'unicorn/no-null': 'off',
+    'unicorn/prefer-export-from': 'off',
     'unicorn/prefer-query-selector': 'off',
     'unicorn/prevent-abbreviations': 'off',
   },
@@ -97,6 +106,9 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:prettier/recommended',
       ],
+      rules: {
+        '@typescript-eslint/no-floating-promises': 'off',
+      },
     },
     {
       files: ['./src/**/*.{js,jsx,ts,tsx}'],

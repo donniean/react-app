@@ -25,13 +25,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"],
-  "plugins": [
-    {
-      "name": "typescript-plugin-css-modules"
-    }
-  ]
+  "exclude": ["node_modules", "dist"]
 }

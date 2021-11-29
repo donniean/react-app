@@ -88,6 +88,7 @@ module.exports = {
     'unicorn/no-null': 'off',
     'unicorn/prefer-export-from': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
   },
   overrides: [
     {

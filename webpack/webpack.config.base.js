@@ -1,9 +1,9 @@
 const path = require('path');
 
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const dotenvFlow = require('dotenv-flow');
 const dotenvExpand = require('dotenv-expand');
 const DotenvWebpack = require('dotenv-webpack');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -12,8 +12,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
-dotenvExpand(dotenvFlow.config());
-
 const { env, isEnvDevelopment, isEnvProduction } = require('./env');
 const {
   nodeModules: nodeModulesPath,
@@ -21,6 +19,8 @@ const {
   src: srcPath,
   dist: distPath,
 } = require('./paths');
+
+dotenvExpand(dotenvFlow.config());
 
 const getStyleLoaders = () => {
   let [sourceMap, modules] = [true, { auto: true }];

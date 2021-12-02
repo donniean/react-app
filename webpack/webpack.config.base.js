@@ -12,13 +12,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
-const { env, isEnvDevelopment, isEnvProduction } = require('./env');
 const {
-  nodeModules: nodeModulesPath,
-  public: publicPath,
-  src: srcPath,
-  dist: distPath,
-} = require('./paths');
+  env,
+  isEnvDevelopment,
+  isEnvProduction,
+} = require('../scripts/utils/env');
+const paths = require('../scripts/utils/paths');
 
 dotenvExpand(dotenvFlow.config());
 
@@ -64,17 +63,17 @@ const getStyleLoaders = () => {
 
 module.exports = {
   mode: env,
-  entry: path.resolve(srcPath, 'index'),
+  entry: path.resolve(paths.src, 'index'),
   output: {
-    path: distPath,
+    path: paths.dist,
     publicPath: process.env.PUBLIC_PATH,
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        include: srcPath,
-        exclude: nodeModulesPath,
+        include: paths.src,
+        exclude: paths.nodeModules,
         loader: 'babel-loader',
       },
       {
@@ -107,18 +106,19 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: [nodeModulesPath, srcPath],
+    modules: [paths.nodeModules, paths.src],
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     plugins: [new TsconfigPathsPlugin()],
   },
   target: 'web',
   plugins: [
+    /* cspell: disable-next-line */
     new DotenvWebpack({ systemvars: true }),
     new HtmlWebpackPlugin({
       title: process.env.DOCUMENT_TITLE,
-      template: path.resolve(publicPath, 'index.handlebars'),
+      template: path.resolve(paths.public, 'index.handlebars'),
       inject: true,
-      favicon: path.resolve(publicPath, 'favicon.png'),
+      favicon: path.resolve(paths.public, 'favicon.png'),
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),

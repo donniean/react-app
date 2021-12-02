@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 /* cspell: disable-next-line */
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const { dist: distPath } = require('./paths');
+const paths = require('../scripts/utils/paths');
 const baseConfig = require('./webpack.config.base');
 
 let PROXY = {};
@@ -25,7 +25,7 @@ const devConfig = {
     historyApiFallback: true,
     hot: true,
     static: {
-      directory: distPath,
+      directory: paths.dist,
     },
     devMiddleware: {
       stats: 'errors-warnings',

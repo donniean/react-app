@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Image, Title, Wrapper } from './styled';
+import { Image, Title, Wrapper } from './index.styled';
 
 import logo from '@/assets/images/logo.svg';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Title, Wrapper } from './styled';
+import { Title, Wrapper } from './index.styled';
 
 function NotFound() {
   return (

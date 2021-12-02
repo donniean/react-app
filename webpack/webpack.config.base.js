@@ -128,7 +128,9 @@ module.exports = {
       fix: true,
     }),
     new StylelintPlugin({
-      files: 'src/**/*.(css|scss|js|jsx|ts|tsx)',
+      context: 'src',
+      extensions: ['css', 'scss', 'js', 'jsx', 'ts', 'tsx'],
+      // files: 'src/**/*.(css|scss|js|jsx|ts|tsx)',
       fix: true,
     }),
     new WebpackBar(),

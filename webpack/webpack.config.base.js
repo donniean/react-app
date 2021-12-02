@@ -130,7 +130,6 @@ module.exports = {
     new StylelintPlugin({
       context: 'src',
       extensions: ['css', 'scss', 'js', 'jsx', 'ts', 'tsx'],
-      // files: 'src/**/*.(css|scss|js|jsx|ts|tsx)',
       fix: true,
     }),
     new WebpackBar(),

@@ -1,7 +1,9 @@
 const path = require('path');
 
-const config = require('config');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const dotenvFlow = require('dotenv-flow');
+const dotenvExpand = require('dotenv-expand');
+const DotenvWebpack = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -10,6 +12,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
+dotenvExpand(dotenvFlow.config());
+
 const { env, isEnvDevelopment, isEnvProduction } = require('./env');
 const {
   nodeModules: nodeModulesPath,
@@ -17,10 +21,6 @@ const {
   src: srcPath,
   dist: distPath,
 } = require('./paths');
-
-const PUBLIC_PATH = config.get('PUBLIC_PATH');
-const GENERATE_SOURCEMAP = config.get('GENERATE_SOURCEMAP');
-const DOCUMENT_TITLE = config.get('DOCUMENT_TITLE');
 
 const getStyleLoaders = () => {
   let [sourceMap, modules] = [true, { auto: true }];
@@ -32,7 +32,7 @@ const getStyleLoaders = () => {
     };
   }
   if (isEnvProduction) {
-    sourceMap = GENERATE_SOURCEMAP;
+    sourceMap = process.env.GENERATE_SOURCEMAP === 'true';
   }
 
   return [
@@ -67,7 +67,7 @@ module.exports = {
   entry: path.resolve(srcPath, 'index'),
   output: {
     path: distPath,
-    publicPath: PUBLIC_PATH,
+    publicPath: process.env.PUBLIC_PATH,
   },
   module: {
     rules: [
@@ -113,8 +113,9 @@ module.exports = {
   },
   target: 'web',
   plugins: [
+    new DotenvWebpack({ systemvars: true }),
     new HtmlWebpackPlugin({
-      title: DOCUMENT_TITLE,
+      title: process.env.DOCUMENT_TITLE,
       template: path.resolve(publicPath, 'index.handlebars'),
       inject: true,
       favicon: path.resolve(publicPath, 'favicon.png'),

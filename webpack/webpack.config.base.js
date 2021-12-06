@@ -118,7 +118,7 @@ module.exports = {
       title: process.env.DOCUMENT_TITLE,
       template: path.resolve(paths.public, 'index.handlebars'),
       inject: true,
-      favicon: path.resolve(paths.public, 'favicon.png'),
+      favicon: path.resolve(paths.public, 'favicon.svg'),
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),

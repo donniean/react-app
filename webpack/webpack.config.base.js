@@ -85,7 +85,7 @@ module.exports = {
         use: getStyleLoaders(),
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset',
         generator: {
           filename: `assets/images/[name].${
@@ -94,7 +94,38 @@ module.exports = {
         },
       },
       {
-        test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+        test: /\.svg$/,
+        oneOf: [
+          {
+            issuer: /\.(js|jsx|ts|tsx)$/i,
+            resourceQuery: /svgr/,
+            use: [
+              {
+                loader: '@svgr/webpack',
+                options: {
+                  prettier: false,
+                  svgo: false,
+                  svgoConfig: {
+                    plugins: [{ removeViewBox: false }],
+                  },
+                  titleProp: true,
+                  ref: true,
+                },
+              },
+            ],
+          },
+          {
+            type: 'asset',
+            generator: {
+              filename: `assets/images/[name].${
+                isEnvProduction ? '[contenthash]' : ''
+              }[ext][query]`,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         include: /\/fonts\//,
         generator: {

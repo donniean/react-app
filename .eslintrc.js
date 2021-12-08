@@ -52,6 +52,7 @@ module.exports = {
       },
     ],
     'no-useless-call': 'error',
+    'import/no-duplicates': ['error', { considerQueryString: true }],
     'import/order': [
       'error',
       {

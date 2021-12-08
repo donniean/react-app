@@ -1,18 +1,18 @@
 const path = require('path');
 
-const rootDirectory = process.cwd();
+const rootPath = process.cwd();
 
-const resolveWithRoot = (...relativePaths) =>
-  path.resolve(rootDirectory, ...relativePaths);
+const resolveRoot = (...relativePaths) =>
+  path.resolve(rootPath, ...relativePaths);
 
 module.exports = {
-  resolveWithRoot,
-  root: rootDirectory,
-  nodeModules: resolveWithRoot('node_modules'),
-  scripts: resolveWithRoot('scripts'),
-  webpack: resolveWithRoot('webpack'),
-  public: resolveWithRoot('public'),
-  src: resolveWithRoot('src'),
-  dist: resolveWithRoot('dist'),
-  packageJson: resolveWithRoot('package.json'),
+  resolveRoot,
+  root: rootPath,
+  nodeModules: resolveRoot('node_modules'),
+  scripts: resolveRoot('scripts'),
+  webpack: resolveRoot('webpack'),
+  public: resolveRoot('public'),
+  src: resolveRoot('src'),
+  dist: resolveRoot('dist'),
+  packageJson: resolveRoot('package.json'),
 };

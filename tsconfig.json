@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "outDir": "dist",
     "target": "es5",
     "module": "esnext",
     "lib": ["DOM", "ESNext"],
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,
-    "rootDir": "src",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -21,7 +19,18 @@
     "esModuleInterop": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "scripts"]

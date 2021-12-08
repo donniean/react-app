@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Image, Title, Wrapper } from './index.styled';
 
-import '@/pages/b.scss';
 import logo from '@/assets/images/logo.svg';
 
 function Home(): JSX.Element {

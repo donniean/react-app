@@ -67,7 +67,6 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'import/prefer-default-export': 'off',
     'react/function-component-definition': [
       'error',
       {

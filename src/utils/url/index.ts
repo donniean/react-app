@@ -53,9 +53,9 @@ function mergeObjToSearchStr({
 }
 
 export {
+  getNextURL,
   getSearchObj,
   getSearchStr,
-  getNextURL,
   mergeObjToSearchObj,
   mergeObjToSearchStr,
 };

@@ -20,4 +20,4 @@ const Image = styled.img`
   vertical-align: bottom;
 `;
 
-export { Wrapper, Title, Image };
+export { Image, Title, Wrapper };

@@ -12,4 +12,4 @@ const Title = styled.h1`
   font-size: 48px;
 `;
 
-export { Wrapper, Title };
+export { Title, Wrapper };

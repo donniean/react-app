@@ -88,7 +88,6 @@ module.exports = {
     ],
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
-    'unicorn/prefer-export-from': 'off',
     'unicorn/prevent-abbreviations': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
   },
@@ -141,6 +140,7 @@ module.exports = {
             ],
           },
         ],
+        'simple-import-sort/exports': 'error',
       },
     },
     {

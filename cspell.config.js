@@ -23,7 +23,6 @@ module.exports = {
     'htmlhintrc',
     'huskyrc',
     'immer',
-    'iphonex',
     'lintstagedrc',
     'miniprogram',
     'prettierignore',

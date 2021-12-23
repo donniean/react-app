@@ -81,6 +81,7 @@ module.exports = {
       {
         cases: {
           kebabCase: true,
+          camelCase: true,
           pascalCase: true,
         },
       },

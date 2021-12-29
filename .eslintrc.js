@@ -1,3 +1,5 @@
+const { isEnvDevelopment } = require('./scripts/utils/env');
+
 module.exports = {
   root: true,
   parser: '@babel/eslint-parser',
@@ -31,6 +33,7 @@ module.exports = {
     },
   }, */
   rules: {
+    'no-console': isEnvDevelopment ? 'warn' : 'error',
     'no-param-reassign': [
       'error',
       {

@@ -20,11 +20,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "./dist/",
+    "rootDir": "./src/",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {
@@ -32,6 +32,6 @@
       }
     ]
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "scripts"]
+  "include": ["./src/"],
+  "exclude": ["./node_modules/", "./dist/", "./scripts/"]
 }

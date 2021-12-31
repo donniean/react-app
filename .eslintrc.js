@@ -130,7 +130,7 @@ module.exports = {
             groups: [
               ['^react', '^prop-types', '^@?\\w'],
               [
-                '^(@/(constants|containers|components|routes|pages|hooks|contexts|api|services|utils))(/.*|$)',
+                '^(@/(types|constants|containers|components|routes|pages|hooks|contexts|api|apis|services|utils))(/.*|$)',
               ],
               ['^\\.', '^\\u0000'],
               [

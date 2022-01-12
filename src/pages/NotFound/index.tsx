@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Title, Wrapper } from './index.styled';
 
 function NotFound() {

@@ -18,7 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": false,
     "experimentalDecorators": true,
     "outDir": "./dist/",
     "rootDir": "./src/",

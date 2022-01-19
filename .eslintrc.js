@@ -25,6 +25,7 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
+    'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
   ],
   /* settings: {
@@ -74,6 +75,10 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': [
+      'error',
+      { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
+    ],
     'unicorn/filename-case': [
       'error',
       {

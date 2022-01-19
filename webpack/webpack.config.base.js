@@ -61,6 +61,8 @@ const getStyleLoaders = () => {
   ].filter(Boolean);
 };
 
+const contenthash = '[contenthash]';
+
 module.exports = {
   mode: env,
   entry: path.resolve(paths.src, 'index'),
@@ -89,7 +91,7 @@ module.exports = {
         type: 'asset',
         generator: {
           filename: `assets/images/[name].${
-            isEnvProduction ? '[contenthash]' : ''
+            isEnvProduction ? contenthash : ''
           }[ext][query]`,
         },
       },
@@ -118,7 +120,7 @@ module.exports = {
             type: 'asset',
             generator: {
               filename: `assets/images/[name].${
-                isEnvProduction ? '[contenthash]' : ''
+                isEnvProduction ? contenthash : ''
               }[ext][query]`,
             },
           },
@@ -130,7 +132,7 @@ module.exports = {
         include: /\/fonts\//,
         generator: {
           filename: `assets/fonts/[name].${
-            isEnvProduction ? '[contenthash]' : ''
+            isEnvProduction ? contenthash : ''
           }[ext][query]`,
         },
       },

@@ -1,5 +1,6 @@
 const path = require('path');
 
+const config = require('config');
 const dotenvFlow = require('dotenv-flow');
 const dotenvExpand = require('dotenv-expand');
 const DotenvWebpack = require('dotenv-webpack');
@@ -19,6 +20,10 @@ const {
 } = require('../scripts/utils/env');
 const paths = require('../scripts/utils/paths');
 
+const publicPath = config.get('publicPath');
+const documentTitle = config.get('client.documentTitle');
+const generateSourcemap = config?.builder?.generateSourcemap;
+
 dotenvExpand(dotenvFlow.config());
 
 const getStyleLoaders = () => {
@@ -31,7 +36,7 @@ const getStyleLoaders = () => {
     };
   }
   if (isEnvProduction) {
-    sourceMap = process.env.GENERATE_SOURCEMAP === 'true';
+    sourceMap = !!generateSourcemap;
   }
 
   return [
@@ -68,7 +73,7 @@ module.exports = {
   entry: path.resolve(paths.src, 'index'),
   output: {
     path: paths.dist,
-    publicPath: process.env.PUBLIC_PATH,
+    publicPath,
   },
   module: {
     rules: [
@@ -148,7 +153,7 @@ module.exports = {
     /* cspell: disable-next-line */
     new DotenvWebpack({ systemvars: true }),
     new HtmlWebpackPlugin({
-      title: process.env.DOCUMENT_TITLE,
+      title: documentTitle,
       template: path.resolve(paths.public, 'index.handlebars'),
       inject: true,
       favicon: path.resolve(paths.public, 'favicon.svg'),

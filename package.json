@@ -70,6 +70,7 @@
     "babel-plugin-styled-components": "^2.0.2",
     "clean-webpack-plugin": "^4.0.0",
     "commitizen": "^4.2.4",
+    "config": "^3.3.7",
     "cross-env": "^7.0.3",
     "cspell": "^5.15.2",
     "css-loader": "^6.5.1",

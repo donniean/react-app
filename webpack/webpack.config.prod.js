@@ -5,8 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
+const config = require('config');
 
 const baseConfig = require('./webpack.config.base');
+
+const generateSourcemap = config?.builder?.generateSourcemap;
 
 // const smp = new SpeedMeasurePlugin();
 
@@ -15,7 +18,7 @@ const prodConfig = {
     filename: 'js/[name].[contenthash].js',
     chunkFilename: 'js/[name].[contenthash].chunk.js',
   },
-  devtool: process.env.GENERATE_SOURCEMAP === 'true' ? 'source-map' : false,
+  devtool: generateSourcemap ? 'source-map' : false,
   optimization: {
     minimizer: [
       new CssMinimizerPlugin({

@@ -50,3 +50,25 @@ declare module '*.webp' {
 
 // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
 declare let __webpack_public_path__: string;
+
+interface AppConfig {
+  publicPath: string;
+  client: {
+    documentTitle: string | number;
+  };
+  builder: {
+    generateSourcemap: boolean; // production
+  };
+  server: {
+    port: string | number;
+    proxy: Record<string, string>;
+  };
+  api: {
+    protocol: 'http' | 'https';
+    hostname: string;
+    port: string | number;
+    pathname: string;
+  };
+}
+
+declare const APP_CONFIG: AppConfig;

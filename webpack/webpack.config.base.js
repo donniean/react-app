@@ -161,7 +161,7 @@ module.exports = {
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),
-    new ConfigWebpackPlugin('APP_CONFIG'),
+    new ConfigWebpackPlugin('GLOBAL_CONFIG'),
     new ESLintPlugin({
       context: 'src',
       extensions: ['js', 'jsx', 'ts', 'tsx'],

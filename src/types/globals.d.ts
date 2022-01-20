@@ -51,7 +51,7 @@ declare module '*.webp' {
 // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
 declare let __webpack_public_path__: string;
 
-interface AppConfig {
+interface GlobalConfig {
   publicPath: string;
   client: {
     documentTitle: string | number;
@@ -71,4 +71,4 @@ interface AppConfig {
   };
 }
 
-declare const APP_CONFIG: AppConfig;
+declare const GLOBAL_CONFIG: GlobalConfig;

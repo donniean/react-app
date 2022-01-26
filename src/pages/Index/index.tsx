@@ -1,6 +1,6 @@
-import { Title, Wrapper } from './index.styled';
-
 import Logo from '@/assets/images/logo.svg?svgr';
+
+import { Title, Wrapper } from './index.styled';
 
 function Index(): JSX.Element {
   return (

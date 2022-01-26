@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components';
 
 import { THEME } from '@/constants';
 import Routes from '@/routes';
-
 import GlobalStyle from '@/styles/GlobalStyle';
 import themes from '@/styles/themes';
 

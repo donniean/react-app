@@ -69,14 +69,6 @@ module.exports = {
         warnOnUnassignedImports: true,
       },
     ],
-    'react/jsx-key': 'error',
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/require-default-props': [
-      'error',
-      { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
-    ],
     'unicorn/filename-case': [
       'error',
       {
@@ -90,10 +82,23 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
-    'unicorn/prefer-module': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+    'react/jsx-key': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': [
+      'error',
+      { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
+    ],
   },
   overrides: [
+    {
+      files: ['**/*.js'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
     {
       files: ['**/*.{ts,tsx}'],
       parserOptions: {
@@ -116,25 +121,7 @@ module.exports = {
       rules: {
         'sort-imports': 'off',
         'import/order': 'off',
-        'simple-import-sort/imports': [
-          'error',
-          {
-            groups: [
-              ['^react', '^prop-types', '^@?\\w'],
-              [
-                '^(@/(types|themes|constants|containers|components|routes|pages|hooks|contexts|utils|apis|services))(/.*|$)',
-              ],
-              ['^\\.', '^\\u0000'],
-              [
-                '^(@/styles)(/.*|$)',
-                '^.+\\.module.s?css$',
-                '^.+\\.s?css$',
-                '^(@/assets)(/.*|$)',
-              ],
-              ['^(@public)(/.*|$)'],
-            ],
-          },
-        ],
+        'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-floating-promises': 'off',

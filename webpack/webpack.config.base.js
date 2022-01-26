@@ -1,18 +1,18 @@
 const path = require('path');
 
 const config = require('config');
-const dotenvFlow = require('dotenv-flow');
-const dotenvExpand = require('dotenv-expand');
-const DotenvWebpack = require('dotenv-webpack');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ConfigWebpackPlugin = require('config-webpack');
+const dotenvExpand = require('dotenv-expand');
+const dotenvFlow = require('dotenv-flow');
+const DotenvWebpack = require('dotenv-webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackBar = require('webpackbar');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const WebpackBar = require('webpackbar');
 
 const {
   env,

@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
 };
 
-function Layout({ children }: Props): JSX.Element {
+function Layout({ children }: Props) {
   return <div>{children}</div>;
 }
 

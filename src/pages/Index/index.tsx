@@ -6,7 +6,7 @@ import Logo from '@/assets/images/logo.svg?svgr';
 
 import { Title, Wrapper } from './index.styled';
 
-function Index(): JSX.Element {
+export default function Index() {
   return (
     <Wrapper>
       <Logo width={128} height={128} />
@@ -14,5 +14,3 @@ function Index(): JSX.Element {
     </Wrapper>
   );
 }
-
-export default Index;

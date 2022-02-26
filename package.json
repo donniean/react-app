@@ -102,6 +102,8 @@
     "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
     "lint-staged": "^12.1.7",
     "mini-css-extract-plugin": "^2.4.6",
     "postcss-flexbugs-fixes": "^5.0.2",

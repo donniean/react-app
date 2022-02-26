@@ -11,9 +11,6 @@ function Index(): JSX.Element {
     <Wrapper>
       <Logo width={128} height={128} />
       <Title>Hello React</Title>
-      <h1 className="a">a</h1>
-      <h1 className="b">b</h1>
-      <h1 className="c">c</h1>
     </Wrapper>
   );
 }

@@ -1,7 +1,6 @@
 const path = require('path');
 
 const config = require('config');
-const ConfigWebpackPlugin = require('config-webpack');
 const dotenvExpand = require('dotenv-expand');
 const dotenvFlow = require('dotenv-flow');
 const DotenvWebpack = require('dotenv-webpack');
@@ -11,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const WebpackBar = require('webpackbar');
 
@@ -175,7 +175,7 @@ module.exports = {
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),
-    new ConfigWebpackPlugin('GLOBAL_CONFIG'),
+    new DefinePlugin({ GLOBAL_CONFIG: JSON.stringify(config) }),
     new ESLintPlugin({
       context: 'src',
       extensions: ['js', 'jsx', 'ts', 'tsx'],

@@ -21,8 +21,8 @@ const {
 } = require('../scripts/utils/env');
 const paths = require('../scripts/utils/paths');
 
-const publicPath = config.get('publicPath');
-const documentTitle = config.get('client.documentTitle');
+const publicPath = config?.publicPath;
+const documentTitle = config?.client?.documentTitle;
 const generateSourcemap = config?.builder?.generateSourcemap;
 
 dotenvExpand(dotenvFlow.config());

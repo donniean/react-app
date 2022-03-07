@@ -61,18 +61,22 @@ interface GlobalConfig {
   client: {
     documentTitle: string | number;
   };
-  builder: {
-    generateSourcemap: boolean; // production
+  backend: {
+    api: {
+      origin?: string; // development only
+      basePath: string;
+    };
+    websocket: {
+      origin?: string; // development only
+      basePath: string;
+    };
   };
   server: {
     port: string | number;
     proxy: Record<string, string>;
   };
-  api: {
-    protocol: 'http' | 'https';
-    hostname: string;
-    port: string | number;
-    pathname: string;
+  builder: {
+    generateSourcemap: boolean; // production
   };
 }
 

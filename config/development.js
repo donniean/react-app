@@ -9,6 +9,10 @@ const WebSocket = {
 };
 
 module.exports = {
+  backend: {
+    api: API,
+    webSocket: WebSocket,
+  },
   server: {
     port: '3000',
     proxy: {
@@ -19,6 +23,4 @@ module.exports = {
       }, */
     },
   },
-  api: API,
-  webSocket: WebSocket,
 };

@@ -13,18 +13,18 @@
   "license": "MIT",
   "author": "Donnie An",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=production webpack",
-    "serve": "serve ./dist/ -p 3000 --single --cors",
     "analyze": "cross-env NODE_ENV=development ANALYZE=true npm run build",
-    "lint:format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,hbs,handlebars,css,scss,md}\"",
-    "lint:script": "eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
-    "lint:typescript": "tsc --noEmit",
-    "lint:style": "stylelint --fix \"**/*.{css,scss,js,jsx,ts,tsx}\"",
-    "lint:spell": "cspell --no-must-find-files \"**\"",
-    "prepare": "husky install",
+    "build": "cross-env NODE_ENV=production webpack",
+    "commit": "git-cz",
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "lint:cspell": "cspell --no-must-find-files \"**\"",
+    "lint:eslint:fix": "eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:stylelint": "stylelint --fix \"**/*.{css,scss,js,jsx,ts,tsx}\"",
+    "lint:tsc": "tsc --noEmit",
     "pre-commit": "lint-staged",
-    "commit": "git-cz"
+    "prepare": "husky install",
+    "prettierr": "prettier --write \"**/*.{js,jsx,ts,tsx,json,hbs,handlebars,css,scss,md}\"",
+    "serve": "serve ./dist/ -p 3000 --single --cors"
   },
   "config": {
     "commitizen": {

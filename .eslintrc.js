@@ -82,7 +82,6 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
-    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'react/jsx-key': 'error',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-uses-react': 'off',

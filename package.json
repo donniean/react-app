@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "Donnie An",
   "scripts": {
-    "analyze": "cross-env NODE_ENV=development ANALYZE=true npm run build",
+    "analyze": "cross-env ANALYZE=true npm run build",
     "build": "cross-env NODE_ENV=production webpack",
     "commit": "git-cz",
     "dev": "cross-env NODE_ENV=development webpack serve",

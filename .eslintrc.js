@@ -30,7 +30,10 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+    'no-console':
+      process.env.NODE_ENV === 'development'
+        ? 'warn'
+        : ['error', { allow: ['warn', 'error'] }],
     'no-param-reassign': [
       'error',
       {

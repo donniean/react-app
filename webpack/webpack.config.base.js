@@ -139,7 +139,7 @@ module.exports = {
           {
             type: 'asset',
             generator: {
-              filename: `assets/images/[name].${
+              filename: `assets/images/[name]${
                 isEnvProduction ? contenthash : ''
               }[ext][query]`,
             },
@@ -151,7 +151,7 @@ module.exports = {
         type: 'asset/resource',
         include: /\/fonts\//,
         generator: {
-          filename: `assets/fonts/[name].${
+          filename: `assets/fonts/[name]${
             isEnvProduction ? contenthash : ''
           }[ext][query]`,
         },

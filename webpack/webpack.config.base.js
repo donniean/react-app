@@ -25,7 +25,7 @@ const publicPath = config?.publicPath;
 const documentTitle = config?.client?.documentTitle;
 const generateSourcemap = config?.builder?.generateSourcemap;
 
-dotenvExpand(dotenvFlow.config());
+dotenvExpand.expand(dotenvFlow.config());
 
 const getStyleLoaders = ({ type } = {}) => {
   let [sourceMap, modules] = [true, { auto: true }];

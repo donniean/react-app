@@ -1,4 +1,4 @@
-// eslint-plugin-node = eslint-plugin-n
+// eslint-plugin-node => eslint-plugin-n
 // node:
 
 module.exports = {

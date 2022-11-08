@@ -6,7 +6,7 @@ export default function Index() {
   return (
     <Wrapper>
       <Logo width={128} height={128} />
-      <Title>Hello React</Title>
+      <Title>Hello React 1</Title>
     </Wrapper>
   );
 }

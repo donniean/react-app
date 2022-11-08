@@ -1,5 +1,6 @@
 // eslint-plugin-node => eslint-plugin-n
 // node:
+// node/no-unsupported-features/es-builtins
 
 module.exports = {
   root: true,

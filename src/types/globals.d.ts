@@ -66,7 +66,7 @@ declare module '*.otf';
 // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
 declare let __webpack_public_path__: string;
 
-interface GlobalConfig {
+interface Globals {
   publicPath: string;
   client: {
     documentTitle: string | number;
@@ -90,4 +90,4 @@ interface GlobalConfig {
   };
 }
 
-declare const GLOBAL_CONFIG: GlobalConfig;
+declare const GLOBALS: Globals;

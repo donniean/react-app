@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('node:path');
 
 const config = require('config');
 const dotenvExpand = require('dotenv-expand');
@@ -175,7 +175,7 @@ module.exports = {
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),
-    new DefinePlugin({ GLOBAL_CONFIG: JSON.stringify(config) }),
+    new DefinePlugin({ GLOBALS: JSON.stringify(config) }),
     new ESLintPlugin({
       context: 'src',
       extensions: ['js', 'jsx', 'ts', 'tsx'],

@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ "lts/*" ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm install
+      - name: CSpell
+        run: npm run lint:cspell
+      - name: ESLint
+        run: npm run lint:eslint
+      - name: Stylelint
+        run: npm run lint:stylelint
+      - name: tsc
+        run: npm run lint:tsc
+
+  build:
+    name: Webpack Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ "lts/*" ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build

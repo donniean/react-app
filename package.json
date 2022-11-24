@@ -18,6 +18,7 @@
     "commit": "git-cz",
     "dev": "cross-env NODE_ENV=development webpack serve",
     "lint:cspell": "cspell --no-must-find-files \"**\"",
+    "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
     "lint:eslint:fix": "eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
     "lint:stylelint": "stylelint \"**/*.{css,scss,js,jsx,ts,tsx}\"",
     "lint:stylelint:fix": "stylelint --fix \"**/*.{css,scss,js,jsx,ts,tsx}\"",

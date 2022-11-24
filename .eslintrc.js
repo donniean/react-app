@@ -1,3 +1,7 @@
+// eslint-plugin-node => eslint-plugin-n
+// node:
+// node/no-unsupported-features/es-builtins
+
 module.exports = {
   root: true,
   parser: '@babel/eslint-parser',
@@ -27,7 +31,10 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+    'no-console':
+      process.env.NODE_ENV === 'development'
+        ? 'warn'
+        : ['error', { allow: ['warn', 'error'] }],
     'no-param-reassign': [
       'error',
       {
@@ -69,6 +76,7 @@ module.exports = {
         warnOnUnassignedImports: true,
       },
     ],
+    'import/prefer-default-export': 'off',
     'unicorn/filename-case': [
       'error',
       {

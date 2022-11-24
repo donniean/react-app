@@ -21,6 +21,7 @@ module.exports = {
       rules: {
         'no-empty-source': null,
         'value-keyword-case': null,
+        'function-no-unknown': null,
       },
     },
   ],

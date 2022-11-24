@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('node:path');
 
 const config = require('config');
 const dotenvExpand = require('dotenv-expand');
@@ -25,7 +25,7 @@ const publicPath = config?.publicPath;
 const documentTitle = config?.client?.documentTitle;
 const generateSourcemap = config?.builder?.generateSourcemap;
 
-dotenvExpand(dotenvFlow.config());
+dotenvExpand.expand(dotenvFlow.config());
 
 const getStyleLoaders = ({ type } = {}) => {
   let [sourceMap, modules] = [true, { auto: true }];
@@ -107,10 +107,10 @@ module.exports = {
         use: getStyleLoaders({ type: 'less' }),
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif|webp)$/i,
         type: 'asset',
         generator: {
-          filename: `assets/images/[name].${
+          filename: `assets/images/[name]${
             isEnvProduction ? contenthash : ''
           }[ext][query]`,
         },
@@ -139,7 +139,7 @@ module.exports = {
           {
             type: 'asset',
             generator: {
-              filename: `assets/images/[name].${
+              filename: `assets/images/[name]${
                 isEnvProduction ? contenthash : ''
               }[ext][query]`,
             },
@@ -151,7 +151,7 @@ module.exports = {
         type: 'asset/resource',
         include: /\/fonts\//,
         generator: {
-          filename: `assets/fonts/[name].${
+          filename: `assets/fonts/[name]${
             isEnvProduction ? contenthash : ''
           }[ext][query]`,
         },
@@ -175,7 +175,7 @@ module.exports = {
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),
-    new DefinePlugin({ GLOBAL_CONFIG: JSON.stringify(config) }),
+    new DefinePlugin({ GLOBALS: JSON.stringify(config) }),
     new ESLintPlugin({
       context: 'src',
       extensions: ['js', 'jsx', 'ts', 'tsx'],

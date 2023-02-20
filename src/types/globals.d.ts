@@ -90,4 +90,8 @@ interface Globals {
   };
 }
 
+interface Window {
+  GLOBALS: Globals;
+}
+
 declare const GLOBALS: Globals;

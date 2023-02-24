@@ -72,6 +72,7 @@ module.exports = {
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
+          orderImportKind: 'asc',
         },
         warnOnUnassignedImports: true,
       },

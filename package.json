@@ -13,8 +13,8 @@
   "license": "MIT",
   "author": "Donnie An",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
     "analyze": "cross-env ANALYZE=true npm run build",
+    "build": "cross-env NODE_ENV=production webpack",
     "commit": "cz",
     "dev": "cross-env NODE_ENV=development webpack serve",
     "lint:cspell": "cspell --no-must-find-files \"**\"",

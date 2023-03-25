@@ -6,42 +6,29 @@ module.exports = {
     prettier: {
       extensions: [
         'js',
-        'jsx',
         'ts',
         'tsx',
-        'mjs',
-        'cjs',
         'json',
-        'html',
-        'vue',
         'hbs',
         'handlebars',
         'css',
-        'less',
         'scss',
         'md',
-        'mdx',
-        'yaml',
-        'yml',
       ],
     },
     tsc: {
       extensions: ['ts', 'tsx'],
     },
     eslint: {
-      extensions: ['js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs'],
-      options: {
-        node: true,
-      },
+      extensions: ['js', 'ts', 'tsx'],
     },
     stylelint: {
-      extensions: ['css', 'scss', 'js', 'jsx', 'ts', 'tsx'],
+      extensions: ['css', 'scss', 'ts', 'tsx'],
       options: {
         scss: true,
         'css-in-js': true,
       },
     },
-    htmlhint: true,
     markdownlint: true,
     cspell: {
       extensions: ['*'],

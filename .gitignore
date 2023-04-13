@@ -6,7 +6,7 @@
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
-.idea/**/shelf
+.idea/**/shelf/
 
 # Visual Studio Code
 .vscode/*
@@ -14,7 +14,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+!.vscode/*.code-snippets
 .history/
 
 # Node.js
@@ -57,7 +57,7 @@ coverage/
 out/
 
 # Vercel
-.vercel
+.vercel/
 
 # Production
 build/

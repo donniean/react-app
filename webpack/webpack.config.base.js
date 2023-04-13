@@ -12,6 +12,7 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
+/* cspell: disable-next-line */
 const WebpackBar = require('webpackbar');
 
 const {

@@ -9,7 +9,7 @@ function getSearchObj({ search }: { search: string }) {
 }
 
 function getSearchStr(obj: Record<string, unknown>) {
-  const newObj = omitBy(obj, (value) => !value);
+  const newObj = omitBy(obj, value => !value);
   return qs.stringify(newObj, { addQueryPrefix });
 }
 

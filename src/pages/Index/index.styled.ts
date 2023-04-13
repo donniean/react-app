@@ -11,8 +11,8 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
   font-size: 32px;
+  color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
 `;
 
 export { Title, Wrapper };

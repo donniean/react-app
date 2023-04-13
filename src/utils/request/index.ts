@@ -5,19 +5,19 @@ const instance = axios.create({
 });
 
 axios.interceptors.request.use(
-  (config) => {
+  config => {
     return config;
   },
-  (error) => {
+  error => {
     return Promise.reject(error);
   }
 );
 
 axios.interceptors.response.use(
-  (response) => {
+  response => {
     return response;
   },
-  (error) => {
+  error => {
     return Promise.reject(error);
   }
 );

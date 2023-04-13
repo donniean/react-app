@@ -2,6 +2,7 @@ module.exports = {
   version: '0.2',
   language: 'en',
   words: [
+    'markdownlint',
     'browserslistrc',
     'builtins',
     'chunkhash',

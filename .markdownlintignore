@@ -1,6 +1,6 @@
-**/node_modules/
-**/lib/
-**/build/
-**/dist/
+node_modules/
+lib/
+build/
+dist/
 **/*.min.*
 CHANGELOG.md

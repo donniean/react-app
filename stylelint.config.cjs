@@ -9,7 +9,6 @@ module.exports = {
     ],
     'no-unknown-animations': true,
   },
-  ignoreFiles: ['node_modules/', 'lib/', 'build/', 'dist/', '**/*.min.*'],
   overrides: [
     {
       files: ['**/*.scss'],

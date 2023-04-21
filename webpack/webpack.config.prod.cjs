@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
 
-const baseConfig = require('./webpack.config.base');
+const baseConfig = require('./webpack.config.base.cjs');
 
 const generateSourcemap = config?.builder?.generateSourcemap;
 

@@ -3,7 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const config = require('config');
 const { merge } = require('webpack-merge');
 
-const baseConfig = require('./webpack.config.base');
+const baseConfig = require('./webpack.config.base.cjs');
 const paths = require('../scripts/utils/paths');
 
 const serverPort = config?.server?.port;

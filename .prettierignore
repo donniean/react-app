@@ -1,5 +1,5 @@
+.git/
+.history/
 node_modules/
-lib/
-build/
 dist/
-**/*.min.*
+*.tsbuildinfo

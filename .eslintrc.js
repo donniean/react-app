@@ -58,7 +58,7 @@ module.exports = {
     'no-useless-call': 'error',
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/*.{cjs,cjs}'] },
+      { devDependencies: ['**/*.{mjs,cjs}'] },
     ],
     'import/no-duplicates': ['error', { considerQueryString: true }],
     'import/order': [

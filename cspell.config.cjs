@@ -5,6 +5,7 @@ module.exports = {
     '.git/',
     '.history/',
     'node_modules/',
+    'coverage/',
     'dist/',
     '.idea/',
     '.vscode/',

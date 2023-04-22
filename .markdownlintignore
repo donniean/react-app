@@ -1,5 +1,6 @@
 .git/
 .history/
 node_modules/
+coverage/
 dist/
 CHANGELOG.md

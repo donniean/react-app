@@ -1,22 +1,25 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RouterProvider } from 'react-router-dom';
+import { router } from 'src/router';
 import { ThemeProvider } from 'styled-components';
 
 import { THEME } from '@/constants';
-import Routes from '@/routes';
 import GlobalStyle from '@/styles/GlobalStyle';
 import themes from '@/styles/themes';
 
-function App() {
+const queryClient = new QueryClient();
+
+export function App() {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={themes[THEME]}>
-        <Router>
-          <Routes />
-        </Router>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools />
+        <ThemeProvider theme={themes[THEME]}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 }
-
-export default App;

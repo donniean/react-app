@@ -1,8 +1,8 @@
 import Logo from '@/assets/images/logo.svg?svgr';
 
-import { Title, Wrapper } from './index.styled';
+import { Title, Wrapper } from './Root.styles';
 
-export default function Index() {
+export function Root() {
   return (
     <Wrapper>
       <Logo width={128} height={128} />

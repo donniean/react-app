@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: '',
 });
 
-axios.interceptors.request.use(
+instance.interceptors.request.use(
   config => {
     return config;
   },
@@ -13,7 +13,7 @@ axios.interceptors.request.use(
   }
 );
 
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   response => {
     return response;
   },

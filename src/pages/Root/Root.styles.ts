@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Theme } from '@/styles/themes/types';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,9 +10,7 @@ const Wrapper = styled.div`
   padding: 32px;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 32px;
   color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
 `;
-
-export { Title, Wrapper };

@@ -124,7 +124,7 @@
     "stylelint": "^15.6.0",
     "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-standard": "^33.0.0",
-    "stylelint-config-standard-scss": "^8.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-webpack-plugin": "^4.1.1",
     "terser-webpack-plugin": "^5.3.7",
     "tsconfig-paths-webpack-plugin": "^4.0.1",

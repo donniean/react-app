@@ -1,4 +1,7 @@
-const { isEnvDevelopment, isEnvProduction } = require('./scripts/utils/env');
+const {
+  isEnvDevelopment,
+  isEnvProduction,
+} = require('./scripts/utils/env.cjs');
 const devConfig = require('./webpack/webpack.config.dev.cjs');
 const prodConfig = require('./webpack/webpack.config.prod.cjs');
 

@@ -4,7 +4,7 @@ const config = require('config');
 const { merge } = require('webpack-merge');
 
 const baseConfig = require('./webpack.config.base.cjs');
-const paths = require('../scripts/utils/paths');
+const paths = require('../scripts/utils/paths.cjs');
 
 const serverPort = config?.server?.port;
 const serverProxy = config?.server?.proxy;

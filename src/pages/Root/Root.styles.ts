@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Theme } from '@/styles/themes/types';
+import type { Theme } from '@/styles/themes/types';
 
 export const Wrapper = styled.div`
   display: flex;

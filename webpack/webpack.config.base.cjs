@@ -19,8 +19,8 @@ const {
   env,
   isEnvDevelopment,
   isEnvProduction,
-} = require('../scripts/utils/env');
-const paths = require('../scripts/utils/paths');
+} = require('../scripts/utils/env.cjs');
+const paths = require('../scripts/utils/paths.cjs');
 
 const publicPath = config?.publicPath;
 const documentTitle = config?.client?.documentTitle;

@@ -1,4 +1,3 @@
-tanstack
 commitlint
 corepack
 cssnano
@@ -9,3 +8,4 @@ markdownlint
 sonarjs
 stylelint
 svgr
+tanstack

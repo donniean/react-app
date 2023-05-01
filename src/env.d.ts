@@ -14,7 +14,7 @@ declare module '*.module.less' {
 }
 
 declare module '*.svg?svgr' {
-  import { FunctionComponent, SVGProps } from 'react';
+  import type { FunctionComponent, SVGProps } from 'react';
 
   const ReactComponent: FunctionComponent<
     SVGProps<SVGSVGElement> & { title?: string }

@@ -1,66 +1,59 @@
-// eslint-plugin-node => eslint-plugin-n
-// node:
-// node/no-unsupported-features/es-builtins
-
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    requireConfigFile: false,
   },
   env: {
     browser: true,
     node: true,
     commonjs: true,
     'shared-node-browser': true,
-    amd: true,
     es6: true,
+    es2016: true,
     es2017: true,
+    es2018: true,
+    es2019: true,
     es2020: true,
     es2021: true,
+    es2022: true,
+    worker: true,
   },
   extends: [
     'airbnb',
-    'airbnb/hooks',
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
   ],
   rules: {
-    'no-console':
-      process.env.NODE_ENV === 'development'
-        ? 'warn'
-        : ['error', { allow: ['warn', 'error'] }],
-    'no-param-reassign': [
+    'arrow-body-style': ['error', 'as-needed'],
+    'no-restricted-imports': [
       'error',
       {
-        props: true,
-        ignorePropertyModificationsFor: [
-          'acc',
-          'accumulator',
-          'e',
-          'ctx',
-          'context',
-          'req',
-          'request',
-          'res',
-          'response',
-          '$scope',
-          'staticContext',
-          'draft',
-        ],
+        patterns: ['../..'],
       },
     ],
     'no-useless-call': 'error',
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/*.{mjs,cjs}'] },
+      {
+        devDependencies: [
+          'test/**',
+          'tests/**',
+          'spec/**',
+          '**/__tests__/**',
+          '**/__mocks__/**',
+          'test.{js,jsx}',
+          'test-*.{js,jsx}',
+          '**/*{.,_}{test,spec}.{js,jsx}',
+          '**/*.{mjs,cjs}',
+        ],
+        optionalDependencies: false,
+      },
     ],
-    'import/no-duplicates': ['error', { considerQueryString: true }],
     'import/order': [
       'error',
       {
@@ -82,6 +75,7 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
+    'unicorn/expiring-todo-comments': 'off',
     'unicorn/filename-case': [
       'error',
       {
@@ -95,20 +89,16 @@ module.exports = {
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
-    'react/jsx-key': 'error',
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/require-default-props': [
-      'error',
-      { forbidDefaultForRequired: true, ignoreFunctionalComponents: true },
-    ],
   },
   overrides: [
     {
-      files: ['**/*.js'],
+      files: ['**/*.{mjs,ts,tsx}'],
+      plugins: ['simple-import-sort'],
       rules: {
-        'unicorn/prefer-module': 'off',
+        'sort-imports': 'off',
+        'import/order': 'off',
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
       },
     },
     {
@@ -127,16 +117,64 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'airbnb-typescript',
-        'plugin:prettier/recommended',
+        'prettier',
       ],
-      plugins: ['simple-import-sort'],
       rules: {
-        'sort-imports': 'off',
-        'import/order': 'off',
-        'simple-import-sort/imports': 'error',
-        'simple-import-sort/exports': 'error',
         '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/no-floating-promises': 'off',
+        '@typescript-eslint/consistent-type-exports': 'error',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            prefer: 'type-imports',
+          },
+        ],
+      },
+    },
+    {
+      files: ['./src/**/*.{ts,tsx}'],
+      extends: ['airbnb/hooks', 'prettier'],
+      rules: {
+        'no-console':
+          process.env.NODE_ENV === 'development'
+            ? 'warn'
+            : ['error', { allow: ['warn', 'error'] }],
+        'no-param-reassign': [
+          'error',
+          {
+            props: true,
+            ignorePropertyModificationsFor: [
+              'acc',
+              'accumulator',
+              'e',
+              'ctx',
+              'context',
+              'req',
+              'request',
+              'res',
+              'response',
+              '$scope',
+              'staticContext',
+              'draft',
+            ],
+          },
+        ],
+        'import/no-duplicates': [
+          'error',
+          {
+            considerQueryString: true,
+          },
+        ],
+        'react/jsx-key': 'error',
+        'react/jsx-props-no-spreading': 'off',
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/require-default-props': [
+          'error',
+          {
+            forbidDefaultForRequired: true,
+            ignoreFunctionalComponents: true,
+          },
+        ],
       },
     },
   ],

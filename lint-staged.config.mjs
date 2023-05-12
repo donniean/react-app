@@ -6,6 +6,6 @@ export default {
   ],
   '*.{ts,tsx}': 'bash -c tsc --noEmit',
   '*.{js,mjs,cjs,ts,tsx}': 'eslint --fix',
-  '*.{css,scss,ts,tsx}': 'stylelint --fix',
+  '*.{css,scss}': 'stylelint --fix',
   '*.md': 'markdownlint  --dot --fix',
 };

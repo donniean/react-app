@@ -11,14 +11,10 @@ module.exports = {
     },
     eslint: {
       patterns: ['**/*.{js,mjs,cjs,ts,tsx}'],
-      plugins: {
-        node: true,
-      },
     },
     stylelint: {
-      patterns: ['**/*.{css,scss,ts,tsx}'],
+      patterns: ['**/*.{css,scss}'],
       scssPatterns: ['**/*.scss'],
-      styledPatterns: ['**/*.{ts,tsx}'],
     },
     markdownlint: {
       patterns: ['**/*.md'],

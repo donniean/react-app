@@ -14,14 +14,5 @@ module.exports = {
       files: ['**/*.scss'],
       extends: ['stylelint-config-standard-scss'],
     },
-    {
-      files: ['**/*.{ts,tsx}'],
-      customSyntax: 'postcss-styled-syntax',
-      rules: {
-        'no-empty-source': null,
-        'value-keyword-case': null,
-        'function-no-unknown': null,
-      },
-    },
   ],
 };

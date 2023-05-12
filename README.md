@@ -1,11 +1,38 @@
 # react-app
 
-```shell
+- [react-app](#react-app)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Common Packages](#common-packages)
+  - [TODOs](#todos)
+
+[![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE) [![CI](https://github.com/donniean/configs/actions/workflows/ci.yml/badge.svg)](https://github.com/donniean/configs/actions/workflows/ci.yml)
+
+## Install
+
+```sh
 npm install
+```
 
+## Usage
+
+```sh
 npm run dev
+```
 
+```sh
 npm run build
 ```
 
 editor [config](https://github.com/lorenwest/node-config)
+
+## Common Packages
+
+- `date-fns`
+- `immer`
+- `react-use`
+- `use-immer`
+
+## TODOs
+
+- [ ] scss alias

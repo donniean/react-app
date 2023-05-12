@@ -20,19 +20,10 @@ module.exports = {
   ],
   env: {
     development: {
-      plugins: ['babel-plugin-styled-components', 'react-refresh/babel'],
+      plugins: ['react-refresh/babel'],
     },
     production: {
-      plugins: [
-        [
-          'babel-plugin-styled-components',
-          {
-            displayName: false,
-            fileName: false,
-          },
-        ],
-        'lodash',
-      ],
+      plugins: ['lodash'],
     },
   },
 };

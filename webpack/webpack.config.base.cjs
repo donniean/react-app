@@ -1,6 +1,5 @@
 const path = require('node:path');
 
-const config = require('config');
 const dotenvExpand = require('dotenv-expand');
 const dotenvFlow = require('dotenv-flow');
 const DotenvWebpack = require('dotenv-webpack');
@@ -10,8 +9,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const { DefinePlugin } = require('webpack');
-const WebpackNotifierPlugin = require('webpack-notifier');
 /* cspell: disable-next-line */
 const WebpackBar = require('webpackbar');
 
@@ -21,10 +18,6 @@ const {
   isEnvProduction,
 } = require('../scripts/utils/env.cjs');
 const paths = require('../scripts/utils/paths.cjs');
-
-const publicPath = config?.publicPath;
-const documentTitle = config?.client?.documentTitle;
-const generateSourcemap = config?.builder?.generateSourcemap;
 
 dotenvExpand.expand(dotenvFlow.config());
 
@@ -38,7 +31,7 @@ const getStyleLoaders = ({ type } = {}) => {
     };
   }
   if (isEnvProduction) {
-    sourceMap = !!generateSourcemap;
+    sourceMap = process.env.BUILD_SOURCEMAP === 'true';
   }
 
   return [
@@ -81,7 +74,7 @@ module.exports = {
   entry: path.resolve(paths.src, 'index'),
   output: {
     path: paths.dist,
-    publicPath,
+    publicPath: process.env.PUBLIC_PATH,
   },
   module: {
     rules: [
@@ -169,14 +162,13 @@ module.exports = {
     /* cspell: disable-next-line */
     new DotenvWebpack({ systemvars: true }),
     new HtmlWebpackPlugin({
-      title: documentTitle,
+      title: process.env.DOCUMENT_TITLE,
       template: path.resolve(paths.public, 'index.handlebars'),
       inject: true,
       favicon: path.resolve(paths.public, 'favicon.svg'),
       hash: true,
     }),
     new ForkTsCheckerWebpackPlugin(),
-    new DefinePlugin({ GLOBALS: JSON.stringify(config) }),
     new ESLintPlugin({
       context: 'src',
       extensions: ['ts', 'tsx'],
@@ -189,6 +181,5 @@ module.exports = {
       fix: true,
     }),
     new WebpackBar(),
-    new WebpackNotifierPlugin({ emoji: true }),
   ],
 };

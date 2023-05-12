@@ -67,7 +67,6 @@
     "babel-plugin-lodash": "^3.3.4",
     "clean-webpack-plugin": "^4.0.0",
     "commitizen": "^4.3.0",
-    "config": "^3.3.9",
     "cross-env": "^7.0.3",
     "cspell": "^6.31.1",
     "css-loader": "^6.7.3",
@@ -110,7 +109,6 @@
     "sass-loader": "^13.2.2",
     "serve": "^14.2.0",
     "sort-package-json": "^2.4.1",
-    "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.3.2",
     "stylelint": "^15.6.1",
     "stylelint-config-recess-order": "^4.0.0",
@@ -126,7 +124,6 @@
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0",
     "webpack-merge": "^5.8.0",
-    "webpack-notifier": "^1.15.0",
     "webpackbar": "^5.0.2"
   }
 }

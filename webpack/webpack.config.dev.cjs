@@ -1,13 +1,9 @@
 /* cspell: disable-next-line */
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const config = require('config');
 const { merge } = require('webpack-merge');
 
 const baseConfig = require('./webpack.config.base.cjs');
 const paths = require('../scripts/utils/paths.cjs');
-
-const serverPort = config?.server?.port;
-const serverProxy = config?.server?.proxy;
 
 const devConfig = {
   output: {
@@ -16,8 +12,7 @@ const devConfig = {
   },
   devtool: 'cheap-module-source-map',
   devServer: {
-    port: serverPort,
-    proxy: serverProxy,
+    port: process.env.SERVER_PORT,
     historyApiFallback: true,
     hot: true,
     static: {

@@ -62,36 +62,3 @@ declare module '*.eot';
 declare module '*.ttf';
 
 declare module '*.otf';
-
-// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
-declare let __webpack_public_path__: string;
-
-interface Globals {
-  publicPath: string;
-  client: {
-    documentTitle: string | number;
-  };
-  backend: {
-    api: {
-      origin?: string; // development only
-      basePath: string;
-    };
-    websocket: {
-      origin?: string; // development only
-      basePath: string;
-    };
-  };
-  server: {
-    port: string | number;
-    proxy: Record<string, string>;
-  };
-  builder: {
-    generateSourcemap: boolean; // production
-  };
-}
-
-interface Window {
-  GLOBALS: Globals;
-}
-
-declare const GLOBALS: Globals;

@@ -134,6 +134,10 @@ module.exports = {
       files: ['./src/**/*.{ts,tsx}'],
       extends: ['airbnb/hooks', 'plugin:react/jsx-runtime', 'prettier'],
       rules: {
+        'no-console':
+          process.env.NODE_ENV === 'development'
+            ? 'warn'
+            : ['error', { allow: ['warn', 'error'] }],
         'no-param-reassign': [
           'error',
           {

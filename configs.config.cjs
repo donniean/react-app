@@ -15,7 +15,6 @@ module.exports = {
     stylelint: {
       patterns: ['**/*.{css,scss,ts,tsx}'],
       scssPatterns: ['**/*.scss'],
-      styledPatterns: ['**/*.{ts,tsx}'],
     },
     markdownlint: {
       patterns: ['**/*.md'],

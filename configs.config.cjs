@@ -13,7 +13,7 @@ module.exports = {
       patterns: ['**/*.{js,mjs,cjs,ts,tsx}'],
     },
     stylelint: {
-      patterns: ['**/*.{css,scss,ts,tsx}'],
+      patterns: ['**/*.{css,scss}'],
       scssPatterns: ['**/*.scss'],
     },
     markdownlint: {

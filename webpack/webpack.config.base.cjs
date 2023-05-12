@@ -179,13 +179,13 @@ module.exports = {
     new DefinePlugin({ GLOBALS: JSON.stringify(config) }),
     new ESLintPlugin({
       context: 'src',
-      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      extensions: ['ts', 'tsx'],
       fix: true,
       emitWarning: false,
     }),
     new StylelintPlugin({
       context: 'src',
-      extensions: ['css', 'scss', 'js', 'jsx', 'ts', 'tsx'],
+      extensions: ['css', 'scss'],
       fix: true,
     }),
     new WebpackBar(),

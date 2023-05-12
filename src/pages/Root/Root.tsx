@@ -1,13 +1,12 @@
 import Logo from '@/assets/images/logo.svg?svgr';
 
-import { Title, Wrapper } from './Root.styles';
 import styles from './Root.styles.module.scss';
 
 export function Root() {
   return (
-    <Wrapper>
+    <div className={styles.wrapper}>
       <Logo className={styles.logo} width={128} height={128} />
-      <Title>Hello React</Title>
-    </Wrapper>
+      <h1 className={styles.title}>Hello React</h1>
+    </div>
   );
 }

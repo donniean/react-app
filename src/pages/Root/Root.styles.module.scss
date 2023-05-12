@@ -1,3 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -10,4 +18,9 @@
 
 .logo {
   animation: logo-spin infinite 16s linear;
+}
+
+.title {
+  font-size: 32px;
+  color: var(--primary-color);
 }

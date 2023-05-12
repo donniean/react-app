@@ -2,13 +2,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
 
 const baseConfig = require('./webpack.config.base.cjs');
-
-// const smp = new SpeedMeasurePlugin();
 
 const prodConfig = {
   output: {
@@ -45,5 +42,4 @@ const prodConfig = {
   ].filter(Boolean),
 };
 
-// module.exports = smp.wrap(merge(baseConfig, prodConfig));
 module.exports = merge(baseConfig, prodConfig);

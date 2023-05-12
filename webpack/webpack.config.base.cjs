@@ -9,7 +9,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const WebpackNotifierPlugin = require('webpack-notifier');
 /* cspell: disable-next-line */
 const WebpackBar = require('webpackbar');
 
@@ -182,6 +181,5 @@ module.exports = {
       fix: true,
     }),
     new WebpackBar(),
-    new WebpackNotifierPlugin({ emoji: true }),
   ],
 };

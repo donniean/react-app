@@ -50,6 +50,7 @@ module.exports = {
           'test-*.{js,jsx}',
           '**/*{.,_}{test,spec}.{js,jsx}',
           '**/*.{mjs,cjs}',
+          '**/.*.{mjs,cjs}',
         ],
         optionalDependencies: false,
       },
@@ -75,7 +76,6 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
-    'unicorn/expiring-todo-comments': 'off',
     'unicorn/filename-case': [
       'error',
       {
@@ -132,12 +132,8 @@ module.exports = {
     },
     {
       files: ['./src/**/*.{ts,tsx}'],
-      extends: ['airbnb/hooks', 'prettier'],
+      extends: ['airbnb/hooks', 'plugin:react/jsx-runtime', 'prettier'],
       rules: {
-        'no-console':
-          process.env.NODE_ENV === 'development'
-            ? 'warn'
-            : ['error', { allow: ['warn', 'error'] }],
         'no-param-reassign': [
           'error',
           {
@@ -166,13 +162,11 @@ module.exports = {
         ],
         'react/jsx-key': 'error',
         'react/jsx-props-no-spreading': 'off',
-        'react/jsx-uses-react': 'off',
-        'react/react-in-jsx-scope': 'off',
         'react/require-default-props': [
           'error',
           {
             forbidDefaultForRequired: true,
-            ignoreFunctionalComponents: true,
+            functions: 'defaultArguments',
           },
         ],
       },

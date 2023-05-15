@@ -1,6 +1,6 @@
 import Logo from '@/assets/images/logo.svg?svgr';
 
-import styles from './Root.styles.module.scss';
+import styles from './Root.module.scss';
 
 export function Root() {
   return (

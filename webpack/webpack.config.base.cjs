@@ -156,6 +156,9 @@ module.exports = {
     modules: [paths.nodeModules, paths.src],
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     plugins: [new TsconfigPathsPlugin()],
+    alias: {
+      '@': paths.src,
+    },
   },
   target: 'web',
   plugins: [

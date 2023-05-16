@@ -10,7 +10,6 @@ module.exports = {
   root: rootPath,
   nodeModules: resolveRoot('node_modules'),
   scripts: resolveRoot('scripts'),
-  webpack: resolveRoot('webpack'),
   public: resolveRoot('public'),
   src: resolveRoot('src'),
   dist: resolveRoot('dist'),

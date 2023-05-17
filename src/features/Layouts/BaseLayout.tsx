@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 
-interface Props {
+interface BaseLayoutProps {
   children: ReactNode;
 }
 
-export function BaseLayout({ children }: Props) {
+export function BaseLayout({ children }: BaseLayoutProps) {
   return <div>{children}</div>;
 }

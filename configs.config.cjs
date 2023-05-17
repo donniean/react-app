@@ -16,6 +16,9 @@ module.exports = {
       patterns: ['**/*.{css,scss}'],
       scssPatterns: ['**/*.scss'],
     },
+    htmlhint: {
+      patterns: ['**/*.html'],
+    },
     markdownlint: {
       patterns: ['**/*.md'],
     },

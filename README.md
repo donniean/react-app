@@ -3,7 +3,7 @@
 - [react-app](#react-app)
   - [Install](#install)
   - [Usage](#usage)
-  - [Common Packages](#common-packages)
+  - [Recommended Packages](#recommended-packages)
 
 [![License: MIT](https://img.shields.io/github/license/donniean/configs)](https://github.com/donniean/configs/blob/master/LICENSE) [![CI](https://github.com/donniean/configs/actions/workflows/ci.yml/badge.svg)](https://github.com/donniean/configs/actions/workflows/ci.yml)
 
@@ -30,7 +30,7 @@ Edit config files
 - `index.html`
 - `src/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
 
-## Common Packages
+## Recommended Packages
 
 - `date-fns`
 - `immer`

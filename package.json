@@ -14,7 +14,6 @@
   "author": "Donnie An",
   "type": "module",
   "scripts": {
-    "analyze": "cross-env ANALYZE=true npm run build",
     "build": "tsc && vite build",
     "commit": "cz",
     "dev": "vite",

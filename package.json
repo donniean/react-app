@@ -14,7 +14,6 @@
   "author": "Donnie An",
   "type": "module",
   "scripts": {
-    "analyze": "cross-env ANALYZE=true npm run build",
     "build": "tsc && vite build",
     "commit": "cz",
     "dev": "vite",
@@ -48,7 +47,7 @@
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",

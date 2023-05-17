@@ -1,27 +1,23 @@
 {
+  "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
-    "incremental": true,
-    "target": "es5",
-    "module": "esnext",
-    "lib": ["DOM", "ESNext"],
-    "sourceMap": true,
-    "importHelpers": true,
-    "declaration": true,
+    // strict
     "strict": true,
+    "verbatimModuleSyntax": true,
+    // strictest
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowJs": false,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": false,
-    "experimentalDecorators": true,
-    "outDir": "dist/",
-    "rootDir": "src/",
+    // checkJs
+    "allowJs": true,
+    "checkJs": true,
+    // custom
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
@@ -30,10 +26,7 @@
       {
         "name": "typescript-plugin-css-modules"
       }
-    ],
-    // TODO: temp
-    "ignoreDeprecations": "5.0"
+    ]
   },
-  "include": ["src/"],
-  "exclude": ["node_modules/", "dist/", "scripts/"]
+  "include": ["src/"]
 }

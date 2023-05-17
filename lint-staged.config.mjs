@@ -7,5 +7,6 @@ export default {
   '*.{ts,tsx}': 'bash -c tsc --noEmit',
   '*.{js,mjs,cjs,ts,tsx}': 'eslint --fix',
   '*.{css,scss}': 'stylelint --fix',
+  '*.html': 'htmlhint',
   '*.md': 'markdownlint  --dot --fix',
 };

@@ -26,8 +26,8 @@ npm run build
 Edit config files
 
 - `vite.config.mjs`
-- `index.html`
 - `.env` and `.env,*`
+- `index.html`
 
 ## Common Packages
 

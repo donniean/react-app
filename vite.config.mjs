@@ -4,5 +4,8 @@ import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  server: {
+    host: true,
+  },
   plugins: [tsconfigPaths(), react(), svgr()],
 });

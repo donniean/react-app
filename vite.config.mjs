@@ -13,6 +13,7 @@ export default defineConfig({
     react(),
     svgr(),
     checker({
+      overlay: { position: 'br' },
       typescript: true,
       eslint: {
         lintCommand: 'eslint "./src/**/*.{ts,tsx}"',

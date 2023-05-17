@@ -13,7 +13,7 @@ declare module '*.module.less' {
   export default classes;
 }
 
-declare module '*.svg?svgr' {
+declare module '*.svg?component' {
   import type { FunctionComponent, SVGProps } from 'react';
 
   const ReactComponent: FunctionComponent<

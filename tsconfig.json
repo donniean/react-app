@@ -14,8 +14,10 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    // checkJs
     "allowJs": true,
     "checkJs": true,
+    // custom
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]

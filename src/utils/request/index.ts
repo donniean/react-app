@@ -6,12 +6,16 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   config => config,
-  error => Promise.reject(error)
+  error => {
+    throw error;
+  }
 );
 
 instance.interceptors.response.use(
   response => response,
-  error => Promise.reject(error)
+  error => {
+    throw error;
+  }
 );
 
 export { instance as request };

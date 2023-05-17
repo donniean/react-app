@@ -175,5 +175,9 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ['**/*.test.ts'],
+      extends: ['plugin:vitest/recommended'],
+    },
   ],
 };

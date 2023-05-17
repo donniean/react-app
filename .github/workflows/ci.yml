@@ -29,8 +29,8 @@ jobs:
         run: npm run lint:eslint
       - name: Stylelint
         run: npm run lint:stylelint
-      # - name: HTMLHint
-      # run: npm run lint:htmlhint
+      - name: HTMLHint
+        run: npm run lint:htmlhint
       - name: markdownlint
         run: npm run lint:markdownlint
       - name: CSpell

@@ -104,7 +104,7 @@ module.exports = {
     {
       files: ['**/*.{ts,tsx}'],
       parserOptions: {
-        project: './tsconfig.json',
+        project: true,
       },
       settings: {
         'import/resolver': {

@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from '@/assets/images/logo.svg?component';
+import { ReactComponent as Logo } from '@/assets/images/logo.svg';
 
 import styles from './Root.module.scss';
 

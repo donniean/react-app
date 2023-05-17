@@ -23,8 +23,9 @@ npm run dev
 npm run build
 ```
 
-editor
+Edit config files
 
+- `vite.config.mjs`
 - `index.html`
 - `.env` and `.env,*`
 

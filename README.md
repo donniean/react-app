@@ -23,7 +23,7 @@ npm run dev
 npm run build
 ```
 
-editor [config](https://github.com/lorenwest/node-config)
+editor `.env` and `.env.*` files
 
 ## Common Packages
 

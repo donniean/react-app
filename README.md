@@ -32,7 +32,12 @@ Edit config files
 
 ## Recommended Packages
 
+- `clsx`
 - `date-fns`
 - `immer`
+- `react-hook-form`
 - `react-use`
+- `tailwindcss`
 - `use-immer`
+- `zod`
+- `zustand`

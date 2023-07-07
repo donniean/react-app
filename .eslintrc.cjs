@@ -166,6 +166,14 @@ module.exports = {
         ],
         'react/jsx-key': 'error',
         'react/jsx-props-no-spreading': 'off',
+        'react/jsx-sort-props': [
+          'error',
+          {
+            callbacksLast: true,
+            multiline: 'last',
+            reservedFirst: true,
+          },
+        ],
         'react/require-default-props': [
           'error',
           {

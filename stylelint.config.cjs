@@ -1,6 +1,12 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   rules: {
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['tailwind'],
+      },
+    ],
     'color-named': [
       'never',
       {
@@ -13,6 +19,14 @@ module.exports = {
     {
       files: ['**/*.scss'],
       extends: ['stylelint-config-standard-scss'],
+      rules: {
+        'scss/at-rule-no-unknown': [
+          true,
+          {
+            ignoreAtRules: ['tailwind'],
+          },
+        ],
+      },
     },
   ],
 };

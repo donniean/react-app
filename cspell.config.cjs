@@ -7,6 +7,7 @@ module.exports = {
     'node_modules/',
     'coverage/',
     'dist/',
+    '.next/',
     '.idea/',
     '.vscode/',
     '**/*.svg',

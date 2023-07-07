@@ -22,7 +22,7 @@ function getNextURL({
 }) {
   const isIndex = includes(
     ['', '/', undefined, null, 'undefined', 'null'],
-    pathname
+    pathname,
   );
   if (isIndex) {
     return `${search}`;

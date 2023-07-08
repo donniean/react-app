@@ -8,5 +8,6 @@ export default {
   '*.{js,mjs,cjs,ts,tsx}': 'eslint --fix',
   '*.css': 'stylelint --fix',
   '*.html': 'htmlhint',
-  '*.md': 'markdownlint  --dot --fix',
+  '*.md': 'markdownlint --dot --fix',
+  '*.ts': 'vitest related --run',
 };

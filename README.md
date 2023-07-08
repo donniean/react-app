@@ -32,12 +32,13 @@ Edit config files
 
 ## Recommended Packages
 
-- `clsx`
+- `@tanstack/react-table`
 - `date-fns`
+- `framer-motion`
 - `immer`
 - `react-hook-form`
 - `react-use`
-- `tailwindcss`
+- `recharts`
 - `use-immer`
 - `zod`
 - `zustand`

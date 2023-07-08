@@ -15,18 +15,4 @@ module.exports = {
     ],
     'no-unknown-animations': true,
   },
-  overrides: [
-    {
-      files: ['**/*.scss'],
-      extends: ['stylelint-config-standard-scss'],
-      rules: {
-        'scss/at-rule-no-unknown': [
-          true,
-          {
-            ignoreAtRules: ['tailwind'],
-          },
-        ],
-      },
-    },
-  ],
 };

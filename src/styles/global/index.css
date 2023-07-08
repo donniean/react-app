@@ -1,0 +1,7 @@
+@import url('@donniean/styles/dist/reset.min.css');
+@import url('@donniean/styles/dist/iphone.min.css');
+@import url('@donniean/styles/dist/typography.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

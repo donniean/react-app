@@ -1,5 +1,5 @@
-import '@/styles/global/index.scss';
-import '@/styles/themes/index.scss';
+import '@/styles/global/index.css';
+import '@/styles/themes/index.css';
 
 import { createRoot } from 'react-dom/client';
 

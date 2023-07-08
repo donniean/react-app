@@ -5,6 +5,11 @@ import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+    },
+  },
   server: {
     host: true,
   },
@@ -19,7 +24,7 @@ export default defineConfig({
         lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
       },
       stylelint: {
-        lintCommand: 'stylelint ./src/**/*.{css,scss}',
+        lintCommand: 'stylelint ./src/**/*.css',
       },
     }),
   ],

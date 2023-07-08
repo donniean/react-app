@@ -1,6 +1,6 @@
 import { ReactComponent as Logo } from '@/assets/images/logo.svg';
 
-import styles from './Root.module.scss';
+import styles from './Root.module.css';
 
 export function Root() {
   return (

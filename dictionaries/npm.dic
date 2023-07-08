@@ -12,4 +12,5 @@ stylelint
 svgr
 tailwindcss
 tanstack
+vitest
 zustand

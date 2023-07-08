@@ -5,16 +5,17 @@ module.exports = {
     editorconfig: true,
     prettier: {
       patterns: ['**'],
+      tailwindcss: true,
     },
     tsc: {
       patterns: ['**/*.{ts,tsx}'],
     },
     eslint: {
       patterns: ['**/*.{js,mjs,cjs,ts,tsx}'],
+      vitestPatterns: ['**/*.test.ts'],
     },
     stylelint: {
-      patterns: ['**/*.{css,scss}'],
-      scssPatterns: ['**/*.scss'],
+      patterns: ['**/*.css'],
     },
     htmlhint: {
       patterns: ['**/*.html'],

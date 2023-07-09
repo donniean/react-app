@@ -74,6 +74,9 @@ config/local-*.*
 # Testing
 coverage/
 
+# Production
+dist/
+
 # Next.js
 .next/
 out/
@@ -81,6 +84,3 @@ next-env.d.ts
 
 # Vercel
 .vercel/
-
-# Production
-dist/

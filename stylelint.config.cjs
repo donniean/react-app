@@ -4,13 +4,19 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind'],
+        ignoreAtRules: ['tailwind', 'layer', 'apply', 'config'],
       },
     ],
     'color-named': [
       'never',
       {
         ignore: ['inside-function'],
+      },
+    ],
+    'function-no-unknown': [
+      true,
+      {
+        ignoreFunctions: ['theme', 'screen'],
       },
     ],
     'no-unknown-animations': true,

@@ -1,6 +1,6 @@
 {
   "name": "react-app",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "react-app",
   "homepage": "https://github.com/donniean/react-app#readme",
   "bugs": {
@@ -53,7 +53,6 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
-    "@tsconfig/vite-react": "^2.0.0",
     "@types/eslint": "^8.44.0",
     "@types/lodash": "^4.14.195",
     "@types/qs": "^6.9.7",

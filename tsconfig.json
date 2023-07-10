@@ -30,9 +30,8 @@
     "allowJs": true,
     "checkJs": true,
     // custom
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {

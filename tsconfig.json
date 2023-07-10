@@ -1,3 +1,4 @@
+// https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.json
 {
   "compilerOptions": {
     // vite

@@ -120,7 +120,6 @@ module.exports = {
         'prettier',
       ],
       rules: {
-        '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/consistent-type-exports': 'error',
         '@typescript-eslint/consistent-type-imports': [
           'error',

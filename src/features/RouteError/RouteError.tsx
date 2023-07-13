@@ -10,7 +10,7 @@ export function RouteError() {
 
   return (
     <div>
-      <p>{error.statusText || error.message}</p>
+      <p>{error.statusText ?? error.message}</p>
     </div>
   );
 }

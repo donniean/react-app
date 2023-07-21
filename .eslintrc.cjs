@@ -169,6 +169,7 @@ module.exports = {
           'error',
           {
             callbacksLast: true,
+            shorthandFirst: true,
             multiline: 'last',
             reservedFirst: true,
           },
@@ -178,6 +179,13 @@ module.exports = {
           {
             forbidDefaultForRequired: true,
             functions: 'defaultArguments',
+          },
+        ],
+        'react/sort-prop-types': [
+          'error',
+          {
+            callbacksLast: true,
+            requiredFirst: true,
           },
         ],
       },

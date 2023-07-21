@@ -16,6 +16,7 @@ module.exports = {
     },
     stylelint: {
       patterns: ['**/*.css'],
+      cssModules: true,
     },
     htmlhint: {
       patterns: ['**/*.html'],

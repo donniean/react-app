@@ -80,7 +80,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sonarjs": "^0.21.0",
     "eslint-plugin-unicorn": "^48.0.1",
-    "eslint-plugin-vitest": "^0.2.8",
+    "eslint-plugin-vitest": "^0.3.1",
     "htmlhint": "^1.1.4",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.0",

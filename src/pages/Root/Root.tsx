@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { ReactComponent as Logo } from '@/assets/images/logo.svg';
+import Logo from '@/assets/images/logo.svg?react';
 
 import styles from './Root.module.css';
 

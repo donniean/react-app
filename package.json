@@ -83,7 +83,7 @@
     "eslint-plugin-vitest": "^0.3.2",
     "htmlhint": "^1.1.4",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.1",
     "markdownlint-cli": "^0.37.0",
     "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",

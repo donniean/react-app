@@ -135,7 +135,7 @@ module.exports = {
       rules: {
         'no-console':
           process.env.NODE_ENV === 'development'
-            ? 'warn'
+            ? 'off'
             : ['error', { allow: ['warn', 'error'] }],
         'no-param-reassign': [
           'error',

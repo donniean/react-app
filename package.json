@@ -41,7 +41,7 @@
   "dependencies": {
     "@donniean/styles": "^1.5.0",
     "@tanstack/react-query": "^5.17.15",
-    "@tanstack/react-query-devtools": "^5.17.15",
+    "@tanstack/react-query-devtools": "^5.17.18",
     "axios": "^1.6.5",
     "clsx": "^2.1.0",
     "lodash": "^4.17.21",
@@ -61,8 +61,8 @@
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
-    "@vitest/coverage-v8": "^1.2.0",
-    "autoprefixer": "^10.4.16",
+    "@vitest/coverage-v8": "^1.2.1",
+    "autoprefixer": "^10.4.17",
     "commitizen": "^4.3.0",
     "cspell": "^8.3.2",
     "cz-conventional-changelog": "^3.3.0",
@@ -87,7 +87,7 @@
     "markdownlint-cli": "^0.38.0",
     "postcss": "^8.4.33",
     "postcss-import": "^16.0.0",
-    "prettier": "^3.2.2",
+    "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sort-package-json": "^2.6.0",
     "stylelint": "^16.1.0",
@@ -101,6 +101,6 @@
     "vite-plugin-checker": "^0.6.2",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.1",
-    "vitest": "^1.2.0"
+    "vitest": "^1.2.1"
   }
 }

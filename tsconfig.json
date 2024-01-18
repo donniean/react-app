@@ -31,16 +31,16 @@
     "checkJs": true,
     // custom
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
     },
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
         "options": {
-          "classnameTransform": "camelCase"
-        }
-      }
-    ]
+          "classnameTransform": "camelCase",
+        },
+      },
+    ],
   },
-  "include": ["src/"]
+  "include": ["src/"],
 }

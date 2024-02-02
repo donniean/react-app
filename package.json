@@ -48,7 +48,7 @@
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
@@ -56,7 +56,7 @@
     "@types/eslint": "^8.56.2",
     "@types/lodash": "^4.14.202",
     "@types/qs": "^6.9.11",
-    "@types/react": "^18.2.48",
+    "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
@@ -82,7 +82,7 @@
     "eslint-plugin-unicorn": "^50.0.1",
     "eslint-plugin-vitest": "^0.3.21",
     "htmlhint": "^1.1.4",
-    "husky": "^9.0.7",
+    "husky": "^9.0.10",
     "lint-staged": "^15.2.1",
     "markdownlint-cli": "^0.39.0",
     "postcss": "^8.4.33",
@@ -90,7 +90,7 @@
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sort-package-json": "^2.7.0",
-    "stylelint": "^16.2.0",
+    "stylelint": "^16.2.1",
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-recess-order": "^4.4.0",
     "stylelint-config-standard": "^36.0.0",
@@ -98,7 +98,7 @@
     "typescript": "^5.3.3",
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^5.0.12",
-    "vite-plugin-checker": "^0.6.3",
+    "vite-plugin-checker": "^0.6.4",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.2.2"

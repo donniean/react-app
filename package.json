@@ -105,8 +105,8 @@
   },
   "overrides": {
     "eslint-config-airbnb-typescript": {
-      "@typescript-eslint/parser": ">=7",
-      "@typescript-eslint/eslint-plugin": ">=7"
+      "@typescript-eslint/parser": ">=7.1.0",
+      "@typescript-eslint/eslint-plugin": ">=7.1.0"
     }
   }
 }

@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@donniean/styles": "^1.5.0",
-    "@tanstack/react-query": "^5.24.2",
-    "@tanstack/react-query-devtools": "^5.24.2",
+    "@tanstack/react-query": "^5.24.6",
+    "@tanstack/react-query-devtools": "^5.24.6",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "lodash": "^4.17.21",

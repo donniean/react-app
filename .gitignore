@@ -75,7 +75,7 @@ config/local-*.*
 coverage/
 
 # Production
-dist/
+# dist/
 
 # Next.js
 .next/

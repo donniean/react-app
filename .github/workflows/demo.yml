@@ -1,0 +1,14 @@
+name: Demo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 3 * * *'
+
+jobs:
+  test-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: demo
+        run: |
+          echo "github.event_name: ${{ github.event_name }}"

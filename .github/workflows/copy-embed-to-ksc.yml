@@ -1,0 +1,14 @@
+name: Copy Embed to KSC
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 3 * * *'
+
+jobs:
+  copy-embed-to-ksc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: |
+          echo "github.event_name: ${{ github.event_name }}"

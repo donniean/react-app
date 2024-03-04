@@ -3,7 +3,7 @@ name: Demo
 on:
   workflow_dispatch:
   schedule:
-    - cron: '50 3 * * *'
+    - cron: '28 4 * * *'
 
 jobs:
   test-ci:

@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@donniean/styles": "^1.5.0",
-    "@tanstack/react-query": "^5.28.2",
-    "@tanstack/react-query-devtools": "^5.28.3",
+    "@tanstack/react-query": "^5.28.4",
+    "@tanstack/react-query-devtools": "^5.28.4",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "lodash": "^4.17.21",
@@ -61,7 +61,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
-    "@vitest/coverage-v8": "^1.3.1",
+    "@vitest/coverage-v8": "^1.4.0",
     "autoprefixer": "^10.4.18",
     "commitizen": "^4.3.0",
     "cspell": "^8.6.0",
@@ -101,6 +101,6 @@
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.3.1"
+    "vitest": "^1.4.0"
   }
 }

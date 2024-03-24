@@ -1,6 +1,6 @@
 {
   "name": "react-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "react-app",
   "homepage": "https://github.com/donniean/react-app#readme",
   "bugs": {
@@ -97,7 +97,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.3",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^5.2.4",
+    "vite": "^5.2.6",
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",

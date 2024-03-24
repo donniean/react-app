@@ -4,5 +4,6 @@ configsrc
 htmlhintrc
 huskyrc
 lintstagedrc
+markdownlintignore
 stylelintignore
 stylelintrc

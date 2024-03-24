@@ -28,6 +28,7 @@ module.exports = {
     'user-custom',
     'user-files',
     'user-git',
+    'user-nginx',
     'user-npm',
   ],
   dictionaryDefinitions: [
@@ -54,6 +55,11 @@ module.exports = {
     {
       name: 'user-git',
       path: './dictionaries/git.dic',
+      addWords: true,
+    },
+    {
+      name: 'user-nginx',
+      path: './dictionaries/nginx.dic',
       addWords: true,
     },
     {

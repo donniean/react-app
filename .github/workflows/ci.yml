@@ -23,6 +23,8 @@ jobs:
       # Linters
       - name: Prettier
         run: npm run lint:prettier
+      - name: AutoCorrect
+        run: npm run lint:autocorrect
       - name: tsc
         run: npm run lint:tsc
       - name: ESLint

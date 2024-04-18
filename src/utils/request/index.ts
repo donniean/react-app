@@ -5,15 +5,15 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  config => config,
-  error => {
+  (config) => config,
+  (error) => {
     throw error;
   },
 );
 
 instance.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     throw error;
   },
 );

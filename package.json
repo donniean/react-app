@@ -58,6 +58,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.2.2",
     "@commitlint/config-conventional": "^19.2.2",
+    "@donniean/configs": "^6.21.0",
     "@types/eslint": "^8.56.9",
     "@types/lodash": "^4.17.0",
     "@types/qs": "^6.9.15",

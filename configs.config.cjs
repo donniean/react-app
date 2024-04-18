@@ -7,6 +7,7 @@ module.exports = {
       patterns: ['**'],
       tailwindcss: true,
     },
+    autocorrect: true,
     tsc: {
       patterns: ['**/*.{ts,tsx}'],
     },

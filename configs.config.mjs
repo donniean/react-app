@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { defineConfig } from '@donniean/configs';
 
 export default defineConfig({

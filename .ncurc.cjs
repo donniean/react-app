@@ -1,3 +1,3 @@
 module.exports = {
-  reject: ['eslint', 'eslint-plugin-vitest'],
+  reject: ['eslint', 'eslint-plugin-sonarjs', 'eslint-plugin-vitest'],
 };

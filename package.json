@@ -69,12 +69,12 @@
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
-    "@vitest/coverage-v8": "^1.5.3",
+    "@vitest/coverage-v8": "^1.6.0",
     "autocorrect-node": "^2.9.0",
     "autoprefixer": "^10.4.19",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
-    "cspell": "^8.7.0",
+    "cspell": "^8.8.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -111,6 +111,6 @@
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.5.3"
+    "vitest": "^1.6.0"
   }
 }

@@ -47,15 +47,15 @@
   },
   "dependencies": {
     "@donniean/styles": "^1.5.0",
-    "@tanstack/react-query": "^5.35.1",
-    "@tanstack/react-query-devtools": "^5.35.1",
+    "@tanstack/react-query": "^5.35.5",
+    "@tanstack/react-query-devtools": "^5.35.5",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "qs": "^6.12.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -74,7 +74,7 @@
     "autoprefixer": "^10.4.19",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
-    "cspell": "^8.8.0",
+    "cspell": "^8.8.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -89,7 +89,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-sonarjs": "^0.25.1",
-    "eslint-plugin-unicorn": "^52.0.0",
+    "eslint-plugin-unicorn": "^53.0.0",
     "eslint-plugin-vitest": "^0.4.1",
     "htmlhint": "^1.1.4",
     "husky": "^9.0.11",

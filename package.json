@@ -69,7 +69,7 @@
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-v8": "^2.0.0",
     "autocorrect-node": "^2.11.1",
     "autoprefixer": "^10.4.19",
     "commitizen": "^4.3.0",
@@ -111,6 +111,6 @@
     "vite-plugin-checker": "^0.7.1",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.6.0"
+    "vitest": "^2.0.0"
   }
 }

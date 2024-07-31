@@ -47,8 +47,8 @@
   },
   "dependencies": {
     "@donniean/styles": "^1.5.1",
-    "@tanstack/react-query": "^5.51.15",
-    "@tanstack/react-query-devtools": "^5.51.15",
+    "@tanstack/react-query": "^5.51.16",
+    "@tanstack/react-query-devtools": "^5.51.16",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@donniean/configs": "^6.23.2",
+    "@donniean/configs": "^6.23.3",
     "@types/eslint": "^9.6.0",
     "@types/lodash": "^4.17.7",
     "@types/qs": "^6.9.15",

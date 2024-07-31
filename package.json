@@ -46,7 +46,7 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@donniean/styles": "^1.5.0",
+    "@donniean/styles": "^1.5.1",
     "@tanstack/react-query": "^5.51.15",
     "@tanstack/react-query-devtools": "^5.51.15",
     "axios": "^1.7.2",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@donniean/configs": "^6.23.1",
+    "@donniean/configs": "^6.23.2",
     "@types/eslint": "^9.6.0",
     "@types/lodash": "^4.17.7",
     "@types/qs": "^6.9.15",
@@ -74,7 +74,7 @@
     "autoprefixer": "^10.4.19",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
-    "cspell": "^8.12.1",
+    "cspell": "^8.13.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",

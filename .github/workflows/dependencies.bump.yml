@@ -6,5 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  dependencies-bump:
+  bump:
     uses: donniean/collections/.github/workflows/dependencies.bump.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}

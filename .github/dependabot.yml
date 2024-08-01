@@ -6,15 +6,23 @@ updates:
     schedule:
       interval: daily
     ignore:
+      - dependency-name: '@types/eslint'
+        versions: ['>=9.0.0']
+      - dependency-name: '@typescript-eslint/eslint-plugin'
+        versions: ['>=8.0.0']
+      - dependency-name: '@typescript-eslint/parser'
+        versions: ['>=8.0.0']
       - dependency-name: 'eslint'
         versions: ['>=9.0.0']
       - dependency-name: 'eslint-plugin-sonarjs'
         versions: ['>=1.0.0']
       - dependency-name: 'eslint-plugin-vitest'
         versions: ['>=0.5.0']
+    open-pull-requests-limit: 999
 
   - package-ecosystem: github-actions
     directories:
       - '/'
     schedule:
       interval: daily
+    open-pull-requests-limit: 999

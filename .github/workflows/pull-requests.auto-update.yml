@@ -1,0 +1,12 @@
+name: Auto-Updates Pull Requests
+on:
+  push:
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+    steps:
+      # cspell:disable-next-line
+      - uses: docker://chinthakagodawita/autoupdate-action:v1
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'

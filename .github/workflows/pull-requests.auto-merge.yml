@@ -1,6 +1,6 @@
 name: Pull Requests Auto-Merge
 on:
-  push:
+  pull_request:
 
 jobs:
   auto-merge:

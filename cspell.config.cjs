@@ -51,6 +51,8 @@ module.exports = {
     'htmlhint',
     'immer',
     'markdownlint',
+    'npmjs',
+    'rimraf',
     'sonarjs',
     'stylelint',
     'svgr',

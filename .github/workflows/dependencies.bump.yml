@@ -9,4 +9,5 @@ jobs:
   bump:
     uses: donniean/collections/.github/workflows/dependencies.bump.yml@main
     secrets:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      APP_ID: ${{ secrets.APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}

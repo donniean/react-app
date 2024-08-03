@@ -46,8 +46,8 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.51.18",
-    "@tanstack/react-query-devtools": "^5.51.18",
+    "@tanstack/react-query": "^5.51.21",
+    "@tanstack/react-query-devtools": "^5.51.21",
     "axios": "^1.7.3",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
@@ -70,7 +70,7 @@
     "@vitejs/plugin-react-swc": "^3.7.0",
     "@vitest/coverage-v8": "^2.0.5",
     "autocorrect-node": "^2.11.1",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "cspell": "^8.13.1",
@@ -92,7 +92,7 @@
     "eslint-plugin-vitest": "^0.4.1",
     "htmlhint": "^1.1.4",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
+    "lint-staged": "^15.2.8",
     "markdownlint-cli": "^0.41.0",
     "postcss": "^8.4.40",
     "postcss-import": "^16.1.0",

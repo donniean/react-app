@@ -98,7 +98,7 @@
     "postcss-import": "^16.1.0",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
-    "sort-package-json": "^2.10.0",
+    "sort-package-json": "^2.10.1",
     "stylelint": "^16.8.2",
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-recess-order": "^5.1.0",

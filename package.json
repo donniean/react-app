@@ -46,9 +46,9 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.52.3",
-    "@tanstack/react-query-devtools": "^5.52.3",
-    "axios": "^1.7.5",
+    "@tanstack/react-query": "^5.53.1",
+    "@tanstack/react-query-devtools": "^5.53.1",
+    "axios": "^1.7.6",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "qs": "^6.13.0",
@@ -63,7 +63,7 @@
     "@types/eslint": "^9.6.0",
     "@types/lodash": "^4.17.7",
     "@types/qs": "^6.9.15",
-    "@types/react": "^18.3.4",
+    "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",

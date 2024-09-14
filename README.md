@@ -39,3 +39,4 @@ Edit config files
 - `use-immer`
 - `zod`
 - `zustand`
+- [`react-i18next`](https://github.com/i18next/react-i18next)

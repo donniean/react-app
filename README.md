@@ -30,12 +30,14 @@ Edit config files
 ## Recommended Packages
 
 - `@tanstack/react-table`
+- [`cva`](https://github.com/joe-bell/cva)
 - `date-fns`
 - `framer-motion`
 - `immer`
 - `react-hook-form`
 - `react-use`
 - `recharts`
+- [`tailwind-merge`](https://github.com/dcastil/tailwind-merge)
 - `use-immer`
 - `zod`
 - `zustand`

@@ -32,6 +32,7 @@ Edit config files
 - `@tanstack/react-table`
 - [`cva`](https://github.com/joe-bell/cva)
 - `date-fns`
+  - [`dayjs`](https://github.com/iamkun/dayjs)
 - `framer-motion`
 - `immer`
 - `react-hook-form`

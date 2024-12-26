@@ -59,7 +59,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@donniean/configs": "^6.23.6",
+    "@donniean/configs": "^6.23.7",
     "@types/eslint": "^9.6.0",
     "@types/lodash": "^4.17.13",
     "@types/qs": "^6.9.17",

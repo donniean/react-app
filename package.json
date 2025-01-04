@@ -46,8 +46,8 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.62.11",
-    "@tanstack/react-query-devtools": "^5.62.11",
+    "@tanstack/react-query": "^5.62.14",
+    "@tanstack/react-query-devtools": "^5.62.14",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
@@ -61,7 +61,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@donniean/configs": "^6.23.7",
     "@types/eslint": "^9.6.0",
-    "@types/lodash": "^4.17.13",
+    "@types/lodash": "^4.17.14",
     "@types/qs": "^6.9.17",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",

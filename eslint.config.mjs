@@ -1,19 +1,35 @@
 // @ts-check
 
-import globals from 'globals';
 import eslint from '@eslint/js';
-import typescriptEslint from 'typescript-eslint';
-// import eslintPluginEslintComments from '@eslint-community/eslint-plugin-eslint-comments';
-import eslintPluginPromise from 'eslint-plugin-promise';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
-import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
+import eslintPluginEslintComments from '@eslint-community/eslint-plugin-eslint-comments';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import * as eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginPromise from 'eslint-plugin-promise';
+import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import globals from 'globals';
+import typescriptEslint from 'typescript-eslint';
 
 export default typescriptEslint.config(
   {
     ignores: ['.history/', 'coverage/', 'dist/', '.next/'],
+  },
+  {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      parser: typescriptEslint.parser,
+      /* parserOptions: {
+        ecmaVersion: 'latest',
+      }, */
+      globals: {
+        ...globals.es2025,
+      },
+    },
+    rules: {
+      'no-unused-vars': 'error',
+    },
   },
   eslint.configs.recommended,
   eslintPluginImport.flatConfigs?.recommended,
@@ -30,13 +46,12 @@ export default typescriptEslint.config(
   eslintPluginSonarjs.configs.recommended,
   eslintConfigPrettier,
   {
+    files: ['**/*.cjs'],
     languageOptions: {
+      sourceType: 'commonjs',
       globals: {
-        ...globals.es2025,
+        ...globals.node,
       },
-    },
-    rules: {
-      'no-unused-vars': 'error',
     },
   },
   {
@@ -53,9 +68,29 @@ export default typescriptEslint.config(
   },
   {
     files: ['**/*.{ts,tsx}'],
-    ...typescriptEslint.configs.recommended,
-    ...typescriptEslint.configs.recommendedTypeChecked,
-    ...typescriptEslint.configs.stylisticTypeChecked,
+    extends: [
+      typescriptEslint.configs.recommended,
+      typescriptEslint.configs.recommendedTypeChecked,
+      typescriptEslint.configs.stylisticTypeChecked,
+    ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    settings: {
+      /* 'import/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+      ], */
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+    },
   },
   {
     files: ['src/'],

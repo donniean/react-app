@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 interface BaseLayoutProps {
-  children: ReactNode;
+  readonly children: ReactNode;
 }
 
 export function BaseLayout({ children }: BaseLayoutProps) {

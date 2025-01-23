@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-unresolved
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
@@ -23,6 +25,7 @@ export default defineConfig({
     tsconfigPaths(),
     react(),
     svgr(),
+    tailwindcss(),
     checker({
       overlay: { position: 'br' },
       typescript: true,

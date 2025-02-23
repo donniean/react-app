@@ -73,7 +73,7 @@
     "autocorrect-node": "^2.13.0",
     "commitizen": "^4.3.1",
     "concurrently": "^9.1.2",
-    "cspell": "^8.17.4",
+    "cspell": "^8.17.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",

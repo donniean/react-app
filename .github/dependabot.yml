@@ -18,6 +18,8 @@ updates:
         versions: ['>=5.0.0']
       - dependency-name: 'eslint-plugin-sonarjs'
         versions: ['>=1.0.0']
+      - dependency-name: 'eslint-plugin-unicorn'
+        versions: ['>=57.0.0']
       - dependency-name: 'eslint-plugin-vitest'
         versions: ['>=0.5.0']
     open-pull-requests-limit: 999

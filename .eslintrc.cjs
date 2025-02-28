@@ -131,7 +131,13 @@ module.exports = {
     },
     {
       files: ['./src/**/*.{ts,tsx}'],
-      extends: ['airbnb/hooks', 'plugin:react/jsx-runtime', 'prettier'],
+      extends: [
+        'airbnb/hooks',
+        'plugin:react/jsx-runtime',
+        // 'plugin:@next/next/recommended',
+        // 'plugin:@next/next/core-web-vitals',
+        'prettier',
+      ],
       rules: {
         'no-console':
           process.env.NODE_ENV === 'development'

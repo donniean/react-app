@@ -1,21 +1,23 @@
-// @ts-check
-
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import eslintPluginImportX from 'eslint-plugin-import-x';
+import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
-// eslint-disable-next-line import-x/no-unresolved
+// eslint-disable-next-line import/no-unresolved
 import typescriptEslint from 'typescript-eslint';
+
+// eslint-plugin-react
+// eslint-plugin-react-hooks
+// eslint-plugin-jsx-a11y
+// vitest
 
 export default typescriptEslint.config([
   {
-    ignores: ['.history/', 'coverage/', 'dist/', '.next/'],
+    ignores: ['.history/', '**/coverage/', '**/dist/', '**/.next/'],
   },
   {
     languageOptions: {
@@ -30,17 +32,10 @@ export default typescriptEslint.config([
     },
   },
   eslint.configs.recommended,
-  eslintPluginImportX.flatConfigs.recommended,
+  eslintPluginImport.flatConfigs.recommended,
   eslintPluginEslintCommentsConfigs.recommended,
   eslintPluginPromise.configs['flat/recommended'],
-  {
-    languageOptions: {
-      globals: globals.builtin,
-    },
-    plugins: {
-      unicorn: eslintPluginUnicorn,
-    },
-  },
+  eslintPluginUnicorn.configs.recommended,
   eslintPluginSonarjs.configs.recommended,
   eslintConfigPrettier,
   {
@@ -70,7 +65,7 @@ export default typescriptEslint.config([
       typescriptEslint.configs.recommended,
       typescriptEslint.configs.recommendedTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
-      eslintPluginImportX.flatConfigs.typescript,
+      eslintPluginImport.flatConfigs.typescript,
     ],
     languageOptions: {
       parserOptions: {
@@ -79,17 +74,12 @@ export default typescriptEslint.config([
       },
     },
     settings: {
-      'import/resolver-next': [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true,
-        }),
-      ],
-      /* 'import/resolver': {
+      'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
         },
         node: true,
-      }, */
+      },
       // 'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
     },
   },

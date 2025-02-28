@@ -13,13 +13,17 @@ import typescriptEslint from 'typescript-eslint';
 // eslint-plugin-react
 // eslint-plugin-react-hooks
 // eslint-plugin-jsx-a11y
+// eslint-plugin-react-refresh
+// @eslint-react/eslint-plugin
 // vitest
 
 export default typescriptEslint.config([
   {
+    name: 'custom/ignores',
     ignores: ['.history/', '**/coverage/', '**/dist/', '**/.next/'],
   },
   {
+    name: 'custom/javascript',
     languageOptions: {
       ecmaVersion: 'latest',
       parser: typescriptEslint.parser,
@@ -37,8 +41,8 @@ export default typescriptEslint.config([
   eslintPluginPromise.configs['flat/recommended'],
   eslintPluginUnicorn.configs.recommended,
   eslintPluginSonarjs.configs.recommended,
-  eslintConfigPrettier,
   {
+    name: 'custom/cjs',
     files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'commonjs',
@@ -48,6 +52,25 @@ export default typescriptEslint.config([
     },
   },
   {
+    name: 'custom/rules',
+    rules: {
+      'unicorn/filename-case': [
+        'error',
+        {
+          cases: {
+            kebabCase: true,
+            camelCase: true,
+            pascalCase: true,
+          },
+        },
+      ],
+      'unicorn/no-array-for-each': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/prevent-abbreviations': 'off',
+    },
+  },
+  {
+    name: 'simple-import-sort',
     files: ['**/*.{mjs,ts,tsx}'],
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
@@ -60,10 +83,11 @@ export default typescriptEslint.config([
     },
   },
   {
+    name: 'custom/typescript',
     files: ['**/*.{ts,tsx}'],
     extends: [
-      typescriptEslint.configs.recommended,
-      typescriptEslint.configs.recommendedTypeChecked,
+      // typescriptEslint.configs.recommendedTypeChecked,
+      typescriptEslint.configs.strictTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
       eslintPluginImport.flatConfigs.typescript,
     ],
@@ -78,13 +102,12 @@ export default typescriptEslint.config([
         typescript: {
           alwaysTryTypes: true,
         },
-        node: true,
       },
-      // 'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
     },
   },
   {
-    files: ['src/'],
+    name: 'custom/react',
+    files: ['src/**'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -92,4 +115,5 @@ export default typescriptEslint.config([
       },
     },
   },
+  eslintConfigPrettier,
 ]);

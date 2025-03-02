@@ -28,6 +28,8 @@ import typescriptEslint from 'typescript-eslint';
  */
 
 // vitest
+// eslint-plugin-import-x
+// https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
 
 export default typescriptEslint.config([
   {

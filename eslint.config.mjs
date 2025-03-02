@@ -1,8 +1,14 @@
+// @ts-check
+
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginImport from 'eslint-plugin-import';
+import * as eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginPromise from 'eslint-plugin-promise';
+import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
+import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -10,11 +16,17 @@ import globals from 'globals';
 // eslint-disable-next-line import/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
-// eslint-plugin-react
-// eslint-plugin-react-hooks
-// eslint-plugin-jsx-a11y
-// eslint-plugin-react-refresh
-// @eslint-react/eslint-plugin
+/**
+ * References
+ *
+ * https://biomejs.dev/linter/rules-sources/
+ * https://eslint-config.antfu.me/
+ * https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/.eslintrc.cjs
+ * https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/lib/shared.js
+ * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/index.js
+ *
+ */
+
 // vitest
 
 export default typescriptEslint.config([
@@ -25,22 +37,13 @@ export default typescriptEslint.config([
   {
     name: 'custom/javascript',
     languageOptions: {
-      ecmaVersion: 'latest',
       parser: typescriptEslint.parser,
       globals: {
         ...globals.es2025,
       },
     },
-    rules: {
-      'no-unused-vars': 'error',
-    },
+    rules: {},
   },
-  eslint.configs.recommended,
-  eslintPluginEslintCommentsConfigs.recommended,
-  eslintPluginImport.flatConfigs.recommended,
-  eslintPluginPromise.configs['flat/recommended'],
-  eslintPluginUnicorn.configs.recommended,
-  eslintPluginSonarjs.configs.recommended,
   {
     name: 'custom/cjs',
     files: ['**/*.cjs'],
@@ -52,8 +55,18 @@ export default typescriptEslint.config([
     },
   },
   {
+    ...eslint.configs.recommended,
+    name: 'eslint/recommended',
+  },
+  eslintPluginEslintCommentsConfigs.recommended,
+  eslintPluginImport.flatConfigs?.recommended,
+  eslintPluginPromise.configs['flat/recommended'],
+  eslintPluginUnicorn.configs.recommended,
+  eslintPluginSonarjs.configs.recommended,
+  {
     name: 'custom/rules',
     rules: {
+      'no-unused-vars': 'error',
       'unicorn/filename-case': [
         'error',
         {
@@ -86,10 +99,9 @@ export default typescriptEslint.config([
     name: 'custom/typescript',
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // typescriptEslint.configs.recommendedTypeChecked,
       typescriptEslint.configs.strictTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
-      eslintPluginImport.flatConfigs.typescript,
+      eslintPluginImport.flatConfigs?.typescript,
     ],
     languageOptions: {
       parserOptions: {
@@ -108,6 +120,13 @@ export default typescriptEslint.config([
   {
     name: 'custom/react',
     files: ['src/**'],
+    extends: [
+      eslintPluginReact.configs.flat.recommended,
+      eslintPluginReact.configs.flat['jsx-runtime'],
+      eslintPluginReactHooks.configs.recommended,
+      eslintPluginJsxA11y.flatConfigs.recommended,
+      eslintPluginReactRefresh.configs.vite,
+    ],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -115,5 +134,8 @@ export default typescriptEslint.config([
       },
     },
   },
-  eslintConfigPrettier,
+  {
+    name: 'prettier',
+    ...eslintConfigPrettier,
+  },
 ]);

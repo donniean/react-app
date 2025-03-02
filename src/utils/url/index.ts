@@ -25,7 +25,7 @@ function getNextURL({
     pathname,
   );
   if (isIndex) {
-    return `${search}`;
+    return search;
   }
   return pathname + search;
 }

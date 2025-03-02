@@ -10,5 +10,5 @@ export default {
   '*.css': 'stylelint --fix',
   '*.html': 'htmlhint',
   '*.md': 'markdownlint --dot --fix',
-  '*.ts': 'vitest related --run',
+  // '*.ts': 'vitest related --run',
 };

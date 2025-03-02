@@ -2,6 +2,7 @@
 
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
+import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import * as eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
@@ -27,8 +28,8 @@ import typescriptEslint from 'typescript-eslint';
  *
  */
 
-// vitest
 // eslint-plugin-import-x
+// https://github.com/francoismassart/eslint-plugin-tailwindcss
 // https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
 
 export default typescriptEslint.config([
@@ -135,6 +136,10 @@ export default typescriptEslint.config([
         ...globals.devtools,
       },
     },
+  },
+  {
+    files: ['**/*.test.ts'],
+    ...eslintPluginVitest.configs.recommended,
   },
   {
     name: 'prettier',

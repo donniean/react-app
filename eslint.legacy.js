@@ -1,10 +1,4 @@
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
-  root: true,
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
+export default {
   env: {
     browser: true,
     node: true,
@@ -140,7 +134,7 @@ module.exports = {
       ],
       rules: {
         'no-console':
-          process.env.NODE_ENV === 'development'
+          globalThis.process.env.NODE_ENV === 'development'
             ? 'off'
             : ['error', { allow: ['warn', 'error'] }],
         'no-param-reassign': [

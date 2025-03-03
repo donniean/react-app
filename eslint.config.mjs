@@ -29,7 +29,6 @@ import typescriptEslint from 'typescript-eslint';
  *
  */
 
-// eslint-plugin-import-x
 // https://github.com/francoismassart/eslint-plugin-tailwindcss
 // https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
 

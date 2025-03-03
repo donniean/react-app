@@ -115,10 +115,7 @@ export default typescriptEslint.config([
     },
     settings: {
       'import-x/resolver-next': [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true,
-          project: './tsconfig.*.json',
-        }),
+        createTypeScriptImportResolver({ alwaysTryTypes: true }),
       ],
     },
   },

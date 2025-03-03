@@ -128,6 +128,10 @@ export default {
       extends: [
         'airbnb/hooks',
         'plugin:react/jsx-runtime',
+        /**
+         * dependencies @next/eslint-plugin-next
+         */
+        /* https://nextjs.org/docs/app/building-your-application/configuring/eslint#migrating-existing-config */
         // 'plugin:@next/next/recommended',
         // 'plugin:@next/next/core-web-vitals',
         'prettier',

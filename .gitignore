@@ -1,5 +1,5 @@
 # macOS
-.DS_Store
+**/.DS_Store
 
 # JetBrains
 ## User-specific stuff
@@ -7,7 +7,7 @@
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
-.idea/**/shelf/
+.idea/**/shelf
 ## AWS User-specific
 .idea/**/aws.xml
 ## Generated files
@@ -40,47 +40,46 @@ atlassian-ide-plugin.xml
 .history/
 
 # Node.js
-node_modules/
+**/node_modules/
 
 # Yarn
-.pnp.*
 .yarn/*
+!.yarn/releases
 !.yarn/patches
 !.yarn/plugins
-!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
 
 # Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-.pnpm-debug.log*
+**/logs
+**/*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/lerna-debug.log*
+**/.pnpm-debug.log*
 
 # Dotenv
-.env.local
-.env.*.local
+**/.env.local
+**/.env.*.local
 
 # node-config
-config/local.*
-config/local-*.*
+**/config/local.*
+**/config/local-*.*
 
 # TypeScript
-*.tsbuildinfo
+**/*.tsbuildinfo
 
 # Testing
-coverage/
+**/coverage/
 
 # Production
-dist/
+**/dist/
 
 # Next.js
-.next/
-out/
-next-env.d.ts
+**/.next/
+**/out/
+**/next-env.d.ts
 
 # Vercel
-.vercel/
+**/.vercel/

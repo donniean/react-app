@@ -19,9 +19,6 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
-    // https://github.com/tsconfig/bases/blob/main/bases/strictest.json
-    "noPropertyAccessFromIndexSignature": true,
-
     // checkJs
     "allowJs": true,
     "checkJs": true

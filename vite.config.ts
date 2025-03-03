@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/no-unresolved
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';

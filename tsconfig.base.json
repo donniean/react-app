@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strict.json
+    "strict": true,
+
+    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    // https://github.com/tsconfig/bases/blob/main/bases/strictest.json
+    "noPropertyAccessFromIndexSignature": true,
+
+    // checkJs
+    "allowJs": true,
+    "checkJs": true
+  }
+}

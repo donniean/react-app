@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import Logo from '@/assets/images/logo.svg?react';
 

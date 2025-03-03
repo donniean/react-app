@@ -1,7 +1,8 @@
 .git/
 .history/
-node_modules/
-coverage/
-dist/
-.next/
-CHANGELOG.md
+**/node_modules/
+**/coverage/
+**/dist/
+**/.next/
+**/*.min.*
+**/CHANGELOG.md

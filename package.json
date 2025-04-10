@@ -47,8 +47,8 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.72.1",
-    "@tanstack/react-query-devtools": "^5.72.1",
+    "@tanstack/react-query": "^5.72.2",
+    "@tanstack/react-query-devtools": "^5.72.2",
     "axios": "^1.8.4",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
@@ -92,7 +92,7 @@
     "globals": "^16.0.0",
     "htmlhint": "^1.1.4",
     "husky": "^9.1.7",
-    "knip": "^5.48.0",
+    "knip": "^5.50.1",
     "lint-staged": "^15.5.0",
     "markdownlint-cli": "^0.44.0",
     "prettier": "^3.5.3",
@@ -106,7 +106,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.29.1",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^6.2.5",
+    "vite": "^6.2.6",
     "vite-plugin-checker": "^0.9.1",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",

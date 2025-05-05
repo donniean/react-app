@@ -1,4 +1,4 @@
-import { includes, merge, omitBy } from 'lodash';
+import { includes, merge, omitBy } from 'lodash-es';
 import * as qs from 'qs';
 
 const ignoreQueryPrefix = true;

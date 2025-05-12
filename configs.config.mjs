@@ -36,5 +36,7 @@ export default defineConfig({
     commitizen: true,
     'lint-staged': true,
     husky: true,
+    'npm-check-updates': true,
+    knip: true,
   },
 });

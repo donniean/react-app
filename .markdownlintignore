@@ -1,9 +1,9 @@
 .git/
 .history/
-.changeset/
 **/node_modules/
 **/coverage/
 **/dist/
 **/.next/
 **/*.min.*
 **/CHANGELOG.md
+.changeset/

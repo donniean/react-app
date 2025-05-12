@@ -5,7 +5,7 @@ import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-e
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import eslintPluginImportX from 'eslint-plugin-import-x';
+import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';

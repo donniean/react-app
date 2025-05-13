@@ -36,17 +36,16 @@ export default typescriptEslint.config([
     ignores: ['.history/', '**/coverage/', '**/dist/', '**/.next/'],
   },
   {
-    name: 'custom/javascript',
+    name: 'custom/javascript/setup',
     languageOptions: {
       parser: typescriptEslint.parser,
       globals: {
         ...globals.es2025,
       },
     },
-    rules: {},
   },
   {
-    name: 'custom/cjs',
+    name: 'custom/cjs/setup',
     files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'commonjs',
@@ -56,8 +55,8 @@ export default typescriptEslint.config([
     },
   },
   {
-    ...eslint.configs.recommended,
     name: 'eslint/recommended',
+    ...eslint.configs.recommended,
   },
   eslintPluginEslintCommentsConfigs.recommended,
   eslintPluginImportX.flatConfigs.recommended,
@@ -65,9 +64,48 @@ export default typescriptEslint.config([
   eslintPluginUnicorn.configs.recommended,
   eslintPluginSonarjs.configs.recommended,
   {
-    name: 'custom/rules',
+    name: 'custom/javascript/rules',
     rules: {
-      'no-unused-vars': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['../..'],
+        },
+      ],
+      'no-useless-call': 'error',
+    },
+  },
+  {
+    name: 'custom/import-x/rules',
+    rules: {
+      'import-x/order': [
+        'error',
+        {
+          groups: [
+            // 'type',
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling', 'index'],
+            'object',
+            'unknown',
+          ],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            orderImportKind: 'asc',
+          },
+          named: true,
+          warnOnUnassignedImports: true,
+          // sortTypesGroup: true,
+          // 'newlines-between-types': 'always',
+        },
+      ],
+    },
+  },
+  {
+    name: 'custom/unicorn/rules',
+    rules: {
       'unicorn/filename-case': [
         'error',
         {
@@ -78,7 +116,6 @@ export default typescriptEslint.config([
           },
         },
       ],
-      'unicorn/no-array-for-each': 'off',
       'unicorn/no-null': 'off',
       'unicorn/prevent-abbreviations': 'off',
     },
@@ -126,6 +163,12 @@ export default typescriptEslint.config([
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
       eslintPluginQuery.configs['flat/recommended'],
+      /**
+       * dependencies @next/eslint-plugin-next
+       */
+      /* https://nextjs.org/docs/app/building-your-application/configuring/eslint#migrating-existing-config */
+      // 'plugin:@next/next/recommended',
+      // 'plugin:@next/next/core-web-vitals',
     ],
     languageOptions: {
       globals: {

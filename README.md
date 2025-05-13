@@ -1,6 +1,6 @@
 # react-app
 
-a react boilerplate
+A personal React boilerplate.
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/master/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yml)
 
@@ -29,17 +29,40 @@ Edit config files
 
 ## Recommended Packages
 
-- `@tanstack/react-table`
-- [`cva`](https://github.com/joe-bell/cva)
-- `date-fns`
+- [`axios`](https://github.com/axios/axios)
+- [`date-fns`](https://github.com/date-fns/date-fns)
   - [`dayjs`](https://github.com/iamkun/dayjs)
-- `framer-motion`
-- `immer`
-- `react-hook-form`
-- `react-use`
-- `recharts`
+- [`zod`](https://github.com/colinhacks/zod)
 - [`tailwind-merge`](https://github.com/dcastil/tailwind-merge)
-- `use-immer`
-- `zod`
-- `zustand`
+- [`cva`](https://github.com/joe-bell/cva)
+- [`react-use`](https://github.com/streamich/react-use)
+- [`immer`](https://github.com/immerjs/immer)
+- [`use-immer`](https://github.com/immerjs/use-immer)
+- [`zustand`](https://github.com/pmndrs/zustand)
 - [`react-i18next`](https://github.com/i18next/react-i18next)
+- [`@tanstack/react-table`](https://github.com/tanstack/table)
+- [`react-hook-form`](https://github.com/react-hook-form/react-hook-form)
+- [`recharts`](https://github.com/recharts/recharts)
+- [`motion`](https://github.com/motiondivision/motion)
+
+## Inspiration
+
+- [Bulletproof React](https://github.com/alan2207/bulletproof-react)
+
+## TODOs
+
+### ESLint
+
+consider the following packages
+
+- <https://github.com/azat-io/eslint-plugin-perfectionist>
+- <https://github.com/NishargShah/eslint-config-airbnb-extended>
+- <https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript>
+- <https://github.com/francoismassart/eslint-plugin-tailwindcss>
+- <https://github.com/storybookjs/eslint-plugin-storybook>
+- <https://github.com/ota-meshi/eslint-plugin-regexp>
+- <https://github.com/dukeluo/eslint-plugin-check-file>
+
+## License
+
+[MIT](./LICENSE)

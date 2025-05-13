@@ -22,7 +22,7 @@ import typescriptEslint from 'typescript-eslint';
  * References
  *
  * https://biomejs.dev/linter/rules-sources/
- * https://eslint-config.antfu.me/
+ * https://github.com/antfu/eslint-config
  * https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/.eslintrc.cjs
  * https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/lib/shared.js
  * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/index.js
@@ -140,7 +140,7 @@ export default typescriptEslint.config([
     },
     rules: {
       'react/jsx-sort-props': [
-        'warn',
+        'error',
         {
           callbacksLast: true,
           shorthandFirst: true,

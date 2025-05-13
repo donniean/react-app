@@ -15,6 +15,7 @@ import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 // eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
@@ -102,6 +103,7 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
+      'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
         {
@@ -187,6 +189,27 @@ export default typescriptEslint.config([
     rules: {
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
+    },
+  },
+  {
+    name: 'unused-imports',
+    plugins: {
+      'unused-imports': eslintPluginUnusedImports,
+    },
+    rules: {
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'error',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
   {

@@ -1,6 +1,6 @@
 # react-app
 
-a react boilerplate
+A personal React boilerplate.
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/master/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yml)
 
@@ -47,8 +47,6 @@ Edit config files
 
 ## Inspiration
 
-This project was inspired by the following open source repositories:
-
 - [Bulletproof React](https://github.com/alan2207/bulletproof-react)
 
 ## TODOs
@@ -61,3 +59,7 @@ consider the following packages
 - <https://github.com/NishargShah/eslint-config-airbnb-extended>
 - <https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript>
 - <https://github.com/francoismassart/eslint-plugin-tailwindcss>
+
+## License
+
+[MIT](./LICENSE)

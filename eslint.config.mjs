@@ -97,7 +97,7 @@ export default typescriptEslint.config([
     },
     rules: {
       'sort-imports': 'off',
-      'import/order': 'off',
+      'import-x/order': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
     },

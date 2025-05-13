@@ -138,6 +138,17 @@ export default typescriptEslint.config([
         ...globals.devtools,
       },
     },
+    rules: {
+      'react/jsx-sort-props': [
+        'warn',
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          multiline: 'last',
+          reservedFirst: true,
+        },
+      ],
+    },
   },
   {
     files: ['**/*.test.ts'],

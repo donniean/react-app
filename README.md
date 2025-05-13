@@ -43,7 +43,13 @@ Edit config files
 - [`@tanstack/react-table`](https://github.com/tanstack/table)
 - [`react-hook-form`](https://github.com/react-hook-form/react-hook-form)
 - [`recharts`](https://github.com/recharts/recharts)
-- [motion](https://github.com/motiondivision/motion)
+- [`motion`](https://github.com/motiondivision/motion)
+
+## Inspiration
+
+This project was inspired by the following open source repositories:
+
+- [Bulletproof React](https://github.com/alan2207/bulletproof-react)
 
 ## TODOs
 

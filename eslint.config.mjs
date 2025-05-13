@@ -111,7 +111,7 @@ export default typescriptEslint.config([
       // 'import-x/no-named-as-default': 'off',
       // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
-        'error',
+        'warn',
         {
           groups: [
             // 'type',
@@ -161,8 +161,8 @@ export default typescriptEslint.config([
     rules: {
       'sort-imports': 'off',
       'import-x/order': 'off',
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': 'warn',
+      'simple-import-sort/exports': 'warn',
     },
   },
   {
@@ -214,7 +214,7 @@ export default typescriptEslint.config([
     },
     rules: {
       'react/jsx-sort-props': [
-        'error',
+        'warn',
         {
           callbacksLast: true,
           shorthandFirst: true,
@@ -229,8 +229,10 @@ export default typescriptEslint.config([
           functions: 'defaultArguments',
         },
       ],
+      'react/sort-comp': 'warn',
+      'react/sort-default-props': 'warn',
       'react/sort-prop-types': [
-        'error',
+        'warn',
         {
           callbacksLast: true,
           requiredFirst: true,

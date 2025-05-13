@@ -66,6 +66,30 @@ export default typescriptEslint.config([
   {
     name: 'custom/javascript/rules',
     rules: {
+      'no-console':
+        globalThis.process.env.NODE_ENV === 'development'
+          ? 'warn'
+          : ['error', { allow: ['warn', 'error'] }],
+      'no-param-reassign': [
+        'error',
+        {
+          props: true,
+          ignorePropertyModificationsFor: [
+            'acc', // for reduce accumulators
+            'accumulator', // for reduce accumulators
+            'e', // for e.returnvalue
+            'ctx', // for Koa routing
+            'context', // for Koa routing
+            'req', // for Express requests
+            'request', // for Express requests
+            'res', // for Express responses
+            'response', // for Express responses
+            '$scope', // for Angular 1 scopes
+            'staticContext', // for ReactRouter context
+            'draft', // for immer
+          ],
+        },
+      ],
       'no-restricted-imports': [
         'error',
         {
@@ -78,6 +102,14 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
+      'import-x/no-duplicates': [
+        'error',
+        {
+          considerQueryString: true,
+        },
+      ],
+      // 'import-x/no-named-as-default': 'off',
+      // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
         'error',
         {
@@ -137,7 +169,7 @@ export default typescriptEslint.config([
     name: 'custom/typescript',
     files: ['**/*.{ts,tsx}'],
     extends: [
-      typescriptEslint.configs.recommendedTypeChecked,
+      typescriptEslint.configs.strictTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
       eslintPluginImportX.flatConfigs.typescript,
     ],
@@ -151,6 +183,10 @@ export default typescriptEslint.config([
       'import-x/resolver-next': [
         createTypeScriptImportResolver({ alwaysTryTypes: true }),
       ],
+    },
+    rules: {
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
   {
@@ -184,6 +220,22 @@ export default typescriptEslint.config([
           shorthandFirst: true,
           multiline: 'last',
           reservedFirst: true,
+        },
+      ],
+      'react/require-default-props': [
+        'error',
+        {
+          forbidDefaultForRequired: true,
+          functions: 'defaultArguments',
+        },
+      ],
+      'react/sort-prop-types': [
+        'error',
+        {
+          callbacksLast: true,
+          requiredFirst: true,
+          sortShapeProp: true,
+          checkTypes: true,
         },
       ],
     },

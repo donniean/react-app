@@ -29,13 +29,6 @@ import typescriptEslint from 'typescript-eslint';
  *
  */
 
-// consider the following package
-// https://github.com/azat-io/eslint-plugin-perfectionist
-// https://github.com/NishargShah/eslint-config-airbnb-extended
-// https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript
-// https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
-// https://github.com/francoismassart/eslint-plugin-tailwindcss
-
 export default typescriptEslint.config([
   {
     name: 'custom/ignores',

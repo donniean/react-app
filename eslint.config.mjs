@@ -2,6 +2,7 @@
 
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
+import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
@@ -124,6 +125,7 @@ export default typescriptEslint.config([
       eslintPluginReactHooks.configs['recommended-latest'],
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
+      eslintPluginQuery.configs['flat/recommended'],
     ],
     languageOptions: {
       globals: {

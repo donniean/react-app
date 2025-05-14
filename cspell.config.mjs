@@ -1,4 +1,6 @@
-export default {
+import { defineConfig } from 'cspell';
+
+export default defineConfig({
   version: '0.2',
   language: 'en',
   ignorePaths: [
@@ -64,4 +66,4 @@ export default {
     'zustand',
     'classname',
   ],
-};
+});

@@ -49,20 +49,6 @@ Edit config files
 
 - [Bulletproof React](https://github.com/alan2207/bulletproof-react)
 
-## TODOs
-
-### ESLint
-
-consider the following packages
-
-- <https://github.com/azat-io/eslint-plugin-perfectionist>
-- <https://github.com/NishargShah/eslint-config-airbnb-extended>
-- <https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript>
-- <https://github.com/francoismassart/eslint-plugin-tailwindcss>
-- <https://github.com/storybookjs/eslint-plugin-storybook>
-- <https://github.com/ota-meshi/eslint-plugin-regexp>
-- <https://github.com/dukeluo/eslint-plugin-check-file>
-
 ## License
 
 [MIT](./LICENSE)

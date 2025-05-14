@@ -1,16 +1,5 @@
 // @ts-check
 
-/**
- * References
- *
- * https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/.eslintrc.cjs
- * https://biomejs.dev/linter/rules-sources/
- * https://github.com/antfu/eslint-config
- * https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/lib/shared.js
- * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/index.js
- *
- */
-
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';

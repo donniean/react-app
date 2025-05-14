@@ -110,6 +110,7 @@ export default typescriptEslint.config([
           considerQueryString: true,
         },
       ],
+      'import-x/no-extraneous-dependencies': 'error',
       // 'import-x/no-named-as-default': 'off',
       // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [

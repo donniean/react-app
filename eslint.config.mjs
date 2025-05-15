@@ -26,6 +26,24 @@ import typescriptEslint from 'typescript-eslint';
 
 const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
 
+const nodeGlobs = [
+  '**/*.stories.{js,jsx,ts,tsx}',
+  '**/*.story.{js,jsx,ts,tsx}',
+  '**/*.test.{js,jsx,ts,tsx}',
+  '**/commitlint.config.{js,mjs,cjs,ts}',
+  '**/cspell.config.{js,mjs,cjs,ts}',
+  '**/eslint.config.{js,mjs,cjs,ts}',
+  '**/jest.config.{js,mjs,cjs,ts}',
+  '**/lint-staged.config.{js,mjs,cjs,ts}',
+  '**/prettier.config.{js,mjs,cjs,ts}',
+  '**/rollup.config.{js,mjs,cjs,ts}',
+  '**/stylelint.config.{js,mjs,cjs,ts}',
+  '**/tsup.config.{js,mjs,cjs,ts}',
+  '**/vite.config.{js,mjs,cjs,ts}',
+  '**/vitest.config.{js,mjs,cjs,ts}',
+  'scripts/**/*.{js,cjs,mjs,ts}',
+];
+
 export default typescriptEslint.config([
   {
     ...includeIgnoreFile(gitignorePath),
@@ -41,12 +59,8 @@ export default typescriptEslint.config([
     },
   },
   {
-    name: 'custom/node/setup',
-    files: [
-      '**/*.cjs',
-      '**/*.config.{js,cjs,mjs,ts}',
-      'scripts/**/*.{js,cjs,mjs,ts}',
-    ],
+    name: 'custom/node/globals',
+    files: ['**/*.cjs', ...nodeGlobs],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -111,18 +125,7 @@ export default typescriptEslint.config([
       'import-x/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: [
-            'test/**',
-            'tests/**',
-            'spec/**',
-            '**/__tests__/**',
-            '**/__mocks__/**',
-            'test.{js,jsx,ts,tsx}',
-            'test-*.{js,jsx,ts,tsx}',
-            '**/*{.,_}{test,spec}.{js,jsx,ts,tsx}',
-            '**/*.{mjs,cjs}',
-            '**/.*.{mjs,cjs}',
-          ],
+          devDependencies: nodeGlobs,
           optionalDependencies: false,
           peerDependencies: true,
           bundledDependencies: true,

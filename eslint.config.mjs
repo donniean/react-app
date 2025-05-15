@@ -1,10 +1,13 @@
 // @ts-check
 
+import { fileURLToPath } from 'node:url';
+
+import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
@@ -21,10 +24,30 @@ import globals from 'globals';
 // eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
+const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+
+const nodeGlobs = [
+  '**/*.stories.{js,jsx,ts,tsx}',
+  '**/*.story.{js,jsx,ts,tsx}',
+  '**/*.test.{js,jsx,ts,tsx}',
+  '**/commitlint.config.{js,mjs,cjs,ts}',
+  '**/cspell.config.{js,mjs,cjs,ts}',
+  '**/eslint.config.{js,mjs,cjs,ts}',
+  '**/jest.config.{js,mjs,cjs,ts}',
+  '**/lint-staged.config.{js,mjs,cjs,ts}',
+  '**/prettier.config.{js,mjs,cjs,ts}',
+  '**/rollup.config.{js,mjs,cjs,ts}',
+  '**/stylelint.config.{js,mjs,cjs,ts}',
+  '**/tsup.config.{js,mjs,cjs,ts}',
+  '**/vite.config.{js,mjs,cjs,ts}',
+  '**/vitest.config.{js,mjs,cjs,ts}',
+  'scripts/**/*.{js,cjs,mjs,ts}',
+];
+
 export default typescriptEslint.config([
   {
-    name: 'custom/ignores',
-    ignores: ['.history/', '**/coverage/', '**/dist/', '**/.next/'],
+    ...includeIgnoreFile(gitignorePath),
+    name: 'custom/gitignore',
   },
   {
     name: 'custom/javascript/setup',
@@ -36,18 +59,17 @@ export default typescriptEslint.config([
     },
   },
   {
-    name: 'custom/cjs/setup',
-    files: ['**/*.cjs'],
+    name: 'custom/node/globals',
+    files: ['**/*.cjs', ...nodeGlobs],
     languageOptions: {
-      sourceType: 'commonjs',
       globals: {
         ...globals.node,
       },
     },
   },
   {
-    name: 'eslint/recommended',
     ...eslint.configs.recommended,
+    name: 'eslint/recommended',
   },
   eslintPluginEslintCommentsConfigs.recommended,
   eslintPluginImportX.flatConfigs.recommended,
@@ -100,7 +122,14 @@ export default typescriptEslint.config([
           considerQueryString: true,
         },
       ],
-      'import-x/no-extraneous-dependencies': 'error',
+      'import-x/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: nodeGlobs,
+          optionalDependencies: false,
+          peerDependencies: true,
+        },
+      ],
       // 'import-x/no-named-as-default': 'off',
       // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
@@ -259,6 +288,11 @@ export default typescriptEslint.config([
   {
     name: 'custom/node',
     files: ['server/**'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
     extends: [eslintPluginN.configs['flat/recommended']],
     rules: {
       'n/no-missing-import': [
@@ -273,8 +307,5 @@ export default typescriptEslint.config([
     files: ['**/*.test.ts'],
     ...eslintPluginVitest.configs.recommended,
   },
-  {
-    name: 'prettier',
-    ...eslintConfigPrettier,
-  },
+  eslintConfigPrettier,
 ]);

@@ -1,10 +1,13 @@
 // @ts-check
 
+import { fileURLToPath } from 'node:url';
+
+import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
@@ -21,10 +24,12 @@ import globals from 'globals';
 // eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
+const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+
 export default typescriptEslint.config([
   {
-    name: 'custom/ignores',
-    ignores: ['.history/', '**/coverage/', '**/dist/', '**/.next/'],
+    ...includeIgnoreFile(gitignorePath),
+    name: 'custom/gitignore',
   },
   {
     name: 'custom/javascript/setup',
@@ -36,10 +41,13 @@ export default typescriptEslint.config([
     },
   },
   {
-    name: 'custom/cjs/setup',
-    files: ['**/*.cjs'],
+    name: 'custom/node/setup',
+    files: [
+      '**/*.cjs',
+      '**/*.config.{js,cjs,mjs,ts}',
+      'scripts/**/*.{js,cjs,mjs,ts}',
+    ],
     languageOptions: {
-      sourceType: 'commonjs',
       globals: {
         ...globals.node,
       },
@@ -100,7 +108,26 @@ export default typescriptEslint.config([
           considerQueryString: true,
         },
       ],
-      'import-x/no-extraneous-dependencies': 'error',
+      'import-x/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: [
+            'test/**',
+            'tests/**',
+            'spec/**',
+            '**/__tests__/**',
+            '**/__mocks__/**',
+            'test.{js,jsx,ts,tsx}',
+            'test-*.{js,jsx,ts,tsx}',
+            '**/*{.,_}{test,spec}.{js,jsx,ts,tsx}',
+            '**/*.{mjs,cjs}',
+            '**/.*.{mjs,cjs}',
+          ],
+          optionalDependencies: false,
+          peerDependencies: true,
+          bundledDependencies: true,
+        },
+      ],
       // 'import-x/no-named-as-default': 'off',
       // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
@@ -278,8 +305,5 @@ export default typescriptEslint.config([
     files: ['**/*.test.ts'],
     ...eslintPluginVitest.configs.recommended,
   },
-  {
-    name: 'prettier',
-    ...eslintConfigPrettier,
-  },
+  eslintConfigPrettier,
 ]);

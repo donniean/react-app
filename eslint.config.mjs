@@ -128,7 +128,6 @@ export default typescriptEslint.config([
           devDependencies: nodeGlobs,
           optionalDependencies: false,
           peerDependencies: true,
-          bundledDependencies: true,
         },
       ],
       // 'import-x/no-named-as-default': 'off',

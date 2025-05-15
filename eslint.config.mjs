@@ -68,8 +68,8 @@ export default typescriptEslint.config([
     },
   },
   {
-    name: 'eslint/recommended',
     ...eslint.configs.recommended,
+    name: 'eslint/recommended',
   },
   eslintPluginEslintCommentsConfigs.recommended,
   eslintPluginImportX.flatConfigs.recommended,

@@ -8,6 +8,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
+import eslintPluginN from 'eslint-plugin-n';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
@@ -251,6 +252,19 @@ export default typescriptEslint.config([
           requiredFirst: true,
           sortShapeProp: true,
           checkTypes: true,
+        },
+      ],
+    },
+  },
+  {
+    name: 'custom/node',
+    files: ['server/**'],
+    extends: [eslintPluginN.configs['flat/recommended']],
+    rules: {
+      'n/no-missing-import': [
+        'off',
+        {
+          ignoreTypeImport: true,
         },
       ],
     },

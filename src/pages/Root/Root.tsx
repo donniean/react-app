@@ -4,6 +4,8 @@ import Logo from '@/assets/images/logo.svg?react';
 
 import styles from './Root.module.css';
 
+// test
+
 export function Root() {
   return (
     <div className="flex flex-col items-center justify-center p-[32px]">

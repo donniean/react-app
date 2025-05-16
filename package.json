@@ -41,7 +41,6 @@
     "lint:types": "tsc --noEmit",
     "ncu": "npx npm-check-updates --deep",
     "ncu:upgrade": "npm run ncu -- --upgrade",
-    "pre-commit": "lint-staged --concurrent false",
     "prepare": "husky",
     "preview": "vite preview",
     "test": "vitest run",

@@ -6,7 +6,7 @@ export default {
   '*': [
     'prettier --write --ignore-unknown',
     'autocorrect --fix',
-    'cspell lint --no-progress --no-must-find-files --gitignore',
+    'cspell lint --no-progress --no-must-find-files --dot --gitignore',
   ],
   '*.{ts,tsx}': 'bash -c tsc --noEmit',
   '*.{js,mjs,cjs,ts,tsx}': 'eslint --fix',

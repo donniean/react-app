@@ -96,6 +96,7 @@
     "knip": "^5.56.0",
     "lint-staged": "^16.0.0",
     "markdownlint-cli": "^0.45.0",
+    "npm-check-updates": "^18.0.1",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "sort-package-json": "^3.2.1",

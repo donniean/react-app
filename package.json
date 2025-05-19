@@ -34,7 +34,7 @@
     "lint:md": "markdownlint --dot \"**/*.md\"",
     "lint:md:fix": "npm run lint:md -- --fix",
     "lint:package-json": "npm run lint:package-json:fix -- --check",
-    "lint:package-json:fix": "sort-package-json",
+    "lint:package-json:fix": "npx sort-package-json \"**/package.json\" --ignore \"**/node_modules/**/package.json\" --ignore \"**/dist/**/package.json\"",
     "lint:spell": "cspell lint --no-progress --no-must-find-files --dot --gitignore .",
     "lint:text": "autocorrect --lint",
     "lint:text:fix": "autocorrect --fix",

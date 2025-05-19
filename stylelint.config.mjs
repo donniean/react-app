@@ -8,7 +8,14 @@ export default {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind', 'layer', 'apply', 'config'],
+        ignoreAtRules: [
+          'theme',
+          'source',
+          'utility',
+          'variant',
+          'custom-variant',
+          'plugin',
+        ],
       },
     ],
     'color-named': [
@@ -20,7 +27,7 @@ export default {
     'function-no-unknown': [
       true,
       {
-        ignoreFunctions: ['theme', 'screen'],
+        ignoreFunctions: ['theme'],
       },
     ],
     'no-unknown-animations': true,

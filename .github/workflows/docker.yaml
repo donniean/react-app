@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     branches:
-      - '**'
+      - '*'
     tags:
       - '*'
   workflow_dispatch:

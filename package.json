@@ -45,7 +45,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "",
+    "test:ui": "vitest --ui",
     "test:watch": "vitest watch"
   },
   "dependencies": {

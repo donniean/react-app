@@ -31,16 +31,19 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Set Docker Image Tag
+        env:
+          REF: ${{ github.ref }}
+          REF_NAME: ${{ github.ref_name }}
         # cSpell: ignore elif
         run: |
           TAG="latest"
 
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            TAG=${{ github.ref_name }}
-          elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            TAG=latest
-          elif [[ "${{ github.ref }}" == refs/heads/* ]]; then
-            BRANCH_NAME=${{ github.ref_name }}
+          if [[ "$REF" == refs/tags/* ]]; then
+            TAG="$REF_NAME"
+          elif [[ "$REF" == "refs/heads/main" ]]; then
+            TAG="latest"
+          elif [[ "$REF" == refs/heads/* ]]; then
+            BRANCH_NAME="$REF_NAME"
             SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | sed 's|/|-|g' | tr '[:upper:]' '[:lower:]')
             TAG="$SANITIZED_BRANCH"
           fi

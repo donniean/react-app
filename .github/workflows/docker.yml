@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - '*'
   workflow_dispatch:
 
 jobs:
@@ -25,9 +27,18 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
+      - name: Set Docker Image Tag
+        run: |
+          if [[ "${{ github.ref_type }}" == "branch" ]]; then
+            echo "TAG=latest" >> $GITHUB_ENV
+          # cSpell: ignore elif
+          elif [[ "${{ github.ref_type }}" == "tag" ]]; then
+            echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
+          fi
+
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
-          tags: donniean/react-app
+          tags: donniean/react-app:${{ env.TAG }}
           push: true

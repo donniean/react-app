@@ -1,0 +1,7 @@
+name: Pull Requests Auto-Merge
+on:
+  pull_request:
+
+jobs:
+  auto-merge:
+    uses: donniean/hub/.github/workflows/pull-requests.auto-merge.yaml@main

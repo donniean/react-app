@@ -7,7 +7,7 @@ on:
 
 jobs:
   bump:
-    uses: donniean/hub/.github/workflows/dependencies.bump.yml@main
+    uses: donniean/hub/.github/workflows/dependencies.bump.yaml@main
     secrets:
       GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}

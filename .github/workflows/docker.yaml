@@ -1,5 +1,8 @@
 name: Build and Push Docker Image
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
@@ -30,16 +33,19 @@ jobs:
       - name: Set Docker Image Tag
         # cSpell: ignore elif
         run: |
-          if [[ "${{ github.ref_type }}" == "tag" ]]; then
-            echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_type }}" == "branch" ]]; then
-            if [[ "${{ github.ref_name }}" == "main" ]]; then
-              echo "TAG=latest" >> $GITHUB_ENV
-            else
-              sanitized_ref_name=$(echo "${{ github.ref_name }}" | sed 's|/|-|g')
-              echo "TAG=${sanitized_ref_name}" >> $GITHUB_ENV
-            fi
+          TAG="latest"
+
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            TAG=${{ github.ref_name }}
+          elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            TAG=latest
+          elif [[ "${{ github.ref }}" == refs/heads/* ]]; then
+            BRANCH_NAME=${{ github.ref_name }}
+            SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | sed 's|/|-|g' | tr '[:upper:]' '[:lower:]')
+            TAG="$SANITIZED_BRANCH"
           fi
+
+          echo "TAG=$TAG" >> $GITHUB_ENV
 
       - name: Build and Push
         uses: docker/build-push-action@v6

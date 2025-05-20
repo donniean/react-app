@@ -22,6 +22,7 @@ export default defineConfig({
     'huskyrc',
     'lintstagedrc',
     'markdownlintignore',
+    'nvmrc',
     'stylelintignore',
     'stylelintrc',
     // Git

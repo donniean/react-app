@@ -36,7 +36,8 @@ jobs:
             if [[ "${{ github.ref_name }}" == "main" ]]; then
               echo "TAG=latest" >> $GITHUB_ENV
             else
-              echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
+              sanitized_ref_name=$(echo "${{ github.ref_name }}" | sed 's|/|-|g')
+              echo "TAG=${sanitized_ref_name}" >> $GITHUB_ENV
             fi
           fi
 

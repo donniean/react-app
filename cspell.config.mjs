@@ -52,6 +52,7 @@ export default defineConfig({
     'vitest',
     'zustand',
     // TypeScript
+    'nodenext',
     'classname',
   ],
   ignorePaths: [

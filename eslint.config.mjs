@@ -169,8 +169,8 @@ export default typescriptEslint.config([
         {
           cases: {
             kebabCase: true,
-            camelCase: true,
-            pascalCase: true,
+            camelCase: false,
+            pascalCase: false,
           },
         },
       ],

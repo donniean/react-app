@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
-import { RouteError } from '@/features/route-error';
-import { Root } from '@/pages/root';
+import { RouteError } from '@/components/errors';
+import { Root } from '@/routes/root';
 
 const router = createBrowserRouter([
   {

@@ -75,6 +75,7 @@ atlassian-ide-plugin.xml
 
 # Production
 **/dist/
+**/dist-ssr/
 
 # Next.js
 **/.next/

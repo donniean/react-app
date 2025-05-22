@@ -1,6 +1,6 @@
 // eslint-disable-next-line import-x/no-unresolved
 import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import svgr from 'vite-plugin-svgr';
@@ -22,7 +22,11 @@ export default defineConfig({
   },
   plugins: [
     tsconfigPaths(),
-    react(),
+    react({
+      babel: {
+        plugins: [['babel-plugin-react-compiler']],
+      },
+    }),
     svgr(),
     tailwindcss(),
     checker({

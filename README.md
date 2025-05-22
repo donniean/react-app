@@ -48,6 +48,8 @@ Edit config files
 ## Inspiration
 
 - [Bulletproof React](https://github.com/alan2207/bulletproof-react)
+- [React + TypeScript + Vite template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts)
+- [Mantine Vite template](https://github.com/mantinedev/vite-template)
 
 ## License
 

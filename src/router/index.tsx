@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router';
 
 import { RouteError } from '@/features/RouteError';
 import { Root } from '@/pages/Root/Root';

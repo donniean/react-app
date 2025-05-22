@@ -30,7 +30,7 @@ export default defineConfig({
     svgr(),
     tailwindcss(),
     checker({
-      overlay: { position: 'br' },
+      overlay: { position: 'bl' },
       typescript: true,
       eslint: {
         lintCommand: 'eslint "./src/**/*.{ts,tsx}"',

@@ -2,9 +2,9 @@
   "compilerOptions": {
     // https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.app.json
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ESNext",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
 

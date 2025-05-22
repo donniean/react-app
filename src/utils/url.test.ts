@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import { getSearchStr } from './index';
+import { getSearchStr } from './url';
 
 describe('test getSearchStr', () => {
   test('basic', () => {

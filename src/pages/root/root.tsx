@@ -2,9 +2,7 @@ import { clsx } from 'clsx';
 
 import Logo from '@/assets/images/logo.svg?react';
 
-import styles from './Root.module.css';
-
-// test
+import styles from './root.module.css';
 
 export function Root() {
   return (

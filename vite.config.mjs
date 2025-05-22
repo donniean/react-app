@@ -22,7 +22,11 @@ export default defineConfig({
   },
   plugins: [
     tsconfigPaths(),
-    react(),
+    react({
+      babel: {
+        plugins: [['babel-plugin-react-compiler']],
+      },
+    }),
     svgr(),
     tailwindcss(),
     checker({

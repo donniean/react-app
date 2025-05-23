@@ -1,4 +1,5 @@
 import { i18n } from '@lingui/core';
+import { detect, fromCookie, fromNavigator } from '@lingui/detect-locale';
 import { I18nProvider } from '@lingui/react';
 import type { ReactNode } from 'react';
 
@@ -9,8 +10,18 @@ import { messages as zhHansMessages } from '@/locales/zh-Hans/messages';
 i18n.load({
   en: enMessages,
   'zh-Hans': zhHansMessages,
+  'zh-CN': zhHansMessages,
+  zh: zhHansMessages,
 });
-i18n.activate(DEFAULT_LOCALE);
+
+const locale = detect(
+  fromCookie('lang'),
+  fromNavigator(),
+  () => DEFAULT_LOCALE,
+);
+const finalLocale = locale ?? DEFAULT_LOCALE;
+
+i18n.activate(finalLocale);
 
 export function AppI18nProvider({
   children,

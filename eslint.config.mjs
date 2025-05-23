@@ -11,6 +11,7 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
+import eslintPluginLingui from 'eslint-plugin-lingui';
 import eslintPluginN from 'eslint-plugin-n';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
@@ -50,7 +51,10 @@ export default typescriptEslint.config([
     name: 'custom/gitignore',
   },
   {
-    ignores: ['**/*.min.*'],
+    ignores: [
+      '**/*.min.*',
+      'src/locales/*/*.ts', //lingui
+    ],
     name: 'custom/ignore',
   },
   {
@@ -285,6 +289,71 @@ export default typescriptEslint.config([
           requiredFirst: true,
           sortShapeProp: true,
           checkTypes: true,
+        },
+      ],
+    },
+  },
+  {
+    name: 'custom/lingui',
+    files: ['src/**'],
+    ignores: ['src/**/*.test.ts'],
+    extends: [eslintPluginLingui.configs['flat/recommended']],
+    rules: {
+      // cSpell: ignore unlocalized
+      'lingui/no-unlocalized-strings': [
+        'error',
+        {
+          ignore: [
+            // Ignore strings which are a single "word" (no spaces)
+            // and doesn't start with an uppercase letter
+            String.raw`^(?![A-Z])\S+$`,
+            // Ignore UPPERCASE literals
+            // Example: const test = "FOO"
+            '^[A-Z0-9_-]+$',
+          ],
+          ignoreNames: [
+            // Ignore matching className (case-insensitive)
+            { regex: { pattern: 'className', flags: 'i' } },
+            // Ignore UPPERCASE names
+            // Example: test.FOO = "ola!"
+            { regex: { pattern: '^[A-Z0-9_-]+$' } },
+            'styleName',
+            'src',
+            'srcSet',
+            'type',
+            'id',
+            'width',
+            'height',
+            'displayName',
+            'Authorization',
+          ],
+          ignoreFunctions: [
+            'cva',
+            'cn',
+            'track',
+            'Error',
+            'console.*',
+            '*headers.set',
+            '*.addEventListener',
+            '*.removeEventListener',
+            '*.postMessage',
+            '*.getElementById',
+            '*.dispatch',
+            '*.commit',
+            '*.includes',
+            '*.indexOf',
+            '*.endsWith',
+            '*.startsWith',
+            'require',
+          ],
+          // Following settings require typed linting https://typescript-eslint.io/getting-started/typed-linting/
+          useTsTypes: true,
+          ignoreMethodsOnTypes: [
+            // Ignore specified methods on Map and Set types
+            'Map.get',
+            'Map.has',
+            'Set.has',
+          ],
         },
       ],
     },

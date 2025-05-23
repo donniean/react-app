@@ -1,1 +1,3 @@
 **/*.min.*
+# lingui
+src/locales/*/*.ts

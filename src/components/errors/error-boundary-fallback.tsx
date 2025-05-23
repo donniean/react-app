@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import type { FallbackProps } from 'react-error-boundary';
 
 export function ErrorBoundaryFallback({ error }: Readonly<FallbackProps>) {
@@ -8,7 +9,9 @@ export function ErrorBoundaryFallback({ error }: Readonly<FallbackProps>) {
 
   return (
     <div role="alert">
-      <p>Something went wrong</p>
+      <p>
+        <Trans>Something went wrong</Trans>
+      </p>
       <pre>{finalMessage}</pre>
     </div>
   );

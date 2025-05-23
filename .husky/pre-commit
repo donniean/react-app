@@ -1,1 +1,2 @@
+npm run i18n:ci
 npx lint-staged --concurrent false

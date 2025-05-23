@@ -39,6 +39,7 @@ export default defineConfig({
     'donniean',
     'htmlhint',
     'immer',
+    'lingui',
     'markdownlint',
     'npmjs',
     'numbro',
@@ -70,5 +71,6 @@ export default defineConfig({
     '**/.htmlhintrc',
     '.*ignore',
     '.gitattributes',
+    'src/locales/*/*.ts', //lingui
   ],
 });

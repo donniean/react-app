@@ -6,26 +6,28 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { ErrorBoundaryFallback } from '@/components/errors/error-boundary-fallback';
 
+import { AppI18nProvider } from './i18n';
+
 const queryClient = new QueryClient();
 
-interface AppProviderProps {
-  children: ReactNode;
-}
-
-export function AppProvider({ children }: Readonly<AppProviderProps>) {
+export function AppProvider({ children }: Readonly<{ children: ReactNode }>) {
   return (
+    // cSpell: ignore unlocalized
+    // eslint-disable-next-line lingui/no-unlocalized-strings
     <Suspense fallback={<div>Loading...</div>}>
-      <ErrorBoundary
-        FallbackComponent={ErrorBoundaryFallback}
-        onError={(error, info) => {
-          console.error('react-error-boundary error:', error, info);
-        }}
-      >
-        <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools />
-          {children}
-        </QueryClientProvider>
-      </ErrorBoundary>
+      <AppI18nProvider>
+        <ErrorBoundary
+          FallbackComponent={ErrorBoundaryFallback}
+          onError={(error, info) => {
+            console.error('react-error-boundary error:', error, info);
+          }}
+        >
+          <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools />
+            {children}
+          </QueryClientProvider>
+        </ErrorBoundary>
+      </AppI18nProvider>
     </Suspense>
   );
 }

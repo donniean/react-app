@@ -1,5 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "i18n-ally.localesPaths": ["src/locales/"],
-  "i18n-ally.pathMatcher": "{locale}/{namespace}.po"
+  "i18n-ally.pathMatcher": "{locale}/{namespaces}.po"
 }

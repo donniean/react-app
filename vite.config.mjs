@@ -1,3 +1,4 @@
+import { lingui } from '@lingui/vite-plugin';
 // eslint-disable-next-line import-x/no-unresolved
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
@@ -24,9 +25,13 @@ export default defineConfig({
     tsconfigPaths(),
     react({
       babel: {
-        plugins: [['babel-plugin-react-compiler']],
+        plugins: [
+          'babel-plugin-react-compiler',
+          '@lingui/babel-plugin-lingui-macro',
+        ],
       },
     }),
+    lingui(),
     svgr(),
     tailwindcss(),
     checker({

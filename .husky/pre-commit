@@ -1,3 +1,2 @@
-npm run i18n:extract
-npm run i18n:compile
+npm run i18n:ci
 npx lint-staged --concurrent false

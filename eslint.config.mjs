@@ -1,10 +1,8 @@
 // @ts-check
 
-import { fileURLToPath } from 'node:url';
-
+import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
-import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
@@ -13,19 +11,24 @@ import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginLingui from 'eslint-plugin-lingui';
 import eslintPluginN from 'eslint-plugin-n';
+// eslint-disable-next-line import-x/no-unresolved
+import eslintPluginPerfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
-import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 // eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
-const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const gitignorePath = path.resolve(__dirname, '.gitignore');
 
 const nodeGlobs = [
   '**/*.stories.{js,jsx,ts,tsx}',
@@ -58,22 +61,22 @@ export default typescriptEslint.config([
     name: 'custom/ignore',
   },
   {
-    name: 'custom/javascript/setup',
     languageOptions: {
-      parser: typescriptEslint.parser,
       globals: {
         ...globals.es2025,
       },
+      parser: typescriptEslint.parser,
     },
+    name: 'custom/javascript/setup',
   },
   {
-    name: 'custom/node/globals',
     files: ['**/*.cjs', ...nodeGlobs],
     languageOptions: {
       globals: {
         ...globals.node,
       },
     },
+    name: 'custom/node/globals',
   },
   {
     ...eslint.configs.recommended,
@@ -94,7 +97,6 @@ export default typescriptEslint.config([
       'no-param-reassign': [
         'error',
         {
-          props: true,
           ignorePropertyModificationsFor: [
             'acc', // for reduce accumulators
             'accumulator', // for reduce accumulators
@@ -109,6 +111,7 @@ export default typescriptEslint.config([
             'staticContext', // for ReactRouter context
             'draft', // for immer
           ],
+          props: true,
         },
       ],
       'no-restricted-imports': [
@@ -141,8 +144,12 @@ export default typescriptEslint.config([
       // 'import-x/no-named-as-default': 'off',
       // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
-        'error',
+        'off',
         {
+          alphabetize: {
+            order: 'asc',
+            orderImportKind: 'asc',
+          },
           groups: [
             // 'type',
             'builtin',
@@ -152,12 +159,8 @@ export default typescriptEslint.config([
             'object',
             'unknown',
           ],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            orderImportKind: 'asc',
-          },
           named: true,
+          'newlines-between': 'always',
           warnOnUnassignedImports: true,
           // sortTypesGroup: true,
           // 'newlines-between-types': 'always',
@@ -172,8 +175,8 @@ export default typescriptEslint.config([
         'error',
         {
           cases: {
-            kebabCase: true,
             camelCase: false,
+            kebabCase: true,
             pascalCase: false,
           },
         },
@@ -182,41 +185,66 @@ export default typescriptEslint.config([
       'unicorn/prevent-abbreviations': 'off',
     },
   },
+  // {
+  //   files: ['**/*.{mjs,ts,tsx}'],
+  //   name: 'simple-import-sort',
+  //   plugins: {
+  //     'simple-import-sort': eslintPluginSimpleImportSort,
+  //   },
+  //   rules: {
+  //     'sort-imports': 'off',
+  //     'import-x/order': 'off',
+  //     'simple-import-sort/exports': 'error',
+  //     'simple-import-sort/imports': 'error',
+  //   },
+  // },
   {
-    name: 'simple-import-sort',
-    files: ['**/*.{mjs,ts,tsx}'],
-    plugins: {
-      'simple-import-sort': eslintPluginSimpleImportSort,
-    },
+    extends: [eslintPluginPerfectionist.configs['recommended-natural']],
+    name: 'custom/perfectionist',
     rules: {
-      'sort-imports': 'off',
       'import-x/order': 'off',
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          // newlinesBetween: 'ignore',
+          partitionByNewLine: false,
+        },
+      ],
+
+      'sort-imports': 'off',
+    },
+    settings: {
+      perfectionist: {
+        ignoreCase: false,
+        order: 'asc',
+        partitionByComment: true,
+        partitionByNewLine: true,
+        type: 'natural',
+      },
     },
   },
   {
-    name: 'custom/typescript',
-    files: ['**/*.{ts,tsx}'],
     extends: [
       typescriptEslint.configs.strictTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
       eslintPluginImportX.flatConfigs.typescript,
     ],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    name: 'custom/typescript',
+    rules: {
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
+    },
     settings: {
       'import-x/resolver-next': [
         createTypeScriptImportResolver({ alwaysTryTypes: true }),
       ],
-    },
-    rules: {
-      '@typescript-eslint/consistent-type-exports': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
   {
@@ -225,24 +253,22 @@ export default typescriptEslint.config([
       'unused-imports': eslintPluginUnusedImports,
     },
     rules: {
-      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      'no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'error',
         {
-          vars: 'all',
-          varsIgnorePattern: '^_',
           args: 'after-used',
           argsIgnorePattern: '^_',
           ignoreRestSiblings: true,
+          vars: 'all',
+          varsIgnorePattern: '^_',
         },
       ],
     },
   },
   {
-    name: 'custom/react',
-    files: ['src/**'],
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
@@ -257,20 +283,22 @@ export default typescriptEslint.config([
       // 'plugin:@next/next/recommended',
       // 'plugin:@next/next/core-web-vitals',
     ],
+    files: ['src/**'],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.devtools,
       },
     },
+    name: 'custom/react',
     rules: {
       'react/jsx-sort-props': [
         'error',
         {
           callbacksLast: true,
-          shorthandFirst: true,
           multiline: 'last',
           reservedFirst: true,
+          shorthandFirst: true,
         },
       ],
       'react/require-default-props': [
@@ -286,18 +314,18 @@ export default typescriptEslint.config([
         'error',
         {
           callbacksLast: true,
+          checkTypes: true,
           requiredFirst: true,
           sortShapeProp: true,
-          checkTypes: true,
         },
       ],
     },
   },
   {
-    name: 'custom/lingui',
+    extends: [eslintPluginLingui.configs['flat/recommended']],
     files: ['src/**'],
     ignores: ['src/**/*.test.ts'],
-    extends: [eslintPluginLingui.configs['flat/recommended']],
+    name: 'custom/lingui',
     rules: {
       // cSpell: ignore unlocalized
       'lingui/no-unlocalized-strings': [
@@ -310,22 +338,6 @@ export default typescriptEslint.config([
             // Ignore UPPERCASE literals
             // Example: const test = "FOO"
             '^[A-Z0-9_-]+$',
-          ],
-          ignoreNames: [
-            // Ignore matching className (case-insensitive)
-            { regex: { pattern: 'className', flags: 'i' } },
-            // Ignore UPPERCASE names
-            // Example: test.FOO = "ola!"
-            { regex: { pattern: '^[A-Z0-9_-]+$' } },
-            'styleName',
-            'src',
-            'srcSet',
-            'type',
-            'id',
-            'width',
-            'height',
-            'displayName',
-            'Authorization',
           ],
           ignoreFunctions: [
             'cva',
@@ -346,27 +358,43 @@ export default typescriptEslint.config([
             '*.startsWith',
             'require',
           ],
+          ignoreNames: [
+            // Ignore matching className (case-insensitive)
+            { regex: { flags: 'i', pattern: 'className' } },
+            // Ignore UPPERCASE names
+            // Example: test.FOO = "ola!"
+            { regex: { pattern: '^[A-Z0-9_-]+$' } },
+            'styleName',
+            'src',
+            'srcSet',
+            'type',
+            'id',
+            'width',
+            'height',
+            'displayName',
+            'Authorization',
+          ],
           // Following settings require typed linting https://typescript-eslint.io/getting-started/typed-linting/
-          useTsTypes: true,
           ignoreMethodsOnTypes: [
             // Ignore specified methods on Map and Set types
             'Map.get',
             'Map.has',
             'Set.has',
           ],
+          useTsTypes: true,
         },
       ],
     },
   },
   {
-    name: 'custom/node',
+    extends: [eslintPluginN.configs['flat/recommended']],
     files: ['server/**'],
     languageOptions: {
       globals: {
         ...globals.node,
       },
     },
-    extends: [eslintPluginN.configs['flat/recommended']],
+    name: 'custom/node',
     rules: {
       'n/no-missing-import': [
         'off',

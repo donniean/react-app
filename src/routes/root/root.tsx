@@ -15,3 +15,10 @@ export function Root() {
     </div>
   );
 }
+
+const o = {
+  A: 1,
+  a: 1,
+  C: 1,
+};
+console.warn(o);

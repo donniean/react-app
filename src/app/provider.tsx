@@ -1,6 +1,7 @@
+import type { ReactNode } from 'react';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import type { ReactNode } from 'react';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 

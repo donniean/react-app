@@ -13,14 +13,6 @@ export default defineConfig({
       localsConvention: 'camelCase',
     },
   },
-  server: {
-    port: 3000,
-    host: true,
-  },
-  preview: {
-    port: 3000,
-    host: true,
-  },
   plugins: [
     tsconfigPaths(),
     react({
@@ -35,15 +27,23 @@ export default defineConfig({
     svgr(),
     tailwindcss(),
     checker({
-      overlay: { initialIsOpen: 'error' },
-      typescript: true,
       eslint: {
         lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
         useFlatConfig: true,
       },
+      overlay: { initialIsOpen: 'error' },
       stylelint: {
         lintCommand: 'stylelint ./src/**/*.css',
       },
+      typescript: true,
     }),
   ],
+  preview: {
+    host: true,
+    port: 3000,
+  },
+  server: {
+    host: true,
+    port: 3000,
+  },
 });

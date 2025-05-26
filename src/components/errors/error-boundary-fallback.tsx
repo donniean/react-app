@@ -1,5 +1,6 @@
-import { Trans } from '@lingui/react/macro';
 import type { FallbackProps } from 'react-error-boundary';
+
+import { Trans } from '@lingui/react/macro';
 
 export function ErrorBoundaryFallback({ error }: Readonly<FallbackProps>) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access

@@ -57,6 +57,7 @@ export default defineConfig({
     'htmlhint',
     'immer',
     'lingui',
+    'mantine',
     'markdownlint',
     'npmjs',
     'numbro',

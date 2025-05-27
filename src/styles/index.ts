@@ -1,2 +1,2 @@
-import './global.css';
+import './globals.css';
 import './theme.css';

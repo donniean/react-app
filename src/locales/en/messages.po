@@ -17,6 +17,6 @@ msgstr ""
 msgid "Hello React"
 msgstr "Hello React"
 
-#: src/components/errors/error-boundary-fallback.tsx:13
+#: src/components/errors/error-boundary-fallback.tsx:14
 msgid "Something went wrong"
 msgstr "Something went wrong"

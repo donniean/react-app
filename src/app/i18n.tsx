@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react';
+
 import { i18n } from '@lingui/core';
 import { detect, fromCookie, fromNavigator } from '@lingui/detect-locale';
 import { I18nProvider } from '@lingui/react';
-import type { ReactNode } from 'react';
 
 import { DEFAULT_LOCALE } from '@/configs';
 import { messages as enMessages } from '@/locales/en/messages';
@@ -9,9 +10,9 @@ import { messages as zhHansMessages } from '@/locales/zh-Hans/messages';
 
 i18n.load({
   en: enMessages,
-  'zh-Hans': zhHansMessages,
-  'zh-CN': zhHansMessages,
   zh: zhHansMessages,
+  'zh-CN': zhHansMessages,
+  'zh-Hans': zhHansMessages,
 });
 
 const locale = detect(

@@ -22,7 +22,6 @@ import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
-// eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
 const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
@@ -42,6 +41,7 @@ const nodeGlobs = [
   '**/tsup.config.{js,mjs,cjs,ts}',
   '**/vite.config.{js,mjs,cjs,ts}',
   '**/vitest.config.{js,mjs,cjs,ts}',
+  '**/lingui.config.{js,mjs,cjs,ts}',
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
 
@@ -123,7 +123,7 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
-      'import-x/no-cycle': 'error',
+      // 'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
         {

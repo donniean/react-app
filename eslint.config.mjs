@@ -246,7 +246,7 @@ export default typescriptEslint.config([
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
-      eslintPluginReactHooks.configs['recommended-latest'],
+      eslintPluginReactHooks.configs.recommended,
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
       eslintPluginQuery.configs['flat/recommended'],

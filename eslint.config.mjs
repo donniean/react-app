@@ -2,9 +2,9 @@
 
 import path from 'node:path';
 
-import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
+import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
@@ -13,11 +13,11 @@ import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginLingui from 'eslint-plugin-lingui';
 import eslintPluginN from 'eslint-plugin-n';
-import eslintPluginPerfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
+import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
@@ -144,7 +144,7 @@ export default typescriptEslint.config([
       // 'import-x/no-named-as-default': 'off',
       // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
-        'off',
+        'error',
         {
           alphabetize: {
             order: 'asc',
@@ -185,50 +185,17 @@ export default typescriptEslint.config([
       'unicorn/prevent-abbreviations': 'off',
     },
   },
-  // {
-  //   files: ['**/*.{mjs,ts,tsx}'],
-  //   name: 'simple-import-sort',
-  //   plugins: {
-  //     'simple-import-sort': eslintPluginSimpleImportSort,
-  //   },
-  //   rules: {
-  //     'sort-imports': 'off',
-  //     'import-x/order': 'off',
-  //     'simple-import-sort/exports': 'error',
-  //     'simple-import-sort/imports': 'error',
-  //   },
-  // },
   {
-    extends: [eslintPluginPerfectionist.configs['recommended-natural']],
-    name: 'custom/perfectionist',
+    files: ['**/*.{mjs,ts,tsx}'],
+    name: 'simple-import-sort',
+    plugins: {
+      'simple-import-sort': eslintPluginSimpleImportSort,
+    },
     rules: {
       'import-x/order': 'off',
-      'perfectionist/sort-imports': [
-        'error',
-        {
-          // newlinesBetween: 'ignore',
-          groups: [
-            'side-effect',
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'style',
-            'unknown',
-          ],
-          partitionByNewLine: false,
-        },
-      ],
+      'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': 'error',
       'sort-imports': 'off',
-    },
-    settings: {
-      perfectionist: {
-        ignoreCase: false,
-        order: 'asc',
-        partitionByComment: true,
-        partitionByNewLine: true,
-        type: 'natural',
-      },
     },
   },
   {
@@ -366,6 +333,13 @@ export default typescriptEslint.config([
             '*.startsWith',
             'require',
           ],
+          // Following settings require typed linting https://typescript-eslint.io/getting-started/typed-linting/
+          ignoreMethodsOnTypes: [
+            // Ignore specified methods on Map and Set types
+            'Map.get',
+            'Map.has',
+            'Set.has',
+          ],
           ignoreNames: [
             // Ignore matching className (case-insensitive)
             { regex: { flags: 'i', pattern: 'className' } },
@@ -381,13 +355,6 @@ export default typescriptEslint.config([
             'height',
             'displayName',
             'Authorization',
-          ],
-          // Following settings require typed linting https://typescript-eslint.io/getting-started/typed-linting/
-          ignoreMethodsOnTypes: [
-            // Ignore specified methods on Map and Set types
-            'Map.get',
-            'Map.has',
-            'Set.has',
           ],
           useTsTypes: true,
         },

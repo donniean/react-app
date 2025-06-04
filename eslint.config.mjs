@@ -1,6 +1,6 @@
 // @ts-check
 
-import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
@@ -24,7 +24,8 @@ import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
-const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+const { dirname } = import.meta;
+const gitignorePath = path.resolve(dirname, '.gitignore');
 
 const nodeGlobs = [
   '**/*.stories.{js,jsx,ts,tsx}',
@@ -34,6 +35,7 @@ const nodeGlobs = [
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
+  '**/lingui.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
   '**/prettier.config.{js,mjs,cjs,ts}',
   '**/rollup.config.{js,mjs,cjs,ts}',
@@ -41,7 +43,6 @@ const nodeGlobs = [
   '**/tsup.config.{js,mjs,cjs,ts}',
   '**/vite.config.{js,mjs,cjs,ts}',
   '**/vitest.config.{js,mjs,cjs,ts}',
-  '**/lingui.config.{js,mjs,cjs,ts}',
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
 
@@ -123,7 +124,9 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
-      // 'import-x/no-cycle': 'error',
+      'import-x/first': 'error',
+      'import-x/newline-after-import': 'error',
+      'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
         {
@@ -138,8 +141,6 @@ export default typescriptEslint.config([
           peerDependencies: true,
         },
       ],
-      // 'import-x/no-named-as-default': 'off',
-      // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
         'error',
         {
@@ -163,6 +164,9 @@ export default typescriptEslint.config([
           // 'newlines-between-types': 'always',
         },
       ],
+    },
+    settings: {
+      'import-x/resolver-next': [eslintPluginImportX.createNodeResolver()],
     },
   },
   {

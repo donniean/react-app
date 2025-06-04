@@ -9,9 +9,9 @@ import { messages as zhHansMessages } from '@/locales/zh-Hans/messages';
 
 i18n.load({
   en: enMessages,
-  'zh-Hans': zhHansMessages,
-  'zh-CN': zhHansMessages,
   zh: zhHansMessages,
+  'zh-CN': zhHansMessages,
+  'zh-Hans': zhHansMessages,
 });
 
 const locale = detect(

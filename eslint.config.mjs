@@ -21,12 +21,10 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import typescriptEslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, '.gitignore');
+const { dirname } = import.meta;
+const gitignorePath = path.resolve(dirname, '.gitignore');
 
 const nodeGlobs = [
   '**/*.stories.{js,jsx,ts,tsx}',

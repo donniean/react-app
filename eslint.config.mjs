@@ -221,6 +221,7 @@ export default typescriptEslint.config([
     rules: {
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/member-ordering': 'error',
     },
   },
   {

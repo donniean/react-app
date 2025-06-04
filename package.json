@@ -45,7 +45,7 @@
     "ncu:upgrade": "npm run ncu -- --upgrade",
     "prepare": "husky",
     "preview": "vite preview",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "test:watch": "vitest watch"

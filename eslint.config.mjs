@@ -1,5 +1,7 @@
 // @ts-check
 
+import path from 'node:path';
+
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
@@ -20,7 +22,6 @@ import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
-import path from 'node:path';
 import typescriptEslint from 'typescript-eslint';
 
 const { dirname } = import.meta;
@@ -123,6 +124,8 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
+      'import-x/first': 'error',
+      'import-x/newline-after-import': 'error',
       // 'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
@@ -204,10 +207,18 @@ export default typescriptEslint.config([
         'error',
         {
           // newlinesBetween: 'ignore',
+          groups: [
+            'side-effect',
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling', 'index'],
+            'style',
+            'unknown',
+          ],
           partitionByNewLine: false,
         },
       ],
-
       'sort-imports': 'off',
     },
     settings: {

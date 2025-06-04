@@ -141,8 +141,6 @@ export default typescriptEslint.config([
           peerDependencies: true,
         },
       ],
-      // 'import-x/no-named-as-default': 'off',
-      // 'import-x/no-named-as-default-member': 'off',
       'import-x/order': [
         'error',
         {

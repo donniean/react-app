@@ -126,7 +126,7 @@ export default typescriptEslint.config([
     rules: {
       'import-x/first': 'error',
       'import-x/newline-after-import': 'error',
-      // 'import-x/no-cycle': 'error',
+      'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
         {
@@ -166,6 +166,9 @@ export default typescriptEslint.config([
           // 'newlines-between-types': 'always',
         },
       ],
+    },
+    settings: {
+      'import-x/resolver-next': [eslintPluginImportX.createNodeResolver()],
     },
   },
   {

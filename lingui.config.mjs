@@ -3,11 +3,11 @@ import { defineConfig } from '@lingui/cli';
 export default defineConfig({
   catalogs: [
     {
-      include: ['src/'],
       path: '<rootDir>/src/locales/{locale}/messages',
+      include: ['src/'],
     },
   ],
-  compileNamespace: 'ts',
   locales: ['en', 'zh-Hans'],
   sourceLocale: 'en',
+  compileNamespace: 'ts',
 });

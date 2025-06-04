@@ -22,6 +22,16 @@ export default defineConfig(({ mode }) => {
         localsConvention: 'camelCase',
       },
     },
+    server: {
+      port: 3000,
+      host: true,
+      proxy,
+    },
+    preview: {
+      port: 3000,
+      host: true,
+      proxy,
+    },
     plugins: [
       tsconfigPaths(),
       react({
@@ -36,26 +46,16 @@ export default defineConfig(({ mode }) => {
       svgr(),
       tailwindcss(),
       checker({
+        overlay: { initialIsOpen: 'error' },
+        typescript: true,
         eslint: {
           lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
           useFlatConfig: true,
         },
-        overlay: { initialIsOpen: 'error' },
         stylelint: {
           lintCommand: 'stylelint ./src/**/*.css',
         },
-        typescript: true,
       }),
     ],
-    preview: {
-      host: true,
-      port: 3000,
-      proxy,
-    },
-    server: {
-      host: true,
-      port: 3000,
-      proxy,
-    },
   };
 });

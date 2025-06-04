@@ -1,8 +1,8 @@
 import { useRouteError } from 'react-router';
 
 interface RouteErrorType {
-  message?: string;
   statusText?: string;
+  message?: string;
 }
 
 export function RouteError() {

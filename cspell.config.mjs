@@ -1,26 +1,9 @@
 import { defineConfig } from 'cspell';
 
 export default defineConfig({
-  enableGlobDot: true,
-  ignorePaths: [
-    '.git/',
-    '.idea/',
-    '.vscode/',
-    '**/*.min.*',
-    '**/*.svg',
-    '**/package.json',
-    '**/package-lock.json',
-    '**/yarn.lock',
-    '**/pnpm-lock.yaml',
-    '**/Dockerfile',
-    '**/CHANGELOG.md',
-    '**/.htmlhintrc',
-    '.*ignore',
-    '.gitattributes',
-    'src/locales/*/*.ts', //lingui
-  ],
-  language: 'en',
   version: '0.2',
+  language: 'en',
+  enableGlobDot: true,
   words: [
     // apps
     'webstorm',
@@ -74,5 +57,22 @@ export default defineConfig({
     'classname',
     // Vite
     'VITE',
+  ],
+  ignorePaths: [
+    '.git/',
+    '.idea/',
+    '.vscode/',
+    '**/*.min.*',
+    '**/*.svg',
+    '**/package.json',
+    '**/package-lock.json',
+    '**/yarn.lock',
+    '**/pnpm-lock.yaml',
+    '**/Dockerfile',
+    '**/CHANGELOG.md',
+    '**/.htmlhintrc',
+    '.*ignore',
+    '.gitattributes',
+    'src/locales/*/*.ts', //lingui
   ],
 });

@@ -59,22 +59,22 @@ export default typescriptEslint.config([
     name: 'custom/ignore',
   },
   {
+    name: 'custom/javascript/setup',
     languageOptions: {
+      parser: typescriptEslint.parser,
       globals: {
         ...globals.es2025,
       },
-      parser: typescriptEslint.parser,
     },
-    name: 'custom/javascript/setup',
   },
   {
+    name: 'custom/node/globals',
     files: ['**/*.cjs', ...nodeGlobs],
     languageOptions: {
       globals: {
         ...globals.node,
       },
     },
-    name: 'custom/node/globals',
   },
   {
     ...eslint.configs.recommended,
@@ -95,6 +95,7 @@ export default typescriptEslint.config([
       'no-param-reassign': [
         'error',
         {
+          props: true,
           ignorePropertyModificationsFor: [
             'acc', // for reduce accumulators
             'accumulator', // for reduce accumulators
@@ -109,7 +110,6 @@ export default typescriptEslint.config([
             'staticContext', // for ReactRouter context
             'draft', // for immer
           ],
-          props: true,
         },
       ],
       'no-restricted-imports': [
@@ -146,10 +146,6 @@ export default typescriptEslint.config([
       'import-x/order': [
         'error',
         {
-          alphabetize: {
-            order: 'asc',
-            orderImportKind: 'asc',
-          },
           groups: [
             // 'type',
             'builtin',
@@ -159,8 +155,12 @@ export default typescriptEslint.config([
             'object',
             'unknown',
           ],
-          named: true,
           'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            orderImportKind: 'asc',
+          },
+          named: true,
           warnOnUnassignedImports: true,
           // sortTypesGroup: true,
           // 'newlines-between-types': 'always',
@@ -175,8 +175,8 @@ export default typescriptEslint.config([
         'error',
         {
           cases: {
-            camelCase: false,
             kebabCase: true,
+            camelCase: false,
             pascalCase: false,
           },
         },
@@ -186,40 +186,40 @@ export default typescriptEslint.config([
     },
   },
   {
-    files: ['**/*.{mjs,ts,tsx}'],
     name: 'simple-import-sort',
+    files: ['**/*.{mjs,ts,tsx}'],
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
     },
     rules: {
-      'import-x/order': 'off',
-      'simple-import-sort/exports': 'error',
-      'simple-import-sort/imports': 'error',
       'sort-imports': 'off',
+      'import-x/order': 'off',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   {
+    name: 'custom/typescript',
+    files: ['**/*.{ts,tsx}'],
     extends: [
       typescriptEslint.configs.strictTypeChecked,
       typescriptEslint.configs.stylisticTypeChecked,
       eslintPluginImportX.flatConfigs.typescript,
     ],
-    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    name: 'custom/typescript',
-    rules: {
-      '@typescript-eslint/consistent-type-exports': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
-    },
     settings: {
       'import-x/resolver-next': [
         createTypeScriptImportResolver({ alwaysTryTypes: true }),
       ],
+    },
+    rules: {
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
   {
@@ -228,22 +228,24 @@ export default typescriptEslint.config([
       'unused-imports': eslintPluginUnusedImports,
     },
     rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
       'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'error',
         {
+          vars: 'all',
+          varsIgnorePattern: '^_',
           args: 'after-used',
           argsIgnorePattern: '^_',
           ignoreRestSiblings: true,
-          vars: 'all',
-          varsIgnorePattern: '^_',
         },
       ],
     },
   },
   {
+    name: 'custom/react',
+    files: ['src/**'],
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
@@ -258,22 +260,20 @@ export default typescriptEslint.config([
       // 'plugin:@next/next/recommended',
       // 'plugin:@next/next/core-web-vitals',
     ],
-    files: ['src/**'],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.devtools,
       },
     },
-    name: 'custom/react',
     rules: {
       'react/jsx-sort-props': [
         'error',
         {
           callbacksLast: true,
+          shorthandFirst: true,
           multiline: 'last',
           reservedFirst: true,
-          shorthandFirst: true,
         },
       ],
       'react/require-default-props': [
@@ -289,18 +289,18 @@ export default typescriptEslint.config([
         'error',
         {
           callbacksLast: true,
-          checkTypes: true,
           requiredFirst: true,
           sortShapeProp: true,
+          checkTypes: true,
         },
       ],
     },
   },
   {
-    extends: [eslintPluginLingui.configs['flat/recommended']],
+    name: 'custom/lingui',
     files: ['src/**'],
     ignores: ['src/**/*.test.ts'],
-    name: 'custom/lingui',
+    extends: [eslintPluginLingui.configs['flat/recommended']],
     rules: {
       // cSpell: ignore unlocalized
       'lingui/no-unlocalized-strings': [
@@ -313,6 +313,22 @@ export default typescriptEslint.config([
             // Ignore UPPERCASE literals
             // Example: const test = "FOO"
             '^[A-Z0-9_-]+$',
+          ],
+          ignoreNames: [
+            // Ignore matching className (case-insensitive)
+            { regex: { pattern: 'className', flags: 'i' } },
+            // Ignore UPPERCASE names
+            // Example: test.FOO = "ola!"
+            { regex: { pattern: '^[A-Z0-9_-]+$' } },
+            'styleName',
+            'src',
+            'srcSet',
+            'type',
+            'id',
+            'width',
+            'height',
+            'displayName',
+            'Authorization',
           ],
           ignoreFunctions: [
             'cva',
@@ -334,42 +350,26 @@ export default typescriptEslint.config([
             'require',
           ],
           // Following settings require typed linting https://typescript-eslint.io/getting-started/typed-linting/
+          useTsTypes: true,
           ignoreMethodsOnTypes: [
             // Ignore specified methods on Map and Set types
             'Map.get',
             'Map.has',
             'Set.has',
           ],
-          ignoreNames: [
-            // Ignore matching className (case-insensitive)
-            { regex: { flags: 'i', pattern: 'className' } },
-            // Ignore UPPERCASE names
-            // Example: test.FOO = "ola!"
-            { regex: { pattern: '^[A-Z0-9_-]+$' } },
-            'styleName',
-            'src',
-            'srcSet',
-            'type',
-            'id',
-            'width',
-            'height',
-            'displayName',
-            'Authorization',
-          ],
-          useTsTypes: true,
         },
       ],
     },
   },
   {
-    extends: [eslintPluginN.configs['flat/recommended']],
+    name: 'custom/node',
     files: ['server/**'],
     languageOptions: {
       globals: {
         ...globals.node,
       },
     },
-    name: 'custom/node',
+    extends: [eslintPluginN.configs['flat/recommended']],
     rules: {
       'n/no-missing-import': [
         'off',

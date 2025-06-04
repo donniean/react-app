@@ -4,6 +4,15 @@ import * as qs from 'qs';
 const ignoreQueryPrefix = true;
 const addQueryPrefix = true;
 
+function getSearchObj({ search }: { search: string }) {
+  return qs.parse(search, { ignoreQueryPrefix });
+}
+
+function getSearchStr(obj: Record<string, unknown>) {
+  const newObj = omitBy(obj, (value) => !value);
+  return qs.stringify(newObj, { addQueryPrefix });
+}
+
 function getNextURL({
   pathname,
   search,
@@ -19,15 +28,6 @@ function getNextURL({
     return search;
   }
   return pathname + search;
-}
-
-function getSearchObj({ search }: { search: string }) {
-  return qs.parse(search, { ignoreQueryPrefix });
-}
-
-function getSearchStr(obj: Record<string, unknown>) {
-  const newObj = omitBy(obj, (value) => !value);
-  return qs.stringify(newObj, { addQueryPrefix });
 }
 
 function mergeObjToSearchObj({

@@ -35,6 +35,7 @@ const nodeGlobs = [
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
+  '**/lingui.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
   '**/prettier.config.{js,mjs,cjs,ts}',
   '**/rollup.config.{js,mjs,cjs,ts}',
@@ -42,7 +43,6 @@ const nodeGlobs = [
   '**/tsup.config.{js,mjs,cjs,ts}',
   '**/vite.config.{js,mjs,cjs,ts}',
   '**/vitest.config.{js,mjs,cjs,ts}',
-  '**/lingui.config.{js,mjs,cjs,ts}',
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
 

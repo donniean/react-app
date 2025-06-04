@@ -17,7 +17,6 @@ export default defineConfig({
     'autocorrectrc',
     'browserslistrc',
     'commitlintrc',
-    'configsrc',
     'htmlhintrc',
     'huskyrc',
     'lintstagedrc',

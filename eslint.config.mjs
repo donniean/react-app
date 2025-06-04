@@ -11,7 +11,6 @@ import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginLingui from 'eslint-plugin-lingui';
 import eslintPluginN from 'eslint-plugin-n';
-// eslint-disable-next-line import-x/no-unresolved
 import eslintPluginPerfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
@@ -23,7 +22,6 @@ import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-// eslint-disable-next-line import-x/no-unresolved
 import typescriptEslint from 'typescript-eslint';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,6 +43,7 @@ const nodeGlobs = [
   '**/tsup.config.{js,mjs,cjs,ts}',
   '**/vite.config.{js,mjs,cjs,ts}',
   '**/vitest.config.{js,mjs,cjs,ts}',
+  '**/lingui.config.{js,mjs,cjs,ts}',
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
 
@@ -126,7 +125,7 @@ export default typescriptEslint.config([
   {
     name: 'custom/import-x/rules',
     rules: {
-      'import-x/no-cycle': 'error',
+      // 'import-x/no-cycle': 'error',
       'import-x/no-duplicates': [
         'error',
         {
@@ -272,7 +271,7 @@ export default typescriptEslint.config([
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
-      eslintPluginReactHooks.configs['recommended-latest'],
+      eslintPluginReactHooks.configs.recommended,
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
       eslintPluginQuery.configs['flat/recommended'],

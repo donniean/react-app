@@ -34,7 +34,6 @@ export default defineConfig({
     'autocorrectrc',
     'browserslistrc',
     'commitlintrc',
-    'configsrc',
     'htmlhintrc',
     'huskyrc',
     'lintstagedrc',
@@ -73,5 +72,7 @@ export default defineConfig({
     // TypeScript
     'nodenext',
     'classname',
+    // Vite
+    'VITE',
   ],
 });

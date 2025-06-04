@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/no-unresolved
 import { defineConfig } from '@lingui/cli';
 
 export default defineConfig({

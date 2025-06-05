@@ -7,7 +7,7 @@ export function AppErrorBoundary({ children }: Readonly<PropsWithChildren>) {
   return (
     <ErrorBoundary
       FallbackComponent={AppErrorFallback}
-      resetKeys={[location.pathname]}
+      resetKeys={[location.pathname, location.search]}
       onError={(error, info) => {
         console.error('react-error-boundary error:', error, info);
       }}

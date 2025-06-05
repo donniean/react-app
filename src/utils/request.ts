@@ -1,3 +1,3 @@
-const request = globalThis.fetch;
+const request = fetch;
 
 export { request };

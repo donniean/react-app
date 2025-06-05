@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
-import { RouteErrorFallback } from '@/components/errors/route-error-fallback';
+import { RouteErrorBoundary } from '@/components/errors/route-error-boundary';
 
 const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
       const { Root } = await import('@/routes/root/root');
       return {
         Component: Root,
-        ErrorBoundary: RouteErrorFallback,
+        ErrorBoundary: RouteErrorBoundary,
       };
     },
   },
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       const { NotFoundRoute } = await import('@/routes/errors/not-found');
       return {
         Component: NotFoundRoute,
-        ErrorBoundary: RouteErrorFallback,
+        ErrorBoundary: RouteErrorBoundary,
       };
     },
   },

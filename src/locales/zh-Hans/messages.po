@@ -17,7 +17,7 @@ msgstr ""
 msgid "404 - Not Found"
 msgstr "404 - 页面不存在"
 
-#: src/components/errors/route-error-fallback.tsx:24
+#: src/components/errors/route-error-boundary.tsx:24
 msgid "An unexpected error occurred"
 msgstr "发生意外错误"
 

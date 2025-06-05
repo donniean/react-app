@@ -19,7 +19,7 @@ export function RouteErrorFallback() {
   }
 
   return (
-    <Center className="h-screen w-screen flex-col gap-y-4" role="alert">
+    <Center className="flex-col gap-y-4" role="alert">
       <Title order={1}>
         <Trans>An unexpected error occurred</Trans>
       </Title>

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages=JSON.parse("{\"RkxVsO\":[\"Hello React\"],\"nwtY4N\":[\"Something went wrong\"]}")as Messages;
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages=JSON.parse("{\"+iq0WF\":[\"404 - Not Found\"],\"RkxVsO\":[\"Hello React\"],\"nwtY4N\":[\"Something went wrong\"]}")as Messages;

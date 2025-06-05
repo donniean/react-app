@@ -10,6 +10,13 @@ const router = createBrowserRouter([
       return { Component: res.Root, errorElement: <RouteError /> };
     },
   },
+  {
+    path: '*',
+    lazy: async () => {
+      const { NotFoundRoute } = await import('@/routes/not-found');
+      return { Component: NotFoundRoute };
+    },
+  },
 ]);
 
 export function AppRouter() {

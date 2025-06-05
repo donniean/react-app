@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/routes/not-found.tsx:8
+msgid "404 - Not Found"
+msgstr "404 - Not Found"
+
 #: src/routes/root/root.tsx:14
 msgid "Hello React"
 msgstr "你好 React"

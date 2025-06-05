@@ -1,9 +1,5 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
-interface BaseLayoutProps {
-  readonly children: ReactNode;
-}
-
-export function BaseLayout({ children }: BaseLayoutProps) {
+export function BaseLayout({ children }: Readonly<PropsWithChildren>) {
   return <div>{children}</div>;
 }

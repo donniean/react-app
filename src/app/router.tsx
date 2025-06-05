@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
-import { RouteErrorBoundary } from '@/components/errors/route-error-boundary';
+import { RouteErrorFallback } from '@/components/errors/route-error-fallback';
 
 const router = createBrowserRouter([
   {
     path: '/',
     lazy: async () => {
-      const res = await import('@/routes/root/root');
+      const { Root } = await import('@/routes/root/root');
       return {
-        Component: res.Root,
-        ErrorBoundary: RouteErrorBoundary,
+        Component: Root,
+        ErrorBoundary: RouteErrorFallback,
       };
     },
   },
@@ -17,7 +17,10 @@ const router = createBrowserRouter([
     path: '*',
     lazy: async () => {
       const { NotFoundRoute } = await import('@/routes/errors/not-found');
-      return { Component: NotFoundRoute };
+      return {
+        Component: NotFoundRoute,
+        ErrorBoundary: RouteErrorFallback,
+      };
     },
   },
 ]);

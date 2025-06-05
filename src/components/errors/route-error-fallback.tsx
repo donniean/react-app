@@ -4,7 +4,7 @@ import { isRouteErrorResponse, useRouteError } from 'react-router';
 
 import { isEnvDevelopment } from '@/configs/env';
 
-export function RouteErrorBoundary() {
+export function RouteErrorFallback() {
   const error = useRouteError();
 
   let description = '';

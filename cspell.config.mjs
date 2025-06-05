@@ -35,7 +35,6 @@ export default defineConfig({
     'corepack',
     'cssnano',
     'deepmerge',
-    'donniean',
     'htmlhint',
     'immer',
     'lingui',
@@ -57,6 +56,8 @@ export default defineConfig({
     'classname',
     // Vite
     'VITE',
+    // custom
+    'donniean',
   ],
   ignorePaths: [
     '.git/',

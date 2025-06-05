@@ -1,4 +1,4 @@
-import { MantineProvider } from '@mantine/core';
+import { Box, LoadingOverlay, MantineProvider } from '@mantine/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { PropsWithChildren } from 'react';
@@ -14,7 +14,13 @@ const queryClient = new QueryClient();
 export function AppProvider({ children }: Readonly<PropsWithChildren>) {
   return (
     <MantineProvider>
-      <Suspense fallback={<div />}>
+      <Suspense
+        fallback={
+          <Box className="relative h-screen w-screen">
+            <LoadingOverlay visible />
+          </Box>
+        }
+      >
         <AppI18nProvider>
           <AppErrorBoundary>
             <QueryClientProvider client={queryClient}>

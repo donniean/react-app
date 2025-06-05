@@ -3,7 +3,7 @@ import { detect, fromCookie, fromNavigator } from '@lingui/detect-locale';
 import { I18nProvider } from '@lingui/react';
 import type { ReactNode } from 'react';
 
-import { DEFAULT_LOCALE } from '@/configs';
+import { DEFAULT_LOCALE } from '@/constants/i18n';
 import { messages as enMessages } from '@/locales/en/messages';
 import { messages as zhHansMessages } from '@/locales/zh-Hans/messages';
 

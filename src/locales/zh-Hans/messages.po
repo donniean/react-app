@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/routes/root/root.tsx:13
+#: src/routes/root/root.tsx:14
 msgid "Hello React"
 msgstr "你好 React"
 

@@ -1,3 +1,4 @@
+import { MantineProvider } from '@mantine/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { ReactNode } from 'react';
@@ -24,7 +25,7 @@ export function AppProvider({ children }: Readonly<{ children: ReactNode }>) {
         >
           <QueryClientProvider client={queryClient}>
             <ReactQueryDevtools />
-            {children}
+            <MantineProvider>{children}</MantineProvider>
           </QueryClientProvider>
         </ErrorBoundary>
       </AppI18nProvider>

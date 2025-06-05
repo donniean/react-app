@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/routes/not-found.tsx:9
+#: src/routes/errors/not-found.tsx:9
 msgid "404 - Not Found"
 msgstr "404 - 页面不存在"
 
@@ -29,7 +29,7 @@ msgstr "你好 React"
 msgid "Retry"
 msgstr "重试"
 
-#: src/routes/not-found.tsx:12
+#: src/routes/errors/not-found.tsx:12
 msgid "Return to home"
 msgstr "返回首页"
 

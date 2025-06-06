@@ -2,7 +2,7 @@ import { Trans } from '@lingui/react/macro';
 import { Center, Code, Text, Title } from '@mantine/core';
 import { isRouteErrorResponse, useRouteError } from 'react-router';
 
-import { isEnvDevelopment } from '@/configs/env';
+import { env } from '@/config/env';
 
 export function RouteErrorBoundary() {
   const error = useRouteError();
@@ -15,7 +15,7 @@ export function RouteErrorBoundary() {
     description = `${String(status)} - ${statusText}`;
   } else if (error instanceof Error) {
     description = error.message;
-    stack = isEnvDevelopment ? error.stack : undefined;
+    stack = env.isDevelopment ? error.stack : undefined;
   }
 
   return (

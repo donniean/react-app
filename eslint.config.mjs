@@ -89,7 +89,7 @@ export default typescriptEslint.config([
     name: 'custom/javascript/rules',
     rules: {
       'no-console': [
-        globalThis.process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+        process.env.NODE_ENV === 'development' ? 'warn' : 'error',
         { allow: ['warn', 'error'] },
       ],
       'no-param-reassign': [

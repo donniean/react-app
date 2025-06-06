@@ -1,7 +1,7 @@
 import { i18n } from '@lingui/core';
 import { detect, fromCookie, fromNavigator } from '@lingui/detect-locale';
 import { I18nProvider } from '@lingui/react';
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import { DEFAULT_LOCALE } from '@/constants/i18n';
 import { messages as enMessages } from '@/locales/en/messages';
@@ -23,8 +23,6 @@ const finalLocale = locale ?? DEFAULT_LOCALE;
 
 i18n.activate(finalLocale);
 
-export function AppI18nProvider({
-  children,
-}: Readonly<{ children: ReactNode }>) {
+export function AppI18nProvider({ children }: Readonly<PropsWithChildren>) {
   return <I18nProvider i18n={i18n}>{children}</I18nProvider>;
 }

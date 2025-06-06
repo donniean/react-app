@@ -13,14 +13,26 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/routes/not-found.tsx:8
+#: src/routes/errors/not-found.tsx:9
 msgid "404 - Not Found"
 msgstr "404 - Not Found"
+
+#: src/components/errors/route-error-boundary.tsx:24
+msgid "An unexpected error occurred"
+msgstr "An unexpected error occurred"
 
 #: src/routes/root/root.tsx:14
 msgid "Hello React"
 msgstr "Hello React"
 
-#: src/components/errors/error-boundary-fallback.tsx:13
+#: src/components/errors/app-error-fallback.tsx:27
+msgid "Retry"
+msgstr "Retry"
+
+#: src/routes/errors/not-found.tsx:12
+msgid "Return to home"
+msgstr "Return to home"
+
+#: src/components/errors/app-error-fallback.tsx:22
 msgid "Something went wrong"
 msgstr "Something went wrong"

@@ -16,9 +16,9 @@ const router = createBrowserRouter([
   {
     path: '*',
     lazy: async () => {
-      const { NotFoundRoute } = await import('@/routes/errors/not-found');
+      const { NotFound } = await import('@/routes/errors/not-found');
       return {
-        Component: NotFoundRoute,
+        Component: NotFound,
         ErrorBoundary: RouteErrorBoundary,
       };
     },

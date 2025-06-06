@@ -2,7 +2,7 @@ import { Trans } from '@lingui/react/macro';
 import { Button, Center, Code, Text, Title } from '@mantine/core';
 import type { FallbackProps } from 'react-error-boundary';
 
-import { isEnvDevelopment } from '@/configs/env';
+import { env } from '@/config/env';
 
 export function AppErrorFallback({
   error,
@@ -13,7 +13,7 @@ export function AppErrorFallback({
 
   if (error instanceof Error) {
     description = error.message;
-    stack = isEnvDevelopment ? error.stack : undefined;
+    stack = env.isDevelopment ? error.stack : undefined;
   }
 
   return (

@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Suspense } from 'react';
 
 import { AppLoader } from '@/components/ui/app-loader';
-import { isEnvDevelopment } from '@/configs/env';
+import { env } from '@/config/env';
 
 import { AppErrorBoundary } from './error-boundary';
 import { AppI18nProvider } from './i18n';
@@ -17,7 +17,7 @@ export function App() {
     <MantineProvider>
       <AppI18nProvider>
         <QueryClientProvider client={queryClient}>
-          {isEnvDevelopment && <ReactQueryDevtools />}
+          {env.isDevelopment && <ReactQueryDevtools />}
           <AppErrorBoundary>
             <Suspense fallback={<AppLoader />}>
               <AppRouter />

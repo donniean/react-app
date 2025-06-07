@@ -4,28 +4,58 @@ A personal React starter.
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/master/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
+## Requirements
+
+- Node.js >= 22.0.0
+
 ## Install
 
 ```sh
 npm install
 ```
 
-## Usage
+## Development
 
 ```sh
 npm run dev
 ```
 
-```sh
-npm run build
+## Build & Preview
+
+```bash
+npm build
+npm preview
 ```
 
-Edit config files
+## Customize
 
 - `vite.config.mjs`
 - `.env` and `.env,*`
 - `index.html`
 - `src/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
+- `src/styles/theme.ts` and [Custom mantine theme](https://github.com/songkeys/tailwind-preset-mantine?tab=readme-ov-file#custom-mantine-theme)
+
+## 5.Testing
+
+```bash
+npm test
+npm test:coverage
+npm test:watch
+npm test:ui
+```
+
+## 6.Localization
+
+```bash
+npm run i18n:ci
+```
+
+## 7.Lint & Format
+
+```bash
+npm lint
+npm lint:fix
+```
 
 ## Recommended Packages
 
@@ -33,7 +63,6 @@ Edit config files
 - [`date-fns`](https://github.com/date-fns/date-fns)
   - [`dayjs`](https://github.com/iamkun/dayjs)
 - [`zod`](https://github.com/colinhacks/zod)
-- [`tailwind-merge`](https://github.com/dcastil/tailwind-merge)
 - [`cva`](https://github.com/joe-bell/cva)
 - [`react-use`](https://github.com/streamich/react-use)
 - [`immer`](https://github.com/immerjs/immer)

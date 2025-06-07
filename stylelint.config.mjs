@@ -11,7 +11,7 @@ export default {
         ignore: ['inside-function'],
       },
     ],
-    // tailwind
+    // Tailwind CSS
     'at-rule-no-unknown': [
       true,
       {

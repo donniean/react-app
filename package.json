@@ -65,7 +65,8 @@
     "react-dom": "^19.1.0",
     "react-error-boundary": "^6.0.0",
     "react-router": "^7.6.2",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.0",
+    "tailwind-preset-mantine": "^2.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -120,7 +121,6 @@
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-recess-order": "^6.0.0",
     "stylelint-config-standard": "^38.0.0",
-    "stylelint-config-tailwindcss": "^1.0.0",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",

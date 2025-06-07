@@ -11,7 +11,3 @@
 .logo {
   animation: logo-spin infinite 16s linear;
 }
-
-.title {
-  color: var(--primary-color);
-}

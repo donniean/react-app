@@ -60,6 +60,7 @@ npm lint:fix
 ## Recommended Packages
 
 - [`axios`](https://github.com/axios/axios)
+  - [`Ky`](https://github.com/sindresorhus/ky)
 - [`date-fns`](https://github.com/date-fns/date-fns)
   - [`dayjs`](https://github.com/iamkun/dayjs)
 - [`zod`](https://github.com/colinhacks/zod)

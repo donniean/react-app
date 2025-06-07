@@ -48,7 +48,8 @@
     "test": "vitest run --passWithNoTests",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "tw-theme:gen": "npx tailwind-preset-mantine src/styles/theme.ts --output src/styles/theme.css"
   },
   "dependencies": {
     "@lingui/core": "^5.3.2",

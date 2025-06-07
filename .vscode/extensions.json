@@ -1,3 +1,7 @@
 {
-  "recommendations": ["lokalise.i18n-ally", "mrorz.language-gettext"]
+  "recommendations": [
+    "lokalise.i18n-ally",
+    "mrorz.language-gettext",
+    "stivo.tailwind-fold"
+  ]
 }

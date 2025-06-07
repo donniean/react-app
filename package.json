@@ -65,7 +65,8 @@
     "react-dom": "^19.1.0",
     "react-error-boundary": "^6.0.0",
     "react-router": "^7.6.2",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.0",
+    "tailwind-preset-mantine": "^2.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

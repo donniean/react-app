@@ -78,7 +78,7 @@
     "@lingui/babel-plugin-lingui-macro": "^5.3.2",
     "@lingui/cli": "^5.3.2",
     "@lingui/vite-plugin": "^5.3.2",
-    "@tailwindcss/vite": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.10",
     "@tanstack/eslint-plugin-query": "^5.78.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^24.0.0",

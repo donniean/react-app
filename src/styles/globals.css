@@ -6,6 +6,7 @@
   }
 
   body {
+    min-height: 100%;
     min-height: 100vh;
     min-height: 100dvh;
     padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0)
@@ -16,6 +17,7 @@
   #root {
     display: flex;
     flex-direction: column;
+    min-height: 100%;
     min-height: 100vh;
     min-height: 100dvh;
     overflow-x: hidden;

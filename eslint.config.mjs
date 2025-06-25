@@ -164,6 +164,7 @@ export default typescriptEslint.config([
           // 'newlines-between-types': 'always',
         },
       ],
+      'import-x/prefer-namespace-import': 'error',
     },
     settings: {
       'import-x/resolver-next': [eslintPluginImportX.createNodeResolver()],

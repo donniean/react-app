@@ -7,6 +7,5 @@
     "node_modules/@mantine/core/styles.css"
   ],
   "i18n-ally.localesPaths": ["src/locales/"],
-  "tailwind-fold.autoFold": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

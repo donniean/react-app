@@ -300,10 +300,15 @@ export default typescriptEslint.config([
     },
   },
   {
-    name: 'custom/lingui',
+    name: 'lingui/recommended',
     files: ['src/**'],
     ignores: ['src/**/*.test.ts'],
     extends: [eslintPluginLingui.configs['flat/recommended']],
+  },
+  {
+    name: 'custom/lingui',
+    files: ['src/**'],
+    ignores: ['src/**/*.test.ts', 'src/**/*.mock.ts', 'src/**/__mocks__/**'],
     rules: {
       // cSpell: ignore unlocalized
       'lingui/no-unlocalized-strings': [
@@ -316,6 +321,14 @@ export default typescriptEslint.config([
             // Ignore UPPERCASE literals
             // Example: const test = "FOO"
             '^[A-Z0-9_-]+$',
+            // Ignore CSS color values (hex, rgb, rgba)
+            '^#[0-9a-fA-F]{3,8}$',
+            String.raw`^rgba?\(`,
+            // Ignore CSS measurement values (px, rem, em, %, etc.)
+            // cSpell: ignore vmin vmax
+            String.raw`^[0-9.]+\s*(px|rem|em|%|vh|vw|vmin|vmax|ch|ex)$`,
+            // Ignore CSS shadow values
+            String.raw`^[0-9px\s,.]+(rgba?\([^)]+\))?`,
           ],
           ignoreNames: [
             // Ignore matching className (case-insensitive)
@@ -332,6 +345,19 @@ export default typescriptEslint.config([
             'height',
             'displayName',
             'Authorization',
+            // CSS style properties
+            'boxShadow',
+            'backgroundColor',
+            'borderRadius',
+            'padding',
+            'margin',
+            'fontSize',
+            'fontFamily',
+            'color',
+            'border',
+            'background',
+            'transform',
+            'transition',
           ],
           ignoreFunctions: [
             'cva',

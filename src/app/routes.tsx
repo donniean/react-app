@@ -1,8 +1,8 @@
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import type { RouteObject } from 'react-router';
 
 import { RouteErrorBoundary } from '@/components/errors/route-error-boundary';
 
-const router = createBrowserRouter([
+export const routes: RouteObject[] = [
   {
     path: '/',
     lazy: async () => {
@@ -23,8 +23,4 @@ const router = createBrowserRouter([
       };
     },
   },
-]);
-
-export function AppRouter() {
-  return <RouterProvider router={router} />;
-}
+];

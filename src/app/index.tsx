@@ -1,31 +1,25 @@
-import { MantineProvider } from '@mantine/core';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Suspense } from 'react';
 
 import { AppLoader } from '@/components/ui/app-loader';
-import { env } from '@/config/env';
-import { theme } from '@/styles/mantine.theme';
 
-import { AppErrorBoundary } from './error-boundary';
-import { AppI18nProvider } from './i18n';
-import { AppRouter } from './router';
-
-const queryClient = new QueryClient();
+import { AppErrorBoundary } from './providers/error-boundary';
+import { AppI18nProvider } from './providers/i18n';
+import { AppMantineProvider } from './providers/mantine';
+import { AppQueryProvider } from './providers/react-query';
+import { AppRouter } from './providers/router';
 
 export function App() {
   return (
-    <MantineProvider theme={theme}>
+    <AppMantineProvider>
       <AppI18nProvider>
-        <QueryClientProvider client={queryClient}>
-          {env.isDevelopment && <ReactQueryDevtools />}
+        <AppQueryProvider>
           <AppErrorBoundary>
             <Suspense fallback={<AppLoader />}>
               <AppRouter />
             </Suspense>
           </AppErrorBoundary>
-        </QueryClientProvider>
+        </AppQueryProvider>
       </AppI18nProvider>
-    </MantineProvider>
+    </AppMantineProvider>
   );
 }

@@ -2,7 +2,15 @@ import type { RouteObject } from 'react-router';
 
 import { RouteErrorBoundary } from '@/components/errors/route-error-boundary';
 
-export const routes: RouteObject[] = [
+function createRoutes(routers: RouteObject[]): RouteObject[] {
+  return routers.map((route) => ({
+    // https://github.com/remix-run/react-router/issues/12563#issuecomment-2888614210
+    HydrateFallback: () => null,
+    ...route,
+  }));
+}
+
+export const routes = createRoutes([
   {
     path: '/',
     lazy: async () => {
@@ -23,4 +31,4 @@ export const routes: RouteObject[] = [
       };
     },
   },
-];
+]);

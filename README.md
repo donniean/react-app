@@ -32,8 +32,8 @@ npm preview
 - `vite.config.mjs`
 - `.env` and `.env,*`
 - `index.html`
-- `src/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
-- `src/styles/theme.ts` and [Custom mantine theme](https://github.com/songkeys/tailwind-preset-mantine?tab=readme-ov-file#custom-mantine-theme)
+- `src/@types/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
+- `src/styles/mantine.theme.ts` and [Custom mantine theme](https://github.com/songkeys/tailwind-preset-mantine?tab=readme-ov-file#custom-mantine-theme)
 
 ## Testing
 

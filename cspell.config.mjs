@@ -37,7 +37,6 @@ export default defineConfig({
     'deepmerge',
     'htmlhint',
     'immer',
-    'lingui',
     'mantine',
     'markdownlint',
     'npmjs',
@@ -74,6 +73,5 @@ export default defineConfig({
     '**/.htmlhintrc',
     '.*ignore',
     '.gitattributes',
-    'src/locales/*/*.ts', //lingui
   ],
 });

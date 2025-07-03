@@ -5,7 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import { env } from '@/config/env';
-import { DEFAULT_NAMESPACE } from '@/constants/i18n';
+import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from '@/constants/i18n';
 
 import { backend } from './backend';
 import { namespaces } from './utils';
@@ -20,7 +20,7 @@ void i18n
     fallbackLng: {
       zh: ['zh-Hans'],
       'zh-CN': ['zh-Hans'],
-      default: ['en'],
+      default: [DEFAULT_LOCALE],
     },
     // cspell: ignore Lngs
     nonExplicitSupportedLngs: true,

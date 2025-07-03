@@ -72,6 +72,7 @@
     "tailwind-preset-mantine": "^2.1.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.0.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",

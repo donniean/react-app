@@ -1,4 +1,3 @@
-import { lingui } from '@lingui/vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
@@ -36,13 +35,9 @@ export default defineConfig(({ mode }) => {
       tsconfigPaths(),
       react({
         babel: {
-          plugins: [
-            'babel-plugin-react-compiler',
-            '@lingui/babel-plugin-lingui-macro',
-          ],
+          plugins: ['babel-plugin-react-compiler'],
         },
       }),
-      lingui(),
       svgr(),
       tailwindcss(),
       checker({

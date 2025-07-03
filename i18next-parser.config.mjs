@@ -1,5 +1,6 @@
 export default {
   defaultNamespace: 'common',
+  keySeparator: false,
   lineEnding: 'lf',
   locales: ['en', 'zh-Hans'],
   output: 'src/locales/$LOCALE/$NAMESPACE.json',
@@ -11,5 +12,4 @@ export default {
     '!src/**/__mocks__/**',
     '!src/examples/**',
   ],
-  sort: true,
 };

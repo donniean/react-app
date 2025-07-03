@@ -1,4 +1,4 @@
-const modules = import.meta.glob('../../locales/**/*.json');
+const modules = import.meta.glob('../../locales/*/*.json');
 
 const namespaces = [
   ...new Set(

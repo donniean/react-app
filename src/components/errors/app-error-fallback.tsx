@@ -1,6 +1,6 @@
-import { Trans } from '@lingui/react/macro';
 import { Button, Center, Code, Text, Title } from '@mantine/core';
 import type { FallbackProps } from 'react-error-boundary';
+import { useTranslation } from 'react-i18next';
 
 import { env } from '@/config/env';
 
@@ -8,6 +8,8 @@ export function AppErrorFallback({
   error,
   resetErrorBoundary,
 }: Readonly<FallbackProps>) {
+  const { t } = useTranslation('errors');
+
   let description = '';
   let stack: string | undefined;
 
@@ -18,14 +20,10 @@ export function AppErrorFallback({
 
   return (
     <Center className="h-screen w-screen flex-col gap-y-4" role="alert">
-      <Title order={1}>
-        <Trans>Something went wrong</Trans>
-      </Title>
+      <Title order={1}>{t('appError.title')}</Title>
       {description && <Text>{description}</Text>}
       {stack && <Code block>{stack}</Code>}
-      <Button onClick={resetErrorBoundary}>
-        <Trans>Retry</Trans>
-      </Button>
+      <Button onClick={resetErrorBoundary}>{t('appError.button.retry')}</Button>
     </Center>
   );
 }

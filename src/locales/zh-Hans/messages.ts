@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages=JSON.parse("{\"+iq0WF\":[\"404 - 页面不存在\"],\"lxentK\":[\"发生意外错误\"],\"RkxVsO\":[\"你好 React\"],\"6gRgw8\":[\"重试\"],\"aPElPb\":[\"返回首页\"],\"nwtY4N\":[\"出了点问题\"]}")as Messages;
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages=JSON.parse("{}")as Messages;

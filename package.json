@@ -14,6 +14,12 @@
   "author": "Donnie An",
   "type": "module",
   "scripts": {
+    "biome:check": "@biomejs/biome check",
+    "biome:check:write": "@biomejs/biome check --write",
+    "biome:format": "@biomejs/biome format",
+    "biome:format:write": "@biomejs/biome format --write",
+    "biome:lint": "@biomejs/biome lint",
+    "biome:lint:write": "@biomejs/biome lint --write",
     "build": "npm run i18n:types && tsc && vite build",
     "dev": "vite",
     "docker:build": "docker buildx build --tag donniean/react-app --push .",

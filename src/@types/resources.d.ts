@@ -1,0 +1,15 @@
+interface Resources {
+  common: {
+    hello: 'Hello {{entity}}';
+    react: 'React';
+  };
+  errors: {
+    'appError.title': 'Something went wrong';
+    'appError.button.retry': 'Retry';
+    'routeError.title': 'An unexpected error occurred';
+    'notFound.title': '404 - Not Found';
+    'notFound.button.back': 'Back to Home';
+  };
+}
+
+export default Resources;

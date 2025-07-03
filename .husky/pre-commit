@@ -1,2 +1,2 @@
-npm run i18n:ci
+npm run i18n:types
 npx lint-staged --concurrent false

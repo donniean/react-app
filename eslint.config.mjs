@@ -9,9 +9,9 @@ import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import eslintPluginI18next from 'eslint-plugin-i18next';
 import * as eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
-import eslintPluginLingui from 'eslint-plugin-lingui';
 import eslintPluginN from 'eslint-plugin-n';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
@@ -34,6 +34,7 @@ const nodeGlobs = [
   '**/commitlint.config.{js,mjs,cjs,ts}',
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
+  '**/i18next-parser.config.{js,mjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
   '**/lingui.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
@@ -300,95 +301,16 @@ export default typescriptEslint.config([
     },
   },
   {
-    name: 'lingui/recommended',
+    name: 'i18next/recommended',
     files: ['src/**'],
-    ignores: ['src/**/*.test.ts'],
-    extends: [eslintPluginLingui.configs['flat/recommended']],
-  },
-  {
-    name: 'custom/lingui',
-    files: ['src/**'],
-    ignores: ['src/**/*.test.ts', 'src/**/*.mock.ts', 'src/**/__mocks__/**'],
-    rules: {
-      // cSpell: ignore unlocalized
-      'lingui/no-unlocalized-strings': [
-        'error',
-        {
-          ignore: [
-            // Ignore strings which are a single "word" (no spaces)
-            // and doesn't start with an uppercase letter
-            String.raw`^(?![A-Z])\S+$`,
-            // Ignore UPPERCASE literals
-            // Example: const test = "FOO"
-            '^[A-Z0-9_-]+$',
-            // Ignore CSS color values (hex, rgb, rgba)
-            '^#[0-9a-fA-F]{3,8}$',
-            String.raw`^rgba?\(`,
-            // Ignore CSS measurement values (px, rem, em, %, etc.)
-            // cSpell: ignore vmin vmax
-            String.raw`^[0-9.]+\s*(px|rem|em|%|vh|vw|vmin|vmax|ch|ex)$`,
-            // Ignore CSS shadow values
-            String.raw`^[0-9px\s,.]+(rgba?\([^)]+\))?`,
-          ],
-          ignoreNames: [
-            // Ignore matching className (case-insensitive)
-            { regex: { pattern: 'className', flags: 'i' } },
-            // Ignore UPPERCASE names
-            // Example: test.FOO = "ola!"
-            { regex: { pattern: '^[A-Z0-9_-]+$' } },
-            'styleName',
-            'src',
-            'srcSet',
-            'type',
-            'id',
-            'width',
-            'height',
-            'displayName',
-            'Authorization',
-            // CSS style properties
-            'boxShadow',
-            'backgroundColor',
-            'borderRadius',
-            'padding',
-            'margin',
-            'fontSize',
-            'fontFamily',
-            'color',
-            'border',
-            'background',
-            'transform',
-            'transition',
-          ],
-          ignoreFunctions: [
-            'cva',
-            'cn',
-            'track',
-            'Error',
-            'console.*',
-            '*headers.set',
-            '*.addEventListener',
-            '*.removeEventListener',
-            '*.postMessage',
-            '*.getElementById',
-            '*.dispatch',
-            '*.commit',
-            '*.includes',
-            '*.indexOf',
-            '*.endsWith',
-            '*.startsWith',
-            'require',
-          ],
-          // Following settings require typed linting https://typescript-eslint.io/getting-started/typed-linting/
-          useTsTypes: true,
-          ignoreMethodsOnTypes: [
-            // Ignore specified methods on Map and Set types
-            'Map.get',
-            'Map.has',
-            'Set.has',
-          ],
-        },
-      ],
-    },
+    ignores: [
+      'src/**/*.test.ts',
+      'src/**/*.mock.ts',
+      'src/**/__tests__/**',
+      'src/**/__mocks__/**',
+      'src/examples/**',
+    ],
+    extends: [eslintPluginI18next.configs['flat/recommended']],
   },
   {
     name: 'custom/node',

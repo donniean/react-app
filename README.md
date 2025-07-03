@@ -35,7 +35,7 @@ npm preview
 - `src/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
 - `src/styles/theme.ts` and [Custom mantine theme](https://github.com/songkeys/tailwind-preset-mantine?tab=readme-ov-file#custom-mantine-theme)
 
-## 5.Testing
+## Testing
 
 ```bash
 npm test
@@ -44,13 +44,13 @@ npm test:watch
 npm test:ui
 ```
 
-## 6.Localization
+## Localization
 
 ```bash
-npm run i18n:ci
+npm run i18n:types
 ```
 
-## 7.Lint & Format
+## Lint & Format
 
 ```bash
 npm lint
@@ -69,7 +69,6 @@ npm lint:fix
 - [`immer`](https://github.com/immerjs/immer)
 - [`use-immer`](https://github.com/immerjs/use-immer)
 - [`zustand`](https://github.com/pmndrs/zustand)
-- [`react-i18next`](https://github.com/i18next/react-i18next)
 - [`@tanstack/react-table`](https://github.com/tanstack/table)
 - [`react-hook-form`](https://github.com/react-hook-form/react-hook-form)
 - [`recharts`](https://github.com/recharts/recharts)

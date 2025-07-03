@@ -36,7 +36,6 @@ const nodeGlobs = [
   '**/eslint.config.{js,mjs,cjs,ts}',
   '**/i18next-parser.config.{js,mjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
-  '**/lingui.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
   '**/prettier.config.{js,mjs,cjs,ts}',
   '**/rollup.config.{js,mjs,cjs,ts}',
@@ -53,10 +52,7 @@ export default typescriptEslint.config([
     name: 'custom/gitignore',
   },
   {
-    ignores: [
-      '**/*.min.*',
-      'src/locales/*/*.ts', //lingui
-    ],
+    ignores: ['**/*.min.*'],
     name: 'custom/ignore',
   },
   {

@@ -5,19 +5,18 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import { env } from '@/config/env';
-import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from '@/constants/i18n';
+import { DEFAULT_NAMESPACE } from '@/constants/i18n';
 
 import { backend } from './backend';
 import { namespaces } from './utils';
 
 // eslint-disable-next-line import-x/no-named-as-default-member
-await i18n
+void i18n
   .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    lng: DEFAULT_LOCALE,
     fallbackLng: {
       zh: ['zh-Hans'],
       'zh-CN': ['zh-Hans'],

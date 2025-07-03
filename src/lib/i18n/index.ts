@@ -11,7 +11,7 @@ import { backend } from './backend';
 import { namespaces } from './utils';
 
 // eslint-disable-next-line import-x/no-named-as-default-member
-void i18n
+await i18n
   .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)

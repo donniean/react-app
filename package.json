@@ -14,7 +14,7 @@
   "author": "Donnie An",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "npm run i18n:types && tsc && vite build",
     "dev": "vite",
     "docker:build": "docker buildx build --tag donniean/react-app --push .",
     "docker:build:multi": "docker buildx build --platform linux/amd64,linux/arm64 --tag donniean/react-app --push .",

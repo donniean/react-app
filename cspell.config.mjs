@@ -26,6 +26,8 @@ export default defineConfig({
     'stylelintrc',
     // Git
     'signoff',
+    // glossary
+    'navs',
     // nginx
     'proxied',
     // npm

@@ -59,8 +59,8 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@mantine/core": "^8.1.2",
-    "@mantine/hooks": "^8.1.2",
+    "@mantine/core": "^8.1.3",
+    "@mantine/hooks": "^8.1.3",
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-query-devtools": "^5.81.5",
     "clsx": "^2.1.1",
@@ -133,10 +133,10 @@
     "stylelint-config-standard": "^38.0.0",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.35.1",
+    "typescript-eslint": "^8.36.0",
     "typescript-plugin-css-modules": "^5.1.0",
-    "vite": "^7.0.2",
-    "vite-plugin-checker": "^0.9.3",
+    "vite": "^7.0.3",
+    "vite-plugin-checker": "^0.10.0",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"

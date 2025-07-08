@@ -20,10 +20,10 @@ export function AppErrorFallback({
 
   return (
     <Center className="h-screen w-screen flex-col gap-y-4" role="alert">
-      <Title order={1}>{t('appError.title')}</Title>
+      <Title order={1}>{t('app.title')}</Title>
       {description && <Text>{description}</Text>}
       {stack && <Code block>{stack}</Code>}
-      <Button onClick={resetErrorBoundary}>{t('appError.button.retry')}</Button>
+      <Button onClick={resetErrorBoundary}>{t('app.actions.retry')}</Button>
     </Center>
   );
 }

@@ -21,7 +21,7 @@ export function RouteErrorBoundary() {
 
   return (
     <Center className="flex-col gap-y-4" role="alert">
-      <Title order={1}>{t('routeError.title')}</Title>
+      <Title order={1}>{t('route.title')}</Title>
       {description && <Text>{description}</Text>}
       {stack && <Code block>{stack}</Code>}
     </Center>

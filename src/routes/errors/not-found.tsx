@@ -9,7 +9,7 @@ export function NotFound() {
     <Center className="h-screen w-screen flex-col gap-y-4">
       <Title>{t('notFound.title')}</Title>
       <Button component={Link} to="/">
-        {t('notFound.button.back')}
+        {t('notFound.actions.back')}
       </Button>
     </Center>
   );

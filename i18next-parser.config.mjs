@@ -1,8 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+const localesPath = path.resolve('src/locales/');
+const entries = fs.readdirSync(localesPath, { withFileTypes: true });
+const dirNames = entries
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name);
+
 export default {
   defaultNamespace: 'common',
   keySeparator: false,
   lineEnding: 'lf',
-  locales: ['en', 'zh-Hans'],
+  locales: dirNames,
   output: 'src/locales/$LOCALE/$NAMESPACE.json',
   input: [
     'src/**/*.{ts,tsx}',
@@ -12,4 +21,5 @@ export default {
     '!src/**/__mocks__/**',
     '!src/examples/**',
   ],
+  sort: true,
 };

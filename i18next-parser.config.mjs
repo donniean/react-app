@@ -1,7 +1,8 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
-const localesPath = path.resolve('src/locales/');
+import { resolveRoot } from './config/paths.mjs';
+
+const localesPath = resolveRoot('src', 'locales');
 const entries = fs.readdirSync(localesPath, { withFileTypes: true });
 const dirNames = entries
   .filter((entry) => entry.isDirectory())

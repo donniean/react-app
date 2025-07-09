@@ -1,7 +1,7 @@
 {
-  "app.title": "出了点问题",
   "app.actions.retry": "重试",
-  "route.title": "发生意外错误",
+  "app.title": "出了点问题",
+  "notFound.actions.back": "返回首页",
   "notFound.title": "404 - 页面不存在",
-  "notFound.actions.back": "返回首页"
+  "route.title": "发生意外错误"
 }

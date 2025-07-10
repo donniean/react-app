@@ -10,7 +10,7 @@ export function Root() {
   const { t } = useTranslation(['common', 'glossary']);
 
   return (
-    <Flex className="flex-col items-center justify-center p-[32px]">
+    <Flex className="flex-col items-center justify-center gap-y-[16px] p-[32px]">
       <Logo className={styles.logo} height={128} width={128} />
       <Title className={cn('text-5xl', 'text-primary')} order={1}>
         {t('hello', {

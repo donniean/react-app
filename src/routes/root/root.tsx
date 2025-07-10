@@ -1,4 +1,4 @@
-import { Box, Title } from '@mantine/core';
+import { Flex, Title } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/assets/images/logo.svg?react';
@@ -10,7 +10,7 @@ export function Root() {
   const { t } = useTranslation(['common', 'glossary']);
 
   return (
-    <Box className="flex flex-col items-center justify-center p-[32px]">
+    <Flex className="flex-col items-center justify-center p-[32px]">
       <Logo className={styles.logo} height={128} width={128} />
       <Title className={cn('text-5xl', 'text-primary')} order={1}>
         {t('hello', {
@@ -18,6 +18,6 @@ export function Root() {
           entity: t('term.react', { ns: 'glossary' }),
         })}
       </Title>
-    </Box>
+    </Flex>
   );
 }

@@ -112,7 +112,7 @@
     "husky": "^9.1.7",
     "i18next-parser": "^9.3.0",
     "i18next-resources-for-ts": "^1.6.0",
-    "knip": "^5.61.3",
+    "knip": "^5.62.0",
     "lint-staged": "^16.1.2",
     "markdownlint-cli": "^0.45.0",
     "prettier": "^3.6.2",

@@ -22,6 +22,21 @@ export const routes = createRoutes([
     },
   },
   {
+    path: '/errors',
+    children: [
+      {
+        path: 'not-found',
+        lazy: async () => {
+          const { NotFound } = await import('@/routes/errors/not-found');
+          return {
+            Component: NotFound,
+            ErrorBoundary: RouteErrorBoundary,
+          };
+        },
+      },
+    ],
+  },
+  {
     path: '*',
     lazy: async () => {
       const { NotFound } = await import('@/routes/errors/not-found');

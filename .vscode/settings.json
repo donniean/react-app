@@ -1,11 +1,4 @@
 {
-  "cssVariables.lookupFiles": [
-    "**/*.css",
-    "**/*.scss",
-    "**/*.sass",
-    "**/*.less",
-    "node_modules/@mantine/core/styles.css"
-  ],
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.localesPaths": ["src/locales/"],
   "i18n-ally.namespace": true,

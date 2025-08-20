@@ -1,5 +1,3 @@
-@import 'tailwind-preset-mantine';
-
 @layer base {
   html {
     height: 100%;

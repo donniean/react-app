@@ -26,7 +26,11 @@ export function AppErrorFallback({
           <code>{stack}</code>
         </pre>
       )}
-      <button type="button" onClick={resetErrorBoundary}>
+      <button
+        className="bg-primary hover:bg-primary/90 rounded-md px-4 py-2 text-white shadow-sm"
+        type="button"
+        onClick={resetErrorBoundary}
+      >
         {t('app.actions.retry')}
       </button>
     </div>

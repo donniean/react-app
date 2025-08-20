@@ -19,11 +19,11 @@ export function RouteErrorBoundary() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-y-4">
+    <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4">
       <h1>{t('route.title')}</h1>
       {description && <p>{description}</p>}
       {stack && (
-        <pre>
+        <pre className="max-w-full overflow-auto rounded bg-gray-100 p-4 text-xs">
           <code>{stack}</code>
         </pre>
       )}

@@ -23,8 +23,8 @@ npm run dev
 ## Build & Preview
 
 ```bash
-npm build
-npm preview
+npm run build
+npm run preview
 ```
 
 ## Customize

@@ -1,8 +1,6 @@
-import { Flex, Title } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/assets/images/logo.svg?react';
-import { cn } from '@/utils/cn';
 
 import styles from './root.module.css';
 
@@ -10,14 +8,14 @@ export function Root() {
   const { t } = useTranslation(['common', 'glossary']);
 
   return (
-    <Flex className="flex-col items-center justify-center gap-y-4 p-8">
+    <div className="flex flex-col items-center justify-center gap-y-4 p-8">
       <Logo className={styles.logo} height={128} width={128} />
-      <Title className={cn('text-5xl', 'text-primary')} order={1}>
+      <h1 className={'text-primary text-5xl'}>
         {t('hello', {
           ns: 'common',
           entity: t('term.react', { ns: 'glossary' }),
         })}
-      </Title>
-    </Flex>
+      </h1>
+    </div>
   );
 }

@@ -1,4 +1,8 @@
-@import 'tailwind-preset-mantine';
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #61dafb;
+}
 
 @layer base {
   html {

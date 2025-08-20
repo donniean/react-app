@@ -1,4 +1,3 @@
-import { Center, Code, Text, Title } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { isRouteErrorResponse, useRouteError } from 'react-router';
 
@@ -20,10 +19,14 @@ export function RouteErrorBoundary() {
   }
 
   return (
-    <Center className="flex-col gap-y-4" role="alert">
-      <Title order={1}>{t('route.title')}</Title>
-      {description && <Text>{description}</Text>}
-      {stack && <Code block>{stack}</Code>}
-    </Center>
+    <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4">
+      <h1>{t('route.title')}</h1>
+      {description && <p>{description}</p>}
+      {stack && (
+        <pre className="max-w-full overflow-auto rounded bg-gray-100 p-4 text-xs">
+          <code>{stack}</code>
+        </pre>
+      )}
+    </div>
   );
 }

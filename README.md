@@ -33,7 +33,6 @@ npm preview
 - `.env` and `.env,*`
 - `index.html`
 - `src/@types/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
-- `src/styles/mantine.theme.ts` and [Custom mantine theme](https://github.com/songkeys/tailwind-preset-mantine?tab=readme-ov-file#custom-mantine-theme)
 
 ## Testing
 
@@ -78,7 +77,6 @@ npm lint:fix
 
 - [Bulletproof React](https://github.com/alan2207/bulletproof-react)
 - [React + TypeScript + Vite template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts)
-- [Mantine Vite template](https://github.com/mantinedev/vite-template)
 
 ## License
 

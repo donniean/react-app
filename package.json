@@ -109,7 +109,7 @@
     "htmlhint": "^1.6.3",
     "husky": "^9.1.7",
     "i18next-parser": "^9.3.0",
-    "i18next-resources-for-ts": "^1.7.1",
+    "i18next-resources-for-ts": "^1.7.2",
     "knip": "^5.63.1",
     "lint-staged": "^16.1.6",
     "markdownlint-cli": "^0.45.0",

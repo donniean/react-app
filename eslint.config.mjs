@@ -299,13 +299,6 @@ export default defineConfig([
       ],
     },
   },
-  // {
-  //   files: ['src/**/*.{js,jsx,ts,tsx}'],
-  //   plugins: {
-  //     'react-hooks': eslintPluginReactHooks,
-  //   },
-  //   extends: ['react-hooks/recommended'],
-  // },
   {
     name: 'i18next/recommended',
     files: ['src/**'],

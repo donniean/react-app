@@ -7,6 +7,7 @@ import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
+import { defineConfig } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import eslintPluginI18next from 'eslint-plugin-i18next';
@@ -15,7 +16,6 @@ import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginN from 'eslint-plugin-n';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
@@ -46,7 +46,7 @@ const nodeGlobs = [
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
 
-export default typescriptEslint.config([
+export default defineConfig([
   {
     ...includeIgnoreFile(gitignorePath),
     name: 'custom/gitignore',
@@ -246,10 +246,13 @@ export default typescriptEslint.config([
   {
     name: 'custom/react',
     files: ['src/**'],
+    plugins: {
+      // 'react-hooks': eslintPluginReactHooks,
+    },
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
-      eslintPluginReactHooks.configs.recommended,
+      // 'react-hooks/recommended',
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
       eslintPluginQuery.configs['flat/recommended'],
@@ -296,6 +299,13 @@ export default typescriptEslint.config([
       ],
     },
   },
+  // {
+  //   files: ['src/**/*.{js,jsx,ts,tsx}'],
+  //   plugins: {
+  //     'react-hooks': eslintPluginReactHooks,
+  //   },
+  //   extends: ['react-hooks/recommended'],
+  // },
   {
     name: 'i18next/recommended',
     files: ['src/**'],

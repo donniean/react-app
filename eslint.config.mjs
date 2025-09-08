@@ -16,6 +16,7 @@ import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginN from 'eslint-plugin-n';
 import eslintPluginPromise from 'eslint-plugin-promise';
 import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
@@ -246,13 +247,10 @@ export default defineConfig([
   {
     name: 'custom/react',
     files: ['src/**'],
-    plugins: {
-      // 'react-hooks': eslintPluginReactHooks,
-    },
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
-      // 'react-hooks/recommended',
+      eslintPluginReactHooks.configs.recommended,
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
       eslintPluginQuery.configs['flat/recommended'],

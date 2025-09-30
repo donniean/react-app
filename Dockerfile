@@ -1,4 +1,4 @@
-FROM node:lts-slim AS builder
+FROM node:lts-alpine AS builder
 
 WORKDIR /app
 
@@ -8,13 +8,16 @@ RUN npm ci
 
 COPY . .
 
+ENV NODE_ENV=production
 RUN npm run build
+
 
 FROM nginx:stable-alpine
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

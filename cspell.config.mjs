@@ -70,6 +70,7 @@ export default defineConfig({
     '**/package-lock.json',
     '**/yarn.lock',
     '**/pnpm-lock.yaml',
+    '**/pnpm-workspace.yaml',
     '**/Dockerfile',
     '**/CHANGELOG.md',
     '**/.htmlhintrc',

@@ -1,3 +1,5 @@
-npm run i18n:types
-npm run i18n:check
-npx lint-staged --concurrent false
+#!/usr/bin/env sh
+
+pnpm run i18n:types
+pnpm run i18n:check
+pnpm exec lint-staged --concurrent false

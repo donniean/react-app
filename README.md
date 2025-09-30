@@ -11,20 +11,20 @@ A personal React starter.
 ## Install
 
 ```sh
-npm install
+pnpm install
 ```
 
 ## Development
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 ## Build & Preview
 
 ```bash
-npm run build
-npm run preview
+pnpm run build
+pnpm run preview
 ```
 
 ## Customize
@@ -37,23 +37,23 @@ npm run preview
 ## Testing
 
 ```bash
-npm test
-npm test:coverage
-npm test:watch
-npm test:ui
+pnpm test
+pnpm test:coverage
+pnpm test:watch
+pnpm test:ui
 ```
 
 ## Localization
 
 ```bash
-npm run i18n:types
+pnpm run i18n:types
 ```
 
 ## Lint & Format
 
 ```bash
-npm lint
-npm lint:fix
+pnpm lint
+pnpm lint:fix
 ```
 
 ## Recommended Packages

@@ -1,15 +1,15 @@
-FROM node:lts-alpine AS builder
+FROM node:lts-slim AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN npm ci
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
 ENV NODE_ENV=production
-RUN npm run build
+RUN pnpm run build
 
 
 FROM nginx:stable-alpine

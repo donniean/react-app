@@ -248,7 +248,7 @@ export default defineConfig([
     extends: [
       eslintPluginReact.configs.flat.recommended,
       eslintPluginReact.configs.flat['jsx-runtime'],
-      eslintPluginReactHooks.configs.recommended,
+      eslintPluginReactHooks.configs.flat['recommended-latest'],
       eslintPluginJsxA11y.flatConfigs.recommended,
       eslintPluginReactRefresh.configs.vite,
       eslintPluginQuery.configs['flat/recommended'],

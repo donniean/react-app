@@ -2,4 +2,4 @@
 
 pnpm run i18n:types
 pnpm run i18n:check
-pnpm exec lint-staged --concurrent false
+lint-staged --concurrent false

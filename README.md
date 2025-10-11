@@ -81,5 +81,3 @@ pnpm lint:fix
 ## License
 
 [MIT](./LICENSE)
-
-<!-- test -->

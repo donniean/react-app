@@ -35,7 +35,6 @@ export default defineConfig({
   },
 });
 
-/** @type {import('i18next-cli').I18nextToolkitConfig} */
 defineConfig({
   locales: ['en'],
   extract: {

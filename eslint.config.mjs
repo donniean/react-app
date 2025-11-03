@@ -33,7 +33,7 @@ const nodeGlobs = [
   '**/commitlint.config.{js,mjs,cjs,ts}',
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
-  '**/i18next-parser.config.{js,mjs,ts}',
+  '**/i18next.config.{js,mjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
   '**/prettier.config.{js,mjs,cjs,ts}',
@@ -219,6 +219,9 @@ export default defineConfig([
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/member-ordering': 'error',
+      // TEMP: disable due to rule crash "typeParameters.params is not iterable"
+      // Ref: https://github.com/typescript-eslint/typescript-eslint/issues/11732
+      '@typescript-eslint/unified-signatures': 'off',
     },
   },
   {

@@ -2,6 +2,7 @@ engineStrict: true
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
+  - '@swc/core'
   - '@tailwindcss/oxide'
   - esbuild
   - oxc-resolver

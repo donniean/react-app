@@ -39,7 +39,7 @@
 
     // checkJs
     "allowJs": true,
-    "checkJs": true
+    "checkJs": false
   },
   "include": ["**/*.ts"],
   "exclude": ["src/"]

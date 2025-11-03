@@ -19,7 +19,7 @@ export function AppErrorFallback({
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4">
-      <h1>{t('app.title')}</h1>
+      <h1>{t(($) => $['app.title'])}</h1>
       {description && <p>{description}</p>}
       {stack && (
         <pre className="max-w-full overflow-auto rounded bg-gray-100 p-4 text-xs">
@@ -31,7 +31,7 @@ export function AppErrorFallback({
         type="button"
         onClick={resetErrorBoundary}
       >
-        {t('app.actions.retry')}
+        {t(($) => $['app.actions.retry'])}
       </button>
     </div>
   );

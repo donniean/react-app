@@ -14,7 +14,7 @@
   "author": "Donnie An",
   "type": "module",
   "scripts": {
-    "build": "pnpm run i18n:types && tsc && vite build",
+    "build": "pnpm run i18n:types && tsc --build && vite build",
     "dev": "vite",
     "docker:build": "docker buildx build --tag donniean/react-app --push .",
     "docker:build:multi": "docker buildx build --platform linux/amd64,linux/arm64 --tag donniean/react-app --push .",
@@ -43,7 +43,7 @@
     "lint:spell": "cspell lint --no-progress --no-must-find-files --dot --gitignore .",
     "lint:text": "autocorrect --lint",
     "lint:text:fix": "autocorrect --fix",
-    "lint:types": "tsc --noEmit",
+    "lint:types": "tsc --project tsconfig.app.json && tsc --project tsconfig.node.json",
     "ncu": "pnpm dlx npm-check-updates --deep",
     "ncu:upgrade": "pnpm run ncu --upgrade",
     "prepare": "husky",

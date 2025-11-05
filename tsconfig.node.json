@@ -10,10 +10,10 @@
       "ESNext.Iterator",
       "ESNext.Promise"
     ],
-    "module": "NodeNext",
+    "module": "Preserve",
     "types": ["node"],
 
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "Bundler"
   },
   "exclude": ["src/"]
 }

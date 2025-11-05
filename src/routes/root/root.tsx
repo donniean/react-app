@@ -9,7 +9,7 @@ export function Root() {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4 p-8">
-      <Logo className={styles.logo} height={128} width={128} />
+      <Logo className={styles['logo']} height={128} width={128} />
       <h1 className={'text-primary text-5xl'}>
         {t(($) => $.hello, {
           ns: 'common',

@@ -2,8 +2,7 @@ import fs from 'node:fs';
 
 import { defineConfig } from 'i18next-cli';
 
-import { resolveRoot } from './config/paths.mjs';
-import { DEFAULT_NAMESPACE } from './src/constants/i18n';
+import { resolveRoot } from './config/paths';
 
 const localesPath = resolveRoot('src', 'locales');
 const entries = fs.readdirSync(localesPath, { withFileTypes: true });
@@ -23,22 +22,15 @@ export default defineConfig({
       'src/**/__mocks__/**',
     ],
     // outputFormat: 'ts',
-    defaultNS: DEFAULT_NAMESPACE,
+    defaultNS: 'common',
     keySeparator: false,
     sort: true,
+    primaryLanguage: 'en',
   },
   types: {
     input: ['src/locales/en/*.json'],
     output: 'src/@types/i18next.d.ts',
     resourcesFile: 'src/@types/resources.d.ts',
     enableSelector: true,
-  },
-});
-
-defineConfig({
-  locales: ['en'],
-  extract: {
-    input: 'src/**/*.{js,jsx,ts,tsx}',
-    output: 'src/locales/{{language}}/{{namespace}}.json',
   },
 });

@@ -4,7 +4,7 @@ const dirname = import.meta.dirname;
 
 const rootPath = path.resolve(dirname, '..');
 
-function resolveRoot(...paths) {
+function resolveRoot(...paths: string[]) {
   return path.resolve(rootPath, ...paths);
 }
 

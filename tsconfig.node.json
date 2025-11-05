@@ -15,5 +15,6 @@
 
     "moduleResolution": "Bundler"
   },
+  "include": ["**/*.ts"],
   "exclude": ["src/"]
 }

@@ -15,6 +15,5 @@
 
     "moduleResolution": "NodeNext"
   },
-  "include": ["**/*.ts"],
   "exclude": ["src/"]
 }

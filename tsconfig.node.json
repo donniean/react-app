@@ -1,3 +1,4 @@
+// https://github.com/tsconfig/bases/blob/main/bases/node-ts.json
 // https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.node.json
 {
   "extends": "./tsconfig.base.json",
@@ -10,6 +11,8 @@
       "ESNext.Promise"
     ],
     "module": "NodeNext",
+    "types": ["node"],
+
     "moduleResolution": "NodeNext"
   },
   "include": ["**/*.ts"],

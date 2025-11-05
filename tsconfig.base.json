@@ -7,34 +7,34 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
 
     /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
     // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json
     "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
-
-    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strict.json
-    "strict": true,
+    "esModuleInterop": true,
+    "allowJs": true,
 
     // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json
-    "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
     // checkJs
-    "allowJs": true,
     "checkJs": true
   }
 }

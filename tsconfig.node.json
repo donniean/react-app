@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./tsconfig.node.tsbuildinfo"
+  },
+  // Keep empty to avoid overlapping/app imports
+  "files": []
+}

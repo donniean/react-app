@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.app.json
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
+  },
+  // Front-end sources only
+  "include": ["src/"]
+}

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 
 import { defineConfig } from 'i18next-cli';
 
-import { resolveRoot } from './config/paths';
+import { resolveRoot } from './config/paths.js';
 
 const localesPath = resolveRoot('src', 'locales');
 const entries = fs.readdirSync(localesPath, { withFileTypes: true });

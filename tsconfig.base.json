@@ -2,7 +2,6 @@
   "compilerOptions": {
     "composite": true,
 
-    // https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.app.json
     "target": "ES2022",
     "useDefineForClassFields": true,
     "skipLibCheck": true,

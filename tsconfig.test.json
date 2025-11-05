@@ -1,8 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./tsconfig.test.tsbuildinfo"
-  },
-  // Avoid overlapping with app project root files
-  "files": []
+  "include": ["**/__tests__/", "**/*.test.ts"]
 }

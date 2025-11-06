@@ -1,32 +1,33 @@
+/** @type {import('stylelint').Config} */
 export default {
   extends: [
-    'stylelint-config-standard',
-    'stylelint-config-css-modules',
-    'stylelint-config-recess-order',
+    "stylelint-config-standard",
+    "stylelint-config-css-modules",
+    "stylelint-config-recess-order",
   ],
   rules: {
-    'color-named': [
-      'never',
+    "color-named": [
+      "never",
       {
-        ignore: ['inside-function'],
+        ignore: ["inside-function"],
       },
     ],
     // Tailwind CSS
-    'at-rule-no-unknown': [
+    "at-rule-no-unknown": [
       true,
       {
         ignoreAtRules: [
-          'theme',
-          'source',
-          'utility',
-          'variant',
-          'custom-variant',
-          'plugin',
-          'apply',
-          'reference',
+          "theme",
+          "source",
+          "utility",
+          "variant",
+          "custom-variant",
+          "plugin",
+          "apply",
+          "reference",
         ],
       },
     ],
-    'import-notation': null,
+    "import-notation": null,
   },
 };

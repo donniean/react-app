@@ -2,6 +2,7 @@ import fs from 'node:fs';
 
 import { defineConfig } from 'i18next-cli';
 
+import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
 import { resolveRoot } from './config/paths';
 
 const localesPath = resolveRoot('src', 'locales');
@@ -21,11 +22,10 @@ export default defineConfig({
       'src/**/__tests__/**',
       'src/**/__mocks__/**',
     ],
-    // outputFormat: 'ts',
-    defaultNS: 'common',
+    defaultNS: DEFAULT_NAMESPACE,
     keySeparator: false,
     sort: true,
-    primaryLanguage: 'en',
+    primaryLanguage: DEFAULT_LOCALE,
   },
   types: {
     input: ['src/locales/en/*.json'],

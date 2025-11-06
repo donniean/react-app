@@ -28,7 +28,7 @@ export default defineConfig({
     primaryLanguage: DEFAULT_LOCALE,
   },
   types: {
-    input: ['src/locales/en/*.json'],
+    input: [resolveRoot(localesPath, DEFAULT_LOCALE, '*.json')],
     output: 'src/@types/i18next.d.ts',
     resourcesFile: 'src/@types/resources.d.ts',
     enableSelector: true,

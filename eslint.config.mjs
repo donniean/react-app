@@ -297,6 +297,7 @@ export default defineConfig([
     files: ['src/**'],
     ignores: [
       'src/**/*.test.ts',
+      'src/**/*.test.tsx',
       'src/**/*.mock.ts',
       'src/**/__tests__/**',
       'src/**/__mocks__/**',
@@ -323,7 +324,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['**/*.test.ts'],
+    files: ['**/__tests__/**', '**/*.test.ts', '**/*.test.tsx'],
     ...eslintPluginVitest.configs.recommended,
   },
   eslintConfigPrettier,

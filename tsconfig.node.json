@@ -16,5 +16,5 @@
     "moduleResolution": "bundler"
   },
   "include": ["**/*.ts"],
-  "exclude": ["src/"]
+  "exclude": ["src/", "**/__tests__/**", "**/*.test.ts", "**/*.test.tsx"]
 }

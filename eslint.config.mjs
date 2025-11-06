@@ -5,7 +5,7 @@ import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
 import eslintPluginVitest from '@vitest/eslint-plugin';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import eslintPluginI18next from 'eslint-plugin-i18next';
@@ -46,14 +46,8 @@ const nodeGlobs = [
 ];
 
 export default defineConfig([
-  {
-    ...includeIgnoreFile(gitignorePath),
-    name: 'custom/gitignore',
-  },
-  {
-    ignores: ['**/*.min.*'],
-    name: 'custom/ignore',
-  },
+  includeIgnoreFile(gitignorePath, 'custom/gitignore'),
+  globalIgnores(['**/*.min.*'], 'custom/ignore'),
   {
     name: 'custom/javascript/setup',
     languageOptions: {

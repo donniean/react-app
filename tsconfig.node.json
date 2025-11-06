@@ -1,45 +1,19 @@
+// https://github.com/tsconfig/bases/blob/main/bases/node-ts.json
+// https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.node.json
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    // https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.app.json
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+    "lib": [
+      "ES2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Iterator",
+      "ESNext.Promise"
+    ],
+    "module": "preserve",
+    "types": ["node"],
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "noUncheckedSideEffectImports": true,
-
-    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json
-    "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
-    "forceConsistentCasingInFileNames": true,
-
-    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strict.json
-    "strict": true,
-
-    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-
-    // checkJs
-    "allowJs": true,
-    "checkJs": false
+    "moduleResolution": "bundler"
   },
   "include": ["**/*.ts"],
   "exclude": ["src/"]

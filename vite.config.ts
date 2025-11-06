@@ -5,17 +5,25 @@ import { checker } from 'vite-plugin-checker';
 import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
+import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
+
 const cwd = process.cwd();
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, cwd);
-  const apiUrl = env.VITE_API_BASE_URL;
+  const apiUrl = env['VITE_API_BASE_URL'];
 
-  const proxy = {
-    '/api': apiUrl,
-  };
+  const proxy = apiUrl
+    ? {
+        '/api': apiUrl,
+      }
+    : {};
 
   return {
+    define: {
+      __I18N_DEFAULT_LOCALE__: JSON.stringify(DEFAULT_LOCALE),
+      __I18N_DEFAULT_NAMESPACE__: JSON.stringify(DEFAULT_NAMESPACE),
+    },
     css: {
       modules: {
         localsConvention: 'camelCase',

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import Logo from '@/assets/images/logo.svg?react';
 
+// https://github.com/mrmckeb/typescript-plugin-css-modules/issues/222
 import styles from './root.module.css';
 
 export function Root() {
@@ -9,7 +10,7 @@ export function Root() {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4 p-8">
-      <Logo className={styles.logo} height={128} width={128} />
+      <Logo className={styles['logo']} height={128} width={128} />
       <h1 className={'text-primary text-5xl'}>
         {t(($) => $.hello, {
           ns: 'common',

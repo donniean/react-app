@@ -1,5 +1,7 @@
 {
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.localesPaths": ["src/locales/"],
-  "i18n-ally.namespace": true
+  "i18n-ally.namespace": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -16,13 +16,6 @@
 
     "moduleResolution": "bundler"
   },
-  "include": ["**/*.ts"],
-  "exclude": [
-    "**/node_modules/",
-    "**/dist/",
-    "**/coverage/",
-    "src/",
-    "**/tests/",
-    "**/*.test.*"
-  ]
+  "include": ["config/", "scripts/", "*.ts"],
+  "exclude": ["**/tests/", "**/*.test.*"]
 }

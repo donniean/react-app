@@ -10,5 +10,6 @@
     "config/",
     "scripts/",
     "src/"
-  ]
+  ],
+  "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }

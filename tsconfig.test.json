@@ -1,25 +1,8 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.app.json",
   "compilerOptions": {
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "esnext",
-    "types": ["vite/client", "node"],
-
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "jsx": "react-jsx",
-
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "classnameTransform": "camelCase"
-        }
-      }
-    ]
+    "types": ["vite/client", "node"]
   },
-  "include": ["src/", "**/tests/", "**/*.test.ts", "**/*.test.tsx"]
+  "include": ["**/tests/", "**/*.test.ts", "**/*.test.tsx"],
+  "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }

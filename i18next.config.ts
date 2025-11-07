@@ -16,12 +16,7 @@ export default defineConfig({
   extract: {
     input: ['src/**/*.{ts,tsx}'],
     output: 'src/locales/{{language}}/{{namespace}}.json',
-    ignore: [
-      'src/**/*.test.ts',
-      'src/**/*.mock.ts',
-      'src/**/__tests__/**',
-      'src/**/__mocks__/**',
-    ],
+    ignore: ['**/tests/**', '**/*.test.*', '**/mocks/**', '**/*.mock.*'],
     defaultNS: DEFAULT_NAMESPACE,
     keySeparator: false,
     sort: true,

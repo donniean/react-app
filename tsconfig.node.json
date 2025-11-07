@@ -10,11 +10,12 @@
       "ESNext.Iterator",
       "ESNext.Promise"
     ],
+    // https://tsx.is/typescript#recommendation
     "module": "preserve",
     "types": ["node"],
 
     "moduleResolution": "bundler"
   },
   "include": ["**/*.ts"],
-  "exclude": ["src/", "**/__tests__/", "**/*.test.ts", "**/*.test.tsx"]
+  "exclude": ["src/", "**/tests/", "**/*.test.*"]
 }

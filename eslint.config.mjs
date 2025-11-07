@@ -42,6 +42,7 @@ const nodeGlobs = [
   '**/tsup.config.{js,mjs,cjs,ts}',
   '**/vite.config.{js,mjs,cjs,ts}',
   '**/vitest.config.{js,mjs,cjs,ts}',
+  'config/**/*.{js,cjs,mjs,ts}',
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
 
@@ -295,14 +296,7 @@ export default defineConfig([
   {
     name: 'i18next/recommended',
     files: ['src/**'],
-    ignores: [
-      'src/**/*.test.ts',
-      'src/**/*.test.tsx',
-      'src/**/*.mock.ts',
-      'src/**/__tests__/**',
-      'src/**/__mocks__/**',
-      'src/examples/**',
-    ],
+    ignores: ['**/tests/**', '**/*.test.*', '**/mocks/**', '**/*.mock.*'],
     extends: [eslintPluginI18next.configs['flat/recommended']],
   },
   {
@@ -324,7 +318,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['**/__tests__/**', '**/*.test.ts', '**/*.test.tsx'],
+    files: ['**/tests/**', '**/*.test.*'],
     ...eslintPluginVitest.configs.recommended,
   },
   eslintConfigPrettier,

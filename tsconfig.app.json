@@ -22,6 +22,6 @@
       }
     ]
   },
-  "include": ["src/"],
-  "exclude": ["**/tests/", "**/*.test.*"]
+  "include": ["src/"]
+  // "exclude": ["**/tests/", "**/*.test.*"]
 }

@@ -318,7 +318,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['**/tests/**', '**/*.test.*'],
+    files: ['**/tests/**', '**/*.test.ts', '**/*.test.tsx'],
     ...eslintPluginVitest.configs.recommended,
   },
   eslintConfigPrettier,

@@ -110,7 +110,7 @@
     "globals": "16.5.0",
     "htmlhint": "1.7.1",
     "husky": "9.1.7",
-    "i18next-cli": "1.23.0",
+    "i18next-cli": "1.23.1",
     "knip": "5.68.0",
     "lint-staged": "16.2.6",
     "markdownlint-cli": "0.45.0",

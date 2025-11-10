@@ -8,7 +8,7 @@ export default {
     'autocorrect --fix',
     'cspell lint --no-progress --no-must-find-files --dot --gitignore',
   ],
-  '*.{ts,tsx}': 'bash -c tsc --noEmit',
+  '*.{ts,tsx}': () => 'tsc --build',
   '*.{js,mjs,cjs,ts,tsx}': 'eslint --fix', // --max-warnings 0
   '*.css': 'stylelint --fix',
   '*.html': 'htmlhint',

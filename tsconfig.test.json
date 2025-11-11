@@ -5,12 +5,12 @@
     "types": ["vite/client", "node"]
   },
   "include": [
+    "config/",
+    "scripts/",
+    "src/",
     "**/tests/",
     "**/*.test.ts",
-    "**/*.test.tsx",
-    "src/",
-    "config/",
-    "scripts/"
+    "**/*.test.tsx"
   ],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }

@@ -3,31 +3,46 @@
 /* https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json */
 {
   "compilerOptions": {
+    /* Projects */
     "composite": true,
+
+    /* Language and Environment */
+    "moduleDetection": "force",
     "target": "es2022",
     "useDefineForClassFields": true,
-    "skipLibCheck": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
+
+    /* Modules */
     "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
+
+    /* JavaScript Support */
     "allowJs": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    "checkJs": true,
+
+    /* Type Checking */
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
-    "checkJs": true
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+
+    /* Emit */
+    "noEmit": true,
+
+    /* Interop Constraints */
+    "erasableSyntaxOnly": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Completeness */
+    "skipLibCheck": true
   }
 }

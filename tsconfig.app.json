@@ -2,15 +2,20 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "esnext",
-    "types": ["vite/client"],
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    /* Language and Environment */
     "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    /* Modules */
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
     },
+    "types": ["vite/client"],
+    "allowImportingTsExtensions": true,
+
+    /* Editor Support */
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",

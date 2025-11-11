@@ -1,5 +1,6 @@
-// https://github.com/tsconfig/bases/blob/main/bases/node-ts.json
-// https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.node.json
+/* https://github.com/tsconfig/bases/blob/main/bases/node-ts.json */
+/* https://tsx.is/typescript#recommendation */
+/* https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.node.json */
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
@@ -10,10 +11,8 @@
       "ESNext.Iterator",
       "ESNext.Promise"
     ],
-    // https://tsx.is/typescript#recommendation
     "module": "preserve",
     "types": ["node"],
-
     "moduleResolution": "bundler"
   },
   "include": ["config/", "scripts/", "*.ts"]

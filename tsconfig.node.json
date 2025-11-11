@@ -4,6 +4,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    /* Language and Environment */
     "lib": [
       "ES2024",
       "ESNext.Array",
@@ -11,9 +12,11 @@
       "ESNext.Iterator",
       "ESNext.Promise"
     ],
+
+    /* Modules */
     "module": "preserve",
-    "types": ["node"],
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "types": ["node"]
   },
   "include": ["config/", "scripts/", "*.ts"]
   // "exclude": ["**/tests/", "**/*.test.*"]

@@ -7,19 +7,20 @@
     "composite": true,
 
     /* Language and Environment */
-    "moduleDetection": "force",
     "target": "es2022",
+    "moduleDetection": "force",
     "useDefineForClassFields": true,
 
     /* Modules */
-    "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
+    "noUncheckedSideEffectImports": true,
 
     /* JavaScript Support */
     "allowJs": true,
     "checkJs": true,
 
     /* Type Checking */
+    "strict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "exactOptionalPropertyTypes": true,
@@ -30,17 +31,16 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true,
 
     /* Emit */
     "noEmit": true,
 
     /* Interop Constraints */
-    "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
 
     /* Completeness */
     "skipLibCheck": true

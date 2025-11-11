@@ -1,42 +1,33 @@
+/* https://github.com/tsconfig/bases/blob/main/bases/strictest.json */
+/* https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json */
+/* https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json */
 {
   "compilerOptions": {
     "composite": true,
-
     "target": "es2022",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
-
-    /* Bundler mode */
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
-    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/base.json
     "resolveJsonModule": true,
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "allowJs": true,
-
-    // https://github.com/withastro/astro/blob/main/packages/astro/tsconfigs/strictest.json
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    // https://github.com/tsconfig/bases/blob/main/bases/strictest.json
     "noPropertyAccessFromIndexSignature": true,
-
-    // checkJs
     "checkJs": true
   }
 }

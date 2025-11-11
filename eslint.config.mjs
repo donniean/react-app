@@ -214,9 +214,6 @@ export default defineConfig([
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/member-ordering': 'error',
-      // TEMP: disable due to rule crash "typeParameters.params is not iterable"
-      // Ref: https://github.com/typescript-eslint/typescript-eslint/issues/11732
-      '@typescript-eslint/unified-signatures': 'off',
     },
   },
   {

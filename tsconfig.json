@@ -1,9 +1,8 @@
-// https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.json
 {
-  "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
     // { "path": "./tsconfig.test.json" }
-  ]
+  ],
+  "files": []
 }

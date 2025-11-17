@@ -54,7 +54,7 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@tanstack/react-query": "5.90.9",
+    "@tanstack/react-query": "5.90.10",
     "@tanstack/react-query-devtools": "5.90.2",
     "clsx": "2.1.1",
     "i18next": "25.6.2",
@@ -86,7 +86,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.1",
     "@vitest/coverage-v8": "4.0.9",
-    "@vitest/eslint-plugin": "1.4.2",
+    "@vitest/eslint-plugin": "1.4.3",
     "@vitest/ui": "4.0.9",
     "autocorrect-node": "2.14.0",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
@@ -110,7 +110,7 @@
     "globals": "16.5.0",
     "htmlhint": "1.7.1",
     "husky": "9.1.7",
-    "i18next-cli": "1.24.9",
+    "i18next-cli": "1.24.10",
     "knip": "5.69.1",
     "lint-staged": "16.2.6",
     "markdownlint-cli": "0.45.0",

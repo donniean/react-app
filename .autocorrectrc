@@ -1,4 +1,5 @@
 {
+  "$schema": "https://huacnlee.github.io/autocorrect/schema.json",
   "fileTypes": {
     "mjs": "javascript",
     "cjs": "javascript"

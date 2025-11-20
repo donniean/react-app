@@ -33,6 +33,7 @@ const nodeGlobs = [
   '**/commitlint.config.{js,mjs,cjs,ts}',
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
+  '**/.htmlvalidate.{js,mjs,cjs,ts}',
   '**/i18next.config.{js,mjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',

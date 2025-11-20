@@ -13,17 +13,15 @@ export default defineConfig({
     // Docker
     'Buildx',
     // files
-    'autocorrectignore',
-    'autocorrectrc',
-    'browserslistrc',
-    'commitlintrc',
-    'htmlhintrc',
-    'huskyrc',
-    'lintstagedrc',
-    'markdownlintignore',
-    'nvmrc',
-    'stylelintignore',
-    'stylelintrc',
+    '.autocorrectignore',
+    '.autocorrectrc',
+    '.browserslistrc',
+    '.htmlvalidate',
+    '.htmlvalidateignore',
+    '.huskyrc',
+    '.markdownlintignore',
+    '.nvmrc',
+    '.stylelintignore',
     // Git
     'signoff',
     // glossary

@@ -11,7 +11,7 @@ export default {
   '*.{ts,tsx}': () => 'tsc --build',
   '*.{js,mjs,cjs,ts,tsx}': 'eslint --fix', // --max-warnings 0
   '*.css': 'stylelint --fix',
-  '*.html': 'htmlhint',
+  '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',
   '*.ts': 'vitest related --run',
 };

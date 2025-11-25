@@ -172,8 +172,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       i18next-cli:
-        specifier: 1.25.0
-        version: 1.25.0(@types/node@24.10.1)
+        specifier: 1.25.1
+        version: 1.25.1(@types/node@24.10.1)
       knip:
         specifier: 5.70.2
         version: 5.70.2(@types/node@24.10.1)(typescript@5.9.3)
@@ -3067,8 +3067,8 @@ packages:
   i18next-browser-languagedetector@8.2.0:
     resolution: {integrity: sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==}
 
-  i18next-cli@1.25.0:
-    resolution: {integrity: sha512-iNogt5yvd/Q39Wa5Yp59kHLpOYOOkowMh0Pf4TK2zS1L1e2FLffj6gKNachw9yy5qtb7MS4nvoqbQndI/BASRg==}
+  i18next-cli@1.25.1:
+    resolution: {integrity: sha512-KvZgdrYYD1fsoHyVwuBrBIA95VHMaQ704SeXis/Q7Z96kHblS1XhBto7KTVs5QK9fZX4MRQXAi5Fj+9GftjOGA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -7896,7 +7896,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.4
 
-  i18next-cli@1.25.0(@types/node@24.10.1):
+  i18next-cli@1.25.1(@types/node@24.10.1):
     dependencies:
       '@swc/core': 1.15.2
       chalk: 5.6.2

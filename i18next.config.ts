@@ -25,7 +25,7 @@ export default defineConfig({
     defaultNS: DEFAULT_NAMESPACE,
     keySeparator: false,
     sort: true,
-    primaryLanguage: sourceLocale,
+    primaryLanguage: DEFAULT_LOCALE,
     defaultValue: (_key, _namespace, _language, value) => value,
     removeUnusedKeys: true,
   },

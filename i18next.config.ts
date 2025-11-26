@@ -26,6 +26,7 @@ export default defineConfig({
     keySeparator: false,
     sort: true,
     primaryLanguage: sourceLocale,
+    removeUnusedKeys: true,
   },
   types: {
     input: [resolveRoot(localesPath, sourceLocale, '*.json')],

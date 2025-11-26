@@ -7,6 +7,7 @@ export default {
     'prettier --write --ignore-unknown',
     'autocorrect --fix',
     'cspell lint --no-progress --no-must-find-files --dot --gitignore',
+    () => 'pnpm run i18n:types',
     () => 'pnpm run lint:i18n',
   ],
   '*.{ts,tsx}': () => 'tsc --build',

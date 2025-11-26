@@ -1,4 +1,3 @@
 #!/usr/bin/env sh
 
-pnpm run i18n:types
 lint-staged --concurrent false

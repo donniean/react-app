@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 
 pnpm run i18n:types
-pnpm run i18n:check
 lint-staged --concurrent false

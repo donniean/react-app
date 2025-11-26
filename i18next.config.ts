@@ -26,6 +26,7 @@ export default defineConfig({
     keySeparator: false,
     sort: true,
     primaryLanguage: sourceLocale,
+    defaultValue: (_key, _namespace, _language, value) => value,
     removeUnusedKeys: true,
   },
   types: {

@@ -11,9 +11,9 @@ const dirNames = entries
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
 
-const DEFAULT_I18N_SOURCE_LOCALE = 'en' as const;
-const sourceLocale = dirNames.includes(DEFAULT_I18N_SOURCE_LOCALE)
-  ? DEFAULT_I18N_SOURCE_LOCALE
+const DEFAULT_SOURCE_LOCALE = 'en' as const;
+const sourceLocale = dirNames.includes(DEFAULT_SOURCE_LOCALE)
+  ? DEFAULT_SOURCE_LOCALE
   : DEFAULT_LOCALE;
 
 export default defineConfig({

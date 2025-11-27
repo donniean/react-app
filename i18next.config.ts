@@ -11,9 +11,9 @@ const dirNames = entries
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
 
-const DEFAULT_SOURCE_LOCALE = 'en' as const;
-const sourceLocale = dirNames.includes(DEFAULT_SOURCE_LOCALE)
-  ? DEFAULT_SOURCE_LOCALE
+const PREFERRED_PRIMARY_LANGUAGE = 'en' as const;
+const primaryLanguage = dirNames.includes(PREFERRED_PRIMARY_LANGUAGE)
+  ? PREFERRED_PRIMARY_LANGUAGE
   : DEFAULT_LOCALE;
 
 export default defineConfig({
@@ -25,12 +25,12 @@ export default defineConfig({
     defaultNS: DEFAULT_NAMESPACE,
     keySeparator: false,
     sort: true,
-    primaryLanguage: DEFAULT_LOCALE,
+    primaryLanguage,
     defaultValue: (_key, _namespace, _language, value) => value,
     removeUnusedKeys: true,
   },
   types: {
-    input: [resolveRoot(localesPath, sourceLocale, '*.json')],
+    input: [resolveRoot(localesPath, primaryLanguage, '*.json')],
     output: 'src/@types/i18next.d.ts',
     resourcesFile: 'src/@types/resources.d.ts',
     enableSelector: true,

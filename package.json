@@ -115,7 +115,7 @@
     "knip": "5.70.2",
     "lint-staged": "16.2.7",
     "markdownlint-cli": "0.46.0",
-    "prettier": "3.7.1",
+    "prettier": "3.7.2",
     "prettier-plugin-tailwindcss": "0.7.1",
     "sort-package-json": "3.5.0",
     "stylelint": "16.26.1",

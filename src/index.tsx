@@ -1,5 +1,6 @@
 import '@/styles';
 import '@/lib/i18n';
+import '@/lib/sentry';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';

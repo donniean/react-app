@@ -67,7 +67,7 @@
     "react-dom": "19.2.0",
     "react-error-boundary": "6.0.0",
     "react-i18next": "16.3.5",
-    "react-router": "7.9.6",
+    "react-router": "7.10.0",
     "remeda": "2.32.0",
     "tailwind-merge": "3.4.0"
   },
@@ -86,9 +86,9 @@
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.1",
-    "@vitest/coverage-v8": "4.0.14",
+    "@vitest/coverage-v8": "4.0.15",
     "@vitest/eslint-plugin": "1.5.1",
-    "@vitest/ui": "4.0.14",
+    "@vitest/ui": "4.0.15",
     "autocorrect-node": "2.14.0",
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "9.2.1",
@@ -111,11 +111,11 @@
     "globals": "16.5.0",
     "html-validate": "10.4.0",
     "husky": "9.1.7",
-    "i18next-cli": "1.28.3",
+    "i18next-cli": "1.29.2",
     "knip": "5.71.0",
     "lint-staged": "16.2.7",
     "markdownlint-cli": "0.46.0",
-    "prettier": "3.7.3",
+    "prettier": "3.7.4",
     "prettier-plugin-tailwindcss": "0.7.2",
     "sort-package-json": "3.5.0",
     "stylelint": "16.26.1",
@@ -130,7 +130,7 @@
     "vite-plugin-checker": "0.11.0",
     "vite-plugin-svgr": "4.5.0",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.14"
+    "vitest": "4.0.15"
   },
   "engines": {
     "node": ">=22.0.0",

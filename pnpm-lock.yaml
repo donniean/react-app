@@ -42,8 +42,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0(react@19.2.1)
       react-i18next:
-        specifier: 16.3.5
-        version: 16.3.5(i18next@25.7.1(typescript@5.9.3))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.9.3)
+        specifier: 16.4.0
+        version: 16.4.0(i18next@25.7.1(typescript@5.9.3))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.9.3)
       react-router:
         specifier: 7.10.1
         version: 7.10.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -172,8 +172,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       i18next-cli:
-        specifier: 1.30.2
-        version: 1.30.2(@types/node@24.10.1)
+        specifier: 1.30.4
+        version: 1.30.4(@types/node@24.10.1)
       knip:
         specifier: 5.71.0
         version: 5.71.0(@types/node@24.10.1)(typescript@5.9.3)
@@ -2121,8 +2121,8 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  baseline-browser-mapping@2.9.2:
-    resolution: {integrity: sha512-PxSsosKQjI38iXkmb3d0Y32efqyA0uW4s41u4IVBsLlWLhCiYNpH/AfNOVWRqCQBlD8TFJTz6OUWNd4DFJCnmw==}
+  baseline-browser-mapping@2.9.3:
+    resolution: {integrity: sha512-8QdH6czo+G7uBsNo0GiUfouPN1lRzKdJTGnKXwe12gkFbnnOUaUKGN55dMkfy+mnxmvjwl9zcI4VncczcVXDhA==}
     hasBin: true
 
   brace-expansion@1.1.12:
@@ -3085,8 +3085,8 @@ packages:
   i18next-browser-languagedetector@8.2.0:
     resolution: {integrity: sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==}
 
-  i18next-cli@1.30.2:
-    resolution: {integrity: sha512-v4RK5OcHyuPecvrStG8Tr38/oAUfwwJLbVaA/K16VKjKUMgMHuTG9y2nW0b44so7NBqhzJBvhGYD3K77d2L4GQ==}
+  i18next-cli@1.30.4:
+    resolution: {integrity: sha512-bLgaKaSwvPhvG33beTPB2uKeEQIE8HCTkudIBPDYeIIa2f2hU7sLc3EY/cO6eaXqNPF9O7hpF/B+MUDfSp1RmA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -4146,8 +4146,8 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  qified@0.5.2:
-    resolution: {integrity: sha512-7gJ6mxcQb9vUBOtbKm5mDevbe2uRcOEVp1g4gb/Q+oLntB3HY8eBhOYRxFI2mlDFlY1e4DOSCptzxarXRvzxCA==}
+  qified@0.5.3:
+    resolution: {integrity: sha512-kXuQdQTB6oN3KhI6V4acnBSZx8D2I4xzZvn9+wFLLFCoBNQY/sFnCW6c43OL7pOQ2HvGV4lnWIXNmgfp7cTWhQ==}
     engines: {node: '>=20'}
 
   qs@6.14.0:
@@ -4167,8 +4167,8 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
 
-  react-i18next@16.3.5:
-    resolution: {integrity: sha512-F7Kglc+T0aE6W2rO5eCAFBEuWRpNb5IFmXOYEgztjZEuiuSLTe/xBIEG6Q3S0fbl8GXMNo+Q7gF8bpokFNWJww==}
+  react-i18next@16.4.0:
+    resolution: {integrity: sha512-bxVeBA8Ky2UeItNhF4JRxHCFIrpEJHGFG/mOAa4CR0JkqaDEYSLmlEgmC4Os63SBlZ+E5U0YyrNJOSVl2mtVqQ==}
     peerDependencies:
       i18next: '>= 25.6.2'
       react: '>= 16.8.0'
@@ -6771,7 +6771,7 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  baseline-browser-mapping@2.9.2: {}
+  baseline-browser-mapping@2.9.3: {}
 
   brace-expansion@1.1.12:
     dependencies:
@@ -6788,7 +6788,7 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.2
+      baseline-browser-mapping: 2.9.3
       caniuse-lite: 1.0.30001759
       electron-to-chromium: 1.5.266
       node-releases: 2.0.27
@@ -6806,7 +6806,7 @@ snapshots:
       '@cacheable/utils': 2.3.2
       hookified: 1.13.0
       keyv: 5.5.5
-      qified: 0.5.2
+      qified: 0.5.3
 
   call-bind-apply-helpers@1.0.2:
     dependencies:
@@ -7925,7 +7925,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.4
 
-  i18next-cli@1.30.2(@types/node@24.10.1):
+  i18next-cli@1.30.4(@types/node@24.10.1):
     dependencies:
       '@croct/json5-parser': 0.2.2
       '@swc/core': 1.15.3
@@ -9028,7 +9028,7 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  qified@0.5.2:
+  qified@0.5.3:
     dependencies:
       hookified: 1.13.0
 
@@ -9048,7 +9048,7 @@ snapshots:
       '@babel/runtime': 7.28.4
       react: 19.2.1
 
-  react-i18next@16.3.5(i18next@25.7.1(typescript@5.9.3))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.9.3):
+  react-i18next@16.4.0(i18next@25.7.1(typescript@5.9.3))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.9.3):
     dependencies:
       '@babel/runtime': 7.28.4
       html-parse-stringify: 3.0.1

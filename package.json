@@ -112,7 +112,7 @@
     "html-validate": "10.4.0",
     "husky": "9.1.7",
     "i18next-cli": "1.30.5",
-    "knip": "5.73.0",
+    "knip": "5.73.3",
     "lint-staged": "16.2.7",
     "markdownlint-cli": "0.46.0",
     "prettier": "3.7.4",

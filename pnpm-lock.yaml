@@ -172,8 +172,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       i18next-cli:
-        specifier: 1.30.5
-        version: 1.30.5(@types/node@25.0.1)
+        specifier: 1.31.0
+        version: 1.31.0(@types/node@25.0.1)
       knip:
         specifier: 5.73.3
         version: 5.73.3(@types/node@25.0.1)(typescript@5.9.3)
@@ -3082,8 +3082,8 @@ packages:
   i18next-browser-languagedetector@8.2.0:
     resolution: {integrity: sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==}
 
-  i18next-cli@1.30.5:
-    resolution: {integrity: sha512-1Ls80XXcwlsNhsFsWYMZV9ik1fPMdCny+hF8w64UkLLUdwxuUc/F8Vi7xbMv9oy3ODd6YBwNQwbKdH+5e6F9vA==}
+  i18next-cli@1.31.0:
+    resolution: {integrity: sha512-htnNQj7YOnjKnqCgkIY3ePJ4k4o7LvjiZYFk3r9U0tSazp4J/Lp1QddUQwDXooLgtP5529EBQI04ADyeIC7q0A==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -7919,7 +7919,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.4
 
-  i18next-cli@1.30.5(@types/node@25.0.1):
+  i18next-cli@1.31.0(@types/node@25.0.1):
     dependencies:
       '@croct/json5-parser': 0.2.2
       '@swc/core': 1.15.3

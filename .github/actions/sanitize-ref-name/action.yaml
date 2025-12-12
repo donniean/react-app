@@ -1,0 +1,299 @@
+name: Sanitize Ref Name
+description: Sanitize a ref or string for npm preid, Docker tags, or custom rules.
+
+# Profiles (target):
+# - docker-tag: (default)
+#   * allowed: [a-z0-9_.-]
+#   * start:   [a-z0-9_]
+#   * max-length: 128
+# - npm-preid:
+#   * allowed: [a-z0-9-]
+#   * start:   [a-z0-9]
+# - custom:
+#   * allowed-chars becomes the main allowed class
+#
+# Common rules:
+# - Apply case strategy (lower/upper/preserve)
+# - Replace disallowed runs with replacement (default '-')
+# - Collapse multiple replacements into one
+# - Trim leading/trailing replacements
+# - If result empty => fallback (default 'x')
+# - If start-chars is set and first char invalid => prefix (default 'x')
+# - Optional max-length:
+#   * empty -> profile default (docker-tag: 128, others: unlimited)
+#   * "0"   -> unlimited
+#   * >0    -> truncate to that length (docker-tag still capped at 128)
+#   * note: docker-tag enforces max-length <= 128 even when max-length=0
+#
+# Examples (before -> after)
+#
+# docker-tag (default)
+# - "Release/RC_1.2"                     -> "release-rc_1.2"
+# - "feature/foo_bar"                    -> "feature-foo_bar"
+# - ".bad--tag"                          -> "x.bad-tag"
+# - max-length=10: "feature/very-long"   -> "feature-ve"
+#
+# npm-preid
+# - "Release/RC_1.2"                     -> "release-rc-1-2"
+# - "feature/foo_bar"                    -> "feature-foo-bar"
+# - "PR-123"                             -> "pr-123"
+# - case=upper: "Feature/Foo"            -> "FEATURE-FOO"
+#
+# custom
+# - allowed-chars="a-z0-9+-": "weird++name" -> "weird++name"
+# - allowed-chars="a-z0-9_" replacement="_":
+#     "a..b--c"                           -> "a_b_c"
+# - allowed-chars="a-z0-9_." start-chars="a-z0-9":
+#     "_beta"                             -> "x_beta"
+
+inputs:
+  ref-name:
+    description: The ref or string to sanitize (defaults to GITHUB_REF_NAME).
+    required: false
+  target:
+    description: Sanitization profile ( npm-preid | docker-tag | custom ).
+    required: false
+    default: docker-tag
+  allowed-chars:
+    description: Extra/custom allowed character class (without brackets).
+    required: false
+  replacement:
+    description: Replacement string for disallowed characters.
+    required: false
+    default: '-'
+  case:
+    description: Letter case strategy (lower|upper|preserve).
+    required: false
+    default: lower
+  start-chars:
+    description: Allowed starting character class (without brackets).
+    required: false
+  prefix:
+    description: Prefix to add if first char is invalid.
+    required: false
+    default: 'x'
+  fallback:
+    description: Fallback value when sanitized result is empty.
+    required: false
+    default: 'x'
+  max-length:
+    description: Max length of sanitized string (docker-tag defaults to 128).
+    required: false
+
+outputs:
+  sanitized-ref-name:
+    description: Sanitized ref name.
+    value: ${{ steps.sanitize.outputs.sanitized-ref-name }}
+
+runs:
+  using: composite
+  steps:
+    - id: sanitize
+      shell: bash
+      run: |
+        # cSpell: ignore pipefail
+        set -euo pipefail
+
+        # 1) read inputs and basic defaults
+        ref_input="${{ inputs.ref-name }}"
+        if [ -z "$ref_input" ]; then
+          # use parameter expansion to avoid unset error under set -u
+          ref_input="${GITHUB_REF_NAME-}"
+        fi
+
+        target="${{ inputs.target }}"
+        target="$(printf '%s' "${target:-docker-tag}" | tr '[:upper:]' '[:lower:]')"
+
+        allowed_extra="${{ inputs.allowed-chars }}"
+        replacement="${{ inputs.replacement }}"
+        case_opt="${{ inputs.case }}"
+        start_override="${{ inputs.start-chars }}"
+        prefix="${{ inputs.prefix }}"
+        fallback="${{ inputs.fallback }}"
+        max_length_input="${{ inputs.max-length }}"
+
+        replacement="${replacement:--}"
+        case_opt="$(printf '%s' "${case_opt:-lower}" | tr '[:upper:]' '[:lower:]')"
+        prefix="${prefix:-x}"
+        fallback="${fallback:-x}"
+
+        # 2) validate allowed-chars basic safety for regex/class and sed
+        if [ -n "$allowed_extra" ]; then
+          if [[ "$allowed_extra" == *"]"* || "$allowed_extra" == *"\\"* || "$allowed_extra" == *"/"* || "$allowed_extra" == *$'\n'* ]]; then
+            echo "allowed-chars contains unsupported characters: $allowed_extra" >&2
+            echo "Disallowed: ']', '\\', '/', or newline inside character class." >&2
+            exit 1
+          fi
+        fi
+
+        base_allowed=""
+        base_start=""
+        base_max=""
+
+        case "$target" in
+          npm-preid)
+            base_allowed="a-z0-9\\-"
+            base_start="a-z0-9"
+            ;;
+          docker-tag)
+            base_allowed="a-z0-9_.\\-"
+            base_start="a-z0-9_"
+            base_max="128"
+            ;;
+          custom)
+            base_allowed="${allowed_extra:-a-z0-9\\-}"
+            base_start=""
+            allowed_extra=""
+            ;;
+          *)
+            echo "Unsupported target: $target (use npm-preid|docker-tag|custom)" >&2
+            exit 1
+            ;;
+        # cSpell: ignore esac
+        esac
+
+        allowed="$base_allowed"
+        if [ -n "$allowed_extra" ] && [ "$target" != "custom" ]; then
+          allowed="${allowed}${allowed_extra}"
+        fi
+
+        start_chars="${start_override:-$base_start}"
+
+        # 3) validate start-chars basic safety (same constraints as allowed-chars)
+        if [ -n "$start_chars" ]; then
+          if [[ "$start_chars" == *"]"* || "$start_chars" == *"\\"* || "$start_chars" == *"/"* || "$start_chars" == *$'\n'* ]]; then
+            echo "start-chars contains unsupported characters: $start_chars" >&2
+            echo "Disallowed: ']', '\\', '/', or newline inside character class." >&2
+            exit 1
+          fi
+        fi
+
+        # 4) compute max-length semantics
+        # - empty: use base_max (profile default)
+        # - "0": unlimited
+        # - >0: truncate to that length (docker-tag still capped at 128)
+        if [ -n "$max_length_input" ]; then
+          max_length="$max_length_input"
+        else
+          max_length="$base_max"
+        fi
+
+        if [ -n "$max_length" ]; then
+          if ! [[ "$max_length" =~ ^[0-9]+$ ]]; then
+            echo "max-length must be a non-negative integer: $max_length" >&2
+            exit 1
+          fi
+          if [ "$max_length" -eq 0 ]; then
+            max_length=""
+          fi
+        fi
+
+        # docker-tag: enforce 128-char maximum regardless of user input
+        if [ "$target" = "docker-tag" ]; then
+          if [ -z "$max_length" ] || [ "$max_length" -gt 128 ]; then
+            max_length="128"
+          fi
+        fi
+
+        safe="$ref_input"
+
+        # 5) apply case strategy
+        case "$case_opt" in
+          lower)
+            safe="$(printf '%s' "$safe" | tr '[:upper:]' '[:lower:]')"
+            replacement="$(printf '%s' "$replacement" | tr '[:upper:]' '[:lower:]')"
+            prefix="$(printf '%s' "$prefix" | tr '[:upper:]' '[:lower:]')"
+            fallback="$(printf '%s' "$fallback" | tr '[:upper:]' '[:lower:]')"
+            ;;
+          upper)
+            safe="$(printf '%s' "$safe" | tr '[:lower:]' '[:upper:]')"
+            replacement="$(printf '%s' "$replacement" | tr '[:lower:]' '[:upper:]')"
+            prefix="$(printf '%s' "$prefix" | tr '[:lower:]' '[:upper:]')"
+            fallback="$(printf '%s' "$fallback" | tr '[:lower:]' '[:upper:]')"
+            allowed="${allowed//a-z/A-Z}"
+            start_chars="${start_chars//a-z/A-Z}"
+            ;;
+          preserve)
+            if [[ "$allowed" == *"a-z"* && "$allowed" != *"A-Z"* ]]; then
+              allowed="${allowed}A-Z"
+            fi
+            if [[ -n "$start_chars" && "$start_chars" == *"a-z"* && "$start_chars" != *"A-Z"* ]]; then
+              start_chars="${start_chars}A-Z"
+            fi
+            ;;
+          *)
+            echo "Unsupported case: $case_opt (use lower|upper|preserve)" >&2
+            exit 1
+            ;;
+        esac
+
+        escape_sed_repl() {
+          printf '%s' "$1" | sed -e 's/[&/\\]/\\&/g'
+        }
+
+        escape_ere() {
+          printf '%s' "$1" | sed -e 's/[][\\.^$*+?(){}|/]/\\&/g'
+        }
+
+        if [ -z "$replacement" ]; then
+          replacement="-"
+        fi
+
+        # 6) validate replacement/prefix/fallback characters against allowed set
+        if [ -n "$allowed" ]; then
+          if ! [[ "$replacement" =~ ^[${allowed}]+$ ]]; then
+            echo "replacement contains characters not allowed by target profile: $replacement" >&2
+            exit 1
+          fi
+          if ! [[ "$prefix" =~ ^[${allowed}]+$ ]]; then
+            echo "prefix contains characters not allowed by target profile: $prefix" >&2
+            exit 1
+          fi
+          if ! [[ "$fallback" =~ ^[${allowed}]+$ ]]; then
+            echo "fallback contains characters not allowed by target profile: $fallback" >&2
+            exit 1
+          fi
+          if [ -n "$start_chars" ]; then
+            prefix_first="${prefix:0:1}"
+            if ! [[ "$prefix_first" =~ ^[${start_chars}] ]]; then
+              echo "prefix first character must match start-chars: $prefix" >&2
+              exit 1
+            fi
+          fi
+        fi
+
+        replacement_sed="$(escape_sed_repl "$replacement")"
+        replacement_re="$(escape_ere "$replacement")"
+
+        # 7) replace disallowed runs with replacement
+        safe="$(printf '%s' "$safe" | sed -E "s/[^${allowed}]+/${replacement_sed}/g")"
+
+        # 8) collapse multiple replacements
+        safe="$(printf '%s' "$safe" | sed -E "s/(${replacement_re}){2,}/${replacement_sed}/g")"
+
+        # 9) trim leading/trailing replacements
+        safe="$(printf '%s' "$safe" | sed -E "s/^(${replacement_re})+//; s/(${replacement_re})+$//")"
+
+        if [ -z "$safe" ]; then
+          safe="$fallback"
+        fi
+
+        # 10) enforce starting character class if provided
+        if [ -n "$start_chars" ]; then
+          if ! [[ "$safe" =~ ^[${start_chars}] ]]; then
+            safe="${prefix}${safe}"
+          fi
+        fi
+
+        # 11) apply max-length truncation if configured
+        if [ -n "$max_length" ]; then
+          if [ "$max_length" -gt 0 ] && [ "${#safe}" -gt "$max_length" ]; then
+            safe="${safe:0:$max_length}"
+          fi
+        fi
+
+        if [ -z "$safe" ]; then
+          safe="$fallback"
+        fi
+
+        echo "sanitized-ref-name=$safe" >> "$GITHUB_OUTPUT"

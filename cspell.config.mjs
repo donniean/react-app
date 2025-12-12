@@ -26,6 +26,7 @@ export default defineConfig({
     'signoff',
     // glossary
     'navs',
+    'preid',
     // nginx
     'proxied',
     // npm

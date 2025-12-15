@@ -18,6 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Sanitize Ref Name
+        id: sanitize_ref_name
+        uses: ./.github/actions/sanitize-ref-name
+        with:
+          ref-name: ${{ github.ref_name }}
+          target: docker-tag
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -34,6 +41,7 @@ jobs:
         env:
           REF: ${{ github.ref }}
           REF_NAME: ${{ github.ref_name }}
+          SANITIZED_REF_NAME: ${{ steps.sanitize_ref_name.outputs.sanitized-ref-name }}
         # cSpell: ignore elif
         run: |
           TAG="latest"
@@ -43,9 +51,7 @@ jobs:
           elif [[ "$REF" == "refs/heads/main" ]]; then
             TAG="latest"
           elif [[ "$REF" == refs/heads/* ]]; then
-            BRANCH_NAME="$REF_NAME"
-            SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | sed 's|/|-|g' | tr '[:upper:]' '[:lower:]')
-            TAG="$SANITIZED_BRANCH"
+            TAG="$SANITIZED_REF_NAME"
           fi
 
           echo "TAG=$TAG" >> $GITHUB_ENV

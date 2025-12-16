@@ -26,6 +26,5 @@
       }
     ]
   },
-  "include": ["src/"]
-  // "exclude": ["**/tests/", "**/*.test.*"]
+  "include": ["src/**/*"]
 }

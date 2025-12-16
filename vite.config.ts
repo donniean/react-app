@@ -6,6 +6,7 @@ import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
+import { resolveRoot } from './config/paths';
 
 const cwd = process.cwd();
 
@@ -40,7 +41,7 @@ export default defineConfig(({ mode }) => {
       proxy,
     },
     plugins: [
-      tsconfigPaths(),
+      tsconfigPaths({ projects: [resolveRoot('tsconfig.app.json')] }),
       react({
         babel: {
           plugins: ['babel-plugin-react-compiler'],

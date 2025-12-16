@@ -19,5 +19,4 @@
     "types": ["node"]
   },
   "include": ["config/**/*", "*.ts"]
-  // "exclude": ["**/tests/", "**/*.test.*"]
 }

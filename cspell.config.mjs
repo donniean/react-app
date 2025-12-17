@@ -59,6 +59,11 @@ export default defineConfig({
     'donniean',
   ],
   ignorePaths: [
+    '.*ignore',
+    '.git/',
+    '.gitattributes',
+    '.idea/',
+    '.vscode/',
     '**/*.min.*',
     '**/*.svg',
     '**/CHANGELOG.md',
@@ -68,10 +73,5 @@ export default defineConfig({
     '**/pnpm-lock.yaml',
     '**/pnpm-workspace.yaml',
     '**/yarn.lock',
-    '.*ignore',
-    '.git/',
-    '.gitattributes',
-    '.idea/',
-    '.vscode/',
   ],
 });

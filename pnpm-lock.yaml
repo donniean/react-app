@@ -172,8 +172,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       i18next-cli:
-        specifier: 1.33.5
-        version: 1.33.5(@types/node@25.0.3)
+        specifier: 1.34.0
+        version: 1.34.0(@types/node@25.0.3)(i18next@25.7.3(typescript@5.9.3))(react-dom@19.2.3(react@19.2.3))(typescript@5.9.3)
       knip:
         specifier: 5.78.0
         version: 5.78.0(@types/node@25.0.3)(typescript@5.9.3)
@@ -3107,8 +3107,8 @@ packages:
   i18next-browser-languagedetector@8.2.0:
     resolution: {integrity: sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==}
 
-  i18next-cli@1.33.5:
-    resolution: {integrity: sha512-4ldFXp3mozfRjHf0pOUpujq3oLj2hyQ6Rmow5WdYywnyRlDFY3uSawrQIIuYV7uYBXlbTm0gQ7rnZndSssHVng==}
+  i18next-cli@1.34.0:
+    resolution: {integrity: sha512-xMcHsKJl8IzgxVSsJFm0dwia8JARzcmCsSHWxOCFTImpX5tO+vM/fwSKF3F7xJaAxOW1bXvgsyze2dpI9keSrg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -7944,7 +7944,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.4
 
-  i18next-cli@1.33.5(@types/node@25.0.3):
+  i18next-cli@1.34.0(@types/node@25.0.3)(i18next@25.7.3(typescript@5.9.3))(react-dom@19.2.3(react@19.2.3))(typescript@5.9.3):
     dependencies:
       '@croct/json5-parser': 0.2.2
       '@swc/core': 1.15.4
@@ -7959,10 +7959,16 @@ snapshots:
       jsonc-parser: 3.3.1
       minimatch: 10.1.1
       ora: 9.0.0
+      react: 19.2.3
+      react-i18next: 16.5.1(i18next@25.7.3(typescript@5.9.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(typescript@5.9.3)
       swc-walk: 1.0.1
     transitivePeerDependencies:
       - '@swc/helpers'
       - '@types/node'
+      - i18next
+      - react-dom
+      - react-native
+      - typescript
 
   i18next-resources-for-ts@2.0.0:
     dependencies:

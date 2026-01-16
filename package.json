@@ -55,7 +55,7 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@tanstack/react-query": "5.90.17",
+    "@tanstack/react-query": "5.90.18",
     "@tanstack/react-query-devtools": "5.91.2",
     "clsx": "2.1.1",
     "i18next": "25.7.4",

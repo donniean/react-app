@@ -32,7 +32,7 @@ export default defineConfig({
   types: {
     input: [resolveRoot(localesPath, primaryLanguage, '*.json')],
     output: 'src/@types/i18next.d.ts',
-    resourcesFile: 'src/@types/resources.d.ts',
+    resourcesFile: 'src/@types/i18next-resources.d.ts',
     enableSelector: true,
   },
 });

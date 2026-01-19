@@ -23,7 +23,7 @@
     "i18n:lint": "i18next-cli lint",
     "i18n:status": "i18next-cli status",
     "i18n:sync": "i18next-cli sync",
-    "i18n:types": "i18next-cli types && prettier --write src/@types/resources.d.ts",
+    "i18n:types": "i18next-cli types && prettier --write src/@types/i18next-resources.d.ts",
     "preinstall": "pnpm dlx only-allow pnpm",
     "knip": "knip",
     "knip:fix": "pnpm run knip --fix",

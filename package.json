@@ -120,7 +120,7 @@
     "sort-package-json": "3.6.1",
     "stylelint": "17.1.1",
     "stylelint-config-css-modules": "4.6.0",
-    "stylelint-config-recess-order": "7.6.0",
+    "stylelint-config-recess-order": "7.6.1",
     "stylelint-config-standard": "40.0.0",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3",

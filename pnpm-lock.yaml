@@ -154,8 +154,8 @@ importers:
         specifier: 12.1.1
         version: 12.1.1(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-sonarjs:
-        specifier: 3.0.6
-        version: 3.0.6(eslint@9.39.2(jiti@2.6.1))
+        specifier: 3.0.7
+        version: 3.0.7(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-unicorn:
         specifier: 63.0.0
         version: 63.0.0(eslint@9.39.2(jiti@2.6.1))
@@ -2703,8 +2703,8 @@ packages:
     peerDependencies:
       eslint: '>=5.0.0'
 
-  eslint-plugin-sonarjs@3.0.6:
-    resolution: {integrity: sha512-3mVUqsAUSylGfkJMj2v0aC2Cu/eUunDLm+XMjLf0uLjAZao205NWF3g6EXxcCAFO+rCZiQ6Or1WQkUcU9/sKFQ==}
+  eslint-plugin-sonarjs@3.0.7:
+    resolution: {integrity: sha512-62jB20krIPvcwBLAyG3VVKa2ce2j2lL1yCb8Y0ylMRR/dLvCCTiQx8gQbXb+G81k1alPZ2/I3muZinqWQdBbzw==}
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
 
@@ -3767,10 +3767,6 @@ packages:
     resolution: {integrity: sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==}
     engines: {node: '>=18'}
 
-  minimatch@10.1.1:
-    resolution: {integrity: sha512-enIvLvRAFZYXJzkCYG5RKmPfrFArdLv+R+lbQ53BmIMLIry74bjKzX6iHAm8WYamJkhSSEabrWN5D97XnKObjQ==}
-    engines: {node: 20 || >=22}
-
   minimatch@10.1.2:
     resolution: {integrity: sha512-fu656aJ0n2kcXwsnwnv9g24tkU5uSmOlTjd6WyyaKm2Z+h1qmY6bAjrcaIxF/BslFqbZ8UBtbJi7KgQOZD2PTw==}
     engines: {node: 20 || >=22}
@@ -4318,11 +4314,6 @@ packages:
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
-    hasBin: true
-
-  semver@7.7.3:
-    resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
-    engines: {node: '>=10'}
     hasBin: true
 
   semver@7.7.4:
@@ -7430,7 +7421,7 @@ snapshots:
     dependencies:
       eslint: 9.39.2(jiti@2.6.1)
 
-  eslint-plugin-sonarjs@3.0.6(eslint@9.39.2(jiti@2.6.1)):
+  eslint-plugin-sonarjs@3.0.7(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       '@eslint-community/regexpp': 4.12.2
       builtin-modules: 3.3.0
@@ -7439,9 +7430,9 @@ snapshots:
       functional-red-black-tree: 1.0.1
       jsx-ast-utils-x: 0.1.0
       lodash.merge: 4.6.2
-      minimatch: 10.1.1
+      minimatch: 10.1.2
       scslre: 0.3.0
-      semver: 7.7.3
+      semver: 7.7.4
       typescript: 5.9.3
 
   eslint-plugin-unicorn@63.0.0(eslint@9.39.2(jiti@2.6.1)):
@@ -8626,10 +8617,6 @@ snapshots:
 
   mimic-function@5.0.1: {}
 
-  minimatch@10.1.1:
-    dependencies:
-      '@isaacs/brace-expansion': 5.0.1
-
   minimatch@10.1.2:
     dependencies:
       '@isaacs/brace-expansion': 5.0.1
@@ -9140,8 +9127,6 @@ snapshots:
     optional: true
 
   semver@6.3.1: {}
-
-  semver@7.7.3: {}
 
   semver@7.7.4: {}
 

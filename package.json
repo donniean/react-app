@@ -62,7 +62,7 @@
     "i18next-browser-languagedetector": "8.2.1",
     "i18next-resources-to-backend": "1.2.1",
     "lodash-es": "4.17.23",
-    "qs": "6.14.2",
+    "qs": "6.15.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-error-boundary": "6.1.1",

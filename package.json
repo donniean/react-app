@@ -72,7 +72,7 @@
     "tailwind-merge": "3.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.4.1",
+    "@commitlint/cli": "20.4.2",
     "@commitlint/config-conventional": "20.4.2",
     "@commitlint/types": "20.4.0",
     "@eslint-community/eslint-plugin-eslint-comments": "4.6.0",

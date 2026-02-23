@@ -109,7 +109,7 @@
     "eslint-plugin-unicorn": "63.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
     "globals": "17.3.0",
-    "html-validate": "10.8.0",
+    "html-validate": "10.9.0",
     "husky": "9.1.7",
     "i18next-cli": "1.43.0",
     "knip": "5.85.0",

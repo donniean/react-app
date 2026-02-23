@@ -77,7 +77,7 @@
     "@commitlint/types": "20.4.0",
     "@eslint-community/eslint-plugin-eslint-comments": "4.6.0",
     "@eslint/compat": "2.0.2",
-    "@eslint/js": "9.39.2",
+    "@eslint/js": "9.39.3",
     "@tailwindcss/vite": "4.2.1",
     "@tanstack/eslint-plugin-query": "5.91.4",
     "@types/lodash-es": "4.17.12",

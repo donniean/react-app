@@ -1,6 +1,6 @@
 import path from 'node:path';
 
-import { includeIgnoreFile } from '@eslint/compat';
+import { fixupPluginRules, includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import eslintPluginEslintCommentsConfigs from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginQuery from '@tanstack/eslint-plugin-query';
@@ -295,7 +295,14 @@ export default defineConfig([
     name: 'i18next/recommended',
     files: ['src/**'],
     ignores: ['**/tests/**', '**/*.test.*', '**/mocks/**', '**/*.mock.*'],
-    extends: [eslintPluginI18next.configs['flat/recommended']],
+    // extends: [eslintPluginI18next.configs['flat/recommended']],
+    // https://github.com/edvardchen/eslint-plugin-i18next/issues/151#issuecomment-3942781201
+    plugins: {
+      i18next: fixupPluginRules(eslintPluginI18next),
+    },
+    rules: {
+      'i18next/no-literal-string': 'error',
+    },
   },
   {
     name: 'custom/node',

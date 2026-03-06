@@ -111,7 +111,7 @@
     "globals": "17.4.0",
     "html-validate": "10.11.0",
     "husky": "9.1.7",
-    "i18next-cli": "1.48.1",
+    "i18next-cli": "1.49.3",
     "knip": "5.85.0",
     "lint-staged": "16.3.2",
     "markdownlint-cli": "0.48.0",

@@ -66,7 +66,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-error-boundary": "6.1.1",
-    "react-i18next": "16.5.6",
+    "react-i18next": "16.5.7",
     "react-router": "7.13.1",
     "remeda": "2.33.6",
     "tailwind-merge": "3.5.0"
@@ -105,7 +105,7 @@
     "eslint-plugin-react-hooks": "7.0.1",
     "eslint-plugin-react-refresh": "0.5.2",
     "eslint-plugin-simple-import-sort": "12.1.1",
-    "eslint-plugin-sonarjs": "4.0.1",
+    "eslint-plugin-sonarjs": "4.0.2",
     "eslint-plugin-unicorn": "63.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
     "globals": "17.4.0",

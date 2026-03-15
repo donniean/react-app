@@ -1,12 +1,11 @@
+import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
+import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import svgr from 'vite-plugin-svgr';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
-import { resolveRoot } from './config/paths';
 
 const cwd = process.cwd();
 
@@ -30,6 +29,9 @@ export default defineConfig(({ mode }) => {
         localsConvention: 'camelCase',
       },
     },
+    resolve: {
+      tsconfigPaths: true,
+    },
     server: {
       port: 3000,
       host: true,
@@ -41,21 +43,20 @@ export default defineConfig(({ mode }) => {
       proxy,
     },
     plugins: [
-      tsconfigPaths({ projects: [resolveRoot('tsconfig.app.json')] }),
-      react({
-        babel: {
-          plugins: ['babel-plugin-react-compiler'],
-        },
+      react(),
+      babel({
+        presets: [reactCompilerPreset()],
       }),
       svgr(),
       tailwindcss(),
       checker({
         overlay: { initialIsOpen: 'error' },
         typescript: true,
-        eslint: {
-          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
-          useFlatConfig: true,
-        },
+        // https://github.com/fi3ework/vite-plugin-checker/issues/647
+        // eslint: {
+        //   lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+        //   useFlatConfig: true,
+        // },
         stylelint: {
           lintCommand: 'stylelint ./src/**/*.css',
         },

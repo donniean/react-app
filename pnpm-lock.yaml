@@ -58,14 +58,14 @@ importers:
         specifier: 7.29.0
         version: 7.29.0
       '@commitlint/cli':
-        specifier: 20.4.4
-        version: 20.4.4(@types/node@25.5.0)(conventional-commits-parser@6.3.0)(typescript@5.9.3)
+        specifier: 20.5.0
+        version: 20.5.0(@types/node@25.5.0)(conventional-commits-parser@6.3.0)(typescript@5.9.3)
       '@commitlint/config-conventional':
-        specifier: 20.4.4
-        version: 20.4.4
+        specifier: 20.5.0
+        version: 20.5.0
       '@commitlint/types':
-        specifier: 20.4.4
-        version: 20.4.4
+        specifier: 20.5.0
+        version: 20.5.0
       '@eslint-community/eslint-plugin-eslint-comments':
         specifier: 4.7.1
         version: 4.7.1(eslint@10.0.3(jiti@2.6.1))
@@ -324,13 +324,13 @@ packages:
   '@cacheable/utils@2.4.0':
     resolution: {integrity: sha512-PeMMsqjVq+bF0WBsxFBxr/WozBJiZKY0rUojuaCoIaKnEl3Ju1wfEwS+SV1DU/cSe8fqHIPiYJFif8T3MVt4cQ==}
 
-  '@commitlint/cli@20.4.4':
-    resolution: {integrity: sha512-GLMNQHYGcn0ohL2HMlAnXcD1PS2vqBBGbYKlhrRPOYsWiRoLWtrewsR3uKRb9v/IdS+qOS0vqJQ64n1g8VPKFw==}
+  '@commitlint/cli@20.5.0':
+    resolution: {integrity: sha512-yNkyN/tuKTJS3wdVfsZ2tXDM4G4Gi7z+jW54Cki8N8tZqwKBltbIvUUrSbT4hz1bhW/h0CdR+5sCSpXD+wMKaQ==}
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@20.4.4':
-    resolution: {integrity: sha512-Usg+XXbPNG2GtFWTgRURNWCge1iH1y6jQIvvklOdAbyn2t8ajfVwZCnf5t5X4gUsy17BOiY+myszGsSMIvhOVA==}
+  '@commitlint/config-conventional@20.5.0':
+    resolution: {integrity: sha512-t3Ni88rFw1XMa4nZHgOKJ8fIAT9M2j5TnKyTqJzsxea7FUetlNdYFus9dz+MhIRZmc16P0PPyEfh6X2d/qw8SA==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@20.5.0':
@@ -387,10 +387,6 @@ packages:
 
   '@commitlint/top-level@20.4.3':
     resolution: {integrity: sha512-qD9xfP6dFg5jQ3NMrOhG0/w5y3bBUsVGyJvXxdWEwBm8hyx4WOk3kKXw28T5czBYvyeCVJgJJ6aoJZUWDpaacQ==}
-    engines: {node: '>=v18'}
-
-  '@commitlint/types@20.4.4':
-    resolution: {integrity: sha512-dwTGzyAblFXHJNBOgrTuO5Ee48ioXpS5XPRLLatxhQu149DFAHUcB3f0Q5eea3RM4USSsP1+WVT2dBtLVod4fg==}
     engines: {node: '>=v18'}
 
   '@commitlint/types@20.5.0':
@@ -5027,13 +5023,13 @@ snapshots:
       hashery: 1.5.0
       keyv: 5.6.0
 
-  '@commitlint/cli@20.4.4(@types/node@25.5.0)(conventional-commits-parser@6.3.0)(typescript@5.9.3)':
+  '@commitlint/cli@20.5.0(@types/node@25.5.0)(conventional-commits-parser@6.3.0)(typescript@5.9.3)':
     dependencies:
       '@commitlint/format': 20.5.0
       '@commitlint/lint': 20.5.0
       '@commitlint/load': 20.5.0(@types/node@25.5.0)(typescript@5.9.3)
       '@commitlint/read': 20.5.0(conventional-commits-parser@6.3.0)
-      '@commitlint/types': 20.4.4
+      '@commitlint/types': 20.5.0
       tinyexec: 1.0.4
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -5042,9 +5038,9 @@ snapshots:
       - conventional-commits-parser
       - typescript
 
-  '@commitlint/config-conventional@20.4.4':
+  '@commitlint/config-conventional@20.5.0':
     dependencies:
-      '@commitlint/types': 20.4.4
+      '@commitlint/types': 20.5.0
       conventional-changelog-conventionalcommits: 9.3.0
 
   '@commitlint/config-validator@20.5.0':
@@ -5135,11 +5131,6 @@ snapshots:
   '@commitlint/top-level@20.4.3':
     dependencies:
       escalade: 3.2.0
-
-  '@commitlint/types@20.4.4':
-    dependencies:
-      conventional-commits-parser: 6.3.0
-      picocolors: 1.1.1
 
   '@commitlint/types@20.5.0':
     dependencies:

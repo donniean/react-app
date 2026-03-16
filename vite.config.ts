@@ -24,13 +24,13 @@ export default defineConfig(({ mode }) => {
       __I18N_DEFAULT_LOCALE__: JSON.stringify(DEFAULT_LOCALE),
       __I18N_DEFAULT_NAMESPACE__: JSON.stringify(DEFAULT_NAMESPACE),
     },
+    resolve: {
+      tsconfigPaths: true,
+    },
     css: {
       modules: {
         localsConvention: 'camelCase',
       },
-    },
-    resolve: {
-      tsconfigPaths: true,
     },
     server: {
       port: 3000,

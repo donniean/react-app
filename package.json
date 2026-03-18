@@ -79,7 +79,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "4.7.1",
     "@eslint/compat": "2.0.3",
     "@eslint/js": "10.0.1",
-    "@rolldown/plugin-babel": "0.2.1",
+    "@rolldown/plugin-babel": "0.2.2",
     "@tailwindcss/vite": "4.2.1",
     "@tanstack/eslint-plugin-query": "5.91.5",
     "@types/babel__core": "7.20.5",

@@ -80,7 +80,7 @@
     "@eslint/compat": "2.0.3",
     "@eslint/js": "10.0.1",
     "@rolldown/plugin-babel": "0.2.2",
-    "@tailwindcss/vite": "4.2.1",
+    "@tailwindcss/vite": "4.2.2",
     "@tanstack/eslint-plugin-query": "5.91.5",
     "@types/babel__core": "7.20.5",
     "@types/lodash-es": "4.17.12",

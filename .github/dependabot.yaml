@@ -5,6 +5,10 @@ updates:
       - '/'
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
     open-pull-requests-limit: 999
 
   - package-ecosystem: github-actions

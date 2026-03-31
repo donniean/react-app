@@ -68,7 +68,7 @@
     "react-error-boundary": "6.1.1",
     "react-i18next": "17.0.2",
     "react-router": "7.13.2",
-    "remeda": "2.33.6",
+    "remeda": "2.33.7",
     "tailwind-merge": "3.5.0"
   },
   "devDependencies": {

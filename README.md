@@ -10,13 +10,13 @@ A personal React starter.
 
 ## Install
 
-```sh
+```bash
 pnpm install
 ```
 
 ## Development
 
-```sh
+```bash
 pnpm run dev
 ```
 

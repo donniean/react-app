@@ -95,7 +95,7 @@
     "autocorrect-node": "2.14.0",
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "9.2.1",
-    "cspell": "9.7.0",
+    "cspell": "9.8.0",
     "eslint": "10.2.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.4",

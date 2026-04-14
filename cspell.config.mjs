@@ -76,5 +76,3 @@ export default defineConfig({
     '**/yarn.lock',
   ],
 });
-
-// 1;

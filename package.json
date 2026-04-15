@@ -121,7 +121,7 @@
     "prettier": "3.8.3",
     "prettier-plugin-tailwindcss": "0.7.2",
     "sort-package-json": "3.6.1",
-    "stylelint": "17.7.0",
+    "stylelint": "17.8.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-recess-order": "7.7.0",
     "stylelint-config-standard": "40.0.0",

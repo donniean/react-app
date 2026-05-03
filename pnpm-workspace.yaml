@@ -1,10 +1,5 @@
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  unrs-resolver: true
 engineStrict: true
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - less
-  - oxc-resolver
-  - unrs-resolver

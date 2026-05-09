@@ -1,4 +1,7 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.localesPaths": ["src/locales/"],
   "i18n-ally.namespace": true,

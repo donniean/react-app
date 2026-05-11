@@ -82,8 +82,8 @@ importers:
         specifier: 4.3.0
         version: 4.3.0(vite@8.0.12(@types/node@25.6.2)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.8.4))
       '@tanstack/eslint-plugin-query':
-        specifier: 5.100.9
-        version: 5.100.9(eslint@10.3.0(jiti@2.7.0))(typescript@5.9.3)
+        specifier: 5.100.10
+        version: 5.100.10(eslint@10.3.0(jiti@2.7.0))(typescript@5.9.3)
       '@types/babel__core':
         specifier: 7.20.5
         version: 7.20.5
@@ -1697,8 +1697,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tanstack/eslint-plugin-query@5.100.9':
-    resolution: {integrity: sha512-3jZwyxAZWSBqI7EXEdw+rktFfX1opMpqn9Lruwz52DEzQdi7kbKnqixjhR3dJ1xFfG05YxV9vsqXGxXqcLAmjA==}
+  '@tanstack/eslint-plugin-query@5.100.10':
+    resolution: {integrity: sha512-Ddou3agTWv5rvHSBby4yHlugUFHVh0nyo2fyoZ81qSxaTBIwNCoPgpiJhjo5QkThrH1wGC7k548BcMTszZCkBw==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: ^5.4.0 || ^6.0.0
@@ -6255,7 +6255,7 @@ snapshots:
       tailwindcss: 4.3.0
       vite: 8.0.12(@types/node@25.6.2)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.8.4)
 
-  '@tanstack/eslint-plugin-query@5.100.9(eslint@10.3.0(jiti@2.7.0))(typescript@5.9.3)':
+  '@tanstack/eslint-plugin-query@5.100.10(eslint@10.3.0(jiti@2.7.0))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.59.2(eslint@10.3.0(jiti@2.7.0))(typescript@5.9.3)
       eslint: 10.3.0(jiti@2.7.0)

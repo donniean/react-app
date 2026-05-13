@@ -112,7 +112,7 @@
     "eslint-plugin-unicorn": "64.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
     "globals": "17.6.0",
-    "html-validate": "11.0.0",
+    "html-validate": "11.1.0",
     "husky": "9.1.7",
     "i18next-cli": "1.56.12",
     "knip": "6.13.1",
@@ -134,7 +134,7 @@
     "vite-plugin-svgr": "5.2.0",
     "vitest": "4.1.6"
   },
-  "packageManager": "pnpm@11.1.0",
+  "packageManager": "pnpm@11.1.1",
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=11.0.0"

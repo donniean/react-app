@@ -25,6 +25,7 @@ export default defineConfig({
     // Git
     'signoff',
     // glossary
+    'cooldown',
     'navs',
     'preid',
     // nginx

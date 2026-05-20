@@ -45,7 +45,7 @@
     "lint:text": "autocorrect --lint",
     "lint:text:fix": "autocorrect --fix",
     "lint:types": "tsc --build --clean && tsc --build",
-    "ncu": "pnpm dlx npm-check-updates@latest --deep",
+    "ncu": "pnpm dlx npm-check-updates@latest --cooldown 1d --deep --format cooldown",
     "ncu:upgrade": "pnpm run ncu --upgrade",
     "prepare": "husky",
     "preview": "vite preview",

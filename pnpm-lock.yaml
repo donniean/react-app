@@ -202,17 +202,17 @@ importers:
         specifier: 3.6.1
         version: 3.6.1
       stylelint:
-        specifier: 17.11.1
-        version: 17.11.1(typescript@5.9.3)
+        specifier: 17.12.0
+        version: 17.12.0(typescript@5.9.3)
       stylelint-config-css-modules:
         specifier: 4.6.0
-        version: 4.6.0(stylelint@17.11.1(typescript@5.9.3))
+        version: 4.6.0(stylelint@17.12.0(typescript@5.9.3))
       stylelint-config-recess-order:
         specifier: 7.7.0
-        version: 7.7.0(stylelint-order@8.1.1(stylelint@17.11.1(typescript@5.9.3)))(stylelint@17.11.1(typescript@5.9.3))
+        version: 7.7.0(stylelint-order@8.1.1(stylelint@17.12.0(typescript@5.9.3)))(stylelint@17.12.0(typescript@5.9.3))
       stylelint-config-standard:
         specifier: 40.0.0
-        version: 40.0.0(stylelint@17.11.1(typescript@5.9.3))
+        version: 40.0.0(stylelint@17.12.0(typescript@5.9.3))
       tailwindcss:
         specifier: 4.3.0
         version: 4.3.0
@@ -230,7 +230,7 @@ importers:
         version: 8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
       vite-plugin-checker:
         specifier: 0.13.0
-        version: 0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.11.1(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.12.0(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
       vite-plugin-svgr:
         specifier: 5.2.0
         version: 5.2.0(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
@@ -4580,8 +4580,8 @@ packages:
     peerDependencies:
       stylelint: ^16.8.2 || ^17.0.0
 
-  stylelint@17.11.1:
-    resolution: {integrity: sha512-+smN/HqVTggUx3iuAzOi9fPh8SrH+cJWlZrYVldXoJ06orWBhZ4Ue/QEp64oei6pVrAh4w3tG+Y12Vw7MbCFRQ==}
+  stylelint@17.12.0:
+    resolution: {integrity: sha512-KIlzWXMHUvgfPUR0R7TK3H80yCIi0uoivUwf+6Az4yrHJD1Q3c1qIkh/H5Z0i/K3QXgtq/UMEkWyBUSUwnpnOg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -9339,33 +9339,33 @@ snapshots:
 
   strip-json-comments@5.0.3: {}
 
-  stylelint-config-css-modules@4.6.0(stylelint@17.11.1(typescript@5.9.3)):
+  stylelint-config-css-modules@4.6.0(stylelint@17.12.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.11.1(typescript@5.9.3)
+      stylelint: 17.12.0(typescript@5.9.3)
     optionalDependencies:
-      stylelint-scss: 7.1.1(stylelint@17.11.1(typescript@5.9.3))
+      stylelint-scss: 7.1.1(stylelint@17.12.0(typescript@5.9.3))
 
-  stylelint-config-recess-order@7.7.0(stylelint-order@8.1.1(stylelint@17.11.1(typescript@5.9.3)))(stylelint@17.11.1(typescript@5.9.3)):
+  stylelint-config-recess-order@7.7.0(stylelint-order@8.1.1(stylelint@17.12.0(typescript@5.9.3)))(stylelint@17.12.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.11.1(typescript@5.9.3)
-      stylelint-order: 8.1.1(stylelint@17.11.1(typescript@5.9.3))
+      stylelint: 17.12.0(typescript@5.9.3)
+      stylelint-order: 8.1.1(stylelint@17.12.0(typescript@5.9.3))
 
-  stylelint-config-recommended@18.0.0(stylelint@17.11.1(typescript@5.9.3)):
+  stylelint-config-recommended@18.0.0(stylelint@17.12.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.11.1(typescript@5.9.3)
+      stylelint: 17.12.0(typescript@5.9.3)
 
-  stylelint-config-standard@40.0.0(stylelint@17.11.1(typescript@5.9.3)):
+  stylelint-config-standard@40.0.0(stylelint@17.12.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.11.1(typescript@5.9.3)
-      stylelint-config-recommended: 18.0.0(stylelint@17.11.1(typescript@5.9.3))
+      stylelint: 17.12.0(typescript@5.9.3)
+      stylelint-config-recommended: 18.0.0(stylelint@17.12.0(typescript@5.9.3))
 
-  stylelint-order@8.1.1(stylelint@17.11.1(typescript@5.9.3)):
+  stylelint-order@8.1.1(stylelint@17.12.0(typescript@5.9.3)):
     dependencies:
       postcss: 8.5.15
       postcss-sorting: 10.0.0(postcss@8.5.15)
-      stylelint: 17.11.1(typescript@5.9.3)
+      stylelint: 17.12.0(typescript@5.9.3)
 
-  stylelint-scss@7.1.1(stylelint@17.11.1(typescript@5.9.3)):
+  stylelint-scss@7.1.1(stylelint@17.12.0(typescript@5.9.3)):
     dependencies:
       '@csstools/css-calc': 3.2.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
@@ -9378,10 +9378,10 @@ snapshots:
       postcss-resolve-nested-selector: 0.1.6
       postcss-selector-parser: 7.1.1
       postcss-value-parser: 4.2.0
-      stylelint: 17.11.1(typescript@5.9.3)
+      stylelint: 17.12.0(typescript@5.9.3)
     optional: true
 
-  stylelint@17.11.1(typescript@5.9.3):
+  stylelint@17.12.0(typescript@5.9.3):
     dependencies:
       '@csstools/css-calc': 3.2.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
@@ -9635,7 +9635,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-checker@0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.11.1(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
+  vite-plugin-checker@0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.12.0(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
     dependencies:
       '@babel/code-frame': 7.29.0
       chokidar: 4.0.3
@@ -9651,7 +9651,7 @@ snapshots:
       eslint: 10.4.0(jiti@2.7.0)
       meow: 14.1.0
       optionator: 0.9.4
-      stylelint: 17.11.1(typescript@5.9.3)
+      stylelint: 17.12.0(typescript@5.9.3)
       typescript: 5.9.3
 
   vite-plugin-svgr@5.2.0(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):

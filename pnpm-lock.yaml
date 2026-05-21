@@ -112,8 +112,8 @@ importers:
         specifier: 1.6.17
         version: 1.6.17(@typescript-eslint/eslint-plugin@8.59.4(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.6)
       '@vitest/ui':
-        specifier: 4.1.6
-        version: 4.1.6(vitest@4.1.6)
+        specifier: 4.1.7
+        version: 4.1.7(vitest@4.1.6)
       autocorrect-node:
         specifier: 2.14.0
         version: 2.14.0
@@ -236,7 +236,7 @@ importers:
         version: 5.2.0(typescript@5.9.3)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
       vitest:
         specifier: 4.1.6
-        version: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.7)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
 
 packages:
 
@@ -2016,6 +2016,9 @@ packages:
   '@vitest/pretty-format@4.1.6':
     resolution: {integrity: sha512-h5SxD/IzNhZYnrSZRsUZQIC+vD0GY8cUvq0iwsmkFKixRCKLLWqCXa/FIQ4S1R+sI+PGoojkHsdNrbZiM9Qpgw==}
 
+  '@vitest/pretty-format@4.1.7':
+    resolution: {integrity: sha512-umgCarTOYQWIaDMvGDRZij+6b9oVeLIyJzfN+AS88e0ZOU3QTgNNSTtjQOpcvWr3np1N0j4WgZj+sb3oYBDscw==}
+
   '@vitest/runner@4.1.6':
     resolution: {integrity: sha512-nOPCmn2+yD0ZNmKdsXGv/UxMMWbMuKeD6GyYncNwdkYDxpQvrPSKYj2rWuDjC2Y4b6w6hjip5dBKFzEUuZe3vA==}
 
@@ -2025,13 +2028,16 @@ packages:
   '@vitest/spy@4.1.6':
     resolution: {integrity: sha512-JFKxMx6udhwKh/Ldo270e17QX710vgunMkuPAvXjHSvC6oqLWAHhVhjg/I71q0u0CBSErIODV1Kjv0FQNSWjdg==}
 
-  '@vitest/ui@4.1.6':
-    resolution: {integrity: sha512-wiu5em68DfGv/2HFvI1Njr7JI2CHcBlQvereSzVG8my53PRxjTNOCsD9VOkRKrsJBDHmyuXvosxWZw7T91a2mw==}
+  '@vitest/ui@4.1.7':
+    resolution: {integrity: sha512-TP6utB2yX6rsJNVRo2qAlsi48i1YwFTrLV2tnTtWqJaYX7m4lRCCLirZBjU6xC5m0RsPHr+L2+N+eIPhgEzFfw==}
     peerDependencies:
-      vitest: 4.1.6
+      vitest: 4.1.7
 
   '@vitest/utils@4.1.6':
     resolution: {integrity: sha512-FxIY+U81R3LGKCxaHHFRQ5+g6/iRgGLmeHWdp2Amj4ljQRrEIWHmZyDfDYBRZlpyqA7qKxtS9DD1dhk8RnRIVQ==}
+
+  '@vitest/utils@4.1.7':
+    resolution: {integrity: sha512-T532WBu791cBxJlCl6SO+J14l81DQx6uQHm1bQbmCDY7nqlEIgkza/UFnSBNaUtSf41unldDFjdOBYEQC4b5Hw==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -6493,7 +6499,7 @@ snapshots:
       obug: 2.1.1
       std-env: 4.1.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.7)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
 
   '@vitest/eslint-plugin@1.6.17(@typescript-eslint/eslint-plugin@8.59.4(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.6)':
     dependencies:
@@ -6503,7 +6509,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.59.4(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)
       typescript: 5.9.3
-      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.7)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
     transitivePeerDependencies:
       - supports-color
 
@@ -6528,6 +6534,10 @@ snapshots:
     dependencies:
       tinyrainbow: 3.1.0
 
+  '@vitest/pretty-format@4.1.7':
+    dependencies:
+      tinyrainbow: 3.1.0
+
   '@vitest/runner@4.1.6':
     dependencies:
       '@vitest/utils': 4.1.6
@@ -6542,20 +6552,26 @@ snapshots:
 
   '@vitest/spy@4.1.6': {}
 
-  '@vitest/ui@4.1.6(vitest@4.1.6)':
+  '@vitest/ui@4.1.7(vitest@4.1.6)':
     dependencies:
-      '@vitest/utils': 4.1.6
+      '@vitest/utils': 4.1.7
       fflate: 0.8.3
       flatted: 3.4.2
       pathe: 2.0.3
       sirv: 3.0.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.7)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
 
   '@vitest/utils@4.1.6':
     dependencies:
       '@vitest/pretty-format': 4.1.6
+      convert-source-map: 2.0.0
+      tinyrainbow: 3.1.0
+
+  '@vitest/utils@4.1.7':
+    dependencies:
+      '@vitest/pretty-format': 4.1.7
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.0
 
@@ -7804,7 +7820,7 @@ snapshots:
       semver: 7.8.0
     optionalDependencies:
       '@vitest/expect': 4.1.6
-      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.7)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
 
   human-signals@8.0.1: {}
 
@@ -9681,7 +9697,7 @@ snapshots:
       stylus: 0.62.0
       yaml: 2.9.0
 
-  vitest@4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.6)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
+  vitest@4.1.6(@types/node@25.9.1)(@vitest/coverage-v8@4.1.6)(@vitest/ui@4.1.7)(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.6
       '@vitest/mocker': 4.1.6(vite@8.0.13(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
@@ -9706,7 +9722,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 25.9.1
       '@vitest/coverage-v8': 4.1.6(vitest@4.1.6)
-      '@vitest/ui': 4.1.6(vitest@4.1.6)
+      '@vitest/ui': 4.1.7(vitest@4.1.6)
     transitivePeerDependencies:
       - msw
 

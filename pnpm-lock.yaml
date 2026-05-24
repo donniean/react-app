@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@tanstack/react-query':
-        specifier: 5.100.11
-        version: 5.100.11(react@19.2.6)
+        specifier: 5.100.13
+        version: 5.100.13(react@19.2.6)
       '@tanstack/react-query-devtools':
-        specifier: 5.100.11
-        version: 5.100.11(@tanstack/react-query@5.100.11(react@19.2.6))(react@19.2.6)
+        specifier: 5.100.13
+        version: 5.100.13(@tanstack/react-query@5.100.13(react@19.2.6))(react@19.2.6)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -77,13 +77,13 @@ importers:
         version: 10.0.1(eslint@10.4.0(jiti@2.7.0))
       '@rolldown/plugin-babel':
         specifier: 0.2.3
-        version: 0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       '@tailwindcss/vite':
         specifier: 4.3.0
-        version: 4.3.0(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 4.3.0(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       '@tanstack/eslint-plugin-query':
-        specifier: 5.100.11
-        version: 5.100.11(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)
+        specifier: 5.100.13
+        version: 5.100.13(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)
       '@types/babel__core':
         specifier: 7.20.5
         version: 7.20.5
@@ -104,7 +104,7 @@ importers:
         version: 19.2.3(@types/react@19.2.15)
       '@vitejs/plugin-react':
         specifier: 6.0.2
-        version: 6.0.2(@rolldown/plugin-babel@0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)))(babel-plugin-react-compiler@1.0.0)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 6.0.2(@rolldown/plugin-babel@0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)))(babel-plugin-react-compiler@1.0.0)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       '@vitest/coverage-v8':
         specifier: 4.1.7
         version: 4.1.7(vitest@4.1.7)
@@ -184,8 +184,8 @@ importers:
         specifier: 1.58.0
         version: 1.58.0(@types/node@25.9.1)(i18next@26.2.0(typescript@5.9.3))(react-dom@19.2.6(react@19.2.6))(typescript@5.9.3)
       knip:
-        specifier: 6.14.1
-        version: 6.14.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+        specifier: 6.14.2
+        version: 6.14.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
       lint-staged:
         specifier: 17.0.5
         version: 17.0.5
@@ -227,16 +227,16 @@ importers:
         version: 5.2.0(typescript@5.9.3)
       vite:
         specifier: 8.0.14
-        version: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+        version: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
       vite-plugin-checker:
         specifier: 0.13.0
-        version: 0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.12.0(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.12.0(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       vite-plugin-svgr:
         specifier: 5.2.0
-        version: 5.2.0(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 5.2.0(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       vitest:
         specifier: 4.1.7
-        version: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
 
 packages:
 
@@ -1691,8 +1691,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tanstack/eslint-plugin-query@5.100.11':
-    resolution: {integrity: sha512-4JfaSf6/ql9AFAsRWaWulz40gS86bDgSr15pWCI3o+oX3sdZ0ZR8AOeNrCEqyIrV6wFxnCfhFi1kWjOlZ+66Ew==}
+  '@tanstack/eslint-plugin-query@5.100.13':
+    resolution: {integrity: sha512-zrEREA5FEozwaxLfSDdp7uohRNrNQi/BM3DKu39ILnPD/vcl5Z9PFa41tYIZ+GyUGcF0G/ZLrQg8KQvSQG8EPg==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: ^5.4.0 || ^6.0.0
@@ -1700,20 +1700,20 @@ packages:
       typescript:
         optional: true
 
-  '@tanstack/query-core@5.100.11':
-    resolution: {integrity: sha512-lmE0994apShXPj8CUxgx4ch5yUJhE9k/+tVwihBvPOyerACWdBocfFg24t8+0RhtlTd7tEgchDkhlCxNssvDxw==}
+  '@tanstack/query-core@5.100.13':
+    resolution: {integrity: sha512-mlKVKMTzZWGTKAC1CKOgt7axAjJ921emkEvYIp27I/PdP1yEYL/BteLY8iK35gn8hoYeKB4mgJ/ve3lrDI6/Fw==}
 
-  '@tanstack/query-devtools@5.100.11':
-    resolution: {integrity: sha512-47rVBDuGMW/A4ekt3YQdz+q0JSIwktwGnWCYyQUvSs2/g/Oa+6Fi2/IQk4/Y4vf6u1uwI7hOogHslgMC8f3X/Q==}
+  '@tanstack/query-devtools@5.100.13':
+    resolution: {integrity: sha512-mxAw1auaysPQK6EoMHs9hMuyJ1IMAE/ZmGGs9i5YveGg2RUnOGdJfefQJwWYSf2KcIu/XiPXIjuFu9Yr/tSAwA==}
 
-  '@tanstack/react-query-devtools@5.100.11':
-    resolution: {integrity: sha512-75RFlJEG53Ed/Cxe5WLmgIpOElPNpgLZq7h0fLFnM5XwTYxSTk1rX/gC6MqGVXsSdrbP7zn7hPSJx9MinwiUHA==}
+  '@tanstack/react-query-devtools@5.100.13':
+    resolution: {integrity: sha512-+haoLtUQvQ40pWtY5NbQ+iVvoptGXb6F7j9NFPaSo1jqhpzZQIKuBuwkbFd6xWLCocyvVIvWkt3mkNvCGcd/og==}
     peerDependencies:
-      '@tanstack/react-query': ^5.100.11
+      '@tanstack/react-query': ^5.100.13
       react: ^18 || ^19
 
-  '@tanstack/react-query@5.100.11':
-    resolution: {integrity: sha512-J0f9s5x3LE1450nNNfYx+e/n0DMa0uOBdFJUy5r0RvmsXd4nB/n0rbHtHI1vYXhikNFan+wf51p6Tmp4c8ucrg==}
+  '@tanstack/react-query@5.100.13':
+    resolution: {integrity: sha512-HSBr8CycQEAoXsJR7KNDawBnINJEJ96Eme8oE0hCXjyodE2I97vg3IDzDJBDu18LsbzpVVJcKo80eqLfVCykxw==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -2190,8 +2190,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.10.31:
-    resolution: {integrity: sha512-MujYO3eP72uvmSE0i4wltsodRfIpZATP3jvzRNRGGxgzId7aVocVJJV3nf01qnzzKFGxQVC9bpWxl5cjxTr/7Q==}
+  baseline-browser-mapping@2.10.32:
+    resolution: {integrity: sha512-wbPvpyjJPC0zdfdKXxqEL3Ea+bOMD/87X4lftiJkkaBiuG6ALQy1SLmEd7BSmVCuwCQsBrCamgBoLyfFDD1EPg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -2555,8 +2555,8 @@ packages:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
 
-  electron-to-chromium@1.5.360:
-    resolution: {integrity: sha512-GkcBt6YYAw9SxFWn+xVar4cLVGlXVuswwtRLBozi2zp0GjXs4ZnOrqV4zbXzg35n7w81hCkyJNYicgXlVHAmBA==}
+  electron-to-chromium@1.5.361:
+    resolution: {integrity: sha512-Q6Hts7N9FnJc5LeGRINFvLhCI9xZmNtTDe5ZbcVezQz7cU4a8Aua3GH1b8J2XY8Al9PF+OCwYqhgsOOheMdvkA==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -2567,8 +2567,8 @@ packages:
   emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
 
-  enhanced-resolve@5.21.6:
-    resolution: {integrity: sha512-aNnGCvbJ/RIyWo1IuhNdVjnNF+EjH9wpzpNHt+ci/m9He9LJvUN8wrCcXjp9cWsGNAuvSpVFTx/vraAFQ8qGjQ==}
+  enhanced-resolve@5.22.0:
+    resolution: {integrity: sha512-xYcDWrpELkFzz9SpZ3PlI6Eu6eD93Yf0WLDRxikGhWJ3MAir2SNZTIVCVZqZ/NUyx8AdMc2gT9C0gPiw18kG+A==}
     engines: {node: '>=10.13.0'}
 
   entities@4.5.0:
@@ -2613,8 +2613,8 @@ packages:
   es-module-lexer@2.1.0:
     resolution: {integrity: sha512-n27zTYMjYu1aj4MjCWzSP7G9r75utsaoc8m61weK+W8JMBGGQybd43GstCXZ3WNmSFtGT9wi59qQTW6mhTR5LQ==}
 
-  es-object-atoms@1.1.1:
-    resolution: {integrity: sha512-FGgH2h8zKNim9ljj7dankFPcICIK9Cp5bm+c2gQSYePhpaG5+esrLODihIorn+Pe6FGJzWhXQotPv73jTaldXA==}
+  es-object-atoms@1.1.2:
+    resolution: {integrity: sha512-HWcBoN6NileqtSydK2FqHbS/LoDd2pqrnQHLyJzBj4kOp/ky2MWMN694xOfkK8/SnUsW2DH7EfyVlydKCsm1Zw==}
     engines: {node: '>= 0.4'}
 
   es-set-tostringtag@2.1.0:
@@ -3509,8 +3509,8 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  knip@6.14.1:
-    resolution: {integrity: sha512-SN3Ly0ixzj5CQkY/rc4OPHpWrCC0XRIIjgdP76G9Cni5k72ur5jBYOyvJuF5oPTM14v8eHcMUgPbElHa+lnR0g==}
+  knip@6.14.2:
+    resolution: {integrity: sha512-Vg3JhIINjZew1I7qAFI4UHemW1mc4azP/BxJvsq9eGDfxpGO7oVCuD/bsWkog9TO/ZwwJeAeOMFZ1kd9jnY9+Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -3860,8 +3860,8 @@ packages:
     resolution: {integrity: sha512-pyFS63ptit/P5WqUkt+UUfe+4oevH+bFeIiPPdfb0pFeYEu/1ELnJu5l+5EcTKYL5M7zaAa7S8ddywgXypqKCw==}
     engines: {node: '>= 0.4'}
 
-  node-releases@2.0.45:
-    resolution: {integrity: sha512-iIbHXV9eBB2nB0wa7oTsrrXq+qQt+9SIlx9AX3T96YgobtEQfis5n6TJ6vV+3QP8DwdriEAcGhARaFCu37peBg==}
+  node-releases@2.0.46:
+    resolution: {integrity: sha512-GYVXHE2KnrzAfsAjl4uP++evGFCrAU1jta4ubEjIG7YWt/64Gqv66a30yKwWczVjA6j3bM4nBwH7Pk1JmDHaxQ==}
     engines: {node: '>=18'}
 
   normalize-path@3.0.0:
@@ -4325,9 +4325,9 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.99.0:
-    resolution: {integrity: sha512-kgW13M54DUB7IsIRM5LvJkNlpH+WhMpooUcaWGFARkF1Tc82v9mIWkCbCYf+MBvpIUBSeSOTilpZjEPr2VYE6Q==}
-    engines: {node: '>=14.0.0'}
+  sass@1.100.0:
+    resolution: {integrity: sha512-B5j0rYMlinhhOo9tjQebMVVn0TfyXAF+wB3b2ggZUuJ/is/Y+7+JGjirAMxHZ9Z3hIP98NPfamlAkBHa1lAaXQ==}
+    engines: {node: '>=20.19.0'}
     hasBin: true
 
   sax@1.3.0:
@@ -5986,14 +5986,14 @@ snapshots:
   '@rolldown/binding-win32-x64-msvc@1.0.2':
     optional: true
 
-  '@rolldown/plugin-babel@0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))':
+  '@rolldown/plugin-babel@0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))':
     dependencies:
       '@babel/core': 7.29.0
       picomatch: 4.0.4
       rolldown: 1.0.2
     optionalDependencies:
       '@babel/runtime': 7.29.2
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
 
   '@rolldown/pluginutils@1.0.1': {}
 
@@ -6152,7 +6152,7 @@ snapshots:
   '@tailwindcss/node@4.3.0':
     dependencies:
       '@jridgewell/remapping': 2.3.5
-      enhanced-resolve: 5.21.6
+      enhanced-resolve: 5.22.0
       jiti: 2.7.0
       lightningcss: 1.32.0
       magic-string: 0.30.21
@@ -6210,14 +6210,14 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.0
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.0
 
-  '@tailwindcss/vite@4.3.0(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))':
+  '@tailwindcss/vite@4.3.0(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))':
     dependencies:
       '@tailwindcss/node': 4.3.0
       '@tailwindcss/oxide': 4.3.0
       tailwindcss: 4.3.0
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
 
-  '@tanstack/eslint-plugin-query@5.100.11(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)':
+  '@tanstack/eslint-plugin-query@5.100.13(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)
       eslint: 10.4.0(jiti@2.7.0)
@@ -6226,19 +6226,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/query-core@5.100.11': {}
+  '@tanstack/query-core@5.100.13': {}
 
-  '@tanstack/query-devtools@5.100.11': {}
+  '@tanstack/query-devtools@5.100.13': {}
 
-  '@tanstack/react-query-devtools@5.100.11(@tanstack/react-query@5.100.11(react@19.2.6))(react@19.2.6)':
+  '@tanstack/react-query-devtools@5.100.13(@tanstack/react-query@5.100.13(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@tanstack/query-devtools': 5.100.11
-      '@tanstack/react-query': 5.100.11(react@19.2.6)
+      '@tanstack/query-devtools': 5.100.13
+      '@tanstack/react-query': 5.100.13(react@19.2.6)
       react: 19.2.6
 
-  '@tanstack/react-query@5.100.11(react@19.2.6)':
+  '@tanstack/react-query@5.100.13(react@19.2.6)':
     dependencies:
-      '@tanstack/query-core': 5.100.11
+      '@tanstack/query-core': 5.100.13
       react: 19.2.6
 
   '@tybys/wasm-util@0.10.2':
@@ -6479,12 +6479,12 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.12.2':
     optional: true
 
-  '@vitejs/plugin-react@6.0.2(@rolldown/plugin-babel@0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)))(babel-plugin-react-compiler@1.0.0)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))':
+  '@vitejs/plugin-react@6.0.2(@rolldown/plugin-babel@0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)))(babel-plugin-react-compiler@1.0.0)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
     optionalDependencies:
-      '@rolldown/plugin-babel': 0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      '@rolldown/plugin-babel': 0.2.3(@babel/core@7.29.0)(@babel/runtime@7.29.2)(rolldown@1.0.2)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       babel-plugin-react-compiler: 1.0.0
 
   '@vitest/coverage-v8@4.1.7(vitest@4.1.7)':
@@ -6499,7 +6499,7 @@ snapshots:
       obug: 2.1.1
       std-env: 4.1.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
 
   '@vitest/eslint-plugin@1.6.17(@typescript-eslint/eslint-plugin@8.59.4(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)(vitest@4.1.7)':
     dependencies:
@@ -6509,7 +6509,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.59.4(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)
       typescript: 5.9.3
-      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
     transitivePeerDependencies:
       - supports-color
 
@@ -6522,13 +6522,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.7(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))':
+  '@vitest/mocker@4.1.7(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))':
     dependencies:
       '@vitest/spy': 4.1.7
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
 
   '@vitest/pretty-format@4.1.7':
     dependencies:
@@ -6557,7 +6557,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
 
   '@vitest/utils@4.1.7':
     dependencies:
@@ -6616,7 +6616,7 @@ snapshots:
       call-bound: 1.0.4
       define-properties: 1.2.1
       es-abstract: 1.24.2
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       get-intrinsic: 1.3.0
       is-string: 1.1.1
       math-intrinsics: 1.1.0
@@ -6629,7 +6629,7 @@ snapshots:
       define-properties: 1.2.1
       es-abstract: 1.24.2
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       es-shim-unscopables: 1.1.0
 
   array.prototype.flat@1.3.3:
@@ -6717,7 +6717,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.10.31: {}
+  baseline-browser-mapping@2.10.32: {}
 
   brace-expansion@1.1.14:
     dependencies:
@@ -6734,10 +6734,10 @@ snapshots:
 
   browserslist@4.28.2:
     dependencies:
-      baseline-browser-mapping: 2.10.31
+      baseline-browser-mapping: 2.10.32
       caniuse-lite: 1.0.30001793
-      electron-to-chromium: 1.5.360
-      node-releases: 2.0.45
+      electron-to-chromium: 1.5.361
+      node-releases: 2.0.46
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
   builtin-modules@3.3.0: {}
@@ -7110,7 +7110,7 @@ snapshots:
       es-errors: 1.3.0
       gopd: 1.2.0
 
-  electron-to-chromium@1.5.360: {}
+  electron-to-chromium@1.5.361: {}
 
   emoji-regex@10.6.0: {}
 
@@ -7118,7 +7118,7 @@ snapshots:
 
   emoji-regex@9.2.2: {}
 
-  enhanced-resolve@5.21.6:
+  enhanced-resolve@5.22.0:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.3
@@ -7154,7 +7154,7 @@ snapshots:
       data-view-byte-offset: 1.0.1
       es-define-property: 1.0.1
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       es-set-tostringtag: 2.1.0
       es-to-primitive: 1.3.0
       function.prototype.name: 1.1.8
@@ -7224,7 +7224,7 @@ snapshots:
 
   es-module-lexer@2.1.0: {}
 
-  es-object-atoms@1.1.1:
+  es-object-atoms@1.1.2:
     dependencies:
       es-errors: 1.3.0
 
@@ -7336,7 +7336,7 @@ snapshots:
   eslint-plugin-n@18.0.1(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@10.4.0(jiti@2.7.0))
-      enhanced-resolve: 5.21.6
+      enhanced-resolve: 5.22.0
       eslint: 10.4.0(jiti@2.7.0)
       eslint-plugin-es-x: 7.8.0(eslint@10.4.0(jiti@2.7.0))
       get-tsconfig: 4.14.0
@@ -7652,7 +7652,7 @@ snapshots:
       call-bind-apply-helpers: 1.0.2
       es-define-property: 1.0.1
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       function-bind: 1.1.2
       get-proto: 1.0.1
       gopd: 1.2.0
@@ -7663,7 +7663,7 @@ snapshots:
   get-proto@1.0.1:
     dependencies:
       dunder-proto: 1.0.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   get-stream@9.0.1:
     dependencies:
@@ -7810,7 +7810,7 @@ snapshots:
       semver: 7.8.1
     optionalDependencies:
       '@vitest/expect': 4.1.7
-      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
 
   human-signals@8.0.1: {}
 
@@ -8105,7 +8105,7 @@ snapshots:
   iterator.prototype@1.1.5:
     dependencies:
       define-data-property: 1.1.4
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       get-intrinsic: 1.3.0
       get-proto: 1.0.1
       has-symbols: 1.1.0
@@ -8168,7 +8168,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  knip@6.14.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0):
+  knip@6.14.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0):
     dependencies:
       fdir: 6.5.0(picomatch@4.0.4)
       formatly: 0.3.0
@@ -8631,7 +8631,7 @@ snapshots:
       object.entries: 1.1.9
       semver: 6.3.1
 
-  node-releases@2.0.45: {}
+  node-releases@2.0.46: {}
 
   normalize-path@3.0.0: {}
 
@@ -8651,7 +8651,7 @@ snapshots:
       call-bind: 1.0.9
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       has-symbols: 1.1.0
       object-keys: 1.1.1
 
@@ -8660,21 +8660,21 @@ snapshots:
       call-bind: 1.0.9
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   object.fromentries@2.0.8:
     dependencies:
       call-bind: 1.0.9
       define-properties: 1.2.1
       es-abstract: 1.24.2
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   object.values@1.2.1:
     dependencies:
       call-bind: 1.0.9
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   obug@2.1.1: {}
 
@@ -8972,7 +8972,7 @@ snapshots:
       define-properties: 1.2.1
       es-abstract: 1.24.2
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       get-intrinsic: 1.3.0
       get-proto: 1.0.1
       which-builtin-type: 1.2.1
@@ -9092,9 +9092,9 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.99.0:
+  sass@1.100.0:
     dependencies:
-      chokidar: 4.0.3
+      chokidar: 5.0.0
       immutable: 5.1.5
       source-map-js: 1.2.1
     optionalDependencies:
@@ -9143,7 +9143,7 @@ snapshots:
     dependencies:
       dunder-proto: 1.0.1
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   shebang-command@2.0.0:
     dependencies:
@@ -9290,7 +9290,7 @@ snapshots:
       define-properties: 1.2.1
       es-abstract: 1.24.2
       es-errors: 1.3.0
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       get-intrinsic: 1.3.0
       gopd: 1.2.0
       has-symbols: 1.1.0
@@ -9311,7 +9311,7 @@ snapshots:
       define-data-property: 1.1.4
       define-properties: 1.2.1
       es-abstract: 1.24.2
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
       has-property-descriptors: 1.0.2
 
   string.prototype.trimend@1.0.9:
@@ -9319,13 +9319,13 @@ snapshots:
       call-bind: 1.0.9
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   string.prototype.trimstart@1.0.8:
     dependencies:
       call-bind: 1.0.9
       define-properties: 1.2.1
-      es-object-atoms: 1.1.1
+      es-object-atoms: 1.1.2
 
   strip-ansi@6.0.1:
     dependencies:
@@ -9569,7 +9569,7 @@ snapshots:
       postcss-modules-local-by-default: 4.2.0(postcss@8.5.15)
       postcss-modules-scope: 3.2.1(postcss@8.5.15)
       reserved-words: 0.1.2
-      sass: 1.99.0
+      sass: 1.100.0
       source-map-js: 1.2.1
       tsconfig-paths: 4.2.0
       typescript: 5.9.3
@@ -9641,7 +9641,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-checker@0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.12.0(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
+  vite-plugin-checker@0.13.0(eslint@10.4.0(jiti@2.7.0))(meow@14.1.0)(optionator@0.9.4)(stylelint@17.12.0(typescript@5.9.3))(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)):
     dependencies:
       '@babel/code-frame': 7.29.0
       chokidar: 4.0.3
@@ -9651,7 +9651,7 @@ snapshots:
       proper-lockfile: 4.1.2
       tiny-invariant: 1.3.3
       tinyglobby: 0.2.16
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
       vscode-uri: 3.1.0
     optionalDependencies:
       eslint: 10.4.0(jiti@2.7.0)
@@ -9660,18 +9660,18 @@ snapshots:
       stylelint: 17.12.0(typescript@5.9.3)
       typescript: 5.9.3
 
-  vite-plugin-svgr@5.2.0(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
+  vite-plugin-svgr@5.2.0(typescript@5.9.3)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)):
     dependencies:
       '@rollup/pluginutils': 5.3.0
       '@svgr/core': 8.1.0(typescript@5.9.3)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.9.3))
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0):
+  vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -9683,14 +9683,14 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.7.0
       less: 4.6.4
-      sass: 1.99.0
+      sass: 1.100.0
       stylus: 0.62.0
       yaml: 2.9.0
 
-  vitest@4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)):
+  vitest@4.1.7(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(@vitest/ui@4.1.7)(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.7
-      '@vitest/mocker': 4.1.7(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0))
+      '@vitest/mocker': 4.1.7(vite@8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0))
       '@vitest/pretty-format': 4.1.7
       '@vitest/runner': 4.1.7
       '@vitest/snapshot': 4.1.7
@@ -9707,7 +9707,7 @@ snapshots:
       tinyexec: 1.1.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(stylus@0.62.0)(yaml@2.9.0)
+      vite: 8.0.14(@types/node@25.9.1)(jiti@2.7.0)(less@4.6.4)(sass@1.100.0)(stylus@0.62.0)(yaml@2.9.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 25.9.1

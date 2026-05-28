@@ -68,7 +68,7 @@
     "react-error-boundary": "6.1.2",
     "react-i18next": "17.0.8",
     "react-router": "7.15.1",
-    "remeda": "2.36.0",
+    "remeda": "2.37.0",
     "tailwind-merge": "3.6.0"
   },
   "devDependencies": {
@@ -76,7 +76,7 @@
     "@commitlint/cli": "21.0.1",
     "@commitlint/config-conventional": "21.0.1",
     "@commitlint/types": "21.0.1",
-    "@eslint-community/eslint-plugin-eslint-comments": "4.7.1",
+    "@eslint-community/eslint-plugin-eslint-comments": "4.7.2",
     "@eslint/compat": "2.1.0",
     "@eslint/js": "10.0.1",
     "@rolldown/plugin-babel": "0.2.3",

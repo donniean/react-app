@@ -91,7 +91,7 @@
     "@vitejs/plugin-react": "6.0.2",
     "@vitest/coverage-v8": "4.1.7",
     "@vitest/eslint-plugin": "1.6.19",
-    "@vitest/ui": "4.1.7",
+    "@vitest/ui": "4.1.8",
     "autocorrect-node": "2.14.0",
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "10.0.1",

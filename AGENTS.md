@@ -6,7 +6,7 @@
 - 以 [docs/conventions.md](docs/conventions.md) 作为项目结构、routing、imports、i18n、styling、规范和约定的 single source of truth。
 - 除非用户明确要求，不要在本仓库中加入后端服务实现。
 - 本仓库是 single-page application (SPA) + client-side rendering (CSR)，不要引入 Server-side rendering (SSR)、React Server Components、API routes 或 full-stack framework 约定，除非用户明确改变目标。
-- 由本 template 生成正式项目时，示例页面、占位 request wrapper、默认 logo 和示例文案可以按业务目标替换、裁剪或删除；不要把当前示例当成下游项目必须保留的约定。
+- 由本 template 生成正式项目时，示例页面、占位 request wrapper、默认 logo 和示例文案可以按业务目标替换、裁剪或删除；具体入口见 [README.md](README.md)。
 
 ## 实现约定
 

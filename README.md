@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-A personal GitHub Template repository，用于沉淀可复用的 React starter / template / example / demo / scaffold，面向后台或中台类前端控制台。
+一个公开的 GitHub Template repository，主要服务于我个人的复用需求，用于沉淀可复用的 React starter / template / example / demo / scaffold，面向后台或中台类前端控制台。
 
-本项目的应用形态是 single-page application (SPA) + client-side rendering (CSR)。后端服务默认由独立团队开发和维护。
+本 template 的应用形态是 single-page application (SPA) + client-side rendering (CSR)。后端服务默认由独立团队开发和维护。
 
 ## 环境要求
 
@@ -26,14 +26,17 @@ pnpm run dev
 
 开发服务器默认使用端口 `3000`。
 
-## Customize
+## Usage
 
-通常需要修改以下文件，以满足项目；其他 `src/` 下文件由于需要大量修改，因此不在此赘述。
+由本 template 生成正式项目后，优先按实际业务调整：
 
-- [`vite.config.ts`](vite.config.ts)
-- [`.env`](.env) and `.env,*`
-- [`index.html`](index.html)
+- [`package.json`](package.json)：package name、metadata 和 scripts。
+- [`.env`](.env) 和 `.env*`：项目需要的 public Vite env variables。
+- [`index.html`](index.html)：title、metadata 和 root document 信息。
 - [`src/@types/vite-env.d.ts`](src/@types/vite-env.d.ts) [IntelliSense for TypeScript](https://vite.dev/guide/env-and-mode#intellisense-for-typescript)
+- [`vite.config.ts`](vite.config.ts)
+
+其他 `src/` 下文件由于需要大量调整，因此不在详细说明。
 
 ### 环境变量
 

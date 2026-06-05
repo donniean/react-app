@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-A personal React application starter:
+A personal React application starter.
 
 - 目标场景：后台或中台类前端控制台。
 - 应用形态：single-page application (SPA)。

@@ -2,17 +2,12 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-A personal React application starter.
-
-- 目标场景：后台或中台类前端控制台。
-- 应用形态：single-page application (SPA)。
-- 渲染方式：client-side rendering (CSR)。
-
-后端服务默认由独立团队开发和维护。
+A personal GitHub Template repository，用于沉淀 React starter / template / example / demo / scaffold，面向后台或中台类前端控制台。应用形态是 single-page application (SPA)，渲染方式是 client-side rendering (CSR)，后端服务默认由独立团队开发和维护。
 
 ## 环境要求
 
-Node.js 和 package manager 版本以 [`.nvmrc`](.nvmrc) 与 [`package.json`](package.json) 的 `packageManager` / `engines` 字段为准。
+- Node.js 和 pnpm 版本以 [`.nvmrc`](.nvmrc)、[`package.json`](package.json) 的 `packageManager` / `engines` 字段为准。
+- 使用 `pnpm`。`preinstall` 会通过 `only-allow` 阻止其他 package manager。
 
 ## 安装
 
@@ -28,35 +23,57 @@ pnpm run dev
 
 开发服务器默认使用端口 `3000`。
 
-## 环境变量
+## Customize
 
-以 [`.env.example`](.env.example) 为起点。
+通常需要修改以下文件，以满足项目；其他 `src/` 下文件由于需要大量修改，因此不在此赘述。
+
+- `vite.config.ts`
+- `.env` and `.env,*`
+- `index.html`
+- `src/@types/vite-env.d.ts` [IntelliSense for TypeScript](https://vite.dev/guide/env-and-mode#intellisense-for-typescript)
+
+### 环境变量
+
+以 [`.env.example`](.env.example) 为起点：
+
+```bash
+cp .env.example .env.local
+```
 
 ```bash
 VITE_API_BASE_URL=http://127.0.0.1:3001
 ```
 
-- `VITE_API_BASE_URL`：用于配置本地 API proxy，设置后，`/api` 会被 proxy 到该地址。
+设置 `VITE_API_BASE_URL` 后，API 会被 proxy 到该地址。
 
-## 构建与预览
+## 构建
 
 ```bash
 pnpm run build
+```
+
+## 预览
+
+```bash
 pnpm run preview
 ```
 
-## Customize
+## i18n
 
-- `vite.config.ts`
-- `.env` and `.env,*`
-- `index.html`
-- `src/@types/vite-env.d.ts` [IntelliSense for TypeScript](https://cn.vitejs.dev/guide/env-and-mode.html#intellisense)
-
-## Localization
+用户可见文本应使用 i18n resources，不要直接写 literal string；ESLint 启用了 `i18next/no-literal-string`。
 
 ```bash
 pnpm run i18n:types
 pnpm run lint:i18n
+```
+
+修改用户可见文本、translation keys 或 locale resources 后，运行上述命令以更新类型并检查 i18n 状态。
+
+## Lint & Format
+
+```bash
+pnpm lint
+pnpm lint:fix
 ```
 
 ## Testing
@@ -68,20 +85,15 @@ pnpm test:watch
 pnpm test:ui
 ```
 
-## Lint & Format
-
-```bash
-pnpm lint
-pnpm lint:fix
-```
-
 ## Docker
+
+本地运行已构建 image：
 
 ```bash
 pnpm run docker:run
 ```
 
-Docker build scripts 会 push images 到 Docker Hub；运行前应确认目标 image。
+`docker:build` 和 `docker:build:multi` 会 push images 到 Docker Hub；运行前应确认目标 image 和发布意图。
 
 ## Inspiration
 
@@ -90,4 +102,4 @@ Docker build scripts 会 push images 到 Docker Hub；运行前应确认目标 i
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](LICENSE)

@@ -3,9 +3,14 @@
 ## 仓库边界
 
 - 以 [README.md](README.md) 作为仓库用途、目录范围和常用命令的 single source of truth；更细的执行约束以本文件和相关源码为准。
-- 以 [docs/conventions.md](docs/conventions.md) 作为规范和约定的 single source of truth；更细的执行约束以本文件和相关源码为准。
+- 以 [docs/conventions.md](docs/conventions.md) 作为规范和约定的 single source of truth。
 - 除非用户明确要求，不要在本仓库中加入后端服务实现。
 - 本仓库是 single-page application (SPA) + client-side rendering (CSR)，不要引入 Server-side rendering (SSR) 、React Server Components、API routes 或 full-stack framework 约定，除非用户明确改变目标。
+
+## 实现约定
+
+- 读取 [docs/conventions.md](docs/conventions.md) 。
+- 修改 TypeScript / JavaScript imports 前，先读取 `tsconfig.json` / `jsconfig.json` 中的 `compilerOptions.paths`。优先使用已配置的 paths alias，避免使用深层相对路径。
 
 ## 验证
 

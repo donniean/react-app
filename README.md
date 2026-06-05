@@ -2,11 +2,14 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-A personal GitHub Template repository，用于沉淀 React starter / template / example / demo / scaffold，面向后台或中台类前端控制台。应用形态是 single-page application (SPA)，渲染方式是 client-side rendering (CSR)，后端服务默认由独立团队开发和维护。
+A personal GitHub Template repository，用于沉淀可复用的 React starter / template / example / demo / scaffold，面向后台或中台类前端控制台。
+
+本项目的应用形态是 single-page application (SPA) + client-side rendering (CSR)。后端服务默认由独立团队开发和维护。
 
 ## 环境要求
 
-- Node.js 和 pnpm 版本以 [`.nvmrc`](.nvmrc)、[`package.json`](package.json) 的 `packageManager` / `engines` 字段为准。
+- Node.js 版本以 [`.nvmrc`](.nvmrc) 和 [`package.json`](package.json) 的 `engines.node` 字段为准。
+- pnpm 版本以 [`package.json`](package.json) 的 `packageManager` 和 `engines.pnpm` 字段为准。
 - 使用 `pnpm`。`preinstall` 会通过 `only-allow` 阻止其他 package manager。
 
 ## 安装
@@ -46,10 +49,6 @@ VITE_API_BASE_URL=http://127.0.0.1:3001
 
 设置 `VITE_API_BASE_URL` 后，API 会被 proxy 到该地址。
 
-## 规范与约定
-
-项目结构、routing、imports、i18n、styling、browser smoke test 和 Docker 约定见 [docs/conventions.md](docs/conventions.md)。
-
 ## 构建
 
 ```bash
@@ -78,6 +77,10 @@ pnpm run test:watch
 pnpm run test:ui
 ```
 
+## 规范与约定
+
+项目结构、routing、imports、i18n、styling、规范和约定见 [docs/conventions.md](docs/conventions.md)。
+
 ## Docker
 
 本地运行已构建 image：
@@ -87,6 +90,8 @@ pnpm run docker:run
 ```
 
 `docker:build` 和 `docker:build:multi` 会 push images 到 Docker Hub；运行前应确认目标 image 和发布意图。
+
+[`docker.yaml`](.github/workflows/docker.yaml) 会在 push to `main` 或 tags 时 build and push Docker image。
 
 ## Inspiration
 

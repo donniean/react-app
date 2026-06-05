@@ -4,12 +4,13 @@
 
 - Route definitions 位于 [`src/app/routes.tsx`](../src/app/routes.tsx)。
 - Route-level components 位于 [`src/routes/`](../src/routes/)。
-- 当前 routes 使用 lazy loading，并通过 `RouteErrorBoundary` 处理 route-level errors。
+- 当前 routes 使用 lazy route objects，并通过 `RouteErrorBoundary` 处理 route-level errors。
 - 新增 route 时，优先沿用当前 `lazy` route object 结构。
 
 ## App composition
 
-- App 入口位于 [`src/app/index.tsx`](../src/app/index.tsx)。
+- App bootstrap 入口位于 [`src/index.tsx`](../src/index.tsx)。
+- App composition 入口位于 [`src/app/index.tsx`](../src/app/index.tsx)。
 - Providers 位于 [`src/app/providers/`](../src/app/providers/)。
 - 新增 cross-cutting provider 时，优先在 `src/app/providers/` 下实现，并从 `src/app/index.tsx` 组合。
 
@@ -33,7 +34,10 @@ pnpm run lint:i18n
 ## Styling
 
 - 全局样式入口位于 [`src/styles/`](../src/styles/)。
-- 优先使用 Tailwind CSS，而不是 CSS Modules
+- 优先使用 Tailwind CSS 处理通用 styling。
 - Tailwind CSS 通过 `@tailwindcss/vite` 接入。
 - CSS Modules 使用 `camelCase` locals convention。
-- SVG 优先使用 React component，而不是 URL。
+
+## Assets
+
+- SVG 优先作为 React component 导入；项目已通过 `vite-plugin-svgr` 支持 `?react` imports。

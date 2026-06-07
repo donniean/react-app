@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-一个个人自用的 GitHub Template repository，用于沉淀可复用的 React starter / template / example / demo / scaffold，面向后台或中台类前端控制台。
+一个个人自用的 GitHub Template repository，用于沉淀可复用的 React SPA starter / template / example / demo / scaffold，面向 admin dashboard / panel / console。
 
 本 template 的应用形态是 single-page application (SPA) + client-side rendering (CSR)。后端服务默认由独立团队开发和维护。
 

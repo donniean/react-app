@@ -16,7 +16,7 @@
 
 ## React component folder and file naming
 
-- React component 的目录名和文件名使用 `kebab-case`，而不是 `camelCase`。
+- 项目文件名默认使用 `kebab-case`。React component 的目录名和文件名也使用 `kebab-case`，而不是 `PascalCase`。
 
 ## i18n
 
@@ -37,6 +37,7 @@ pnpm run lint:i18n
 - 优先使用 Tailwind CSS 处理通用 styling。
 - Tailwind CSS 通过 `@tailwindcss/vite` 接入。
 - CSS Modules 使用 `camelCase` locals convention。
+- 合并 conditional class names 时优先使用 [`src/utils/cn.ts`](../src/utils/cn.ts)。
 
 ## Assets
 

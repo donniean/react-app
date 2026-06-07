@@ -12,6 +12,7 @@
 
 - 修改代码前，先读取 [docs/conventions.md](docs/conventions.md)。
 - 修改 TypeScript / JavaScript imports 前，先读取 `tsconfig.json` / `jsconfig.json` 中的 `compilerOptions.paths`。优先使用已配置的 paths alias，避免使用深层相对路径。
+- 用户可见文本、translation keys 或 locale resources 变更后，同步运行 i18n types / lint，并检查 [`src/@types/`](src/@types/) 的生成结果。
 
 ## 验证
 
@@ -63,3 +64,5 @@ pnpm run docker:build:multi
 ```
 
 这些命令会 push Docker images 到 Docker Hub。[`docker.yaml`](.github/workflows/docker.yaml) 也会在 push to `main` 或 tags 时 build and push image。
+
+涉及 Docker runtime 或 image tag 行为时，同步检查 [`Dockerfile`](Dockerfile)、[`nginx.conf`](nginx.conf)、[`.github/workflows/docker.yaml`](.github/workflows/docker.yaml) 和 [`.github/actions/sanitize-ref-name/action.yaml`](.github/actions/sanitize-ref-name/action.yaml)。

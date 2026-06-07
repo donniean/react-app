@@ -1,5 +1,7 @@
 # Conventions
 
+本文件是 `react-app` 的项目结构与工程约定 single source of truth。[`README`](../README.md) 只保留仓库用途、常用命令和高层入口；具体实现约定维护在这里。
+
 ## Routing
 
 - Route definitions 位于 [`src/app/routes.tsx`](../src/app/routes.tsx)。
@@ -16,7 +18,7 @@
 
 ## React component folder and file naming
 
-- 项目文件名默认使用 `kebab-case`。React component 的目录名和文件名也使用 `kebab-case`，而不是 `PascalCase`。
+- React component 的目录名和文件名使用 `kebab-case`，而不是 `PascalCase`。
 
 ## i18n
 
@@ -42,3 +44,4 @@ pnpm run lint:i18n
 ## Assets
 
 - SVG 优先作为 React component 导入；项目已通过 `vite-plugin-svgr` 支持 `?react` imports。
+- 静态公共资源放在 [`public/`](../public/)；需要经过 bundler 处理、hash 或作为 React component 使用的资源放在 [`src/assets/`](../src/assets/) 或 `src/**/assets/`。

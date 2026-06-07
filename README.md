@@ -34,9 +34,8 @@ pnpm run dev
 - [`.env`](.env) 和 `.env*`：项目需要的 public Vite env variables。
 - [`index.html`](index.html)：title、metadata 和 root document 信息。
 - [`src/@types/vite-env.d.ts`](src/@types/vite-env.d.ts) [IntelliSense for TypeScript](https://vite.dev/guide/env-and-mode#intellisense-for-typescript)
-- [`vite.config.ts`](vite.config.ts)
 
-其他 `src/` 下文件由于需要大量调整，因此不在详细说明。
+`src/` 下的示例页面、默认 logo、占位 request wrapper 和示例文案应按业务目标替换、裁剪或删除。结构与约定见 [docs/conventions.md](docs/conventions.md)。
 
 ### 环境变量
 
@@ -83,6 +82,13 @@ pnpm run test:ui
 ## 规范与约定
 
 项目结构、routing、imports、i18n、styling、规范和约定见 [docs/conventions.md](docs/conventions.md)。
+
+修改用户可见文本、translation keys 或 locale resources 后，运行：
+
+```bash
+pnpm run i18n:types
+pnpm run lint:i18n
+```
 
 ## Docker
 

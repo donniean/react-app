@@ -39,11 +39,11 @@ pnpm run dev
 由本 template 生成正式项目后，优先按实际业务调整：
 
 - [`package.json`](package.json)：package name、metadata 和 scripts。
-- [`.env`](.env) 和 `.env*`：项目需要的 public Vite env variables。
+- [`.env`](.env)、[`.env.example`](.env.example) 和 `.env*`：项目需要的 public Vite env variables。
 - [`index.html`](index.html)：title、metadata 和 root document 信息。
 - [`src/@types/vite-env.d.ts`](src/@types/vite-env.d.ts) [IntelliSense for TypeScript](https://vite.dev/guide/env-and-mode#intellisense-for-typescript)
 
-`src/` 下的示例页面、默认 logo、占位 request wrapper 和示例文案应按业务目标替换、裁剪或删除。结构与约定见 [docs/conventions.md](docs/conventions.md)。
+`src/` 下的示例页面、默认 logo、占位 request wrapper 和示例文案应按业务目标替换、裁剪或删除。结构与工程约定见 [docs/conventions.md](docs/conventions.md)。
 
 ### 环境变量
 
@@ -108,7 +108,7 @@ pnpm run docker:run
 
 `docker:build` 和 `docker:build:multi` 会 push images 到 Docker Hub；运行前应确认目标 image 和发布意图。
 
-[`docker.yaml`](.github/workflows/docker.yaml) 会在 push to `main` 或 tags 时 build and push Docker image。
+[`docker.yaml`](.github/workflows/docker.yaml) 会在 push to `main`、push tags 或手动触发时 build and push Docker image。
 
 ## References
 

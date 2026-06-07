@@ -2,6 +2,7 @@
 
 ## 仓库边界
 
+- 本仓库是 public GitHub template repository。
 - 以 [README.md](README.md) 作为仓库用途、目录范围和常用命令的 single source of truth；更细的执行约束以本文件和相关源码为准。
 - 以 [docs/conventions.md](docs/conventions.md) 作为项目结构、routing、imports、i18n、styling、规范和约定的 single source of truth。
 - 本仓库是 single-page application (SPA) + client-side rendering (CSR)，不要引入 Server-side rendering (SSR)、React Server Components、API routes 或 full-stack framework 约定，除非用户明确改变目标。
@@ -63,6 +64,6 @@ pnpm run docker:build
 pnpm run docker:build:multi
 ```
 
-这些命令会 push Docker images 到 Docker Hub。[`docker.yaml`](.github/workflows/docker.yaml) 也会在 push to `main` 或 tags 时 build and push image。
+这些命令会 push Docker images 到 Docker Hub。[`docker.yaml`](.github/workflows/docker.yaml) 也会在 push to `main`、push tags 或手动触发时 build and push image。
 
 涉及 Docker runtime 或 image tag 行为时，同步检查 [`Dockerfile`](Dockerfile)、[`nginx.conf`](nginx.conf)、[`.github/workflows/docker.yaml`](.github/workflows/docker.yaml) 和 [`.github/actions/sanitize-ref-name/action.yaml`](.github/actions/sanitize-ref-name/action.yaml)。

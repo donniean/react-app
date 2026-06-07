@@ -12,6 +12,8 @@
 - 后端服务默认由独立团队开发和维护
 - Custom design system
 
+由此生成的新项目不限定为个人自用，可按个人、团队或公司场景继续调整。
+
 ## 环境要求
 
 - Node.js 版本以 [`.nvmrc`](.nvmrc) 和 [`package.json`](package.json) 的 `engines.node` 字段为准。

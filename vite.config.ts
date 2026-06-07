@@ -52,11 +52,10 @@ export default defineConfig(({ mode }) => {
       checker({
         overlay: { initialIsOpen: 'error' },
         typescript: true,
-        // https://github.com/fi3ework/vite-plugin-checker/issues/647
-        // eslint: {
-        //   lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
-        //   useFlatConfig: true,
-        // },
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+          useFlatConfig: true,
+        },
         stylelint: {
           lintCommand: 'stylelint ./src/**/*.css',
         },

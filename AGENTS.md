@@ -1,6 +1,6 @@
 # AGENTS.md
 
-## Repository Scope
+## Scope
 
 - Repository purpose, current directories, and common commands are documented in [README.md](README.md) as the single source of truth; this file contains only repository constraints for coding agents.
 - Use [docs/conventions.md](docs/conventions.md) as the single source of truth for project structure, routing, imports, i18n, styling, and asset conventions.

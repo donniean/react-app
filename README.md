@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-A public template repository maintained for personal use. It provides reusable React starters, templates, examples, demos, and scaffolds. Projects created from this template are not limited to personal use and may be adapted for individual, team, or company use.
+A public template repository for personal use. It provides reusable React starters, templates, examples, demos, and scaffolds. Projects created from this template are not limited to personal use and may be adapted for individual, team, or company use.
 
 ## Suitable For
 
@@ -12,7 +12,7 @@ A public template repository maintained for personal use. It provides reusable R
 - separately deployed frontend applications backed by external APIs or independent backend services
 - custom design systems
 
-## Environment Requirements
+## Requirements
 
 - The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json).
 - The pnpm version is defined by `packageManager` and `engines.pnpm` in [`package.json`](package.json).

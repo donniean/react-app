@@ -9,7 +9,7 @@
 - Projects created from this template are not limited to personal use; do not treat this repository's personal-use context as a fixed downstream project constraint.
 - When this template is used to create an actual project, the sample pages, placeholder request wrapper, default logo, and sample copy may be replaced, trimmed, or deleted according to the product goal. See [README.md](README.md) for the specific entry points.
 
-## Implementation Conventions
+## Conventions
 
 - Before changing code, read [docs/conventions.md](docs/conventions.md).
 - Before changing TypeScript / JavaScript imports, read `compilerOptions.paths` in `tsconfig.json` / `jsconfig.json`. Prefer configured path aliases, and avoid deep relative paths.

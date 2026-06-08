@@ -12,7 +12,7 @@
 ## Conventions
 
 - Before changing code, read [docs/conventions.md](docs/conventions.md).
-- Before changing TypeScript / JavaScript imports, read `compilerOptions.paths` in `tsconfig.json` / `jsconfig.json`. Prefer configured path aliases, and avoid deep relative paths.
+- Before changing TypeScript / JavaScript imports, resolve `compilerOptions.paths` from `tsconfig.json` / `jsconfig.json`, following `references` and `extends` recursively. Prefer configured path aliases, and avoid deep relative paths.
 - After changing user-facing text, translation keys, or locale resources, run i18n extraction, type-generation, and lint checks, then inspect the generated output under [`src/@types/`](src/@types/).
 
 ## Verification

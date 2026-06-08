@@ -2,17 +2,15 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-一个个人自用的 public template repository，用于沉淀可复用的 React starter / template / example / demo / scaffold。
+一个个人自用的 public template repository，用于沉淀可复用的 React starter / template / example / demo / scaffold。由本 template 生成的新项目不限定为个人自用，可以按个人、团队或公司等场景继续调整。
 
 适用于：
 
 - admin dashboard / panel / console
 - single-page application (SPA)
 - client-side rendering (CSR)
-- 后端服务默认由独立团队开发和维护
+- 前端独立交付、后端由外部 API 或独立服务提供的项目
 - Custom design system
-
-由本 template 生成的新项目不限定为个人自用，可按个人、团队或公司场景继续调整。
 
 ## 环境要求
 

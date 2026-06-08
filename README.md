@@ -16,8 +16,8 @@
 
 ## 环境要求
 
-- Node.js 版本以 [`.nvmrc`](.nvmrc) 和 [`package.json`](package.json) 的 `engines.node` 字段为准。
-- pnpm 版本以 [`package.json`](package.json) 的 `packageManager` 和 `engines.pnpm` 字段为准。
+- Node.js 版本以 [`.nvmrc`](.nvmrc) 和 [`package.json`](package.json) 的 `engines.node` 为准。
+- pnpm 版本以 [`package.json`](package.json) 的 `packageManager` 和 `engines.pnpm` 为准。
 - 使用 `pnpm`。`preinstall` 会通过 `only-allow` 阻止其他 package manager。
 
 ## 安装
@@ -47,17 +47,17 @@ pnpm run dev
 
 ### 环境变量
 
-以 [`.env.example`](.env.example) 为起点：
+以 [`.env.example`](.env.example) 为起点创建本地覆盖文件：
 
 ```bash
 cp .env.example .env.local
 ```
 
-```bash
+```dotenv
 VITE_API_BASE_URL=http://127.0.0.1:3001
 ```
 
-设置 `VITE_API_BASE_URL` 后，API 会被 proxy 到该地址。
+设置 `VITE_API_BASE_URL` 后，Vite dev server 和 preview server 会把 `/api` proxy 到该地址。
 
 ## 构建
 
@@ -91,13 +91,6 @@ pnpm run test:ui
 
 项目结构、routing、imports、i18n、styling、规范和约定见 [docs/conventions.md](docs/conventions.md)。
 
-修改用户可见文本、translation keys 或 locale resources 后，运行：
-
-```bash
-pnpm run i18n:types
-pnpm run lint:i18n
-```
-
 ## Docker
 
 本地运行已构建 image：
@@ -106,7 +99,7 @@ pnpm run lint:i18n
 pnpm run docker:run
 ```
 
-`docker:build` 和 `docker:build:multi` 会 push images 到 Docker Hub；运行前应确认目标 image 和发布意图。
+`docker:build` 和 `docker:build:multi` 会 push images 到 Docker Hub；运行前必须确认目标 image、credentials 和发布意图。
 
 [`docker.yaml`](.github/workflows/docker.yaml) 会在 push to `main`、push tags 或手动触发时 build and push Docker image。
 

@@ -3,8 +3,8 @@
 ## 仓库边界
 
 - 本仓库是 public GitHub template repository。
-- 以 [README.md](README.md) 作为仓库用途、当前目录和常用命令的 single source of truth；更细的执行约束以本文件和相关源码为准。
-- 以 [docs/conventions.md](docs/conventions.md) 作为项目结构、routing、imports、i18n、styling、规范和约定的 single source of truth。
+- 以 [README.md](README.md) 作为仓库用途、当前目录和常用命令的 single source of truth。
+- 以 [docs/conventions.md](docs/conventions.md) 作为项目结构、routing、imports、i18n、styling、tooling、workflows 和 Docker/nginx 约定的 single source of truth。
 - 本仓库是 single-page application (SPA) + client-side rendering (CSR)，不要引入 Server-side rendering (SSR)、React Server Components、API routes 或 full-stack framework 约定，除非用户明确改变目标。
 - 除非用户明确要求，不要在本仓库中加入后端服务实现。
 - 由本 template 生成正式项目时，示例页面、占位 request wrapper、默认 logo 和示例文案可以按业务目标替换、裁剪或删除。具体入口见 [README.md](README.md)。
@@ -25,8 +25,6 @@ pnpm run test
 pnpm run build
 ```
 
-如果检查结果可自动修复，优先运行影响范围最小的 `fix` 命令，而不是无差别运行全仓库修复。
-
 更小范围的检查可按文件类型选择：
 
 ```bash
@@ -42,7 +40,7 @@ pnpm run lint:text
 pnpm run lint:package-json
 ```
 
-对应的 `fix` 命令包括：
+如果检查结果可自动修复，优先运行影响范围最小的 `fix` 命令：
 
 - `pnpm run lint:md:fix`
 - `pnpm run lint:js:fix`
@@ -57,7 +55,7 @@ CI 当前在 pull requests to `main` 上运行 lint、test 和 build。
 
 ## Docker
 
-未经用户明确确认，不要运行以下命令：
+未经用户明确确认，不要运行会 push images 的命令：
 
 ```bash
 pnpm run docker:build
@@ -66,4 +64,4 @@ pnpm run docker:build:multi
 
 这些命令会 push Docker images 到 Docker Hub。[`docker.yaml`](.github/workflows/docker.yaml) 也会在 push to `main`、push tags 或手动触发时 build and push image。
 
-涉及 Docker runtime 或 image tag 行为时，同步检查 [`Dockerfile`](Dockerfile)、[`nginx.conf`](nginx.conf)、[`.github/workflows/docker.yaml`](.github/workflows/docker.yaml) 和 [`.github/actions/sanitize-ref-name/action.yaml`](.github/actions/sanitize-ref-name/action.yaml)。
+涉及 Docker runtime、image tag、Node.js runtime、nginx fallback 或 publishing behavior 时，同步检查 [`Dockerfile`](Dockerfile)、[`nginx.conf`](nginx.conf)、[`.github/workflows/docker.yaml`](.github/workflows/docker.yaml) 和 [`.github/actions/sanitize-ref-name/action.yaml`](.github/actions/sanitize-ref-name/action.yaml)。

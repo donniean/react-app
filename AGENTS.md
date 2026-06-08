@@ -2,7 +2,6 @@
 
 ## 仓库边界
 
-- 本仓库是 public GitHub template repository。
 - 仓库用途、当前目录和常用命令以 [README.md](README.md) 为 single source of truth；本文件只维护 coding agent 需要执行的仓库约束。
 - 以 [docs/conventions.md](docs/conventions.md) 作为项目结构、routing、imports、i18n、styling、tooling、workflows 和 Docker/nginx 约定的 single source of truth。
 - 不要引入 Server-side rendering (SSR)、React Server Components、API routes 或 full-stack framework 约定，除非用户明确改变目标。

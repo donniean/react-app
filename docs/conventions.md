@@ -63,8 +63,7 @@ pnpm run lint:i18n
 
 ## Tooling and validation
 
-- 使用 `pnpm`。`preinstall` 会通过 `only-allow` 阻止其他 package manager。
-- Node.js 版本以 [`.nvmrc`](../.nvmrc) 和 [`package.json`](../package.json) 的 `engines.node` 为准；pnpm 版本以 `packageManager` 和 `engines.pnpm` 为准。
+- 环境要求和常用命令见 [`README.md`](../README.md)。
 - `pnpm run build` 会先生成 i18n types，再运行 TypeScript project build 和 Vite build。
 - `pnpm run lint` 汇总 package JSON、format、types、JavaScript/TypeScript、CSS、HTML、Markdown、i18n、spell 和 text checks。
 - `lint-staged` 会在 staged changes 上运行 format、text、spell、i18n types / lint，以及与文件类型对应的 TypeScript、ESLint、Stylelint、HTML、Markdown 和 related Vitest checks。

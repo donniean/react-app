@@ -12,7 +12,7 @@
 ## Conventions
 
 - Before changing code, read [docs/conventions.md](docs/conventions.md).
-- Before changing TypeScript / JavaScript imports, identify the `tsconfig.json` / `jsconfig.json` that applies to the edited file. Follow `extends` to resolve effective `compilerOptions.paths`; when starting from a solution-style config, use `references` only to locate the relevant project config.Use relative imports for same-folder or nearby module-local files. Only use a path alias when it is configured in `compilerOptions.paths` and supported by the bundler, runtime, or test tooling for that code path.
+- Before changing TypeScript or JavaScript imports, identify the relevant `tsconfig.json` / `jsconfig.json` for the edited file and resolve its effective `compilerOptions`, including any configured `paths`, by following the `extends` chain when present; in solution-style TypeScript setups, use `references` only to find the leaf project config. Use relative imports within the same feature/module/package, and prefer existing configured path aliases for established cross-boundary imports, but only when all relevant tooling for that code path supports the same alias resolution.
 - After changing user-facing text, translation keys, or locale resources, run i18n extraction, type-generation, and lint checks, then inspect the generated output under [`src/@types/`](src/@types/).
 
 ## Verification

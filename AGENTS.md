@@ -1,23 +1,23 @@
 # AGENTS.md
 
-## 仓库边界
+## Repository Scope
 
-- 仓库用途、当前目录和常用命令以 [README.md](README.md) 为 single source of truth；本文件只维护 coding agent 需要执行的仓库约束。
-- 以 [docs/conventions.md](docs/conventions.md) 作为项目结构、routing、imports、i18n、styling、tooling、workflows 和 Docker/nginx 约定的 single source of truth。
-- 不要引入 Server-side rendering (SSR)、React Server Components、API routes 或 full-stack framework 约定，除非用户明确改变目标。
-- 除非用户明确要求，不要在本仓库中加入后端服务实现。
-- 由本 template 生成的新项目不限定为个人自用；不要把当前仓库的「个人自用」边界写成下游项目的固定约束。
-- 由本 template 生成正式项目时，示例页面、占位 request wrapper、默认 logo 和示例文案可以按业务目标替换、裁剪或删除。具体入口见 [README.md](README.md)。
+- Repository purpose, current directories, and common commands are documented in [README.md](README.md) as the single source of truth; this file contains only repository constraints for coding agents.
+- Use [docs/conventions.md](docs/conventions.md) as the single source of truth for project structure, routing, imports, i18n, styling, and asset conventions.
+- Do not introduce server-side rendering (SSR), React Server Components, API routes, or full-stack framework conventions unless the user explicitly changes the goal.
+- Do not add a backend service implementation to this repository unless the user explicitly asks for one.
+- Projects created from this template are not limited to personal use; do not treat this repository's personal-use context as a fixed downstream project constraint.
+- When this template is used to create an actual project, the sample pages, placeholder request wrapper, default logo, and sample copy may be replaced, trimmed, or deleted according to the product goal. See [README.md](README.md) for the specific entry points.
 
-## 实现约定
+## Implementation Conventions
 
-- 修改代码前，先读取 [docs/conventions.md](docs/conventions.md)。
-- 修改 TypeScript / JavaScript imports 前，先读取 `tsconfig.json` / `jsconfig.json` 中的 `compilerOptions.paths`。优先使用已配置的 paths alias，避免使用深层相对路径。
-- 用户可见文本、translation keys 或 locale resources 变更后，同步运行 i18n types / lint，并检查 [`src/@types/`](src/@types/) 的生成结果。
+- Before changing code, read [docs/conventions.md](docs/conventions.md).
+- Before changing TypeScript / JavaScript imports, read `compilerOptions.paths` in `tsconfig.json` / `jsconfig.json`. Prefer configured path aliases, and avoid deep relative paths.
+- After changing user-facing text, translation keys, or locale resources, run the i18n type-generation and lint checks, then inspect the generated output under [`src/@types/`](src/@types/).
 
-## 验证
+## Verification
 
-根据改动范围运行相关检查：
+Run checks relevant to the change scope:
 
 ```bash
 pnpm run lint
@@ -25,7 +25,7 @@ pnpm run test
 pnpm run build
 ```
 
-更小范围的检查可按文件类型选择：
+Use smaller checks by file type when possible:
 
 ```bash
 pnpm run lint:md
@@ -40,7 +40,7 @@ pnpm run lint:text
 pnpm run lint:package-json
 ```
 
-如果检查结果可自动修复，优先运行影响范围最小的 `fix` 命令：
+If check results can be fixed automatically, prefer the smallest relevant `fix` command:
 
 - `pnpm run lint:md:fix`
 - `pnpm run lint:js:fix`
@@ -49,17 +49,17 @@ pnpm run lint:package-json
 - `pnpm run lint:text:fix`
 - `pnpm run lint:package-json:fix`
 
-涉及用户可见 UI、routing、i18n、Vite config、Docker 或 nginx 的改动，在可行时进行本地浏览器 smoke test。
+For changes involving user-facing UI, routing, i18n, Vite config, Docker, or nginx, run a local browser smoke test when feasible.
 
-CI 当前在 pull requests to `main` 上运行 lint、test 和 build。
+CI currently runs lint, test, and build on pull requests to `main`.
 
 ## Docker
 
-未经用户明确确认，不要运行会 push images 的命令：
+Without explicit user confirmation, do not run commands that push images:
 
 ```bash
 pnpm run docker:build
 pnpm run docker:build:multi
 ```
 
-涉及 Docker runtime、image tag、Node.js runtime、nginx fallback 或 publishing behavior 时，按 [docs/conventions.md](docs/conventions.md#docker-and-nginx) 检查相关文件和 workflow。
+For changes involving Docker runtime behavior, image tags, Node.js runtime, nginx fallback, or publishing behavior, inspect the relevant files and workflow before editing: [Dockerfile](Dockerfile), [nginx.conf](nginx.conf), [`.github/workflows/docker.yaml`](.github/workflows/docker.yaml), and [README.md](README.md#docker).

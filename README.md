@@ -2,50 +2,50 @@
 
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
-一个个人自用的 public template repository，用于沉淀可复用的 React starter / template / example / demo / scaffold。由本 template 生成的新项目不限定为个人自用，可以按个人、团队或公司等场景继续调整。
+A public template repository maintained for personal use. It provides reusable React starters, templates, examples, demos, and scaffolds. Projects created from this template are not limited to personal use and may be adapted for individual, team, or company use.
 
-## 适用场景
+## Suitable For
 
 - single-page application (SPA)
 - client-side rendering (CSR)
-- admin dashboard / panel / console
-- 前端独立交付、后端由外部 API 或独立服务提供
-- Custom design system
+- admin dashboards, panels, or consoles
+- separately deployed frontend applications backed by external APIs or independent backend services
+- custom design systems
 
-## 环境要求
+## Environment Requirements
 
-- Node.js 版本以 [`.nvmrc`](.nvmrc) 和 [`package.json`](package.json) 的 `engines.node` 为准。
-- pnpm 版本以 [`package.json`](package.json) 的 `packageManager` 和 `engines.pnpm` 为准。
-- 使用 `pnpm`。`preinstall` 会通过 `only-allow` 阻止其他 package manager。
+- The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json).
+- The pnpm version is defined by `packageManager` and `engines.pnpm` in [`package.json`](package.json).
+- Use `pnpm`. `preinstall` enforces this with `only-allow`.
 
-## 安装
+## Install
 
 ```bash
 pnpm install
 ```
 
-## 开发
+## Development
 
 ```bash
 pnpm run dev
 ```
 
-开发服务器默认使用端口 `3000`。
+The Vite dev server uses port `3000` by default.
 
 ## Usage
 
-由本 template 生成正式项目后，优先按实际业务调整：
+After creating a project from this template, adjust these files for the actual product:
 
-- [`package.json`](package.json)：package name、metadata 和 scripts。
-- [`.env`](.env)、[`.env.example`](.env.example) 和 `.env*`：项目需要的 public Vite env variables。
-- [`index.html`](index.html)：title、metadata 和 root document 信息。
-- [`src/@types/vite-env.d.ts`](src/@types/vite-env.d.ts) [IntelliSense for TypeScript](https://vite.dev/guide/env-and-mode#intellisense-for-typescript)
+- [`package.json`](package.json): Package name, metadata, and scripts.
+- [`.env`](.env), [`.env.example`](.env.example), and `.env*`: Vite-exposed environment variables required by the project.
+- [`index.html`](index.html): Document title, metadata, and root document content.
+- [`src/@types/vite-env.d.ts`](src/@types/vite-env.d.ts): Vite environment variable types and [TypeScript IntelliSense](https://vite.dev/guide/env-and-mode#intellisense-for-typescript).
 
-`src/` 下的示例页面、默认 logo、占位 request wrapper 和示例文案应按业务目标替换、裁剪或删除。结构与工程约定见 [docs/conventions.md](docs/conventions.md)。
+Replace, trim, or delete the sample pages, default logo, placeholder request wrapper, and sample copy under `src/` according to the product goal. See [docs/conventions.md](docs/conventions.md) for structure and implementation conventions.
 
-### 环境变量
+### Environment Variables
 
-以 [`.env.example`](.env.example) 为起点创建本地覆盖文件：
+Create a local override file from [`.env.example`](.env.example):
 
 ```bash
 cp .env.example .env.local
@@ -55,15 +55,15 @@ cp .env.example .env.local
 VITE_API_BASE_URL=http://127.0.0.1:3001
 ```
 
-设置 `VITE_API_BASE_URL` 后，Vite dev server 和 preview server 会把 `/api` proxy 到该地址。
+When `VITE_API_BASE_URL` is set, the Vite dev server and Vite preview server proxy `/api` to that address.
 
-## 构建
+## Build
 
 ```bash
 pnpm run build
 ```
 
-## 预览
+## Preview
 
 ```bash
 pnpm run preview
@@ -85,21 +85,21 @@ pnpm run test:watch
 pnpm run test:ui
 ```
 
-## 规范与约定
+## Conventions
 
-项目结构、routing、imports、i18n、styling、规范和约定见 [docs/conventions.md](docs/conventions.md)。
+Project structure, routing, imports, i18n, styling, and asset conventions are documented in [docs/conventions.md](docs/conventions.md).
 
 ## Docker
 
-本地运行已构建 image：
+Run a built image locally:
 
 ```bash
 pnpm run docker:run
 ```
 
-`docker:build` 和 `docker:build:multi` 会 push images 到 Docker Hub；运行前必须确认目标 image、credentials 和发布意图。
+`docker:build` and `docker:build:multi` push images to Docker Hub. Before running them, confirm the target image, credentials, and publishing intent.
 
-[`docker.yaml`](.github/workflows/docker.yaml) 会在 push to `main`、push tags 或手动触发时 build and push Docker image。
+[`docker.yaml`](.github/workflows/docker.yaml) builds and pushes the Docker image on pushes to `main`, tag pushes, or manual workflow dispatch.
 
 ## References
 

@@ -87,7 +87,7 @@ pnpm run test:ui
 
 ## Conventions
 
-Project structure, routing, imports, i18n, styling, and asset conventions are documented in [docs/conventions.md](docs/conventions.md).
+Project structure, routing, i18n, styling, and asset conventions are documented in [docs/conventions.md](docs/conventions.md).
 
 ## Docker
 

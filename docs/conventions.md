@@ -26,9 +26,10 @@ This file is the authoritative source for `react-app` project structure and impl
 - Locale resources are in [`src/locales/`](../src/locales/).
 - Generated i18next types are in [`src/@types/`](../src/@types/).
 - i18next config is in [`i18next.config.ts`](../i18next.config.ts).
-- After changing user-facing text, translation keys, or locale resources, run:
+- After changing user-facing text, translation keys, or locale resources, update locale resources, regenerate i18next types, and run i18n checks:
 
 ```bash
+pnpm run i18n:extract
 pnpm run i18n:types
 pnpm run lint:i18n
 ```

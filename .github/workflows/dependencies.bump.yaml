@@ -7,8 +7,10 @@ on:
 
 jobs:
   bump:
+    permissions:
+      contents: read
     uses: donniean/hub/.github/workflows/dependencies.bump.yaml@main
+    with:
+      app-client-id: ${{ vars.APP_CLIENT_ID }}
     secrets:
-      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-      GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}

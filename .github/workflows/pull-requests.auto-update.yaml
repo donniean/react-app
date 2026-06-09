@@ -5,5 +5,7 @@ on:
 jobs:
   auto-update:
     uses: donniean/hub/.github/workflows/pull-requests.auto-update.yaml@main
+    with:
+      app-client-id: ${{ vars.APP_CLIENT_ID }}
     secrets:
       APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}

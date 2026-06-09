@@ -4,6 +4,7 @@ on:
 
 jobs:
   auto-update:
+    permissions: {}
     uses: donniean/hub/.github/workflows/pull-requests.auto-update.yaml@main
     with:
       app-client-id: ${{ vars.APP_CLIENT_ID }}

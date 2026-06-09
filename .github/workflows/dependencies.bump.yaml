@@ -7,6 +7,8 @@ on:
 
 jobs:
   bump:
+    permissions:
+      contents: read
     uses: donniean/hub/.github/workflows/dependencies.bump.yaml@main
     with:
       app-client-id: ${{ vars.APP_CLIENT_ID }}

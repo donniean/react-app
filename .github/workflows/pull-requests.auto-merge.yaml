@@ -4,4 +4,7 @@ on:
 
 jobs:
   auto-merge:
+    permissions:
+      contents: write
+      pull-requests: write
     uses: donniean/hub/.github/workflows/pull-requests.auto-merge.yaml@main

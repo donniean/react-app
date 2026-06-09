@@ -47,18 +47,18 @@ jobs:
           TAG="latest"
 
           if [[ "$REF" == refs/tags/* ]]; then
-            TAG="$REF_NAME"
+            TAG="$SANITIZED_REF_NAME"
           elif [[ "$REF" == "refs/heads/main" ]]; then
             TAG="latest"
           elif [[ "$REF" == refs/heads/* ]]; then
             TAG="$SANITIZED_REF_NAME"
           fi
 
-          echo "TAG=$TAG" >> $GITHUB_ENV
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
 
       - name: Build and Push
         uses: docker/build-push-action@v7
         with:
           platforms: linux/amd64,linux/arm64
-          tags: donniean/react-app:${{ env.TAG }}
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:${{ env.TAG }}
           push: true

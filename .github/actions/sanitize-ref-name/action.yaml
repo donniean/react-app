@@ -90,27 +90,37 @@ runs:
   steps:
     - id: sanitize
       shell: bash
+      env:
+        INPUT_ALLOWED_CHARS: ${{ inputs.allowed-chars }}
+        INPUT_CASE: ${{ inputs.case }}
+        INPUT_FALLBACK: ${{ inputs.fallback }}
+        INPUT_MAX_LENGTH: ${{ inputs.max-length }}
+        INPUT_PREFIX: ${{ inputs.prefix }}
+        INPUT_REF_NAME: ${{ inputs.ref-name }}
+        INPUT_REPLACEMENT: ${{ inputs.replacement }}
+        INPUT_START_CHARS: ${{ inputs.start-chars }}
+        INPUT_TARGET: ${{ inputs.target }}
       run: |
         # cSpell: ignore pipefail
         set -euo pipefail
 
         # 1) read inputs and basic defaults
-        ref_input="${{ inputs.ref-name }}"
+        ref_input="$INPUT_REF_NAME"
         if [ -z "$ref_input" ]; then
           # use parameter expansion to avoid unset error under set -u
           ref_input="${GITHUB_REF_NAME-}"
         fi
 
-        target="${{ inputs.target }}"
+        target="$INPUT_TARGET"
         target="$(printf '%s' "${target:-docker-tag}" | tr '[:upper:]' '[:lower:]')"
 
-        allowed_extra="${{ inputs.allowed-chars }}"
-        replacement="${{ inputs.replacement }}"
-        case_opt="${{ inputs.case }}"
-        start_override="${{ inputs.start-chars }}"
-        prefix="${{ inputs.prefix }}"
-        fallback="${{ inputs.fallback }}"
-        max_length_input="${{ inputs.max-length }}"
+        allowed_extra="$INPUT_ALLOWED_CHARS"
+        replacement="$INPUT_REPLACEMENT"
+        case_opt="$INPUT_CASE"
+        start_override="$INPUT_START_CHARS"
+        prefix="$INPUT_PREFIX"
+        fallback="$INPUT_FALLBACK"
+        max_length_input="$INPUT_MAX_LENGTH"
 
         replacement="${replacement:--}"
         case_opt="$(printf '%s' "${case_opt:-lower}" | tr '[:upper:]' '[:lower:]')"

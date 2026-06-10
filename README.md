@@ -72,8 +72,8 @@ pnpm run preview
 ## Lint & Format
 
 ```bash
-pnpm run lint
-pnpm run lint:fix
+pnpm run quality:check
+pnpm run quality:fix
 ```
 
 ## Testing

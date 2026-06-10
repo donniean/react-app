@@ -43,7 +43,6 @@ export default defineConfig({
     'immer',
     'mantine',
     'markdownlint',
-    'ncurc',
     'npmjs',
     'numbro',
     'rimraf',

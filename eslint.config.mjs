@@ -29,9 +29,6 @@ const gitignorePath = path.resolve(dirname, '.gitignore');
 const nodeGlobs = [
   '**/.htmlvalidate.{js,mjs,cjs,ts}',
   '**/.ncurc.{js,mjs,cjs}',
-  '**/*.stories.{js,jsx,ts,tsx}',
-  '**/*.story.{js,jsx,ts,tsx}',
-  '**/*.test.{js,jsx,ts,tsx}',
   '**/commitlint.config.{js,mjs,cjs,ts}',
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
@@ -47,6 +44,12 @@ const nodeGlobs = [
   'config/**/*.{js,cjs,mjs,ts}',
   'scripts/**/*.{js,cjs,mjs,ts}',
 ];
+const testGlobs = ['**/tests/**', '**/*.test.{js,jsx,ts,tsx}'];
+const storyGlobs = [
+  '**/*.stories.{js,jsx,ts,tsx}',
+  '**/*.story.{js,jsx,ts,tsx}',
+];
+const devDependencyGlobs = [...nodeGlobs, ...testGlobs, ...storyGlobs];
 
 export default defineConfig([
   includeIgnoreFile(gitignorePath, 'custom/gitignore'),
@@ -129,7 +132,7 @@ export default defineConfig([
       'import-x/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: nodeGlobs,
+          devDependencies: devDependencyGlobs,
           optionalDependencies: false,
           peerDependencies: true,
         },
@@ -317,7 +320,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['**/tests/**', '**/*.test.ts', '**/*.test.tsx'],
+    files: testGlobs,
     ...eslintPluginVitest.configs.recommended,
   },
   eslintConfigPrettier,

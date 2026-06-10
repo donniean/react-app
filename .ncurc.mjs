@@ -1,9 +1,10 @@
 import { defineConfig } from 'npm-check-updates';
 
+const majorLockedDependencies = new Set(['@types/node', 'typescript']);
+
 export default defineConfig({
-  reject: ['typescript'],
   target: (dependencyName) => {
-    if (dependencyName === '@types/node') {
+    if (majorLockedDependencies.has(dependencyName)) {
       return 'minor';
     }
 

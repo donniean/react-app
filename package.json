@@ -43,7 +43,7 @@
     "lint:styles:check": "stylelint \"**/*.css\"",
     "lint:styles:fix": "pnpm run lint:styles:check --fix",
     "lint:types:check": "tsc --build --clean && tsc --build",
-    "ncu": "pnpm dlx npm-check-updates@latest --deep --format cooldown",
+    "ncu:check": "pnpm dlx npm-check-updates@latest --deep --format cooldown",
     "ncu:upgrade": "pnpm run ncu --upgrade",
     "prepare": "husky",
     "preview": "vite preview",

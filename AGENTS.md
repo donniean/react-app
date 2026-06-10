@@ -20,7 +20,7 @@
 Run checks relevant to the change scope:
 
 ```bash
-pnpm run lint
+pnpm run quality:check
 pnpm run test
 pnpm run build
 ```
@@ -28,30 +28,30 @@ pnpm run build
 Use smaller checks by file type when possible:
 
 ```bash
-pnpm run lint:md
-pnpm run lint:js
-pnpm run lint:types
-pnpm run lint:css
-pnpm run lint:html
+pnpm run format:package-json:check
+pnpm run format:prettier:check
+pnpm run lint:copywriting:check
+pnpm run lint:html:check
 pnpm run lint:i18n:check
-pnpm run lint:format
-pnpm run lint:spell
-pnpm run lint:text
-pnpm run lint:package-json
+pnpm run lint:js:check
+pnpm run lint:markdown:check
+pnpm run lint:spelling:check
+pnpm run lint:styles:check
+pnpm run lint:types:check
 ```
 
 If check results can be fixed automatically, prefer the smallest relevant `fix` command:
 
-- `pnpm run lint:md:fix`
+- `pnpm run format:package-json:fix`
+- `pnpm run format:prettier:fix`
+- `pnpm run lint:copywriting:fix`
 - `pnpm run lint:js:fix`
-- `pnpm run lint:css:fix`
-- `pnpm run lint:format:fix`
-- `pnpm run lint:text:fix`
-- `pnpm run lint:package-json:fix`
+- `pnpm run lint:markdown:fix`
+- `pnpm run lint:styles:fix`
 
 For changes involving user-facing UI, routing, i18n, Vite config, Docker, or nginx, run a local browser smoke test when feasible.
 
-CI currently runs lint, test, and build on pull requests to `main`.
+CI currently runs quality checks, test, and build on pull requests to `main`.
 
 ## Docker
 

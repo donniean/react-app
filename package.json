@@ -49,7 +49,7 @@
     "preview": "vite preview",
     "quality:check": "concurrently --group --timings \"pnpm:format:*:check\" \"pnpm:lint:*:check\"",
     "quality:fix": "concurrently --group --timings --max-processes=1 \"pnpm:format:*:fix\" \"pnpm:lint:*:fix\"",
-    "test": "concurrently --group --timings \"pnpm:test:unit\"",
+    "test": "pnpm:test:unit",
     "test:unit": "vitest run --passWithNoTests",
     "test:unit:coverage": "vitest run --coverage",
     "test:unit:ui": "vitest --ui",

@@ -33,7 +33,7 @@ pnpm run lint:js
 pnpm run lint:types
 pnpm run lint:css
 pnpm run lint:html
-pnpm run lint:i18n
+pnpm run lint:i18n:check
 pnpm run lint:format
 pnpm run lint:spell
 pnpm run lint:text

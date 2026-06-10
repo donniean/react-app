@@ -30,13 +30,13 @@ Use smaller checks by file type when possible:
 ```bash
 pnpm run format:package-json:check
 pnpm run format:prettier:check
-pnpm run lint:copywriting:check
 pnpm run lint:html:check
 pnpm run lint:i18n:check
 pnpm run lint:js:check
 pnpm run lint:markdown:check
 pnpm run lint:spelling:check
 pnpm run lint:styles:check
+pnpm run lint:text:check
 pnpm run lint:types:check
 ```
 
@@ -44,10 +44,10 @@ If check results can be fixed automatically, prefer the smallest relevant `fix` 
 
 - `pnpm run format:package-json:fix`
 - `pnpm run format:prettier:fix`
-- `pnpm run lint:copywriting:fix`
 - `pnpm run lint:js:fix`
 - `pnpm run lint:markdown:fix`
 - `pnpm run lint:styles:fix`
+- `pnpm run lint:text:fix`
 
 For changes involving user-facing UI, routing, i18n, Vite config, Docker, or nginx, run a local browser smoke test when feasible.
 

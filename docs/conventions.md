@@ -31,7 +31,7 @@ This file is the authoritative source for `react-app` project structure and impl
 ```bash
 pnpm run i18n:extract
 pnpm run i18n:types
-pnpm run lint:i18n:check
+pnpm run lint:i18n
 ```
 
 ## Styling

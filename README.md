@@ -72,17 +72,17 @@ pnpm run preview
 ## Lint & Format
 
 ```bash
-pnpm run lint
-pnpm run lint:fix
+pnpm run quality:check
+pnpm run quality:fix
 ```
 
 ## Testing
 
 ```bash
 pnpm run test
-pnpm run test:coverage
-pnpm run test:watch
-pnpm run test:ui
+pnpm run test:unit:coverage
+pnpm run test:unit:watch
+pnpm run test:unit:ui
 ```
 
 ## Conventions

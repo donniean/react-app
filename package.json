@@ -50,7 +50,7 @@
     "prepare": "husky",
     "preview": "vite preview",
     "test": "pnpm run test:unit",
-    "test:unit": "vitest run --passWithNoTests",
+    "test:unit": "vitest run --pass-with-no-tests",
     "test:unit:coverage": "vitest run --coverage",
     "test:unit:ui": "vitest --ui",
     "test:unit:watch": "vitest watch"

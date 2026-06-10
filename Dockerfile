@@ -1,8 +1,13 @@
 FROM node:lts-slim AS builder
 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME/bin:$PATH"
+
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 RUN pnpm install --frozen-lockfile
 

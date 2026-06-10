@@ -27,6 +27,7 @@ const { dirname } = import.meta;
 const gitignorePath = path.resolve(dirname, '.gitignore');
 
 const nodeGlobs = [
+  '**/.ncurc.{js,mjs,cjs}',
   '**/*.stories.{js,jsx,ts,tsx}',
   '**/*.story.{js,jsx,ts,tsx}',
   '**/*.test.{js,jsx,ts,tsx}',

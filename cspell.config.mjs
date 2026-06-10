@@ -21,6 +21,7 @@ export default defineConfig({
     '.htmlvalidateignore',
     '.huskyrc',
     '.markdownlintignore',
+    '.ncurc',
     '.nvmrc',
     '.stylelintignore',
     // Git
@@ -42,6 +43,7 @@ export default defineConfig({
     'immer',
     'mantine',
     'markdownlint',
+    'ncurc',
     'npmjs',
     'numbro',
     'rimraf',

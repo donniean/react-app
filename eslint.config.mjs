@@ -27,12 +27,13 @@ const { dirname } = import.meta;
 const gitignorePath = path.resolve(dirname, '.gitignore');
 
 const nodeGlobs = [
-  '**/.htmlvalidate.{js,mjs,cjs,ts}',
+  '**/.htmlvalidate.{js,mjs,cjs}',
   '**/.ncurc.{js,mjs,cjs}',
   '**/commitlint.config.{js,mjs,cjs,ts}',
   '**/cspell.config.{js,mjs,cjs,ts}',
   '**/eslint.config.{js,mjs,cjs,ts}',
-  '**/i18next.config.{js,mjs,ts}',
+  '**/html-validate.config.{js,mjs,cjs,ts}',
+  '**/i18next.config.{js,mjs,cjs,ts}',
   '**/jest.config.{js,mjs,cjs,ts}',
   '**/lint-staged.config.{js,mjs,cjs,ts}',
   '**/prettier.config.{js,mjs,cjs,ts}',

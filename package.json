@@ -49,10 +49,11 @@
     "preview": "vite preview",
     "quality:check": "concurrently --group --timings \"pnpm:format:*:check\" \"pnpm:lint:*:check\"",
     "quality:fix": "concurrently --group --timings --max-processes=1 \"pnpm:format:*:fix\" \"pnpm:lint:*:fix\"",
-    "test": "vitest run --passWithNoTests",
-    "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "test:watch": "vitest watch"
+    "test": "concurrently --group --timings \"pnpm:test:unit\"",
+    "test:unit": "vitest run --passWithNoTests",
+    "test:unit:coverage": "vitest run --coverage",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:watch": "vitest watch"
   },
   "dependencies": {
     "@tanstack/react-query": "5.101.0",

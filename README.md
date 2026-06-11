@@ -14,7 +14,7 @@ A public template repository for personal use. It provides reusable React starte
 
 ## Requirements
 
-- The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json).
+- The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json). See [Node.js version upgrade](docs/node-version-upgrade.md).
 - The pnpm version is defined by `packageManager` and `engines.pnpm` in [`package.json`](package.json).
 - Use `pnpm`. `preinstall` enforces this with `only-allow`.
 
@@ -80,9 +80,10 @@ pnpm run lint:fix
 
 ```bash
 pnpm run test
-pnpm run test:coverage
-pnpm run test:watch
-pnpm run test:ui
+pnpm run test:unit
+pnpm run test:unit:coverage
+pnpm run test:unit:watch
+pnpm run test:unit:ui
 ```
 
 ## Conventions

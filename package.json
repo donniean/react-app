@@ -27,10 +27,10 @@
     "preinstall": "pnpm dlx only-allow@latest pnpm",
     "knip": "knip",
     "knip:fix": "pnpm run knip --fix",
-    "lint": "concurrently --group --timings --prefix-colors=auto \"pnpm:lint:*(!:fix)\"",
+    "lint": "concurrently --group --timings \"pnpm:lint:*(!:fix)\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:css:fix": "pnpm run lint:css --fix",
-    "lint:fix": "concurrently --max-processes=1 --group --timings --prefix-colors=auto \"pnpm:lint:*:fix\"",
+    "lint:fix": "concurrently --max-processes=1 --group --timings \"pnpm:lint:*:fix\"",
     "lint:format": "prettier --check --ignore-unknown .",
     "lint:format:fix": "prettier --write --ignore-unknown .",
     "lint:html": "html-validate \"**/*.html\"",
@@ -45,14 +45,15 @@
     "lint:text": "autocorrect --lint",
     "lint:text:fix": "autocorrect --fix",
     "lint:types": "tsc --build --clean && tsc --build",
-    "ncu": "pnpm dlx npm-check-updates@latest --deep --format cooldown",
+    "ncu": "ncu --deep --format cooldown",
     "ncu:upgrade": "pnpm run ncu --upgrade",
     "prepare": "husky",
     "preview": "vite preview",
-    "test": "vitest run --passWithNoTests",
-    "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "test:watch": "vitest watch"
+    "test": "pnpm run test:unit",
+    "test:unit": "vitest run --pass-with-no-tests",
+    "test:unit:coverage": "vitest run --coverage",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:watch": "vitest watch"
   },
   "dependencies": {
     "@tanstack/react-query": "5.101.0",
@@ -81,7 +82,7 @@
     "@tailwindcss/vite": "4.3.0",
     "@tanstack/eslint-plugin-query": "5.101.0",
     "@types/babel__core": "7.20.5",
-    "@types/node": "25.9.2",
+    "@types/node": "24.13.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
@@ -114,6 +115,7 @@
     "knip": "6.16.1",
     "lint-staged": "17.0.7",
     "markdownlint-cli": "0.48.0",
+    "npm-check-updates": "22.2.3",
     "prettier": "3.8.4",
     "prettier-plugin-tailwindcss": "0.8.0",
     "sort-package-json": "4.0.0",
@@ -132,7 +134,7 @@
   },
   "packageManager": "pnpm@11.5.2",
   "engines": {
-    "node": ">=24.0.0",
+    "node": ">=24.0.0 <25.0.0",
     "pnpm": ">=11.0.0"
   }
 }

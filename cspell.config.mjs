@@ -21,6 +21,7 @@ export default defineConfig({
     '.htmlvalidateignore',
     '.huskyrc',
     '.markdownlintignore',
+    '.ncurc',
     '.nvmrc',
     '.stylelintignore',
     // Git

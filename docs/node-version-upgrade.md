@@ -1,4 +1,4 @@
-# Node.js Version Upgrades
+# Node.js Version Upgrade
 
 This project pins one Node.js major version at a time. Minor and patch releases within that major line may update automatically; major upgrades are manual.
 

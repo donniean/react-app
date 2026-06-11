@@ -4,3 +4,4 @@ allowBuilds:
   unrs-resolver: true
 engineStrict: true
 minimumReleaseAge: 1440
+saveExact: true

@@ -40,7 +40,7 @@ These files should usually keep their existing behavior:
    - [`.nvmrc`](../.nvmrc): Set to `<node-major>`.
    - [`package.json`](../package.json)
      - `engines.node`: Set to `>=<node-major>.0.0 <next-node-major>.0.0`.
-     - `devDependencies.@types/node`: Update with `pnpm update --save-dev @types/node@<node-major>`.
+     - `devDependencies.@types/node`: Update with `pnpm add --save-dev --save-exact @types/node@<node-major>`.
    - [`Dockerfile`](../Dockerfile): Set build stage `FROM` to `node:<node-major>-slim`.
 3. Reinstall dependencies with the target Node.js major:
 

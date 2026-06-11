@@ -80,9 +80,10 @@ pnpm run lint:fix
 
 ```bash
 pnpm run test
-pnpm run test:coverage
-pnpm run test:watch
-pnpm run test:ui
+pnpm run test:unit
+pnpm run test:unit:coverage
+pnpm run test:unit:watch
+pnpm run test:unit:ui
 ```
 
 ## Conventions

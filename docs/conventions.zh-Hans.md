@@ -4,9 +4,13 @@
 
 ## 总体原则
 
-**代码分层：** 共享代码和业务 feature 代码必须分开。shared 目录必须有明确职责，不能成为无法判断归属的杂物区。
+### 代码分层
 
-**依赖方向：** 代码依赖方向保持单向。
+共享代码和业务 feature 代码必须分开。共享代码目录必须有明确职责，不能成为无法判断归属的杂物区。
+
+## Code Flow
+
+Code flows in one direction.不能反向流动。
 
 ```text
 shared -> features -> app/routes
@@ -20,21 +24,25 @@ shared -> features -> app/routes
 - `app/routes` 负责组合 shared code 与 features
 - 跨 feature 复用的代码应提升到 shared 目录，或在 app/routes 层组合
 
-**Feature 边界：** 一个 feature 应尽量是独立业务单元。删除一个 feature 时，理想影响范围应主要集中在组合它的 routes/app 层。
+### Feature 边界
 
-**目录创建：** 不为每个 feature 机械创建所有可能目录。目录必须对应真实职责、真实代码和真实维护边界。
+一个 feature 应尽量是独立业务单元。删除一个 feature 时，理想影响范围应主要集中在组合它的 routes/app 层。
+
+### 目录创建
+
+不为每个 feature 机械创建所有可能目录。目录必须对应真实职责、真实代码和真实维护边界。
 
 ## 全局命名规则
 
 **目录名与文件名：**
 
-- 目录名使用 lowercase / `kebab-case`
-- React component 目录和文件使用 `kebab-case`
-- 不使用 `PascalCase` component 文件名
-- resource 文件名使用 resource name + artifact suffix
-- `-` 用于连接同一命名主体内的多个单词，例如 `user-form.tsx`
-- `.` 用于分隔命名主体、产物类型、测试后缀、CSS Modules 后缀，例如 `users.types.ts`、`user-form.test.tsx`、`user-form.module.css`
-- 普通单一职责模块可以使用简短文件名，例如 `env.ts`、`cn.ts`、`index.ts`
+- 目录命名方式使用 `kebab-case` ，通常禁止使用小写字母。
+- 文件命名方式使用 `kebab-case` ，多个主体之间可以使用 `.` 分隔。
+  - `-` 用于连接同一命名主体内的多个单词，例如 `user-form.tsx`
+  - `.` 用于分隔命名主体、产物类型、测试后缀、CSS Modules 后缀，例如 `users.types.ts`、`user-form.test.tsx`、`user-form.module.css` 。
+- resource 相关文件名使用 `resource` + `artifact` 。
+- 普通单一职责模块可以使用简短文件名，例如 `env.ts`、`cn.ts`、`index.ts` 。
+- React component 和 hook 的目录和文件同样遵循上述规则，不使用 `PascalCase` 。
 
 常见模式：
 
@@ -140,8 +148,6 @@ const createUserFormValuesSchema = ...
 ```
 
 ## 项目结构总览
-
-项目根目录只保留项目级配置、文档、脚本、静态资源、源码入口等内容。目录在前，文件在后；同类条目按字母顺序排序。
 
 ```text
 .

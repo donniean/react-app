@@ -10,7 +10,6 @@ A public template repository for personal use. It provides reusable React starte
 - client-side rendering (CSR)
 - admin dashboards, panels, or consoles
 - separately deployed frontend applications backed by external APIs or independent backend services
-- custom design systems
 
 ## Requirements
 

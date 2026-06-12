@@ -6,19 +6,6 @@
 - `ALTERNATIVE` 表示同一职责的替代方案
 - `OPTIONAL` 表示按项目需要引入
 
-Project Scope
-
-- 企业级中台或后台管理系统
-- Single-page application (SPA)
-- Client-side rendering (CSR)
-- Custom design system
-- 后端由专门后端团队独立开发与维护
-
-Architecture & Structure
-
-- Feature-based
-- 不强制采用 [Feature-Sliced Design](https://feature-sliced.design/)
-
 Runtime & Package Management
 
 - [Node.js](https://github.com/nodejs/node)

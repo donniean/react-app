@@ -510,26 +510,22 @@ app/
 components/
 ├── business/
 ├── errors/
-├── forms/
 ├── layouts/
-├── modals/
-├── navigation/
 └── ui/
 ```
 
 - `business/`：跨多个 features 复用且业务语义稳定的 shared business components。
 - `errors/`：共享 error boundary fallback、错误展示 components。
-- `forms/`：跨 feature 复用的 form controls、field components、form layout primitives。
 - `layouts/`：跨 route 或跨 feature 复用的布局 components。
-- `modals/`：跨 feature 复用的 modal shell、dialog primitives、confirmation patterns。
-- `navigation/`：跨 feature 复用的 navigation components。
 - `ui/`：设计系统基础组件、低业务语义的共享 UI components。
-
-`forms/`、`modals/` 和 `navigation/` SHOULD 只承载 shared UI behavior 与 local UI state。某个 feature 专有的 form submission、data fetching、mutation、permission branching 或 workflow state SHOULD 放在 `features/*/components/`，而不是 `src/components/`。
 
 `business/` SHOULD 仅在存在跨多个 features 复用、业务语义稳定的 shared business components 时创建。`business/` 初始 SHOULD 保持 flat；文件数量增长后，MAY 按稳定的 business resource 或 concept 分组，例如 `users/`、`products/`、`organizations/`。
 
 `business/` SHOULD NOT 按 UI shape 创建 `forms/`、`modals/`、`tables/`、`buttons/` 等基线子目录。Feature-specific business forms、modals、tables 和 action buttons SHOULD 放在 `features/*/components/`。
+
+`business/` MAY 包含 component-local UI state，例如 open/closed、selected、expanded、hovered 等只影响自身展示的状态。`business/` MUST NOT 发起 API requests、调用 TanStack Query hooks、写入 client stores、执行 navigation、触发 toast、更新 cache、承载 permission branching 或业务 workflow side effects。
+
+需要 data fetching、mutation、permission branching、workflow state 或业务 side effects 的 components SHOULD 放在 `features/*/components/`，并通过 props 组合 shared UI 或 shared business components。
 
 推荐形态：
 
@@ -595,7 +591,6 @@ users-table.module.css
 ### Dependencies
 
 - `src/components/ui/**` MUST NOT 依赖 `src/models/**`、`src/api/**`、`src/features/**`。
-- `src/components/forms/**` 和 `src/components/modals/**` MUST NOT 发起 API requests 或依赖 feature code。
 - `src/components/business/**` MAY 依赖稳定的 `src/models/**`，但 MUST NOT 依赖 `src/api/**`、`src/features/**`、`src/routes/**` 或 `src/app/**`。
 - `src/components/layouts/**` SHOULD 避免依赖 business models。
 - 依赖 business model 的 UI SHOULD 优先放在 `features/*/components/`。

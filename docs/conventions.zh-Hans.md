@@ -1,23 +1,6 @@
 # Conventions
 
-- [Conventions](#conventions)
-  - [总体原则](#总体原则)
-  - [全局命名规则](#全局命名规则)
-    - [Constants](#constants)
-    - [Schemas](#schemas)
-  - [项目结构总览](#项目结构总览)
-  - [`app/`](#app)
-  - [`routes/`](#routes)
-  - [`features/`](#features)
-  - [`models/`](#models)
-  - [`api/`](#api)
-  - [`components/`](#components)
-  - [`lib/`、`utils/`、`helpers/`](#libutilshelpers)
-  - [`config/`](#config)
-  - [Cross-Cutting Rules](#cross-cutting-rules)
-  - [Reference](#reference)
-
-本文档定义目录结构、命名体系和实现约定。安装、运行、构建、测试命令、Docker 使用等操作性内容由 [`README.md`](../README.md) 承担。
+本文档定义目录结构、命名体系和实现约定。
 
 ## 总体原则
 

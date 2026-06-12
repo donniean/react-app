@@ -115,6 +115,12 @@ export default defineConfig([
           patterns: ['../..'],
         },
       ],
+      'no-duplicate-imports': [
+        'error',
+        {
+          allowSeparateTypeImports: false,
+        },
+      ],
       'no-useless-call': 'error',
     },
   },
@@ -124,12 +130,9 @@ export default defineConfig([
       'import-x/first': 'error',
       'import-x/newline-after-import': 'error',
       'import-x/no-cycle': 'error',
-      'import-x/no-duplicates': [
-        'error',
-        {
-          considerQueryString: true,
-        },
-      ],
+      // Use the core rule because import-x's inline type fixer can emit invalid
+      // syntax for default imports combined with named type imports.
+      'import-x/no-duplicates': 'off',
       'import-x/no-extraneous-dependencies': [
         'error',
         {
@@ -217,9 +220,21 @@ export default defineConfig([
       ],
     },
     rules: {
-      '@typescript-eslint/consistent-type-exports': 'error',
-      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/consistent-type-exports': [
+        'error',
+        {
+          fixMixedExportsWithInlineTypeSpecifier: true,
+        },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          fixStyle: 'inline-type-imports',
+        },
+      ],
       '@typescript-eslint/member-ordering': 'error',
+      '@typescript-eslint/no-import-type-side-effects': 'error',
     },
   },
   {

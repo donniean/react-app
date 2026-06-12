@@ -18,6 +18,15 @@
 
 - React component directory names and file names use `kebab-case`, not `PascalCase`.
 
+## Imports
+
+- Use `./` for imports from the same directory.
+- Use one-level `../` imports for nearby files within the same feature, module, or local folder group.
+- Use the configured `@/` alias for cross-boundary imports from `src/`, including imports across features, routes, app composition, shared components, config, utilities, assets, and styles.
+- Avoid deep parent traversal such as `../../...` or deeper. ESLint restricts this with `no-restricted-imports`.
+- Use top-level `import type` and `export type` for pure type-only imports and exports.
+- Use inline `type` specifiers only when the same import or export statement mixes runtime values and types.
+
 ## i18n
 
 - User-facing text should use i18n resources; do not write literal strings directly. ESLint enables `i18next/no-literal-string`.

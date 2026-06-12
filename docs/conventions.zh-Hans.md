@@ -1,5 +1,47 @@
 # Conventions
 
+- [Conventions](#conventions)
+  - [总体原则](#总体原则)
+    - [Shared Code 与 Feature-Specific Code 分离](#shared-code-与-feature-specific-code-分离)
+    - [依赖方向单向流动](#依赖方向单向流动)
+    - [Feature 保持可维护、可删除](#feature-保持可维护可删除)
+    - [目录服务真实 Concern](#目录服务真实-concern)
+  - [结构](#结构)
+    - [项目根目录](#项目根目录)
+    - [`src/` 目录职责](#src-目录职责)
+    - [`src/app/`](#srcapp)
+    - [`src/routes/`](#srcroutes)
+    - [`src/components/`](#srccomponents)
+    - [`providers/`](#providers)
+    - [`features/*/`](#features)
+    - [`models/`](#models)
+    - [`api/`](#api)
+    - [Routing 与 App Composition](#routing-与-app-composition)
+    - [Testing](#testing)
+  - [命名](#命名)
+    - [目录名与文件名](#目录名与文件名)
+    - [可数资源与不可数概念](#可数资源与不可数概念)
+    - [产物类型 Suffix](#产物类型-suffix)
+    - [React Components 与 CSS Modules](#react-components-与-css-modules)
+    - [Models 命名](#models-命名)
+    - [API 命名](#api-命名)
+    - [Form 命名](#form-命名)
+    - [Schema 命名](#schema-命名)
+    - [Mapper 命名](#mapper-命名)
+    - [TanStack Query 命名](#tanstack-query-命名)
+    - [Test File 命名](#test-file-命名)
+  - [实现约定](#实现约定)
+    - [Imports 与 Barrel Files](#imports-与-barrel-files)
+    - [Routing](#routing)
+    - [App Composition](#app-composition)
+    - [i18n](#i18n)
+    - [Styling](#styling)
+    - [Assets](#assets)
+    - [API Requests](#api-requests)
+    - [API Operations](#api-operations)
+    - [TanStack Query Queries](#tanstack-query-queries)
+    - [TanStack Query Mutations](#tanstack-query-mutations)
+
 本文档定义 React SPA / CSR 企业级中后台项目的目录结构、命名体系和实现约定。本文档只描述会影响长期维护的工程规范；项目用途、安装、运行、构建、测试命令、Docker 使用等操作性内容由 [`README.md`](../README.md) 承担。
 
 本文档面向人类开发者和 AI coding agents。新增代码、移动文件、创建目录、引入抽象、组织 API 与 models 时，应优先遵守本文档。
@@ -40,17 +82,9 @@ shared -> features -> app/routes
 
 只有当文件数量、职责边界或协作成本证明有必要时，才创建或拆分目录。空目录、预留目录和过早分层会增加团队理解成本。
 
-### 结构、命名与实现约定分工明确
-
-结构规则回答「代码放在哪里」「什么时候创建目录」「目录之间如何依赖」。
-
-命名规则回答「目录名、文件名、类型名、函数名、hook 名如何命名」。
-
-实现约定回答「代码如何组织」「逻辑在哪个阶段完成」「多个文件之间如何协作」。
-
 ## 结构
 
-### 项目根目录职责
+### 项目根目录
 
 项目根目录只保留项目级配置、文档、脚本、静态资源、源码入口等内容。以下目录和文件是常见集合，不表示所有项目都必须创建。
 
@@ -91,7 +125,7 @@ shared -> features -> app/routes
 
 ### `src/` 目录职责
 
-`src/` 下可以出现以下目录，但不是所有项目都需要。
+以下目录和文件是常见集合，不表示所有项目都必须创建。
 
 ```text
 src/
@@ -174,16 +208,6 @@ app/
 - 不放 API request functions。
 - 不放通用 UI components。
 
-按需扩展：
-
-- `router/`：仅在路由配置拆分后确实需要目录化时创建。
-- `layouts/`：仅在存在 app-shell 级布局，且不适合放入 `src/components/layouts/` 时创建。
-
-不默认创建：
-
-- `services/`。
-- `stores/`。
-
 ### `src/routes/`
 
 `src/routes/` 存放 route-level components。
@@ -211,8 +235,6 @@ routes/
 
 `src/components/` 存放跨 feature 复用的 UI components，不依赖业务 feature。
 
-推荐结构：
-
 ```text
 components/
 ├── errors/
@@ -236,9 +258,7 @@ components/
 
 按需扩展：
 
-- `forms/`：仅在存在跨 feature 复用的 form controls 或 form field components 时创建。
 - `feedback/`：仅在存在跨 feature 复用的 toast、empty state、result、loading 等展示组件时创建。
-- `navigation/`：仅在存在跨 feature 复用的 navigation components 时创建。
 
 ### `providers/`
 
@@ -412,12 +432,11 @@ unit/component tests 默认 colocate 到被测试文件附近。
 
 ### 目录名与文件名
 
-目录名和文件名应保持稳定、可搜索、可推断。
+目录名和文件名应保持清晰、稳定、语义明确、可搜索、可推断。
 
 规则：
 
-- 目录名使用 lowercase / `kebab-case`。
-- React component 文件名使用 `kebab-case`。
+- 目录名使用 `lowercase` / `kebab-case`，包括 React components 和 hooks 目录和文件。
 - 不使用 `PascalCase` component 文件名。
 - resource 文件名使用 resource name + artifact suffix。
 
@@ -436,7 +455,6 @@ orders
 ```text
 auth
 metadata
-feedback
 traffic
 ```
 
@@ -491,7 +509,6 @@ product-card.module.css
 
 - 默认优先使用 Tailwind CSS。
 - Tailwind CSS 不适合时，再使用 CSS Modules。
-- CSS Modules 文件使用 `<component>.module.css`。
 - 不默认使用 `style.css`、`styles.css`、`style.module.css`。
 - 全局样式放在 `src/styles/`。
 - CSS Modules locals 使用 `camelCase`。
@@ -824,16 +841,3 @@ export const usersQueries = {
 - cache invalidation / cache update 与 mutation colocate。
 - queries 和 mutations 默认拆文件。
 - request function 和对应 TanStack Query hook 默认不放在同一个文件。
-
-## 暂不固化的规则
-
-以下内容不在本文档中固化，避免在工具链、代码实现或团队共识尚未稳定前过早形成硬性规范：
-
-- Type-only imports 规则。
-- `schemas` / `types` / `constants` 的 single source of truth。
-- OpenAPI generated types 的完整 alias 命名体系。
-- `ListUsersResponseDto` vs `ListUsersResponseBodyDto` 等细粒度 DTO 命名。
-- `CreateUserRequestDto` vs `CreateUserRequestBodyDto` 等细粒度 request body 命名。
-- `config/` vs `configs/` vs `constants/` 的完整边界。
-- 完整技术栈清单。
-- 是否需要对 `services/` 进行更严格的禁用规则。

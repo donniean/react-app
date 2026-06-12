@@ -40,15 +40,7 @@
 
 ## 技术选择基准
 
-本节说明新增库或替换技术方案时应优先参考 [tech-stack.md](tech-stack.md)，不在 conventions 中复制完整依赖清单。
-
-- React SPA / CSR。
-- Vite。
-- Tailwind CSS 优先，CSS / CSS Modules 作为 fallback。
-- TanStack Query 用于 server state。
-- i18n resources 管理用户可见文案。
-- Vitest 用于 unit/component tests。
-- Playwright 如启用，用于 end-to-end tests。
+本节说明新增库或替换技术方案时应优先参考 [tech-stack.md](tech-stack.md)。
 
 ## 结构
 
@@ -83,7 +75,7 @@
 - `docs/`：项目文档。
 - `e2e/`：end-to-end tests。仅在启用 Playwright 或同类工具时存在。
 - `public/`：不经 bundler 处理的静态资源。
-- `scripts/`：项目维护、代码生成、检查、发布脚本。
+- `scripts/`：项目维护、代码生成、检查、发布脚本。非必要不创建。
 - `src/`：应用源代码。
 - `vite.config.ts`：Vite 配置。
 

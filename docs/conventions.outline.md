@@ -383,7 +383,6 @@ auth
 metadata
 feedback
 traffic
-equipment
 ```
 
 规则：

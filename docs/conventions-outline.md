@@ -40,11 +40,10 @@
 
 ## 技术选择基准
 
-本节记录新增库或替换技术方案时的默认优先选择，不复制完整依赖清单。
+本节说明新增库或替换技术方案时应优先参考 [tech-stack.md](tech-stack.md)，不在 conventions 中复制完整依赖清单。
 
 - React SPA / CSR。
 - Vite。
-- TanStack Router file-based routing 作为默认 routing 方案。
 - Tailwind CSS 优先，CSS / CSS Modules 作为 fallback。
 - TanStack Query 用于 server state。
 - i18n resources 管理用户可见文案。
@@ -71,7 +70,6 @@
 ├── AGENTS.md
 ├── README.md
 ├── package.json
-├── tsr.config.json
 ├── tsconfig.json
 └── vite.config.ts
 ```
@@ -87,8 +85,7 @@
 - `public/`：不经 bundler 处理的静态资源。
 - `scripts/`：项目维护、代码生成、检查、发布脚本。
 - `src/`：应用源代码。
-- `tsr.config.json`：TanStack Router file-based routing 配置。仅在启用 TanStack Router file router 时存在。
-- `vite.config.ts`：Vite 配置；启用 TanStack Router file router 时注册 TanStack Router Vite plugin。
+- `vite.config.ts`：Vite 配置。
 
 ### `src/` 目录职责
 
@@ -110,7 +107,6 @@ src/
 ├── mocks/
 ├── models/
 ├── routes/
-├── routeTree.gen.ts
 ├── services/
 ├── stores/
 ├── styles/
@@ -122,7 +118,7 @@ src/
 默认常用：
 
 - `app/`：应用组合层，包括 root app、providers composition、router composition。
-- `routes/`：TanStack Router file-based route files。
+- `routes/`：route-level components。
 - `components/`：跨 feature 复用的 UI components。
 - `lib/`：第三方库适配、基础设施封装、配置后的 clients。
 - `utils/`：通用、纯函数、低业务语义的工具函数。
@@ -132,7 +128,6 @@ src/
 - `@types/`：全局类型声明、工具生成声明。
 - `locales/`：i18n resources。
 - `testing/`：测试工具、custom render、测试环境 helpers。
-- `routeTree.gen.ts`：TanStack Router 生成的 route tree，不手写编辑。
 - `index.tsx`：React bootstrap entry。
 
 按业务复杂度创建：
@@ -157,13 +152,13 @@ src/
 app/
 ├── providers/
 ├── index.tsx
-└── router.tsx
+└── routes.tsx
 ```
 
 默认职责：
 
 - `index.tsx`：application composition entry。
-- `router.tsx`：TanStack Router instance、generated route tree registration、router-level configuration。
+- `routes.tsx`：route definitions。
 - `providers/`：cross-cutting provider composition。
 
 职责边界：
@@ -185,27 +180,26 @@ app/
 - `services/`。
 - `stores/`。
 
-### `src/routes/` 路由文件职责
+### `src/routes/` Route-Level Components 职责
 
-说明 `src/routes/` 是 TanStack Router file-based routing 的 route files 目录。
+说明 `src/routes/` 存放 route-level components。
 
 ```text
 routes/
-├── __root.tsx
-├── index.tsx
-└── users/
-    ├── index.tsx
-    └── $userId.tsx
+├── root/
+│   ├── root.tsx
+│   └── root.module.css
+└── errors/
+    └── not-found.tsx
 ```
 
 职责边界：
 
-- route files 定义 URL structure、route options、loader、search params validation、pending/error components 等 routing concerns。
-- route files 可以组合 features 和 shared components。
-- route files 应保持薄，不承载复杂业务 UI。
+- route-level components 可以组合 features 和 shared components。
+- route-level components 应保持薄，不承载复杂业务 UI。
 - 复杂业务 UI 应放入 `features/*/components/` 或 `src/components/`。
-- route files 不作为跨 feature 复用组件目录。
-- route files 不直接定义业务 resource models。
+- route-level components 不作为跨 feature 复用组件目录。
+- route-level components 不直接定义业务 resource models。
 
 ### `src/components/` 子目录职责
 
@@ -362,9 +356,8 @@ api/
 
 ### Routing 与 App Composition 结构
 
-- TanStack Router file-based route files 放在 `src/routes/`。
-- generated route tree 放在 `src/routeTree.gen.ts`。
-- router instance 放在 `src/app/router.tsx`。
+- route definitions 放在 `src/app/routes.tsx`。
+- route-level components 放在 `src/routes/`。
 - application bootstrap entry 放在 `src/index.tsx`。
 - application composition entry 放在 `src/app/index.tsx`。
 - cross-cutting providers 放在 `src/app/providers/`。
@@ -454,24 +447,6 @@ product-card.module.css
 - 不默认使用 `style.css`、`styles.css`、`style.module.css`。
 - 全局样式放在 `src/styles/`。
 - CSS Modules locals 使用 `camelCase`。
-
-### Route Files 命名
-
-TanStack Router file-based route files 使用 TanStack Router 约定命名，不套用普通 React component 文件命名规则。
-
-```text
-routes/__root.tsx
-routes/index.tsx
-routes/users/index.tsx
-routes/users/$userId.tsx
-```
-
-规则：
-
-- `__root.tsx` 表示 root route。
-- `index.tsx` 表示 index route。
-- `$paramName.tsx` 表示 path params。
-- route file 命名优先遵守 TanStack Router file-based routing 规则。
 
 ### Models 命名
 
@@ -597,10 +572,9 @@ users.spec.ts
 
 ### Routing 实现
 
-- routes 使用 TanStack Router file-based routing。
-- route files 通过 `createFileRoute` / `createRootRoute` 定义 route。
-- `src/routeTree.gen.ts` 是生成文件，不手写编辑。
+- routes 使用 lazy route objects。
 - route-level errors 使用 `RouteErrorBoundary`。
+- 新增 route 时沿用现有 lazy route object structure。
 - feature components 不直接定义全局 route tree。
 
 ### App Composition 实现

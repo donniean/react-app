@@ -1,7 +1,5 @@
 # Conventions
 
-This file is the authoritative source for `react-app` project structure and implementation conventions. [README.md](../README.md) keeps only the repository purpose, common commands, and high-level entry points.
-
 ## Routing
 
 - Route definitions are in [`src/app/routes.tsx`](../src/app/routes.tsx).

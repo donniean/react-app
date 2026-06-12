@@ -52,6 +52,164 @@ const storyGlobs = [
 ];
 const devDependencyGlobs = [...nodeGlobs, ...testGlobs, ...storyGlobs];
 
+function getImportSource(node) {
+  return typeof node.source.value === 'string' ? node.source.value : undefined;
+}
+
+function isNamedTypeImport(node) {
+  return (
+    node.importKind === 'type' &&
+    node.specifiers.length > 0 &&
+    node.specifiers.every((specifier) => specifier.type === 'ImportSpecifier')
+  );
+}
+
+function isMergeableValueImport(node) {
+  return (
+    node.importKind !== 'type' &&
+    node.specifiers.length > 0 &&
+    !node.specifiers.some(
+      (specifier) => specifier.type === 'ImportNamespaceSpecifier',
+    )
+  );
+}
+
+function collectImportDeclarationsBySource(node) {
+  const importsBySource = new Map();
+
+  for (const statement of node.body) {
+    if (statement.type !== 'ImportDeclaration') {
+      continue;
+    }
+
+    const source = getImportSource(statement);
+
+    if (!source) {
+      continue;
+    }
+
+    const imports = importsBySource.get(source) ?? [];
+    imports.push(statement);
+    importsBySource.set(source, imports);
+  }
+
+  return importsBySource;
+}
+
+function getMergeableValueImport(imports) {
+  for (const importDeclaration of imports) {
+    if (isMergeableValueImport(importDeclaration)) {
+      return importDeclaration;
+    }
+  }
+}
+
+const mergeTypeImportsRule = {
+  meta: {
+    type: 'suggestion',
+    docs: {
+      description:
+        'Merge named type imports into existing value imports from the same source.',
+    },
+    fixable: 'code',
+    schema: [],
+    messages: {
+      mergeTypeImport:
+        "Merge this type import from '{{source}}' into the existing value import.",
+    },
+  },
+  create(context) {
+    const sourceCode = context.sourceCode;
+
+    function removeImportDeclaration(fixer, node) {
+      let end = node.range[1];
+
+      if (sourceCode.text.slice(end, end + 2) === '\r\n') {
+        end += 2;
+      } else if (sourceCode.text[end] === '\n') {
+        end += 1;
+      }
+
+      return fixer.removeRange([node.range[0], end]);
+    }
+
+    function insertIntoValueImport(fixer, node, typeSpecifiers) {
+      let namedSpecifier;
+
+      for (const specifier of node.specifiers) {
+        if (specifier.type === 'ImportSpecifier') {
+          namedSpecifier = specifier;
+          break;
+        }
+      }
+
+      if (namedSpecifier) {
+        let openingBrace;
+
+        for (const token of sourceCode.getTokens(node)) {
+          if (token.value === '{') {
+            openingBrace = token;
+            break;
+          }
+        }
+
+        return fixer.insertTextAfter(
+          openingBrace,
+          ` ${typeSpecifiers.join(', ')},`,
+        );
+      }
+
+      return fixer.insertTextAfter(
+        node.specifiers.at(-1),
+        `, { ${typeSpecifiers.join(', ')} }`,
+      );
+    }
+
+    return {
+      Program(node) {
+        const importsBySource = collectImportDeclarationsBySource(node);
+
+        for (const [source, imports] of importsBySource) {
+          const valueImport = getMergeableValueImport(imports);
+
+          if (!valueImport) {
+            continue;
+          }
+
+          for (const typeImport of imports) {
+            if (!isNamedTypeImport(typeImport)) {
+              continue;
+            }
+
+            context.report({
+              node: typeImport,
+              messageId: 'mergeTypeImport',
+              data: {
+                source,
+              },
+              fix(fixer) {
+                const typeSpecifiers = typeImport.specifiers.map(
+                  (specifier) => `type ${sourceCode.getText(specifier)}`,
+                );
+
+                return [
+                  insertIntoValueImport(fixer, valueImport, typeSpecifiers),
+                  removeImportDeclaration(fixer, typeImport),
+                ];
+              },
+            });
+          }
+        }
+      },
+    };
+  },
+};
+const eslintPluginLocal = {
+  rules: {
+    'merge-type-imports': mergeTypeImportsRule,
+  },
+};
+
 export default defineConfig([
   includeIgnoreFile(gitignorePath, 'custom/gitignore'),
   globalIgnores(['**/*.min.*'], 'custom/ignore'),
@@ -115,12 +273,6 @@ export default defineConfig([
           patterns: ['../..'],
         },
       ],
-      'no-duplicate-imports': [
-        'error',
-        {
-          allowSeparateTypeImports: false,
-        },
-      ],
       'no-useless-call': 'error',
     },
   },
@@ -130,9 +282,12 @@ export default defineConfig([
       'import-x/first': 'error',
       'import-x/newline-after-import': 'error',
       'import-x/no-cycle': 'error',
-      // Use the core rule because import-x's inline type fixer can emit invalid
-      // syntax for default imports combined with named type imports.
-      'import-x/no-duplicates': 'off',
+      'import-x/no-duplicates': [
+        'error',
+        {
+          considerQueryString: true,
+        },
+      ],
       'import-x/no-extraneous-dependencies': [
         'error',
         {
@@ -214,6 +369,9 @@ export default defineConfig([
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    plugins: {
+      local: eslintPluginLocal,
+    },
     settings: {
       'import-x/resolver-next': [
         createTypeScriptImportResolver({ alwaysTryTypes: true }),
@@ -235,6 +393,7 @@ export default defineConfig([
       ],
       '@typescript-eslint/member-ordering': 'error',
       '@typescript-eslint/no-import-type-side-effects': 'error',
+      'local/merge-type-imports': 'error',
     },
   },
   {

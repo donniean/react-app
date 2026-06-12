@@ -380,13 +380,26 @@ export async function listUsers(): Promise<User[]> {
 
 API operations:
 
-- 多个 API requests 组成的 function SHOULD 放在 `*.operations.ts`。
+- `*.requests.ts` SHOULD 只放对应后端 API endpoints 的 request functions。
+- `*.operations.ts` SHOULD 放由多个 request functions 组成的 frontend async operations。
 - operations MAY 调用多个 `*.requests.ts` 中的 request functions。
-- 前端多资源 wrapper 若通过多次调用单资源 API 实现，SHOULD 放在 `*.operations.ts`。
+- client-side multi-resource wrapper 若通过多次调用单资源 API 实现，SHOULD 放在 `*.operations.ts`。
+- client-side multi-resource wrapper 若只服务一个 mutation hook 且不导出复用，MAY 作为 private function 留在 `*.mutations.ts`。
 - server-side `bulk*` / `batch*` endpoint functions SHOULD 放在 `*.requests.ts`。
 - operations MUST NOT 直接承载 UI side effects。
 - operations MUST NOT 依赖 React。
 - 如果组合逻辑只服务一个 mutation hook，SHOULD 优先靠近该 mutation；可复用后再提升为 operation。
+
+文件归属示例：
+
+```text
+deleteUsers                  -> users.operations.ts
+bulkDeleteUsers              -> users.requests.ts
+batchWriteUsers              -> users.requests.ts
+useDeleteUsersMutation       -> users.mutations.ts
+useBulkDeleteUsersMutation   -> users.mutations.ts
+useBatchWriteUsersMutation   -> users.mutations.ts
+```
 
 TanStack Query queries:
 
@@ -513,6 +526,33 @@ components/
 - `ui/`：设计系统基础组件、低业务语义的共享 UI components。
 
 `forms/`、`modals/` 和 `navigation/` SHOULD 只承载 shared UI behavior 与 local UI state。某个 feature 专有的 form submission、data fetching、mutation、permission branching 或 workflow state SHOULD 放在 `features/*/components/`，而不是 `src/components/`。
+
+`business/` SHOULD 仅在存在跨多个 features 复用、业务语义稳定的 shared business components 时创建。`business/` 初始 SHOULD 保持 flat；文件数量增长后，MAY 按稳定的 business resource 或 concept 分组，例如 `users/`、`products/`、`organizations/`。
+
+`business/` SHOULD NOT 按 UI shape 创建 `forms/`、`modals/`、`tables/`、`buttons/` 等基线子目录。Feature-specific business forms、modals、tables 和 action buttons SHOULD 放在 `features/*/components/`。
+
+推荐形态：
+
+```text
+components/business/
+├── organization-logo.tsx
+├── product-status-badge.tsx
+├── user-avatar.tsx
+└── user-status-badge.tsx
+```
+
+文件数量增长后的推荐形态：
+
+```text
+components/business/
+├── organizations/
+│   └── organization-logo.tsx
+├── products/
+│   └── product-status-badge.tsx
+└── users/
+    ├── user-avatar.tsx
+    └── user-status-badge.tsx
+```
 
 ### Naming
 

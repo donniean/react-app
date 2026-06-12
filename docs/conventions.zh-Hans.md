@@ -519,6 +519,12 @@ components/
 - `layouts/`：跨 route 或跨 feature 复用的布局 components。
 - `ui/`：设计系统基础组件、低业务语义的共享 UI components。
 
+`ui/` 的语义来源 SHOULD 是 design system、HTML semantics 或通用交互模式，而不是业务 resource。`ui/` components SHOULD 通过 props 接收数据、状态和 callbacks；MUST NOT 知道 `User`、`Product` 等业务模型，MUST NOT 依赖 `src/models/**`、`src/api/**`、`src/features/**`、`src/routes/**` 或 `src/app/**`。
+
+`ui/` MAY 包含 component-local UI state，例如 open/closed、focused、selected、checked、expanded 等只影响通用交互和展示的状态。`ui/` MUST NOT 包含 API requests、TanStack Query hooks、client stores、navigation side effects、toast side effects、cache updates、permission branching 或业务 workflow state。
+
+`business/` 的语义来源 SHOULD 是跨多个 features 稳定复用的业务 resource 或 business concept。`business/` MAY 依赖稳定的 frontend models、model constants、formatters 和 shared UI；MUST NOT 依赖 feature internals 或后端请求边界。
+
 `business/` SHOULD 仅在存在跨多个 features 复用、业务语义稳定的 shared business components 时创建。`business/` 初始 SHOULD 保持 flat；文件数量增长后，MAY 按稳定的 business resource 或 concept 分组，例如 `users/`、`products/`、`organizations/`。
 
 `business/` SHOULD NOT 按 UI shape 创建 `forms/`、`modals/`、`tables/`、`buttons/` 等基线子目录。Feature-specific business forms、modals、tables 和 action buttons SHOULD 放在 `features/*/components/`。
@@ -526,6 +532,12 @@ components/
 `business/` MAY 包含 component-local UI state，例如 open/closed、selected、expanded、hovered 等只影响自身展示的状态。`business/` MUST NOT 发起 API requests、调用 TanStack Query hooks、写入 client stores、执行 navigation、触发 toast、更新 cache、承载 permission branching 或业务 workflow side effects。
 
 需要 data fetching、mutation、permission branching、workflow state 或业务 side effects 的 components SHOULD 放在 `features/*/components/`，并通过 props 组合 shared UI 或 shared business components。
+
+放置判断：
+
+- 无业务名词、无业务模型依赖、仅表达通用 UI primitive 或 interaction pattern：放 `components/ui/`。
+- 有稳定业务名词、跨多个 features 复用、只负责展示或局部 UI interaction：放 `components/business/`。
+- 只服务单一 feature，或包含 feature workflow、request、mutation、permission branching、route navigation：放 `features/*/components/`。
 
 推荐形态：
 

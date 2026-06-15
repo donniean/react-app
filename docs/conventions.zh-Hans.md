@@ -4,6 +4,8 @@
 
 当本文档与现有代码、tool configuration、generated files、design source 或其他已存在事实冲突时，MUST 以现有事实为准，并将冲突视为 documentation drift 或待确认 migration。MUST NOT 在没有明确任务时仅为匹配本文档而改动现有实现。
 
+本文档列出的目录是允许结构，不是必备结构。目录 MUST 按真实需要创建；未列出的目录 MAY 在有明确职责且符合相关框架、工具或社区通行实践时创建。
+
 本文档没有规定的内容，SHOULD 优先遵守邻近代码的既有模式；没有稳定既有模式时，SHOULD 参考相关框架、工具或库的官方文档与社区通行实践。
 
 ## Normative Keywords
@@ -28,11 +30,9 @@
 
 ## Project Structure
 
-【需要说明，下面没有的目录，如果实际需要，是可以创建的】
-
 ### Root
 
-项目根目录下的目录 MUST 按真实需要创建。目录清单是允许结构，不是必备结构。
+项目根目录 MAY 包含以下目录：
 
 ```text
 .
@@ -53,7 +53,7 @@
 
 ### Source
 
-`src/` 下的目录 MUST 按真实需要创建。目录清单是允许结构，不是必备结构。
+`src/` MAY 包含以下目录和入口文件：
 
 ```text
 src/
@@ -79,7 +79,26 @@ src/
 └── index.tsx
 ```
 
-【此处还是需要按照每个目录和文件简要说明】
+- `@types/`：全局类型声明、工具生成声明。
+- `api/`：跨 feature 共享的 API requests、queries、mutations 和 operations。
+- `app/`：应用组合层。
+- `assets/`：应用级 bundled assets。
+- `components/`：跨 feature 复用的 shared UI components。
+- `config/`：运行时配置、环境变量解析和应用级配置对象。
+- `features/`：业务 feature 的主要组织位置。
+- `helpers/`：project-specific helper functions。
+- `hooks/`：跨 feature 复用的 React hooks。
+- `lib/`：第三方库适配、configured clients 和基础设施封装。
+- `locales/`：i18n resource files。
+- `mocks/`：mock handlers、mock data 和 mock utilities。
+- `models/`：跨 feature 共享的前端数据模型及其边界转换。
+- `routes/`：route-level components。
+- `services/`：明确的 application orchestration services，非必要不创建。
+- `stores/`：跨 feature client state stores，仅在引入对应状态管理方案时创建。
+- `styles/`：global style entry points 和 global CSS。
+- `testing/`：测试工具、custom render、test setup helpers。
+- `utils/`：可跨项目复用的 generic utilities。
+- `index.tsx`：React bootstrap entry。
 
 ## Naming
 
@@ -93,7 +112,7 @@ src/
 
 ### Singular And Plural Names
 
-- 可数业务的目录名和文件名前缀 SHOULD 使用复数，例如 `users`、`products`。
+- 可数业务 resource 的目录名和文件名前缀 SHOULD 使用复数，例如 `users`、`products`。
 - 不可数名词、能力和领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
 
 ### Semantic Names
@@ -106,7 +125,7 @@ src/
 
 `features/*/` 存放某个业务 feature 私有的代码。feature 内目录复用 `src/` 下同名目录的职责，只是作用域收窄到当前 feature。
 
-`features/*/` 下的目录 MUST 按真实需要创建。目录清单是允许结构，不是必备结构。
+Feature MAY 包含以下目录：
 
 ```text
 features/*/
@@ -122,7 +141,6 @@ features/*/
 └── utils/
 ```
 
-- Feature 内目录 MAY 按需创建。
 - `features/*/api/` 和 `features/*/models/` MUST 只服务当前 feature。
 - Feature-specific code SHOULD 留在对应 feature 内。
 - 跨 feature 复用的代码 SHOULD 提升到 shared module，或在 app / routes 层组合。
@@ -165,15 +183,17 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 - `<subject>.constants.ts`：constants、options、mapping tables。
 - `<subject>.mappers.ts`：API DTO、frontend model、form values 之间的纯转换函数。
 
-【这里还是要加入其他的后缀，说明可能不是那么常用】
+其他文件后缀 MAY 在确有需要时使用：
+
+- `<subject>.guards.ts`：type guards 或 narrow functions。
+- `<subject>.fixtures.ts`：测试或开发 fixtures。
+- `<subject>.factories.ts`：测试或开发数据工厂。
 
 ### Constants
 
-【一般的应该都使用 UPPER_SNAKE_CASE】
-
-- Exported constants 通常使用 `camelCase`。
-- 真正常量语义强、不会按业务对象演化的 primitive constants MAY 使用 `UPPER_SNAKE_CASE`。
-- 对象、数组、选项表和映射表 SHOULD 使用 `as const` 保留 literal types。【不限定于对象、数组、选项表和映射表】
+- 具有项目级常量语义的 variables SHOULD 使用 `UPPER_SNAKE_CASE`。
+- Local variables 和非 constant 语义的 runtime values SHOULD 使用 `camelCase`。
+- 需要保留 literal types 的 constants SHOULD 使用 `as const`。
 - 需要校验对象形状但保留具体推断时，SHOULD 使用 `satisfies`。
 - 应用源码 SHOULD 避免使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。生成代码或明确要求使用 `enum` 的 tooling MAY 例外。
 
@@ -208,27 +228,40 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 ### API Naming
 
-【这里我建议还是要写详细】
-
-- Request function SHOULD 使用 action + resource：`listUsers`、`getUser`、`createUser`、`updateUser`、`replaceUser`、`deleteUser`。
-- TanStack Query hooks SHOULD 在对应 request action 外包裹 React hook 命名：`useUsersQuery`、`useUserQuery`、`useCreateUserMutation`。
+- `GET` collection request SHOULD 使用 `list<ResourcePlural>`，query hook SHOULD 使用 `use<ResourcePlural>Query`，infinite query hook SHOULD 使用 `use<ResourcePlural>InfiniteQuery`。
+- `GET` detail request SHOULD 使用 `get<ResourceSingular>`，query hook SHOULD 使用 `use<ResourceSingular>Query`。
+- `POST` create request SHOULD 使用 `create<ResourceSingular>`，mutation hook SHOULD 使用 `useCreate<ResourceSingular>Mutation`。
+- `PATCH` partial update request SHOULD 使用 `update<ResourceSingular>`，mutation hook SHOULD 使用 `useUpdate<ResourceSingular>Mutation`。
+- `PUT` replace request SHOULD 使用 `replace<ResourceSingular>`，mutation hook SHOULD 使用 `useReplace<ResourceSingular>Mutation`。
+- `DELETE` request SHOULD 使用 `delete<ResourceSingular>`，mutation hook SHOULD 使用 `useDelete<ResourceSingular>Mutation`。
+- Custom hooks wrapping `useQueries` SHOULD 使用 `use<ResourcePlural>Queries`。
 - Client-side multi-resource operation SHOULD 使用 `<action><ResourcePlural>`，例如 `deleteUsers`。
 - Server-side bulk endpoint SHOULD 使用 `bulk<Action><ResourcePlural>`，例如 `bulkDeleteUsers`。
 - Server-side batch endpoint SHOULD 使用 `batch<Action><ResourcePlural>`，例如 `batchWriteUsers`。
+
+### URL Search Naming
+
+【这里语气可以不那么强硬】
+
+- `queryParams` SHOULD 表示对象形式查询参数。
+- `queryString` SHOULD 表示不带 `?` 的序列化查询串。
+- `search` SHOULD 对齐 Web 标准 `URL.search`，表示带 `?` 的完整查询串。
+- `searchParams` SHOULD 表示 `URLSearchParams` instance。
 
 ### DTO And Mapping
 
 - `Dto` 表示 API raw boundary shape，不表示每个 operation 都必须创建独立类型。
 - API resource raw shape SHOULD 使用 `<ResourceSingular>Dto`，例如 `UserDto`。
 - Response body raw shape SHOULD 使用 `<Operation>ResponseDto`，例如 `ListUsersResponseDto`。
-- Path params、query params、request headers 和 request body MAY 直接复用 frontend model、form values 或 function params。
-- 独立的 raw query params、raw request headers 或 raw request body shape 需要单独表达时，SHOULD 使用 `*Dto` 后缀。【这一条和上面一条需要写的更清晰】
+- Path params SHOULD 使用 `<Operation>PathParams`。
+- Frontend-facing query params、request headers 和 request body MAY 直接复用 frontend model、form values 或 function params。
+- Query params、request headers 或 request body 只有在需要单独表达 API raw boundary shape 时才 SHOULD 使用 `*Dto` 后缀。
 - API raw shape 与前端使用的数据结构存在字段、命名、nullable、格式、嵌套结构或语义差异时，SHOULD 定义独立 `*Dto` 类型，并通过 mapper 转换。
 - DTO 类型 SHOULD NOT 仅为保持命名统一而重复创建。
 - DTO-to-model mapping SHOULD 在返回 frontend model 的 request function 中完成；mapping 逻辑本身 SHOULD 放在 `models/*.mappers.ts`。
 - UI code SHOULD 优先调用返回 frontend model 的 request function；只有确实需要 raw DTO 时才调用返回 raw DTO 的 request function。
 
-【TanStack Query 和 URL Search Naming 的部分删除了吗】
+【TanStack Query 使用工厂管理 options 的部分删除了吗？】
 
 ## Styling
 
@@ -247,7 +280,8 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 ## Imports
 
-- Direct imports SHOULD 作为 baseline import style。【这里是否需要解释 Direct imports 是什么】
+- Direct imports 指从实际定义文件或明确 module entry 导入，而不是从目录级 barrel file 导入。
+- Direct imports SHOULD 作为 baseline import style。【这一条和上一条还可以优化一下】
 - Feature-level `index.ts` public API 和全局 barrel files SHOULD NOT 作为 baseline。
 - 小范围 module entry MAY 使用，但它必须代表真实模块边界。
 - Import 语句 MUST 遵守本文档定义的 code flow。

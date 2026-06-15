@@ -134,7 +134,7 @@ src/
 - `components/`：跨 feature 复用的 UI components。
 - `config/`：运行时配置、环境变量解析、应用级配置对象。
 - `features/`：业务 feature 的主要组织位置。
-- `helpers/`：带项目语义的 helper functions。
+- `helpers/`：项目独有的 helper functions，不可跨项目复制复用。
 - `hooks/`：跨 feature 复用的 React hooks。
 - `lib/`：第三方库适配、基础设施封装、配置后的 clients。
 - `locales/`：i18n resource files。

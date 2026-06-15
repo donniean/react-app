@@ -28,26 +28,28 @@ pnpm run build
 Use smaller checks by file type when possible:
 
 ```bash
-pnpm run lint:md
-pnpm run lint:js
-pnpm run lint:types
-pnpm run lint:css
+pnpm run format:package-json:check
+pnpm run format:prettier:check
+pnpm run lint:autocorrect
+pnpm run lint:eslint
 pnpm run lint:html
 pnpm run lint:i18n
-pnpm run lint:format
-pnpm run lint:spell
-pnpm run lint:text
-pnpm run lint:package-json
+pnpm run lint:knip
+pnpm run lint:markdown
+pnpm run lint:spellcheck
+pnpm run lint:styles
+pnpm run typecheck
 ```
 
 If check results can be fixed automatically, prefer the smallest relevant `fix` command:
 
-- `pnpm run lint:md:fix`
-- `pnpm run lint:js:fix`
-- `pnpm run lint:css:fix`
-- `pnpm run lint:format:fix`
-- `pnpm run lint:text:fix`
-- `pnpm run lint:package-json:fix`
+- `pnpm run format:package-json`
+- `pnpm run format:prettier`
+- `pnpm run lint:autocorrect:fix`
+- `pnpm run lint:eslint:fix`
+- `pnpm run lint:knip:fix`
+- `pnpm run lint:markdown:fix`
+- `pnpm run lint:styles:fix`
 
 For changes involving user-facing UI, routing, i18n, Vite config, Docker, or nginx, run a local browser smoke test when feasible.
 

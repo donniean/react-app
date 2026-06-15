@@ -15,7 +15,7 @@ A public template repository for personal use. It provides reusable React starte
 ## Requirements
 
 - The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json). See [Node.js version upgrade](docs/node-version-upgrade.md).
-- The pnpm package manager and version range are enforced by `devEngines.packageManager` in [`package.json`](package.json).
+- The pnpm package manager version is pinned by `packageManager` in [`package.json`](package.json).
 
 ## Install
 

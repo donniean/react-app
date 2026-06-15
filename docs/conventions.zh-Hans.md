@@ -102,43 +102,30 @@ src/
 - List item 只在列表项结构确实不同于详情结构时 SHOULD 使用 `<ResourceSingular>ListItem` stem，例如 `UserListItem`、`userListItem`。
 - Form values SHOULD 使用 `<Subject>FormValues` stem，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`、`mapUserFormValuesToCreateUserRequestBody`、`useUserFormValues`。
 
-## API
+## Features
 
-`api/` 存放 API request functions、TanStack Query integration，以及由多个 API requests 组成的 operations。
+`features/*/` 存放某个业务 feature 私有的代码。feature 内目录复用 `src/` 下同名目录的职责，只是作用域收窄到当前 feature。
 
-- 某个 feature 专有的 API SHOULD 放在 `features/*/api/`。
-- 多个 features 共享的 API 代码才 SHOULD 提升到 `src/api/`。
+`features/*/` 下的目录 MUST 按真实需要创建。目录清单是允许结构，不是必备结构。
 
-常用文件命名：
+```text
+features/*/
+├── api/
+├── assets/
+├── components/
+├── helpers/
+├── hooks/
+├── models/
+├── services/
+├── stores/
+├── styles/
+└── utils/
+```
 
-- `<resource>.requests.ts`：后端 endpoint request functions；MUST NOT 包含 React、TanStack Query hooks 或 UI side effects。
-- `<resource>.operations.ts`：由多个 request functions 组成的 frontend async operations；MUST NOT 包含 React 或 UI side effects。
-- `<resource>.queries.ts`：读操作的 TanStack Query query factories、`queryOptions` / `infiniteQueryOptions` 和 query hooks。
-- `<resource>.mutations.ts`：写操作的 TanStack Query mutation hooks、cache invalidation 和 cache updates。
-
-### API Naming
-
-【这里我建议还是要写详细】
-
-- Request function SHOULD 使用 action + resource：`listUsers`、`getUser`、`createUser`、`updateUser`、`replaceUser`、`deleteUser`。
-- TanStack Query hooks SHOULD 在对应 request action 外包裹 React hook 命名：`useUsersQuery`、`useUserQuery`、`useCreateUserMutation`。
-- Client-side multi-resource operation SHOULD 使用 `<action><ResourcePlural>`，例如 `deleteUsers`。
-- Server-side bulk endpoint SHOULD 使用 `bulk<Action><ResourcePlural>`，例如 `bulkDeleteUsers`。
-- Server-side batch endpoint SHOULD 使用 `batch<Action><ResourcePlural>`，例如 `batchWriteUsers`。
-
-### DTO And Mapping
-
-- `Dto` 表示 API raw boundary shape，不表示每个 operation 都必须创建独立类型。
-- API resource raw shape SHOULD 使用 `<ResourceSingular>Dto`，例如 `UserDto`。
-- Response body raw shape SHOULD 使用 `<Operation>ResponseDto`，例如 `ListUsersResponseDto`。
-- Path params、query params、request headers 和 request body MAY 直接复用 frontend model、form values 或 function params。
-- 独立的 raw query params、raw request headers 或 raw request body shape 需要单独表达时，SHOULD 使用 `*Dto` 后缀。【这一条和上面一条需要写的更清晰】
-- API raw shape 与前端使用的数据结构存在字段、命名、nullable、格式、嵌套结构或语义差异时，SHOULD 定义独立 `*Dto` 类型，并通过 mapper 转换。
-- DTO 类型 SHOULD NOT 仅为保持命名统一而重复创建。
-- DTO-to-model mapping SHOULD 在返回 frontend model 的 request function 中完成；mapping 逻辑本身 SHOULD 放在 `models/*.mappers.ts`。
-- UI code SHOULD 优先调用返回 frontend model 的 request function；只有确实需要 raw DTO 时才调用返回 raw DTO 的 request function。
-
-【TanStack Query 和 URL Search Naming 的部分删除了吗】
+- Feature 内目录 MAY 按需创建。
+- `features/*/api/` 和 `features/*/models/` MUST 只服务当前 feature。
+- Feature-specific code SHOULD 留在对应 feature 内。
+- 跨 feature 复用的代码 SHOULD 提升到 shared module，或在 app / routes 层组合。
 
 ## App And Routes
 
@@ -166,31 +153,6 @@ components/
 - `layouts/` 存放跨 route 或跨 feature 复用的布局 components。
 
 Component-local companion files SHOULD 与 component colocate，例如 `user-form.test.tsx`、`user-form.module.css`、`user-form.helpers.ts`。
-
-## Features
-
-`features/*/` 存放某个业务 feature 私有的代码。feature 内目录复用 `src/` 下同名目录的职责，只是作用域收窄到当前 feature。
-
-`features/*/` 下的目录 MUST 按真实需要创建。目录清单是允许结构，不是必备结构。
-
-```text
-features/*/
-├── api/
-├── assets/
-├── components/
-├── helpers/
-├── hooks/
-├── models/
-├── services/
-├── stores/
-├── styles/
-└── utils/
-```
-
-- Feature 内目录 MAY 按需创建。
-- `features/*/api/` 和 `features/*/models/` MUST 只服务当前 feature。
-- Feature-specific code SHOULD 留在对应 feature 内。
-- 跨 feature 复用的代码 SHOULD 提升到 shared module，或在 app / routes 层组合。
 
 ## Models
 
@@ -230,6 +192,44 @@ features/*/
 - `models/` MUST NOT 依赖 `api/`。
 - `models/` MUST NOT 包含网络请求、TanStack Query hooks、React components、route composition 或 UI side effects。
 
+## API
+
+`api/` 存放 API request functions、TanStack Query integration，以及由多个 API requests 组成的 operations。
+
+- 某个 feature 专有的 API SHOULD 放在 `features/*/api/`。
+- 多个 features 共享的 API 代码才 SHOULD 提升到 `src/api/`。
+
+常用文件命名：
+
+- `<resource>.requests.ts`：后端 endpoint request functions；MUST NOT 包含 React、TanStack Query hooks 或 UI side effects。
+- `<resource>.operations.ts`：由多个 request functions 组成的 frontend async operations；MUST NOT 包含 React 或 UI side effects。
+- `<resource>.queries.ts`：读操作的 TanStack Query query factories、`queryOptions` / `infiniteQueryOptions` 和 query hooks。
+- `<resource>.mutations.ts`：写操作的 TanStack Query mutation hooks、cache invalidation 和 cache updates。
+
+### API Naming
+
+【这里我建议还是要写详细】
+
+- Request function SHOULD 使用 action + resource：`listUsers`、`getUser`、`createUser`、`updateUser`、`replaceUser`、`deleteUser`。
+- TanStack Query hooks SHOULD 在对应 request action 外包裹 React hook 命名：`useUsersQuery`、`useUserQuery`、`useCreateUserMutation`。
+- Client-side multi-resource operation SHOULD 使用 `<action><ResourcePlural>`，例如 `deleteUsers`。
+- Server-side bulk endpoint SHOULD 使用 `bulk<Action><ResourcePlural>`，例如 `bulkDeleteUsers`。
+- Server-side batch endpoint SHOULD 使用 `batch<Action><ResourcePlural>`，例如 `batchWriteUsers`。
+
+### DTO And Mapping
+
+- `Dto` 表示 API raw boundary shape，不表示每个 operation 都必须创建独立类型。
+- API resource raw shape SHOULD 使用 `<ResourceSingular>Dto`，例如 `UserDto`。
+- Response body raw shape SHOULD 使用 `<Operation>ResponseDto`，例如 `ListUsersResponseDto`。
+- Path params、query params、request headers 和 request body MAY 直接复用 frontend model、form values 或 function params。
+- 独立的 raw query params、raw request headers 或 raw request body shape 需要单独表达时，SHOULD 使用 `*Dto` 后缀。【这一条和上面一条需要写的更清晰】
+- API raw shape 与前端使用的数据结构存在字段、命名、nullable、格式、嵌套结构或语义差异时，SHOULD 定义独立 `*Dto` 类型，并通过 mapper 转换。
+- DTO 类型 SHOULD NOT 仅为保持命名统一而重复创建。
+- DTO-to-model mapping SHOULD 在返回 frontend model 的 request function 中完成；mapping 逻辑本身 SHOULD 放在 `models/*.mappers.ts`。
+- UI code SHOULD 优先调用返回 frontend model 的 request function；只有确实需要 raw DTO 时才调用返回 raw DTO 的 request function。
+
+【TanStack Query 和 URL Search Naming 的部分删除了吗】
+
 ## Styling
 
 - Tailwind CSS SHOULD 作为 baseline styling approach。
@@ -247,7 +247,7 @@ features/*/
 
 ## Imports
 
-- Direct imports SHOULD 作为 baseline import style。
+- Direct imports SHOULD 作为 baseline import style。【这里是否需要解释 Direct imports 是什么】
 - Feature-level `index.ts` public API 和全局 barrel files SHOULD NOT 作为 baseline。
 - 小范围 module entry MAY 使用，但它必须代表真实模块边界。
 - Import 语句 MUST 遵守本文档定义的 code flow。

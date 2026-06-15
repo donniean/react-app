@@ -187,11 +187,11 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 - `<subject>.guards.ts`：type guards 或 narrow functions。
 - `<subject>.fixtures.ts`：测试或开发 fixtures。
-- `<subject>.factories.ts`：测试或开发数据工厂。
+- `<subject>.test.ts`：colocated unit tests。
 
 ### Constants
 
-- 具有项目级常量语义的 variables SHOULD 使用 `UPPER_SNAKE_CASE`。
+- 具有项目级常量语义的 constants SHOULD 使用 `UPPER_SNAKE_CASE`。
 - Local variables 和非 constant 语义的 runtime values SHOULD 使用 `camelCase`。
 - 需要保留 literal types 的 constants SHOULD 使用 `as const`。
 - 需要校验对象形状但保留具体推断时，SHOULD 使用 `satisfies`。
@@ -241,12 +241,18 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 ### URL Search Naming
 
-【这里语气可以不那么强硬】
+URL search 相关名称保留以下语义：
 
-- `queryParams` SHOULD 表示对象形式查询参数。
-- `queryString` SHOULD 表示不带 `?` 的序列化查询串。
-- `search` SHOULD 对齐 Web 标准 `URL.search`，表示带 `?` 的完整查询串。
-- `searchParams` SHOULD 表示 `URLSearchParams` instance。
+- `queryParams` MAY 表示对象形式查询参数。
+- `queryString` MAY 表示不带 `?` 的序列化查询串。
+- `search` MAY 对齐 Web 标准 `URL.search`，表示带 `?` 的完整查询串。
+- `searchParams` MAY 表示 `URLSearchParams` instance。
+
+### TanStack Query
+
+- Query factories SHOULD 使用 `queryOptions` / `infiniteQueryOptions` 管理 `queryKey` 和 `queryFn`。
+- Query keys SHOULD 包含所有会影响 `queryFn` 结果的 variables。
+- Query hooks SHOULD 复用 query factory options，避免重复定义 `queryKey` 和 `queryFn`。
 
 ### DTO And Mapping
 
@@ -261,8 +267,6 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 - DTO-to-model mapping SHOULD 在返回 frontend model 的 request function 中完成；mapping 逻辑本身 SHOULD 放在 `models/*.mappers.ts`。
 - UI code SHOULD 优先调用返回 frontend model 的 request function；只有确实需要 raw DTO 时才调用返回 raw DTO 的 request function。
 
-【TanStack Query 使用工厂管理 options 的部分删除了吗？】
-
 ## Styling
 
 - Tailwind CSS SHOULD 作为 baseline styling approach。
@@ -272,7 +276,7 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 ## Testing
 
-- Unit / component tests 使用 `*.test.ts` / `*.test.tsx`。
+- Unit / component tests 使用 `*.test.ts` / `*.test.tsx`，并 MAY 与被测 module colocate；`models/` 下的 unit tests 使用 `*.test.ts`。
 - Playwright e2e tests 使用 `*.spec.ts`。
 - 跨测试复用的 test utilities SHOULD 放在 `src/testing/`。
 - 单一 module 使用的 test helpers SHOULD 与该 module colocate。
@@ -280,8 +284,7 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 ## Imports
 
-- Direct imports 指从实际定义文件或明确 module entry 导入，而不是从目录级 barrel file 导入。
-- Direct imports SHOULD 作为 baseline import style。【这一条和上一条还可以优化一下】
+- Direct imports SHOULD 作为 baseline import style：从实际定义文件或明确 module entry 导入，而不是从目录级 barrel file 导入。
 - Feature-level `index.ts` public API 和全局 barrel files SHOULD NOT 作为 baseline。
 - 小范围 module entry MAY 使用，但它必须代表真实模块边界。
 - Import 语句 MUST 遵守本文档定义的 code flow。

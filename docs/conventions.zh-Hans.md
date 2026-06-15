@@ -72,10 +72,10 @@ Code Flow 指代码依赖和组合方向。
 
 ### Semantic Naming
 
-- Collection SHOULD 通过容器或明确集合语义表达，例如 type `User[]`、variable `users`、type `UserList`。
+- Collection SHOULD 通过容器或明确集合语义表达，例如 type `User[]`、type `Users`、type `UserList`、variable `users`、variable `userList`。
 - List item 只在列表项结构确实不同于详情结构时 SHOULD 使用 `<ResourceSingular>ListItem` stem，例如 type `UserListItem`、variable `userListItem`、schema `userListItemSchema`。
 - Form values SHOULD 使用 `<Subject>FormValues` stem，例如 type `UserFormValues`、variable `userFormValues`、schema `userFormValuesSchema`。
-- 处理 form values 的 function 或 hook MAY 在名称中保留 `FormValues`，例如 `mapUserFormValuesToCreateUserRequestBodyDto()`、`useUserFormValues()`。
+- 处理 form values 的 function 或 hook MAY 在名称中保留 `FormValues`，例如 `mapUserFormValuesToCreateUserRequestBody()`、`useUserFormValues()`。
 
 ## Project Structure
 
@@ -195,16 +195,19 @@ api/
 
 ### Naming
 
-API 原始数据结构、query params、request body 和 response body SHOULD 使用 `Dto` 后缀。
+`Dto` 表示 API raw boundary shape，不表示每个 operation 都必须创建独立类型。
 
 常用 API 边界命名：
 
-- API resource shape 使用 `<ResourceSingular>Dto`，例如 `UserDto`。
-- Path params 使用 `<Operation>PathParams`，例如 `GetUserPathParams`。
-- Query params 使用 `<Operation>QueryParamsDto`，例如 `ListUsersQueryParamsDto`。
-- Request headers 使用 `<Operation>RequestHeaders`，例如 `ExportUsersRequestHeaders`。
-- Request body 使用 `<Operation>RequestBodyDto`，例如 `CreateUserRequestBodyDto`、`UpdateUserRequestBodyDto`。
-- Response body 使用 `<Operation>ResponseDto`，例如 `ListUsersResponseDto`、`GetUserResponseDto`。
+- API resource raw shape SHOULD 使用 `<ResourceSingular>Dto`，例如 `UserDto`。
+- Path params SHOULD 使用 `<Operation>PathParams`，例如 `GetUserPathParams`。
+- Query params SHOULD 使用 `<Operation>QueryParams`，例如 `ListUsersQueryParams`；独立的 raw query params shape SHOULD 使用 `<Operation>QueryParamsDto`。
+- Request headers SHOULD 使用 `<Operation>RequestHeaders`，例如 `ExportUsersRequestHeaders`；独立的 raw request headers shape SHOULD 使用 `<Operation>RequestHeadersDto`。
+- Request body MAY 直接复用 form values 或 function params；独立的 raw request body shape SHOULD 使用 `<Operation>RequestBodyDto`，例如 `CreateUserRequestBodyDto`。
+- Response body raw shape SHOULD 使用 `<Operation>ResponseDto`，例如 `ListUsersResponseDto`、`GetUserResponseDto`。
+- API raw shape 与 frontend model、form values 或 function params 完全一致时，MAY 直接复用已有类型。
+- API raw shape 与前端使用的数据结构存在字段、命名、nullable、格式、嵌套结构或语义差异时，SHOULD 定义独立 `*Dto` 类型，并通过 mapper 转换。
+- DTO 类型 SHOULD NOT 仅为保持命名统一而重复创建。
 
 常用 API operation 命名：
 

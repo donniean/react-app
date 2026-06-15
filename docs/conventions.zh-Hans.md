@@ -153,22 +153,27 @@ features/*/
 - app / routes MAY 组合 features 和 shared code。
 - app / routes MUST NOT 作为业务 resource models、feature-specific components、API request functions 或通用 UI components 的归置目录。
 
+## Assets
+
+- Bundled assets SHOULD 放在 `src/assets/` 或 `features/*/assets/`。
+- 作为 React component 使用的 SVG SHOULD 使用 `?react` import。
+- 作为 URL 使用的 SVG、图片等 assets SHOULD 使用普通 import。
+
 ## Components
 
 `src/components/` 存放跨 feature 复用的 UI components，不依赖 feature internals。
 
 ```text
 components/
-├── business/
 ├── errors/
 ├── layouts/
 └── ui/
 ```
 
 - `ui/` 存放 design system 基础组件和低业务语义的 shared UI components。
-- `business/` 存放跨多个 features 复用且业务语义稳定的 shared business components。
 - `errors/` 存放共享 error boundary fallback 和错误展示 components。
 - `layouts/` 存放跨 route 或跨 feature 复用的布局 components。
+- `business/` MAY 在存在跨多个 features 复用且业务语义稳定的 shared business components 时创建。
 
 Component-local companion files SHOULD 与 component colocate，例如 `user-form.test.tsx`、`user-form.module.css`、`user-form.helpers.ts`。
 
@@ -249,7 +254,8 @@ URL search 相关名称保留以下语义：
 
 ### TanStack Query
 
-- Reusable query options SHOULD 使用 `queryOptions` / `infiniteQueryOptions` 定义和集中管理，命名为 `<foo>Queries`。
+- Reusable query options SHOULD 使用 `queryOptions` / `infiniteQueryOptions` 定义。
+- 同一 resource 存在多个 related query options 时，MAY 使用 `<resourcePlural>Queries` 分组。
 - Query keys SHOULD 包含所有会影响 `queryFn` 结果的 variables。
 - Query hooks SHOULD 复用 query options，避免重复定义 `queryKey` 和 `queryFn`。
 
@@ -276,7 +282,7 @@ URL search 相关名称保留以下语义：
 ## Testing
 
 - Unit / component tests 使用 `*.test.ts` / `*.test.tsx`，并 MAY 与被测 module colocate；`models/` 下的 unit tests 使用 `*.test.ts`。
-- Playwright e2e tests 使用 `*.spec.ts`。
+- Playwright e2e tests 使用 `*.spec.ts`；`*.spec.ts` SHOULD NOT 放在 `models/` 下。
 - 跨测试复用的 test utilities SHOULD 放在 `src/testing/`。
 - 单一 module 使用的 test helpers SHOULD 与该 module colocate。
 - Production code MUST NOT 依赖 `src/testing/`。

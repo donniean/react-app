@@ -191,8 +191,7 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 ### Constants
 
-- 具有项目级常量语义的 constants SHOULD 使用 `UPPER_SNAKE_CASE`。
-- Local variables 和非 constant 语义的 runtime values SHOULD 使用 `camelCase`。
+- 稳定 primitive constants SHOULD 使用 `UPPER_SNAKE_CASE`。
 - 需要保留 literal types 的 constants SHOULD 使用 `as const`。
 - 需要校验对象形状但保留具体推断时，SHOULD 使用 `satisfies`。
 - 应用源码 SHOULD 避免使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。生成代码或明确要求使用 `enum` 的 tooling MAY 例外。
@@ -223,7 +222,7 @@ Component-local companion files SHOULD 与 component colocate，例如 `user-for
 
 - `<resource>.requests.ts`：后端 endpoint request functions；MUST NOT 包含 React、TanStack Query hooks 或 UI side effects。
 - `<resource>.operations.ts`：由多个 request functions 组成的 frontend async operations；MUST NOT 包含 React 或 UI side effects。
-- `<resource>.queries.ts`：读操作的 TanStack Query query factories、`queryOptions` / `infiniteQueryOptions` 和 query hooks。
+- `<resource>.queries.ts`：读操作的 TanStack Query query options、`queryOptions` / `infiniteQueryOptions` 和 query hooks。
 - `<resource>.mutations.ts`：写操作的 TanStack Query mutation hooks、cache invalidation 和 cache updates。
 
 ### API Naming
@@ -250,9 +249,9 @@ URL search 相关名称保留以下语义：
 
 ### TanStack Query
 
-- Query factories SHOULD 使用 `queryOptions` / `infiniteQueryOptions` 管理 `queryKey` 和 `queryFn`。
+- Reusable query options SHOULD 使用 `queryOptions` / `infiniteQueryOptions` 定义和集中管理，命名为 `<foo>Queries`。
 - Query keys SHOULD 包含所有会影响 `queryFn` 结果的 variables。
-- Query hooks SHOULD 复用 query factory options，避免重复定义 `queryKey` 和 `queryFn`。
+- Query hooks SHOULD 复用 query options，避免重复定义 `queryKey` 和 `queryFn`。
 
 ### DTO And Mapping
 

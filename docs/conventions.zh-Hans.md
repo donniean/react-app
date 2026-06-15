@@ -26,27 +26,6 @@
 - 目录 MUST 对应真实职责、真实代码和真实维护边界。
 - 项目 MUST NOT 为每个 feature 机械创建所有可能目录。
 
-## Naming
-
-### Folders And Files
-
-- 目录名 MUST 使用 `kebab-case`，除明确例外外 MUST NOT 使用大写字母。
-- 文件名的命名主体 SHOULD 使用 `kebab-case`，例如 `user-form.tsx`。
-- 文件名 MAY 使用 `.` 分隔命名主体和文件职责，例如 `users.types.ts`、`users.queries.ts`、`user-list.helpers.ts`、`user-form.test.tsx`、`user-form.module.css`。
-- React component 和 hook 的目录名、文件名遵循同一规则，MUST NOT 使用 `PascalCase`。
-- 工具强制路径、locale tags、根目录约定文件和 generated files MAY 使用各自既有命名。
-
-### Singular And Plural Names
-
-- 可数业务的目录名和文件名前缀 SHOULD 使用复数，例如 `users`、`products`。
-- 不可数名词、能力和领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
-
-### Semantic Names
-
-- Collection 名称 SHOULD 通过容器或明确集合语义表达，例如 `User[]`、`Users`、`UserList`、`users`、`userList`。
-- List item 只在列表项结构确实不同于详情结构时 SHOULD 使用 `<ResourceSingular>ListItem` stem，例如 `UserListItem`、`userListItem`。
-- Form values SHOULD 使用 `<Subject>FormValues` stem，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`、`mapUserFormValuesToCreateUserRequestBody`、`useUserFormValues`。
-
 ## Project Structure
 
 【需要说明，下面没有的目录，如果实际需要，是可以创建的】
@@ -101,6 +80,27 @@ src/
 ```
 
 【此处还是需要按照每个目录和文件简要说明】
+
+## Naming
+
+### Folders And Files
+
+- 目录名 MUST 使用 `kebab-case`，除明确例外外 MUST NOT 使用大写字母。
+- 文件名的命名主体 SHOULD 使用 `kebab-case`，例如 `user-form.tsx`。
+- 文件名 MAY 使用 `.` 分隔命名主体和文件职责，例如 `users.types.ts`、`users.queries.ts`、`user-list.helpers.ts`、`user-form.test.tsx`、`user-form.module.css`。
+- React component 和 hook 的目录名、文件名遵循同一规则，MUST NOT 使用 `PascalCase`。
+- 工具强制路径、locale tags、根目录约定文件和 generated files MAY 使用各自既有命名。
+
+### Singular And Plural Names
+
+- 可数业务的目录名和文件名前缀 SHOULD 使用复数，例如 `users`、`products`。
+- 不可数名词、能力和领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
+
+### Semantic Names
+
+- Collection 名称 SHOULD 通过容器或明确集合语义表达，例如 `User[]`、`Users`、`UserList`、`users`、`userList`。
+- List item 只在列表项结构确实不同于详情结构时 SHOULD 使用 `<ResourceSingular>ListItem` stem，例如 `UserListItem`、`userListItem`。
+- Form values SHOULD 使用 `<Subject>FormValues` stem，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`、`mapUserFormValuesToCreateUserRequestBody`、`useUserFormValues`。
 
 ## API
 

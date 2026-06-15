@@ -155,7 +155,6 @@ features/*/
 
 ## Assets
 
-- Bundled assets SHOULD 放在 `src/assets/` 或 `features/*/assets/`。
 - 作为 React component 使用的 SVG SHOULD 使用 `?react` import。
 - 作为 URL 使用的 SVG、图片等 assets SHOULD 使用普通 import。
 
@@ -173,7 +172,7 @@ components/
 - `ui/` 存放 design system 基础组件和低业务语义的 shared UI components。
 - `errors/` 存放共享 error boundary fallback 和错误展示 components。
 - `layouts/` 存放跨 route 或跨 feature 复用的布局 components。
-- `business/` MAY 在存在跨多个 features 复用且业务语义稳定的 shared business components 时创建。
+- `business/` 存在跨多个 features 复用且业务语义稳定的 shared business components 时创建。
 
 Component-local companion files SHOULD 与 component colocate，例如 `user-form.test.tsx`、`user-form.module.css`、`user-form.helpers.ts`。
 

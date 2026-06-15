@@ -28,7 +28,6 @@ pnpm run build
 Use smaller checks by file type when possible:
 
 ```bash
-pnpm run format:check
 pnpm run format:package-json:check
 pnpm run format:prettier:check
 pnpm run lint:autocorrect
@@ -44,7 +43,6 @@ pnpm run typecheck
 
 If check results can be fixed automatically, prefer the smallest relevant `fix` command:
 
-- `pnpm run format`
 - `pnpm run format:package-json`
 - `pnpm run format:prettier`
 - `pnpm run lint:autocorrect:fix`

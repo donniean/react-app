@@ -70,6 +70,13 @@ Code Flow 指代码依赖和组合方向。
 - 可数业务资源 SHOULD 使用复数目录名和文件名前缀，例如 `users`、`products`、`orders`。
 - 不可数名词、能力、领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
 
+### Semantic Naming
+
+- Collection SHOULD 通过容器或明确集合语义表达，例如 type `User[]`、variable `users`、type `UserList`。
+- List item 只在列表项结构确实不同于详情结构时 SHOULD 使用 `<ResourceSingular>ListItem` stem，例如 type `UserListItem`、variable `userListItem`、schema `userListItemSchema`。
+- Form values SHOULD 使用 `<Subject>FormValues` stem，例如 type `UserFormValues`、variable `userFormValues`、schema `userFormValuesSchema`。
+- 处理 form values 的 function 或 hook MAY 在名称中保留 `FormValues`，例如 `mapUserFormValuesToCreateUserRequestBodyDto()`、`useUserFormValues()`。
+
 ## Project Structure
 
 ### Root
@@ -271,6 +278,8 @@ URL 查询相关变量 SHOULD 使用以下语义：
 
 `src/components/` 存放跨 feature 复用的 UI components，不依赖业务 feature。
 
+常用 components 子目录 MAY 按职责创建。
+
 ```text
 components/
 ├── business/
@@ -304,6 +313,8 @@ components/
 
 `features/*/` 存放某个业务 feature 私有的代码。feature 内同名目录复用 `src/` 下目录职责，只是作用域收窄到当前 feature。
 
+常用 feature 子目录 MAY 按需创建。
+
 ```text
 features/*/
 ├── api/
@@ -318,7 +329,6 @@ features/*/
 └── utils/
 ```
 
-- `features/*/` 下的目录按需创建。
 - `api/` 和 `models/` 在 feature 内 MUST 只服务当前 feature。
 - `services/` 仅在当前 feature 存在明确 orchestration service 时 MAY 创建。
 - `stores/` 仅在当前 feature 存在独立 client state store 时 MAY 创建。
@@ -372,6 +382,10 @@ features/*/
 
 `models/` 存放前端对业务资源、API 数据、表单数据、运行时校验、数据转换的纯模型代码。
 
+`models/` MAY 包含 frontend model types、API DTO types、form value types、schemas、constants、mappers、type guards、fixtures、factories 和 colocated unit tests。
+
+常见 models 文件 MAY 使用 `<subject>.<suffix>` 组织。
+
 ```text
 models/
 ├── users.constants.ts
@@ -379,8 +393,6 @@ models/
 ├── users.schemas.ts
 └── users.types.ts
 ```
-
-`models/` MAY 包含 frontend model types、API DTO types、form value types、schemas、constants、mappers、type guards、fixtures、factories 和 colocated unit tests。
 
 常用 models file suffix：
 
@@ -391,15 +403,6 @@ models/
 - `mappers`：数据边界转换函数。
 - `schemas`：运行时校验 schemas。
 - `types`：TypeScript types、interfaces、DTOs、form values。
-
-Model types:
-
-- `User` 表示 frontend model，即前端业务代码使用的数据结构。
-- 单个实体的 model type SHOULD 使用单数实体名，例如 `User`、`Product`。
-- 集合类型 SHOULD 通过容器或语义表达，例如 `User[]`、`Users`、`UserListItem[]`、`UserList`。
-- `UserId` 表示 resource id。
-- `UserListItem` 只在列表项结构确实不同于 `User` 时 SHOULD 使用。
-- `UserFormValues` 表示表单值结构。
 
 Constants:
 

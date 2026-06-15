@@ -74,32 +74,12 @@ Code Flow 指代码依赖和组合方向。
 
 ### Types
 
-- Type、interface 和 class 名称 MUST 使用 `PascalCase`。
-- Type 和 interface 名称 MUST NOT 使用 `I`、`T` 等匈牙利式前缀。
+- `type`、`interface` 和 `class` 名称 MUST 使用 `PascalCase`。
+- `type` 和 `interface` 名称 MUST NOT 使用 `I`、`T` 等匈牙利式前缀。
 
 ### File Suffixes
 
-file suffix 表示文件的主要职责。表示文件职责的 suffix SHOULD 使用复数。
-
-```text
-users.types.ts
-users.schemas.ts
-users.requests.ts
-```
-
-常用 file suffix：
-
-- `constants`：常量、选项表、映射表。
-- `factories`：测试或开发数据工厂。
-- `fixtures`：测试或开发 fixtures。
-- `guards`：type guards 或 narrow functions。
-- `mappers`：数据边界转换函数。
-- `mutations`：TanStack Query mutations。
-- `operations`：多个 request functions 组成的 async operations。
-- `queries`：TanStack Query queries。
-- `requests`：纯 API request functions。
-- `schemas`：运行时校验 schemas。
-- `types`：TypeScript types、interfaces、DTOs、form values。
+file suffix 表示文件的主要职责。表示文件职责的 suffix SHOULD 使用复数。具体 suffix SHOULD 在对应章节定义。
 
 ### CSS Modules
 
@@ -218,6 +198,8 @@ api/
 ├── users.queries.ts
 └── users.mutations.ts
 ```
+
+常用 API file suffix：
 
 - `<resource>.requests.ts`：对应后端 endpoints 的 request functions；MUST NOT 包含 React、TanStack Query hooks 或 UI side effects。
 - `<resource>.operations.ts`：多个 request functions 组成的 frontend async operations；MUST NOT 包含 React 或 UI side effects。
@@ -436,6 +418,16 @@ models/
 ```
 
 `models/` MAY 包含 frontend model types、API DTO types、form value types、schemas、constants、mappers、type guards、fixtures、factories 和 colocated unit tests。
+
+常用 models file suffix：
+
+- `constants`：常量、选项表、映射表。
+- `factories`：测试或开发数据工厂。
+- `fixtures`：测试或开发 fixtures。
+- `guards`：type guards 或 narrow functions。
+- `mappers`：数据边界转换函数。
+- `schemas`：运行时校验 schemas。
+- `types`：TypeScript types、interfaces、DTOs、form values。
 
 Model types:
 

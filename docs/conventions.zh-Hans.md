@@ -16,27 +16,29 @@
 
 ## Shared Code
 
-Shared code 指 `src/` 下不属于 `src/app/`、`src/routes/`、`src/features/` 或 `src/testing/`，且可被多个 runtime modules 复用的 code。
+Shared parts of the code 指 `src/` 下不属于 `src/app/`、`src/routes/`、`src/features/` 或 `src/testing/`，且可被多个 runtime modules 复用的 code，etc. `src/api/` `src/components/` `src/models/` and so on ......
 
-- Shared code 与 feature-specific code MUST 分离。
-- Shared code MUST 有明确 owner 和职责边界，MUST NOT 成为杂物区。
+- Shared parts of the code 与 feature-specific code MUST 分离。
+- Shared parts of the code MUST 有明确 owner 和职责边界，MUST NOT 成为杂物区。
 - 只服务一个 feature 的代码 SHOULD 留在该 feature 内。
-- `src/testing/` 是 shared test infrastructure，不属于 runtime shared code。
+- `src/testing/` 是 shared test infrastructure，不属于 runtime shared parts of the code。
 - Production runtime code MUST NOT 依赖 `src/testing/`。
 
 ## Principles
 
 ### Code Flow
 
-Code Flow 指代码依赖和组合方向。
+The code MUST flow in one direction, from shared parts of the code to into features, and from features into pages.Never the other way around. A reusable component in components/ should never reach into features/project/ to do its job. If you find yourself doing that, the thing in components/ probably belongs inside the feature, not outside it.
 
-- `app/` 和 `routes/` MAY 组合 features 与 shared code。
-- features MAY 依赖自身内部代码和 shared code。
+- `app/` 和 `routes/` MAY 组合 features 与 shared parts of the code。
+- features MAY 依赖自身内部代码和 shared parts of the code。
 - features MUST NOT 直接互相 import。
-- shared code MUST NOT 依赖 `src/app/`、`src/routes/` 或 `src/features/*/`。
+- shared parts of the code MUST NOT 依赖 `src/app/`、`src/routes/` 或 `src/features/*/`。
 - 跨 feature 复用的代码 SHOULD 提升到明确的 shared owner，或在 `app/` / `routes/` 层组合。
 
 ### Feature Boundaries
+
+Features don't import from each other. If `src/features/foo/` needs something from `src/features/bar/`, that's a signal that either the shared piece actually belongs one layer up, or the two features should be composed at the page level rather than coupled directly. Keeping features independent is what makes them removable.
 
 - 一个 feature SHOULD 是独立业务单元。
 - 删除一个 feature 时，理想影响范围 SHOULD 主要集中在组合它的 `routes/` / `app/` 层。
@@ -66,13 +68,13 @@ Code Flow 指代码依赖和组合方向。
 - 可数业务资源 SHOULD 使用复数目录名和文件名前缀，例如 `users`、`products`、`orders`。
 - 不可数名词、能力、领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
 - 表示单个实体的类型名 SHOULD 使用单数实体名，例如 `User`、`Product`。
-- 集合类型 SHOULD 通过容器或语义表达，例如 `User[]`、`UsersById`、`UserListItem[]`。
+- 集合类型 SHOULD 通过容器或语义表达，例如 `User[]`、`Users`、`UserListItem[]`、`UserList`。
 
 ### Types
 
 - Type、interface 和 class 名称 MUST 使用 `PascalCase`。
-- Type 和 interface 名称 MUST NOT 使用 `I`、`T` 等匈牙利式前缀。
-- DTO 类型 MUST 使用 `Dto`，MUST NOT 使用 `DTO`。
+- Type 和 interface 名称 SHOULD NOT 使用 `I`、`T` 等匈牙利式前缀。
+- DTO 类型 SHOULD 使用 `Dto`SHOULD NOT 使用 `DTO`。
 - 类型名称 SHOULD 表达数据角色或领域含义，例如 `User`、`UserDto`、`UserFormValues`。
 - 应用源码 SHOULD 避免使用 TypeScript `enum`；运行时 enum-like values SHOULD 使用 `as const` object / array 加 union type。
 - 生成代码或明确要求使用 `enum` 的 tooling MAY 例外。
@@ -101,20 +103,23 @@ users.requests.ts
 - `schemas`：运行时校验 schemas。
 - `types`：TypeScript types、interfaces、DTOs、form values。
 
-### Tests And CSS Modules
+### CSS Modules
+
+- component-scoped CSS Modules MUST 使用 `<component>.module.css`。
+- `style.css`、`styles.css`、`style.module.css` SHOULD NOT 作为 component-scoped CSS Modules 命名。
+
+### Tests
 
 - Unit / component tests MUST 使用 `*.test.ts` / `*.test.tsx`。
 - Playwright e2e tests MUST 使用 `*.spec.ts`。
 - `*.tests.ts` 和 `*.testing.tsx` MUST NOT 作为测试文件后缀。
 - `__tests__/` SHOULD NOT 作为 baseline 测试目录。
-- component-scoped CSS Modules MUST 使用 `<component>.module.css`。
-- `style.css`、`styles.css`、`style.module.css` SHOULD NOT 作为 component-scoped CSS Modules 命名。
 
 ## Project Structure
 
 ### Root
 
-根目录 MAY 出现以下目录。目录 MUST 有真实用途，MUST NOT 为凑齐结构创建空目录。
+根目录 MAY 出现以下目录，不代表需要每个目录。目录 MUST 有真实用途，MUST NOT 为凑齐结构创建空目录。
 
 ```text
 .
@@ -141,7 +146,7 @@ users.requests.ts
 
 ### Source
 
-`src/` 下 MAY 出现以下目录和入口文件。目录 MUST 按实际职责创建。
+`src/` 下 MAY 出现以下目录和入口文件，不代表需要每个目录。目录 MUST 按实际职责创建。
 
 ```text
 src/
@@ -206,8 +211,6 @@ src/
 - 某个 feature 专有的 API SHOULD 放在 `features/*/api/`。
 - 多个 features 共享的 API 代码才 SHOULD 提升到 `src/api/`。
 - 一个 resource 的常规 endpoints SHOULD 放在同一个 `<resource>.requests.ts`。
-- 一个 endpoint 一个文件 SHOULD NOT 作为 baseline。
-- API request functions MUST NOT 命名为 services。
 
 常用文件：
 
@@ -219,7 +222,7 @@ src/
 DTO naming:
 
 - resource DTO：`<ResourceSingular>Dto`，例如 `UserDto`。
-- path params DTO：`List<ResourcePlural>PathParamsDto`。
+- path params DTO：`List<ResourcePlural>PathParamsDto`，例如 `ListUsersPathParamsDto`。
 - query params DTO：`List<ResourcePlural>QueryParamsDto`。
 - request headers DTO：`List<ResourcePlural>RequestHeadersDto`。
 - request body DTO：`Create<ResourceSingular>RequestBodyDto`。

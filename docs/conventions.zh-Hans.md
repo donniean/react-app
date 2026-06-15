@@ -2,9 +2,13 @@
 
 本文档定义项目的目录结构、命名体系和实现约定。
 
+## 你需要命名一个合适的 title
+
+### 你需要命名一个合适的 title 2
+
 当本文档与现有实际代码、tool configuration、generated files、design source 或其他已存在事实冲突时，MUST 以现有事实为准，并将冲突视为 documentation drift 或待确认 migration。MUST NOT 在没有明确任务时仅为匹配本文档而改动现有实现。
 
-## Normative Keywords
+### Normative Keywords
 
 本文档中的 `MUST`、`MUST NOT`、`SHOULD`、`SHOULD NOT` 和 `MAY` 在且仅在大写形式出现时，按照 [BCP 14](https://www.rfc-editor.org/info/bcp14/) 解释。
 
@@ -14,9 +18,9 @@
 - `SHOULD NOT`：非推荐做法；偏离需有明确理由。
 - `MAY`：可选做法。
 
-## Shared Code
+### Shared Code
 
-Shared code 指 `src/` 下不属于 `src/app/`、`src/routes/`、`src/features/` 或 `src/testing/`，且可被多个生产代码模块复用的代码。
+Shared parts of the code 指 `src/` 下不属于 `src/app/`、`src/routes/`、`src/features/` 或 `src/testing/`，且可被多个生产代码模块复用的代码。
 
 - Shared code 与 feature-specific code MUST 分离。
 - Shared code MUST 有明确职责和归属，MUST NOT 成为杂物区。
@@ -37,11 +41,6 @@ Code Flow 指代码依赖和组合方向。
 - features MUST NOT 直接互相 import。
 - shared code MUST NOT 依赖 `src/app/`、`src/routes/` 或 `src/features/*/`。
 - 跨 feature 复用的代码 SHOULD 提升到合适的 shared module，或在 `app/` / `routes/` 层组合。
-
-### Feature Boundaries
-
-Features MUST NOT 互相 import。如果 `src/features/foo/` 需要 `src/features/bar/` 的代码，相关代码 SHOULD 提升到合适的 shared module，或在 `app/` / `routes/` 层组合两个 features。Feature 独立性是 feature 可删除性的基础。
-
 - 一个 feature SHOULD 是独立业务单元。
 - 删除一个 feature 时，理想影响范围 SHOULD 主要集中在组合它的 `routes/` / `app/` 层。
 - 目录 MUST 对应真实职责、真实代码和真实维护边界。
@@ -51,14 +50,15 @@ Features MUST NOT 互相 import。如果 `src/features/foo/` 需要 `src/feature
 
 ### Folders And Files
 
-- 目录名和文件名 MUST 使用 `kebab-case`，除明确例外外 MUST NOT 使用大写字母。
-- `-` 用于连接同一命名主体内的多个单词，例如 `user-form.tsx`。
-- `.` 用于分隔命名主体、产物类型、测试后缀、CSS Modules 后缀，例如 `users.types.ts`、`user-form.test.tsx`、`user-form.module.css`。
-- resource 相关文件名 SHOULD 使用 `resource` + `artifact`，例如 `users.types.ts`。
+- 目录名 MUST 使用 `kebab-case`，除明确例外外 MUST NOT 使用大写字母。
+- 文件名的命名主体 SHOULD 使用 `kebab-case`，例如 `user-form.tsx`。
+- `-` 用于连接同一 segment 内的多个单词，例如 `user-form.tsx`。
+- 文件名 MAY 使用一段或多段 `.` 分隔不同语义的 segments；每个 non-extension segment SHOULD 表达明确语义，例如 `users.types.ts`、`user-form.test.tsx`、`user-form.module.css`。
+- 文件需要同时表达命名主体和文件职责时，MAY 使用 `<subject>.<suffix>` 命名，例如 `users.types.ts`。
 - 普通单一职责模块 MAY 使用简短文件名，例如 `env.ts`、`cn.ts`、`index.ts`。
-- React component 和 hook 的目录和文件 MUST 使用 `kebab-case`，MUST NOT 使用 `PascalCase`。
+- React component 和 hook 的目录和文件遵循上述规则，MUST NOT 使用 `PascalCase`。
 
-命名例外：
+常见命名例外：
 
 - 工具强制路径，例如 `.github/`、`.husky/`、`.vscode/`、`src/@types/`。
 - BCP 47 locale tags，例如 `zh-Hans/`。
@@ -77,9 +77,9 @@ Features MUST NOT 互相 import。如果 `src/features/foo/` 需要 `src/feature
 - Type、interface 和 class 名称 MUST 使用 `PascalCase`。
 - Type 和 interface 名称 MUST NOT 使用 `I`、`T` 等匈牙利式前缀。
 
-### Artifact Suffixes
+### File Suffixes
 
-artifact suffix 表示文件中主要承载的产物类型。artifact suffix SHOULD 使用复数。
+file suffix 表示文件的主要职责。表示文件职责的 suffix SHOULD 使用复数。
 
 ```text
 users.types.ts
@@ -87,7 +87,7 @@ users.schemas.ts
 users.requests.ts
 ```
 
-常用 artifact suffix：
+常用 file suffix：
 
 - `constants`：常量、选项表、映射表。
 - `factories`：测试或开发数据工厂。
@@ -209,7 +209,7 @@ src/
 
 ### Files
 
-API files SHOULD 按 resource 和 artifact suffix 组织。一个 resource 的常规 endpoints SHOULD 放在同一个 `<resource>.requests.ts`。
+API files SHOULD 按 resource 和 file suffix 组织。一个 resource 的常规 endpoints SHOULD 放在同一个 `<resource>.requests.ts`。
 
 ```text
 api/

@@ -134,7 +134,7 @@ src/
 - `components/`：跨 feature 复用的 UI components。
 - `config/`：运行时配置、环境变量解析、应用级配置对象。
 - `features/`：业务 feature 的主要组织位置。
-- `helpers/`：项目独有的 helper functions，不可跨项目复制复用。
+- `helpers/`：项目独有的 helper functions，不可跨项目复制。
 - `hooks/`：跨 feature 复用的 React hooks。
 - `lib/`：第三方库适配、基础设施封装、配置后的 clients。
 - `locales/`：i18n resource files。
@@ -166,7 +166,16 @@ src/
 
 ### Files
 
-API files SHOULD 按 resource 和 file suffix 组织。一个 resource 的常规 endpoints SHOULD 放在同一个 `<resource>.requests.ts`。
+API files SHOULD 按 resource 和 file suffix 组织。
+
+常用 API file suffix：
+
+- `<resource>.requests.ts`：对应后端 endpoints 的 request functions；MUST NOT 包含 React、TanStack Query hooks 或 UI side effects。
+- `<resource>.operations.ts`：多个 request functions 组成的 frontend async operations；MUST NOT 包含 React 或 UI side effects。
+- `<resource>.queries.ts`：读操作的 TanStack Query `queryOptions`、query factories 和 query hooks。
+- `<resource>.mutations.ts`：写操作的 TanStack Query mutations、mutation hooks、cache invalidation 和 cache update。
+
+示例：
 
 ```text
 api/
@@ -175,13 +184,6 @@ api/
 ├── users.queries.ts
 └── users.mutations.ts
 ```
-
-常用 API file suffix：
-
-- `<resource>.requests.ts`：对应后端 endpoints 的 request functions；MUST NOT 包含 React、TanStack Query hooks 或 UI side effects。
-- `<resource>.operations.ts`：多个 request functions 组成的 frontend async operations；MUST NOT 包含 React 或 UI side effects。
-- `<resource>.queries.ts`：读操作的 TanStack Query `queryOptions`、query factories 和 query hooks。
-- `<resource>.mutations.ts`：写操作的 TanStack Query mutations、mutation hooks、cache invalidation 和 cache update。
 
 ### Naming
 

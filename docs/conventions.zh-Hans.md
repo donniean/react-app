@@ -65,33 +65,10 @@ Code Flow 指代码依赖和组合方向。
 - 约定俗成的根目录文件，例如 `README.md`、`AGENTS.md`、`Dockerfile`、`LICENSE`。
 - 由生成工具控制命名的 generated files。
 
-### Resources And Concepts
+### Singular And Plural Names
 
 - 可数业务资源 SHOULD 使用复数目录名和文件名前缀，例如 `users`、`products`、`orders`。
 - 不可数名词、能力、领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
-- 表示单个实体的类型名 SHOULD 使用单数实体名，例如 `User`、`Product`。
-- 集合类型 SHOULD 通过容器或语义表达，例如 `User[]`、`Users`、`UserListItem[]`、`UserList`。
-
-### Types
-
-- `type`、`interface` 和 `class` 名称 MUST 使用 `PascalCase`。
-- `type` 和 `interface` 名称 MUST NOT 使用 `I`、`T` 等匈牙利式前缀。
-
-### File Suffixes
-
-file suffix 表示文件的主要职责。表示文件职责的 suffix SHOULD 使用复数。具体 suffix SHOULD 在对应章节定义。
-
-### CSS Modules
-
-- component-scoped CSS Modules MUST 使用 `<component>.module.css`。
-- `style.css`、`styles.css`、`style.module.css` SHOULD NOT 作为 component-scoped CSS Modules 命名。
-
-### Tests
-
-- Unit / component tests MUST 使用 `*.test.ts` / `*.test.tsx`。
-- Playwright e2e tests MUST 使用 `*.spec.ts`。
-- `*.tests.ts` 和 `*.testing.tsx` MUST NOT 作为测试文件后缀。
-- `__tests__/` SHOULD NOT 作为 baseline 测试目录。
 
 ## Project Structure
 
@@ -432,6 +409,8 @@ models/
 Model types:
 
 - `User` 表示 frontend model，即前端业务代码使用的数据结构。
+- 单个实体的 model type SHOULD 使用单数实体名，例如 `User`、`Product`。
+- 集合类型 SHOULD 通过容器或语义表达，例如 `User[]`、`Users`、`UserListItem[]`、`UserList`。
 - `UserId` 表示 resource id。
 - `UserListItem` 只在列表项结构确实不同于 `User` 时 SHOULD 使用。
 - `UserFormValues` 表示表单值结构。
@@ -509,12 +488,18 @@ Source of truth:
 - CSS / CSS Modules SHOULD 只作为 fallback。
 - Global style entry points MUST 放在 `src/styles/`。
 - component-scoped CSS Modules SHOULD 靠近 component。
+- component-scoped CSS Modules MUST 使用 `<component>.module.css`。
 - CSS Modules locals MUST 使用 `camelCase`。
+- `style.css`、`styles.css`、`style.module.css` SHOULD NOT 作为 component-scoped CSS Modules 命名。
 
 ## Testing
 
 `testing/` 存放测试工具、custom render、test setup helpers 和跨测试复用的 test utilities。
 
+- Unit / component tests MUST 使用 `*.test.ts` / `*.test.tsx`。
+- Playwright e2e tests MUST 使用 `*.spec.ts`。
+- `*.tests.ts` 和 `*.testing.tsx` MUST NOT 作为测试文件后缀。
+- `__tests__/` SHOULD NOT 作为 baseline 测试目录。
 - 跨 tests 复用的 test utilities SHOULD 放在 `src/testing/`。
 - 单一 module 使用的 test helpers SHOULD 与该 module colocate。
 - Production code MUST NOT 依赖 `src/testing/`。

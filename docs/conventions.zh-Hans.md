@@ -287,4 +287,3 @@ URL search 相关名称保留以下语义：
 - Feature-level `index.ts` public API 和全局 barrel files SHOULD NOT 作为 baseline。
 - 小范围 module entry MAY 使用，但它必须代表真实模块边界。
 - Import 语句 MUST 遵守本文档定义的 dependency direction。
-- Type-only imports / exports 遵守 TypeScript 和 ESLint 配置；tool configuration 是自动检查的权威来源。

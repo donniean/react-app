@@ -104,7 +104,7 @@ src/
 
 ## Naming
 
-### Folders And Files
+### Folders and Files
 
 - 目录名 MUST 使用 `kebab-case`，除明确例外外 MUST NOT 使用大写字母。
 - 文件名的命名主体 SHOULD 使用 `kebab-case`，例如 `user-form.tsx`。
@@ -112,7 +112,7 @@ src/
 - React component 和 hook 的目录名、文件名遵循同一规则，MUST NOT 使用 `PascalCase`。
 - 工具强制路径、locale tags、根目录约定文件和 generated files MAY 使用各自既有命名。
 
-### Singular And Plural Names
+### Singular and Plural Names
 
 - 可数业务 resource 的 grouping directory、model / API file subject SHOULD 使用复数，例如 `users`、`products`。
 - 不可数名词、能力和领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
@@ -145,7 +145,7 @@ features/*/
 - `features/*/api/` 和 `features/*/models/` MUST 只服务当前 feature。
 - 跨 feature 复用的代码 SHOULD 提升到 shared module，或在 app / routes 层组合。
 
-## App And Routes
+## App and Routes
 
 - `src/index.tsx` SHOULD 只承担 global side-effect imports 与 React root creation。
 - `src/app/` SHOULD 负责 app composition、global providers 和 global boundaries。
@@ -256,7 +256,7 @@ URL search 相关名称保留以下语义：
 - Query keys SHOULD 包含所有会影响 `queryFn` 结果的 variables。
 - Query hooks SHOULD 复用 query options，避免重复定义 `queryKey` 和 `queryFn`。
 
-### DTO And Mapping
+### DTO and Mapping
 
 - `Dto` 表示 API raw boundary shape，不表示每个 operation 都必须创建独立类型。
 - API resource raw shape SHOULD 使用 `<ResourceSingular>Dto`，例如 `UserDto`。

@@ -26,7 +26,7 @@
 - Shared code MUST NOT 依赖 app、routes 或 features。
 - 有明确 owner 的代码 SHOULD 靠近该 owner；只有在跨边界复用且语义稳定时，SHOULD 抽取为 shared code。
 - Feature-specific code SHOULD 放在对应 feature 内。
-- Colocation MUST NOT 破坏 code flow 或 feature isolation。
+- Colocation MUST NOT 破坏 dependency direction 或 feature isolation。
 - 目录 MUST 对应真实职责、真实代码和真实维护边界。
 - 项目 MUST NOT 为每个 feature 机械创建所有可能目录。
 
@@ -196,7 +196,7 @@ components/
 - 稳定 primitive constants SHOULD 使用 `UPPER_SNAKE_CASE`。
 - 需要保留 literal types 的 constants SHOULD 使用 `as const`。
 - 需要校验对象形状但保留具体推断时，SHOULD 使用 `satisfies`。
-- 在当前 TypeScript 配置下，application source SHOULD NOT 使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。
+- 在当前 TypeScript 配置下，application source MUST NOT 使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。
 
 ### Schemas
 
@@ -286,5 +286,5 @@ URL search 相关名称保留以下语义：
 - Direct imports SHOULD 作为 baseline import style：从实际定义文件或明确 module entry 导入，而不是从目录级 barrel file 导入。
 - Feature-level `index.ts` public API 和全局 barrel files SHOULD NOT 作为 baseline。
 - 小范围 module entry MAY 使用，但它必须代表真实模块边界。
-- Import 语句 MUST 遵守本文档定义的 code flow。
+- Import 语句 MUST 遵守本文档定义的 dependency direction。
 - Type-only imports / exports 遵守 TypeScript 和 ESLint 配置；tool configuration 是自动检查的权威来源。

@@ -79,5 +79,6 @@ export default defineConfig({
     '**/pnpm-lock.yaml',
     '**/pnpm-workspace.yaml',
     '**/yarn.lock',
+    '**/oxlint.config.ts',
   ],
 });

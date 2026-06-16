@@ -52,9 +52,8 @@ export default defineConfig(({ mode }) => {
       checker({
         overlay: { initialIsOpen: 'error' },
         typescript: true,
-        eslint: {
-          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
-          useFlatConfig: true,
+        oxlint: {
+          lintCommand: 'oxlint',
         },
         stylelint: {
           lintCommand: 'stylelint ./src/**/*.css',

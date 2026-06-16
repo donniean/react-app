@@ -31,11 +31,11 @@ Use smaller checks by file type when possible:
 pnpm run format:package-json:check
 pnpm run format:prettier:check
 pnpm run lint:autocorrect
-pnpm run lint:eslint
 pnpm run lint:html
 pnpm run lint:i18n
 pnpm run lint:knip
 pnpm run lint:markdown
+pnpm run lint:oxlint
 pnpm run lint:spellcheck
 pnpm run lint:styles
 pnpm run typecheck
@@ -46,9 +46,9 @@ If check results can be fixed automatically, prefer the smallest relevant `fix` 
 - `pnpm run format:package-json`
 - `pnpm run format:prettier`
 - `pnpm run lint:autocorrect:fix`
-- `pnpm run lint:eslint:fix`
 - `pnpm run lint:knip:fix`
 - `pnpm run lint:markdown:fix`
+- `pnpm run lint:oxlint:fix`
 - `pnpm run lint:styles:fix`
 
 For changes involving user-facing UI, routing, i18n, Vite config, Docker, or nginx, run a local browser smoke test when feasible.

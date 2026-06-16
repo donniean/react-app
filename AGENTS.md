@@ -3,7 +3,7 @@
 ## Scope
 
 - Repository purpose, current directories, and common commands are documented in [README.md](README.md) as the single source of truth; this file contains only repository constraints for coding agents.
-- Use [docs/conventions.md](docs/conventions.md) as the single source of truth for project structure, routing, i18n, styling, and asset conventions.
+- Use [docs/conventions.md](docs/conventions.md) as the single source of truth for source structure, naming, dependency direction, and implementation conventions.
 - Do not introduce server-side rendering (SSR), React Server Components, API routes, or full-stack framework conventions unless the user explicitly changes the goal.
 - Do not add a backend service implementation to this repository unless the user explicitly asks for one.
 - Projects created from this template are not limited to personal use; do not treat this repository's personal-use context as a fixed downstream project constraint.

@@ -2,7 +2,7 @@
 
 本文档定义会影响长期可维护性的前端工程约定：代码边界、依赖方向、目录结构、命名模式和实现约定。
 
-当本文档与现有代码、tool configuration、generated files、design source 或其他已存在事实冲突时，MUST 以现有事实为准，并将冲突视为 documentation drift 或待确认 migration。MUST NOT 在没有明确任务时仅为匹配本文档而改动现有实现。
+当本文档与现有代码、工具配置、generated files、design source 或其他已存在事实冲突时，MUST 以现有事实为准，并将冲突视为 documentation drift 或待确认 migration。MUST NOT 在没有明确任务时仅为匹配本文档而改动现有实现。
 
 本文档列出的目录是允许结构，不是必备结构。目录 MUST 按真实需要创建；未列出的目录 MAY 在有明确职责且符合相关框架、工具或社区通行实践时创建。
 
@@ -21,10 +21,14 @@
 ## Principles
 
 - Shared code 与 feature-specific code MUST 分离。
-- Code flow SHOULD 保持单向：shared code -> features -> app / routes。
+- Code flow MUST 保持单向：shared code -> features -> app / routes。
 - Features MUST NOT 直接互相 import。跨 feature 协作 SHOULD 在 app / routes 层组合，或抽取到合适的 shared module。
 - Shared code MUST NOT 依赖 app、routes 或 features。
-- 只服务一个 feature 的代码 SHOULD 留在该 feature 内。
+- 有单一明确 owner 的代码 SHOULD 与该 owner colocate。
+- Feature-specific code（components、hooks、models、API code、assets、styles、tests）SHOULD 放在对应 feature 内。
+- 只服务单一 module 的 companion files（`*.test.ts`、`*.test.tsx`、`*.module.css`、`*.helpers.ts`、`*.constants.ts`）SHOULD 与该 module colocate。
+- 只有在代码需要跨边界复用且语义稳定时，SHOULD 抽取为 shared code。
+- Colocation MUST NOT 破坏 code flow 或 feature isolation。
 - 目录 MUST 对应真实职责、真实代码和真实维护边界。
 - 项目 MUST NOT 为每个 feature 机械创建所有可能目录。
 
@@ -86,7 +90,7 @@ src/
 - `components/`：跨 feature 复用的 shared UI components。
 - `config/`：运行时配置、环境变量解析和应用级配置对象。
 - `features/`：业务 feature 的主要组织位置。
-- `helpers/`：project-specific helper functions。
+- `helpers/`：项目独有的 helper functions。
 - `hooks/`：跨 feature 复用的 React hooks。
 - `lib/`：第三方库适配、configured clients 和基础设施封装。
 - `locales/`：i18n resource files。
@@ -97,7 +101,7 @@ src/
 - `stores/`：跨 feature client state stores，仅在引入对应状态管理方案时创建。
 - `styles/`：global style entry points 和 global CSS。
 - `testing/`：测试工具、custom render、test setup helpers。
-- `utils/`：可跨项目复用的 generic utilities。
+- `utils/`：可跨项目复用的 generic utility functions。
 - `index.tsx`：React bootstrap entry。
 
 ## Naming
@@ -169,12 +173,17 @@ components/
 └── ui/
 ```
 
-- `ui/` 存放 design system 基础组件和低业务语义的 shared UI components。
+- `business/` 存在跨多个 features 复用且业务语义稳定的 shared business components 时创建。
 - `errors/` 存放共享 error boundary fallback 和错误展示 components。
 - `layouts/` 存放跨 route 或跨 feature 复用的布局 components。
-- `business/` 存在跨多个 features 复用且业务语义稳定的 shared business components 时创建。
+- `ui/` 存放 design system 基础组件和低业务语义的 shared UI components。
 
-Component-local companion files SHOULD 与 component colocate，例如 `user-form.test.tsx`、`user-form.module.css`、`user-form.helpers.ts`。
+### Component Naming
+
+- Resource-specific UI files MAY 使用 `<resource-singular>-<role>` 命名；`role` SHOULD 表达 UI 职责，例如 `list`、`detail`、`form`、`table`、`filters`、`columns`。
+- React component 名称 MUST 使用 `PascalCase`，并 SHOULD 在合适时保留相同 naming stem。
+- Route files MUST 遵守路由工具的 file conventions；该 UI naming pattern 只适用于普通 component files。
+- 示例：`user-list.tsx` -> `UserList`，`user-detail.tsx` -> `UserDetail`，`user-form.tsx` -> `UserForm`。
 
 ## Models
 
@@ -280,8 +289,8 @@ URL search 相关名称保留以下语义：
 
 ## Testing
 
-- Unit / component tests 使用 `*.test.ts` / `*.test.tsx`，并 MAY 与被测 module colocate；`models/` 下的 unit tests 使用 `*.test.ts`。
-- Playwright e2e tests 使用 `*.spec.ts`；`*.spec.ts` SHOULD NOT 放在 `models/` 下。
+- Unit / component tests SHOULD 使用 `*.test.ts` / `*.test.tsx`，并 MAY 与被测 module colocate；`models/` 下的 unit tests SHOULD 使用 `*.test.ts`。
+- Playwright e2e tests SHOULD 使用 `*.spec.ts`；`*.spec.ts` SHOULD NOT 放在 `models/` 下。
 - 跨测试复用的 test utilities SHOULD 放在 `src/testing/`。
 - 单一 module 使用的 test helpers SHOULD 与该 module colocate。
 - Production code MUST NOT 依赖 `src/testing/`。

@@ -24,10 +24,8 @@
 - Code flow MUST 保持单向：shared code -> features -> app / routes。
 - Features MUST NOT 直接互相 import。跨 feature 协作 SHOULD 在 app / routes 层组合，或抽取到合适的 shared module。
 - Shared code MUST NOT 依赖 app、routes 或 features。
-- 有单一明确 owner 的代码 SHOULD 与该 owner colocate。
-- Feature-specific code（components、hooks、models、API code、assets、styles、tests）SHOULD 放在对应 feature 内。
-- 只服务单一 module 的 companion files（`*.test.ts`、`*.test.tsx`、`*.module.css`、`*.helpers.ts`、`*.constants.ts`）SHOULD 与该 module colocate。
-- 只有在代码需要跨边界复用且语义稳定时，SHOULD 抽取为 shared code。
+- 有明确 owner 的代码 SHOULD 靠近该 owner；只有在跨边界复用且语义稳定时，SHOULD 抽取为 shared code。
+- Feature-specific code SHOULD 放在对应 feature 内。
 - Colocation MUST NOT 破坏 code flow 或 feature isolation。
 - 目录 MUST 对应真实职责、真实代码和真实维护边界。
 - 项目 MUST NOT 为每个 feature 机械创建所有可能目录。
@@ -116,14 +114,13 @@ src/
 
 ### Singular And Plural Names
 
-- 可数业务 resource 的目录名和文件名前缀 SHOULD 使用复数，例如 `users`、`products`。
+- 可数业务 resource 的 grouping directory、model / API file subject SHOULD 使用复数，例如 `users`、`products`。
 - 不可数名词、能力和领域概念 SHOULD 使用自然形式，例如 `auth`、`metadata`、`traffic`。
 
 ### Semantic Names
 
-- Collection 名称 SHOULD 通过容器或明确集合语义表达，例如 `User[]`、`Users`、`UserList`、`users`、`userList`。
-- List item 只在列表项结构确实不同于详情结构时 SHOULD 使用 `<ResourceSingular>ListItem` stem，例如 `UserListItem`、`userListItem`。
-- Form values SHOULD 使用 `<Subject>FormValues` stem，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`、`mapUserFormValuesToCreateUserRequestBody`、`useUserFormValues`。
+- Form values SHOULD 使用 `<Subject>FormValues`，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`、`mapUserFormValuesToCreateUserRequestBody`、`useUserFormValues`。
+- List item 只在列表项结构确实不同于详情结构时 MAY 使用 `<ResourceSingular>ListItem`，例如 `UserListItem`、`userListItem`。
 
 ## Features
 
@@ -146,7 +143,6 @@ features/*/
 ```
 
 - `features/*/api/` 和 `features/*/models/` MUST 只服务当前 feature。
-- Feature-specific code SHOULD 留在对应 feature 内。
 - 跨 feature 复用的代码 SHOULD 提升到 shared module，或在 app / routes 层组合。
 
 ## App And Routes
@@ -173,17 +169,10 @@ components/
 └── ui/
 ```
 
-- `business/` 存在跨多个 features 复用且业务语义稳定的 shared business components 时创建。
+- `business/` 存在跨多个 features 复用且业务语义稳定的 shared business components 时 MAY 创建。
 - `errors/` 存放共享 error boundary fallback 和错误展示 components。
 - `layouts/` 存放跨 route 或跨 feature 复用的布局 components。
 - `ui/` 存放 design system 基础组件和低业务语义的 shared UI components。
-
-### Component Naming
-
-- Resource-specific UI files MAY 使用 `<resource-singular>-<role>` 命名；`role` SHOULD 表达 UI 职责，例如 `list`、`detail`、`form`、`table`、`filters`、`columns`。
-- React component 名称 MUST 使用 `PascalCase`，并 SHOULD 在合适时保留相同 naming stem。
-- Route files MUST 遵守路由工具的 file conventions；该 UI naming pattern 只适用于普通 component files。
-- 示例：`user-list.tsx` -> `UserList`，`user-detail.tsx` -> `UserDetail`，`user-form.tsx` -> `UserForm`。
 
 ## Models
 
@@ -273,11 +262,9 @@ URL search 相关名称保留以下语义：
 - API resource raw shape SHOULD 使用 `<ResourceSingular>Dto`，例如 `UserDto`。
 - Response body raw shape SHOULD 使用 `<Operation>ResponseDto`，例如 `ListUsersResponseDto`。
 - Path params SHOULD 使用 `<Operation>PathParams`。
-- Frontend-facing query params、request headers 和 request body MAY 直接复用 frontend model、form values 或 function params。
-- Query params、request headers 或 request body 只有在需要单独表达 API raw boundary shape 时才 SHOULD 使用 `*Dto` 后缀。
-- API raw shape 与前端使用的数据结构存在字段、命名、nullable、格式、嵌套结构或语义差异时，SHOULD 定义独立 `*Dto` 类型，并通过 mapper 转换。
-- DTO 类型 SHOULD NOT 仅为保持命名统一而重复创建。
-- DTO-to-model mapping SHOULD 在返回 frontend model 的 request function 中完成；mapping 逻辑本身 SHOULD 放在 `models/*.mappers.ts`。
+- Query params、request headers 和 request body MAY 直接复用 frontend model、form values 或 function params；只有需要表达独立 API raw boundary shape 时才 SHOULD 使用 `*Dto` 后缀。
+- API raw shape 与前端数据结构存在字段、命名、nullable、格式、嵌套结构或语义差异时，SHOULD 定义独立 `*Dto` 类型，并通过 mapper 转换。
+- DTO-to-model mapping SHOULD 在返回 frontend model 的 request function 中完成；mapper 逻辑 SHOULD 放在 `models/*.mappers.ts`。
 - UI code SHOULD 优先调用返回 frontend model 的 request function；只有确实需要 raw DTO 时才调用返回 raw DTO 的 request function。
 
 ## Styling

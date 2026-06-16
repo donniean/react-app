@@ -119,7 +119,7 @@ src/
 
 ### Semantic Names
 
-- Form values SHOULD 使用 `<Subject>FormValues`，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`。
+- 与 form values 直接相关的代码符号 SHOULD 保留 `FormValues` / `formValues` / `FORM_VALUES` 这一语义片段，并按符号类型和既有命名风格调整 casing。例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`。
 - List item 只在列表项结构确实不同于详情结构时 MAY 使用 `<ResourceSingular>ListItem`，例如 `UserListItem`、`userListItem`。
 
 ## Features
@@ -196,7 +196,7 @@ components/
 - 稳定 primitive constants SHOULD 使用 `UPPER_SNAKE_CASE`。
 - 需要保留 literal types 的 constants SHOULD 使用 `as const`。
 - 需要校验对象形状但保留具体推断时，SHOULD 使用 `satisfies`。
-- SHOULD NOT 使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。生成代码或明确要求使用 `enum` 的 tooling MAY 例外。
+- 在当前 TypeScript 配置下，application source SHOULD NOT 使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。
 
 ### Schemas
 

@@ -21,7 +21,7 @@
 ## Principles
 
 - Shared code 与 feature-specific code MUST 分离。
-- Code flow MUST 保持单向：shared code -> features -> app / routes。
+- Code flow MUST 保持单向，即 import dependencies MUST 从应用组合层指向更共享的代码，例如 app / routes -> features -> shared code。
 - Features MUST NOT 直接互相 import。跨 feature 协作 SHOULD 在 app / routes 层组合，或抽取到合适的 shared module。
 - Shared code MUST NOT 依赖 app、routes 或 features。
 - 有明确 owner 的代码 SHOULD 靠近该 owner；只有在跨边界复用且语义稳定时，SHOULD 抽取为 shared code。
@@ -88,7 +88,7 @@ src/
 - `components/`：跨 feature 复用的 shared UI components。
 - `config/`：运行时配置、环境变量解析和应用级配置对象。
 - `features/`：业务 feature 的主要组织位置。
-- `helpers/`：项目独有的 helper functions。
+- `helpers/`：项目独有的 pure helper functions。
 - `hooks/`：跨 feature 复用的 React hooks。
 - `lib/`：第三方库适配、configured clients 和基础设施封装。
 - `locales/`：i18n resource files。
@@ -119,7 +119,7 @@ src/
 
 ### Semantic Names
 
-- Form values SHOULD 使用 `<Subject>FormValues`，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`、`mapUserFormValuesToCreateUserRequestBody`、`useUserFormValues`。
+- Form values SHOULD 使用 `<Subject>FormValues`，例如 `UserFormValues`、`userFormValues`、`userFormValuesSchema`。
 - List item 只在列表项结构确实不同于详情结构时 MAY 使用 `<ResourceSingular>ListItem`，例如 `UserListItem`、`userListItem`。
 
 ## Features
@@ -196,7 +196,7 @@ components/
 - 稳定 primitive constants SHOULD 使用 `UPPER_SNAKE_CASE`。
 - 需要保留 literal types 的 constants SHOULD 使用 `as const`。
 - 需要校验对象形状但保留具体推断时，SHOULD 使用 `satisfies`。
-- 应用源码 SHOULD 避免使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。生成代码或明确要求使用 `enum` 的 tooling MAY 例外。
+- SHOULD NOT 使用 TypeScript `enum`；enum-like runtime values SHOULD 使用 `as const` object / array 加 union type。生成代码或明确要求使用 `enum` 的 tooling MAY 例外。
 
 ### Schemas
 
@@ -209,7 +209,6 @@ components/
 
 ### Dependencies
 
-- `models/` MAY 被 `api/`、components、hooks 和 routes 使用。
 - `models/` MUST NOT 依赖 `api/`。
 - `models/` MUST NOT 包含网络请求、TanStack Query hooks、React components、route composition 或 UI side effects。
 
@@ -252,9 +251,9 @@ URL search 相关名称保留以下语义：
 ### TanStack Query
 
 - Reusable query options SHOULD 使用 `queryOptions` / `infiniteQueryOptions` 定义。
-- 同一 resource 存在多个 related query options 时，MAY 使用 `<resourcePlural>Queries` 分组。
 - Query keys SHOULD 包含所有会影响 `queryFn` 结果的 variables。
 - Query hooks SHOULD 复用 query options，避免重复定义 `queryKey` 和 `queryFn`。
+- 需要 query key 的代码 SHOULD 复用 query options 的 `queryKey`，避免重复定义同一个 key。
 
 ### DTO and Mapping
 
@@ -277,7 +276,7 @@ URL search 相关名称保留以下语义：
 ## Testing
 
 - Unit / component tests SHOULD 使用 `*.test.ts` / `*.test.tsx`，并 MAY 与被测 module colocate；`models/` 下的 unit tests SHOULD 使用 `*.test.ts`。
-- Playwright e2e tests SHOULD 使用 `*.spec.ts`；`*.spec.ts` SHOULD NOT 放在 `models/` 下。
+- 启用 Playwright 时，e2e tests SHOULD 使用 `*.spec.ts`。
 - 跨测试复用的 test utilities SHOULD 放在 `src/testing/`。
 - 单一 module 使用的 test helpers SHOULD 与该 module colocate。
 - Production code MUST NOT 依赖 `src/testing/`。

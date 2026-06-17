@@ -114,7 +114,7 @@ export default defineConfig<OxlintConfig>({
   },
   overrides: [
     {
-      files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts'],
+      files: ['**'],
       excludeFiles: ['src/**'],
       env: {
         node: true,
@@ -122,13 +122,6 @@ export default defineConfig<OxlintConfig>({
       rules: {
         'node/no-new-require': 'error',
         'node/no-path-concat': 'error',
-      },
-    },
-    {
-      files: ['**/*.cjs'],
-      env: {
-        commonjs: true,
-        node: true,
       },
     },
     {

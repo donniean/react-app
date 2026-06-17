@@ -72,7 +72,7 @@ export default defineConfig<OxlintConfig>({
     'eslint/no-restricted-imports': [
       'error',
       {
-        patterns: ['../..'],
+        patterns: ['../../**'],
       },
     ],
     'eslint/no-var': 'error',

@@ -1,8 +1,10 @@
+import type { OxlintConfig } from 'oxlint';
 import { defineConfig } from 'oxlint';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
+import pluginI18next from 'eslint-plugin-i18next';
 
-export default defineConfig({
+export default defineConfig<OxlintConfig>({
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
   options: {
     denyWarnings: true,
@@ -162,7 +164,7 @@ export default defineConfig({
       jsPlugins: ['eslint-plugin-i18next'],
       // https://github.com/edvardchen/eslint-plugin-i18next/blob/main/lib/index.js#L30
       rules: {
-        'i18next/no-literal-string': 'error',
+        ...pluginI18next.configs['flat/recommended'].rules,
       },
     },
   ],

@@ -28,7 +28,6 @@ export default defineConfig<OxlintConfig>({
     'vitest',
     // react
     'react',
-    'react-perf',
     'jsx-a11y',
   ],
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#env
@@ -148,10 +147,6 @@ export default defineConfig<OxlintConfig>({
         'react/react-in-jsx-scope': 'off',
         'react/rules-of-hooks': 'error',
         'react/self-closing-comp': 'error',
-        'react-perf/jsx-no-jsx-as-prop': 'off',
-        'react-perf/jsx-no-new-array-as-prop': 'off',
-        'react-perf/jsx-no-new-function-as-prop': 'off',
-        'react-perf/jsx-no-new-object-as-prop': 'off',
         // https://github.com/TanStack/query/blob/main/packages/eslint-plugin-query/src/index.ts
         ...pluginQuery.configs['flat/recommended-strict'][0]?.rules,
         // https://github.com/TanStack/router/blob/main/packages/eslint-plugin-router/src/index.ts

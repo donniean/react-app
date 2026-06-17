@@ -47,6 +47,7 @@ export default defineConfig({
     'numbro',
     'oxfmt',
     'oxlint',
+    'oxlint-tsgolint',
     'rimraf',
     'sonarjs',
     'stylelint',

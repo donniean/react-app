@@ -111,6 +111,8 @@ export default defineConfig<OxlintConfig>({
     ],
     'unicorn/no-abusive-eslint-disable': 'error',
     'unicorn/prefer-node-protocol': 'error',
+    'vitest/no-import-node-test': 'error',
+    'vitest/prefer-importing-vitest-globals': 'error',
   },
   overrides: [
     {

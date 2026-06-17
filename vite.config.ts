@@ -51,7 +51,7 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
       checker({
         overlay: { initialIsOpen: 'error' },
-        // typescript: true,
+        typescript: true,
         oxlint: {
           lintCommand: 'oxlint',
         },

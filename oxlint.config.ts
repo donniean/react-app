@@ -11,7 +11,7 @@ export default defineConfig<OxlintConfig>({
     reportUnusedDisableDirectives: 'error',
     respectEslintDisableDirectives: true,
     typeAware: true,
-    typeCheck: true,
+    typeCheck: false,
   },
   // https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins
   plugins: [

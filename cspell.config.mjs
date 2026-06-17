@@ -47,7 +47,6 @@ export default defineConfig({
     'numbro',
     'oxfmt',
     'oxlint',
-    'oxlint-tsgolint',
     'rimraf',
     'sonarjs',
     'stylelint',
@@ -61,7 +60,7 @@ export default defineConfig({
     'nodenext',
     'classname',
     // Vite
-    'VITE',
+    'vite',
     // custom
     'donniean',
   ],

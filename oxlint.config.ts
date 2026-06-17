@@ -1,5 +1,6 @@
 import { defineConfig } from 'oxlint';
 import pluginQuery from '@tanstack/eslint-plugin-query';
+import pluginRouter from '@tanstack/eslint-plugin-router';
 
 export default defineConfig({
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
@@ -131,7 +132,10 @@ export default defineConfig({
     },
     {
       files: ['src/**'],
-      jsPlugins: ['@tanstack/eslint-plugin-query'],
+      jsPlugins: [
+        '@tanstack/eslint-plugin-query',
+        '@tanstack/eslint-plugin-router',
+      ],
       env: {
         browser: true,
       },
@@ -148,6 +152,8 @@ export default defineConfig({
         'react-perf/jsx-no-new-object-as-prop': 'off',
         // https://github.com/TanStack/query/blob/main/packages/eslint-plugin-query/src/index.ts
         ...pluginQuery.configs['flat/recommended-strict'][0]?.rules,
+        // https://github.com/TanStack/router/blob/main/packages/eslint-plugin-router/src/index.ts
+        ...pluginRouter.configs['flat/recommended'][0]?.rules,
       },
     },
     {

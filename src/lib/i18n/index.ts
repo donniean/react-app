@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-// cspell: ignore languagedetector
+// cSpell: ignore languagedetector
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
@@ -21,7 +21,7 @@ export const i18nInit = defaultI18n
       'zh-CN': ['zh-Hans'],
       default: [__I18N_DEFAULT_LOCALE__],
     },
-    // cspell: ignore Lngs
+    // cSpell: ignore Lngs
     nonExplicitSupportedLngs: true,
     ns: namespaces,
     defaultNS: __I18N_DEFAULT_NAMESPACE__,

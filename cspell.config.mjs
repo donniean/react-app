@@ -9,10 +9,10 @@ export default defineConfig({
     'webstorm',
     'wechat',
     // brands
-    'Vercel',
+    'vercel',
     // Docker
-    'Buildx',
-    'DOCKERHUB',
+    'buildx',
+    'dockerhub',
     // files
     '.autocorrectignore',
     '.autocorrectrc',

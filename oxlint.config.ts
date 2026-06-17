@@ -41,6 +41,7 @@ export default defineConfig({
     restriction: 'off',
     nursery: 'off',
   },
+  // https://oxc.rs/docs/guide/usage/linter/rules.html
   rules: {
     'no-console': [
       process.env['NODE_ENV'] === 'development' ? 'warn' : 'error',

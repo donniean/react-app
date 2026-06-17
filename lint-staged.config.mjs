@@ -11,7 +11,7 @@ export default {
     () => 'pnpm run lint:i18n',
   ],
   '*.{ts,tsx}': () => 'tsc --build',
-  '*.{js,mjs,cjs,ts,tsx}': 'oxlint --fix', // --max-warnings 0
+  '*.{js,mjs,cjs,ts,tsx}': 'oxlint --fix',
   '*.css': 'stylelint --fix',
   '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',

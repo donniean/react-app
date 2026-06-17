@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/no-named-as-default
 import i18n from 'i18next';
 // cspell: ignore languagedetector
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -9,8 +8,9 @@ import { env } from '@/config/env';
 import { backend } from './backend';
 import { namespaces } from './utils';
 
-// eslint-disable-next-line import-x/no-named-as-default-member
-await i18n
+const defaultI18n = i18n;
+
+export const i18nInit = defaultI18n
   .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -35,4 +35,4 @@ await i18n
     },
   });
 
-export { default as i18n } from 'i18next';
+export { defaultI18n as i18n };

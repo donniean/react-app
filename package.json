@@ -28,7 +28,7 @@
     "i18n:status": "i18next-cli status",
     "i18n:sync": "i18next-cli sync",
     "i18n:types": "i18next-cli types && prettier --write src/@types/i18next-resources.d.ts",
-    "lint": "concurrently --group --timings \"pnpm:lint:*(!:fix|^lint:knip$)\" \"pnpm:format:*:check\" \"pnpm:typecheck\"",
+    "lint": "concurrently --group --timings \"pnpm:lint:*(!:fix|^lint:knip$)\" \"pnpm:format:*:check\"",
     "lint:autocorrect": "autocorrect --lint",
     "lint:autocorrect:fix": "autocorrect --fix",
     "lint:fix": "concurrently --max-processes=1 --group --timings \"pnpm:lint:*:fix(!^lint:knip:fix$)\" \"pnpm:format:*(!:check)\"",

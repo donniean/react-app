@@ -1,4 +1,5 @@
 import { defineConfig } from 'oxlint';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default defineConfig({
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
@@ -130,6 +131,7 @@ export default defineConfig({
     },
     {
       files: ['src/**'],
+      jsPlugins: ['@tanstack/eslint-plugin-query'],
       env: {
         browser: true,
       },
@@ -144,12 +146,15 @@ export default defineConfig({
         'react-perf/jsx-no-new-array-as-prop': 'off',
         'react-perf/jsx-no-new-function-as-prop': 'off',
         'react-perf/jsx-no-new-object-as-prop': 'off',
+        // https://github.com/TanStack/query/blob/main/packages/eslint-plugin-query/src/index.ts
+        ...pluginQuery.configs['flat/recommended-strict'][0]?.rules,
       },
     },
     {
       files: ['src/**'],
       excludeFiles: ['**/*.test.*', '**/mocks/**', '**/*.mock.*'],
       jsPlugins: ['eslint-plugin-i18next'],
+      // https://github.com/edvardchen/eslint-plugin-i18next/blob/main/lib/index.js#L30
       rules: {
         'i18next/no-literal-string': 'error',
       },

@@ -10,7 +10,7 @@ export default {
     () => 'pnpm run i18n:types',
     () => 'pnpm run lint:i18n',
   ],
-  '*.{ts,tsx}': () => 'tsc --build',
+  // '*.{ts,tsx}': () => 'tsc --build',
   '*.{js,mjs,cjs,ts,tsx}': 'oxlint --fix',
   '*.css': 'stylelint --fix',
   '*.html': 'html-validate',

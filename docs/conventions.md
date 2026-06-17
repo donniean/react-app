@@ -236,8 +236,8 @@ Common file names:
 - `DELETE` requests SHOULD use `delete<ResourceSingular>`; mutation hooks SHOULD use `useDelete<ResourceSingular>Mutation`.
 - Custom hooks wrapping `useQueries` SHOULD use `use<ResourcePlural>Queries`.
 - Client-side multi-resource operations SHOULD use `<action><ResourcePlural>`, for example `deleteUsers`.
-- Server-side bulk endpoints SHOULD use `bulk<Action><ResourcePlural>`, for example `bulkDeleteUsers`.
-- Server-side batch endpoints SHOULD use `batch<Action><ResourcePlural>`, for example `batchWriteUsers`.
+- Server-side endpoints that apply the same action to multiple resources SHOULD use `bulk<Action><ResourcePlural>`, for example `bulkDeleteUsers`.
+- Server-side endpoints that execute multiple operation items in one request SHOULD use `batch<Action><ResourcePlural>`, for example `batchWriteUsers`.
 
 ### URL Search Naming
 

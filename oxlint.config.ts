@@ -60,6 +60,12 @@ export default defineConfig({
         ],
       },
     ],
+    'eslint/no-underscore-dangle': [
+      'error',
+      {
+        allow: ['__I18N_DEFAULT_LOCALE__', '__I18N_DEFAULT_NAMESPACE__'],
+      },
+    ],
     'eslint/no-restricted-imports': [
       'error',
       {
@@ -134,6 +140,10 @@ export default defineConfig({
         'react/react-in-jsx-scope': 'off',
         'react/rules-of-hooks': 'error',
         'react/self-closing-comp': 'error',
+        'react-perf/jsx-no-jsx-as-prop': 'off',
+        'react-perf/jsx-no-new-array-as-prop': 'off',
+        'react-perf/jsx-no-new-function-as-prop': 'off',
+        'react-perf/jsx-no-new-object-as-prop': 'off',
       },
     },
     {

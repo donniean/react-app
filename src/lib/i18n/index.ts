@@ -8,7 +8,9 @@ import { env } from '@/config/env';
 import { backend } from './backend';
 import { namespaces } from './utils';
 
-await i18n
+const defaultI18n = i18n;
+
+export const i18nInit = defaultI18n
   .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -33,4 +35,4 @@ await i18n
     },
   });
 
-export { default as i18n } from 'i18next';
+export { defaultI18n as i18n };

@@ -1,24 +1,13 @@
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
+  // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
   options: {
+    denyWarnings: true,
     reportUnusedDisableDirectives: 'error',
-    respectEslintDisableDirectives: false,
+    respectEslintDisableDirectives: true,
     typeAware: true,
     typeCheck: true,
-  },
-  env: {
-    builtin: true,
-  },
-  // https://oxc.rs/docs/guide/usage/linter/config.html#enable-groups-of-rules-with-categories
-  categories: {
-    correctness: 'error',
-    nursery: 'off',
-    pedantic: 'off',
-    perf: 'warn',
-    restriction: 'off',
-    style: 'warn',
-    suspicious: 'error',
   },
   // https://oxc.rs/docs/guide/usage/linter/plugins.html#supported-plugins
   plugins: [
@@ -29,25 +18,30 @@ export default defineConfig({
     'import',
     'jsdoc',
     'promise',
-    // Node
+    // node
     'node',
-    // Vitest
+    // vitest
     'vitest',
-    // React
+    // react
     'react',
     'react-perf',
     'jsx-a11y',
   ],
+  // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#env
+  env: {
+    builtin: true,
+  },
+  // https://oxc.rs/docs/guide/usage/linter/config.html#enable-groups-of-rules-with-categories
+  categories: {
+    correctness: 'error',
+    suspicious: 'error',
+    pedantic: 'off',
+    perf: 'warn',
+    style: 'off',
+    restriction: 'off',
+    nursery: 'off',
+  },
   rules: {
-    'import/first': 'error',
-    'import/newline-after-import': 'error',
-    'import/no-cycle': 'error',
-    'import/no-duplicates': [
-      'error',
-      {
-        considerQueryString: true,
-      },
-    ],
     'no-console': [
       process.env['NODE_ENV'] === 'development' ? 'warn' : 'error',
       { allow: ['warn', 'error'] },
@@ -56,6 +50,15 @@ export default defineConfig({
       'error',
       {
         patterns: ['../..'],
+      },
+    ],
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-cycle': 'error',
+    'import/no-duplicates': [
+      'error',
+      {
+        considerQueryString: true,
       },
     ],
     'typescript/consistent-type-exports': 'error',

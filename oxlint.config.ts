@@ -43,16 +43,32 @@ export default defineConfig({
   },
   // https://oxc.rs/docs/guide/usage/linter/rules.html
   rules: {
-    'no-console': [
+    'eslint/curly': 'error',
+    'eslint/eqeqeq': 'error',
+    'eslint/no-console': [
       process.env['NODE_ENV'] === 'development' ? 'warn' : 'error',
       { allow: ['warn', 'error'] },
     ],
-    'no-restricted-imports': [
+    'eslint/no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'acc', // for reduce accumulators
+          'accumulator', // for reduce accumulators
+          'draft', // for immer
+        ],
+      },
+    ],
+    'eslint/no-restricted-imports': [
       'error',
       {
         patterns: ['../..'],
       },
     ],
+    'eslint/no-var': 'error',
+    'eslint/prefer-const': 'error',
+    'eslint/prefer-template': 'error',
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-cycle': 'error',
@@ -64,37 +80,64 @@ export default defineConfig({
     ],
     'typescript/consistent-type-exports': 'error',
     'typescript/consistent-type-imports': 'error',
+    'typescript/no-empty-object-type': 'error',
+    'typescript/no-explicit-any': 'error',
+    'typescript/no-import-type-side-effects': 'error',
+    'typescript/no-misused-promises': 'error',
+    'typescript/no-require-imports': 'error',
+    'typescript/no-unnecessary-condition': 'error',
+    'typescript/no-unsafe-argument': 'error',
+    'typescript/no-unsafe-assignment': 'error',
+    'typescript/no-unsafe-call': 'error',
+    'typescript/no-unsafe-member-access': 'error',
+    'typescript/no-unsafe-return': 'error',
+    'typescript/restrict-plus-operands': 'error',
+    'typescript/switch-exhaustiveness-check': 'error',
     'unicorn/filename-case': [
       'error',
       {
         case: 'kebabCase',
       },
     ],
+    'unicorn/no-abusive-eslint-disable': 'error',
+    'unicorn/prefer-node-protocol': 'error',
   },
   overrides: [
     {
+      files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts'],
+      excludeFiles: ['src/**'],
       env: {
         node: true,
       },
-      excludeFiles: ['src/**'],
-      files: ['**/*.js', '**/*.mjs', '**/*.ts'],
+      rules: {
+        'node/no-new-require': 'error',
+        'node/no-path-concat': 'error',
+      },
     },
     {
+      files: ['**/*.cjs'],
       env: {
         commonjs: true,
         node: true,
       },
-      files: ['**/*.cjs'],
     },
     {
+      files: ['src/**'],
       env: {
         browser: true,
       },
-      files: ['src/**'],
+      rules: {
+        'react/button-has-type': 'error',
+        'react/no-danger': 'error',
+        'react/only-export-components': 'error',
+        'react/react-in-jsx-scope': 'off',
+        'react/rules-of-hooks': 'error',
+        'react/self-closing-comp': 'error',
+      },
     },
     {
-      excludeFiles: ['**/*.test.*', '**/mocks/**', '**/*.mock.*'],
       files: ['src/**'],
+      excludeFiles: ['**/*.test.*', '**/mocks/**', '**/*.mock.*'],
       jsPlugins: ['eslint-plugin-i18next'],
       rules: {
         'i18next/no-literal-string': 'error',

@@ -90,7 +90,7 @@
     "eslint-plugin-i18next": "6.1.4",
     "html-validate": "11.5.3",
     "husky": "9.1.7",
-    "i18next-cli": "1.64.0",
+    "i18next-cli": "1.64.1",
     "knip": "6.17.1",
     "lint-staged": "17.0.7",
     "markdownlint-cli": "0.48.0",

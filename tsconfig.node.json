@@ -5,13 +5,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     /* Language and Environment */
-    "lib": [
-      "ES2024",
-      "ESNext.Array",
-      "ESNext.Collection",
-      "ESNext.Iterator",
-      "ESNext.Promise"
-    ],
+    "lib": ["ES2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator", "ESNext.Promise"],
 
     /* Modules */
     "module": "preserve",

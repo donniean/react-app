@@ -1,8 +1,8 @@
-import type { OxlintConfig } from 'oxlint';
-import { defineConfig } from 'oxlint';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
 import pluginI18next from 'eslint-plugin-i18next';
+import type { OxlintConfig } from 'oxlint';
+import { defineConfig } from 'oxlint';
 
 export default defineConfig<OxlintConfig>({
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
@@ -128,10 +128,7 @@ export default defineConfig<OxlintConfig>({
     },
     {
       files: ['src/**'],
-      jsPlugins: [
-        '@tanstack/eslint-plugin-query',
-        '@tanstack/eslint-plugin-router',
-      ],
+      jsPlugins: ['@tanstack/eslint-plugin-query', '@tanstack/eslint-plugin-router'],
       env: {
         browser: true,
       },

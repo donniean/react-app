@@ -3,7 +3,7 @@
  */
 export default {
   '*': [
-    'oxfmt',
+    'oxfmt --no-error-on-unmatched-pattern',
     'autocorrect --fix',
     'cspell lint --no-progress --no-must-find-files --dot --gitignore',
     () => 'pnpm run i18n:types',

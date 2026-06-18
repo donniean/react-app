@@ -3,10 +3,11 @@ import { defineConfig } from 'oxfmt';
 export default defineConfig({
   ignorePatterns: ['**/*.min.*'],
   singleQuote: true,
-  sortPackageJson: {
-    sortScripts: true,
-  },
+  sortImports: true,
   sortTailwindcss: {
     functions: ['clsx', 'cn', 'cva', 'twMerge'],
+  },
+  sortPackageJson: {
+    sortScripts: true,
   },
 });

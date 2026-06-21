@@ -42,7 +42,7 @@ export default defineConfig<OxlintConfig>({
     perf: 'warn',
     style: 'off',
     restriction: 'off',
-    nursery: 'off',
+    nursery: 'error',
   },
   // https://oxc.rs/docs/guide/usage/linter/rules.html
   rules: {
@@ -63,12 +63,6 @@ export default defineConfig<OxlintConfig>({
         ],
       },
     ],
-    'eslint/no-underscore-dangle': [
-      'error',
-      {
-        allow: ['__I18N_DEFAULT_LOCALE__', '__I18N_DEFAULT_NAMESPACE__'],
-      },
-    ],
     'eslint/no-restricted-imports': [
       'error',
       {
@@ -87,7 +81,7 @@ export default defineConfig<OxlintConfig>({
         considerQueryString: true,
       },
     ],
-    'import/no-unassigned-import': ['error', { allow: ['**/*.css'] }],
+    'import/no-unassigned-import': ['error', { allow: ['**/*.css', '!**/*.module.css'] }],
     'typescript/consistent-type-exports': 'error',
     'typescript/consistent-type-imports': 'error',
     'typescript/no-empty-object-type': 'error',
@@ -95,7 +89,6 @@ export default defineConfig<OxlintConfig>({
     'typescript/no-import-type-side-effects': 'error',
     'typescript/no-misused-promises': 'error',
     'typescript/no-require-imports': 'error',
-    'typescript/no-unnecessary-condition': 'error',
     'typescript/no-unsafe-argument': 'error',
     'typescript/no-unsafe-assignment': 'error',
     'typescript/no-unsafe-call': 'error',
@@ -132,7 +125,17 @@ export default defineConfig<OxlintConfig>({
       env: {
         browser: true,
       },
+      globals: {
+        __I18N_DEFAULT_LOCALE__: 'readonly',
+        __I18N_DEFAULT_NAMESPACE__: 'readonly',
+      },
       rules: {
+        'eslint/no-underscore-dangle': [
+          'error',
+          {
+            allow: ['__I18N_DEFAULT_LOCALE__', '__I18N_DEFAULT_NAMESPACE__'],
+          },
+        ],
         'react/button-has-type': 'error',
         'react/no-danger': 'error',
         'react/only-export-components': 'error',

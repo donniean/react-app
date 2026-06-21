@@ -3,10 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { env } from '@/config/env';
 
-export function AppErrorFallback({
-  error,
-  resetErrorBoundary,
-}: Readonly<FallbackProps>) {
+export function AppErrorFallback({ error, resetErrorBoundary }: Readonly<FallbackProps>) {
   const { t } = useTranslation('errors');
 
   let description = '';

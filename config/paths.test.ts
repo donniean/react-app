@@ -16,8 +16,6 @@ describe('config/paths', () => {
 
   test('resolveRoot joins with provided segments', () => {
     expect(resolveRoot('src')).toBe(path.resolve(rootPath, 'src'));
-    expect(resolveRoot('config', 'paths.ts')).toBe(
-      path.resolve(rootPath, 'config', 'paths.ts'),
-    );
+    expect(resolveRoot('config', 'paths.ts')).toBe(path.resolve(rootPath, 'config', 'paths.ts'));
   });
 });

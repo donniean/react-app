@@ -135,7 +135,7 @@ export default defineConfig<OxlintConfig>({
             allow: ['__I18N_DEFAULT_LOCALE__', '__I18N_DEFAULT_NAMESPACE__'],
           },
         ],
-        'import/no-unassigned-import': ['error', { allow: ['**/*.css'] }],
+        'import/no-unassigned-import': ['error', { allow: ['@/styles/globals.css'] }],
         'react/button-has-type': 'error',
         'react/no-danger': 'error',
         'react/only-export-components': 'error',

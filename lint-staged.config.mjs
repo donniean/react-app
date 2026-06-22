@@ -3,16 +3,15 @@
  */
 export default {
   '*': [
-    'oxfmt --no-error-on-unmatched-pattern',
-    'autocorrect --fix',
-    'cspell lint --no-progress --no-must-find-files --dot --gitignore',
+    'pnpm run format:oxfmt -- --no-error-on-unmatched-pattern',
+    'pnpm run lint:autocorrect:fix --',
+    () => 'pnpm run lint:spellcheck',
     () => 'pnpm run i18n:types',
     () => 'pnpm run lint:i18n',
   ],
-  '*.{ts,tsx}': () => 'tsc --build',
-  '*.{js,mjs,cjs,ts,tsx}': 'oxlint --fix',
-  '*.css': 'stylelint --fix',
-  '*.html': 'html-validate',
-  '*.md': 'markdownlint --dot --fix',
-  '*.ts': 'vitest related --run',
+  '*.{ts,tsx,mts,cts}': [() => 'pnpm run typecheck', 'vitest related --run'],
+  '*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}': 'pnpm run lint:oxlint:fix --',
+  '*.css': () => 'pnpm run lint:styles:fix',
+  '*.html': () => 'pnpm run lint:html',
+  '*.md': () => 'pnpm run lint:markdown:fix',
 };

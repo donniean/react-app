@@ -9,10 +9,9 @@ export default {
     () => 'pnpm run i18n:types',
     () => 'pnpm run lint:i18n',
   ],
-  '*.{ts,tsx}': () => 'tsc --build',
-  '*.{js,mjs,cjs,ts,tsx}': 'oxlint --fix',
+  '*.{ts,tsx,mts,cts}': [() => 'tsc --build', 'vitest related --run'],
+  '*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}': 'oxlint --fix',
   '*.css': 'stylelint --fix',
   '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',
-  '*.ts': 'vitest related --run',
 };

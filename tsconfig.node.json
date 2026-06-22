@@ -12,5 +12,5 @@
     "moduleResolution": "bundler",
     "types": ["node"]
   },
-  "include": ["config/**/*", "*.ts"]
+  "include": ["config/**/*", "*.ts", "*.mts", "*.cts"]
 }

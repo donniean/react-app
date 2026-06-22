@@ -1,8 +1,7 @@
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
 import pluginI18next from 'eslint-plugin-i18next';
-import type { OxlintConfig } from 'oxlint';
-import { defineConfig } from 'oxlint';
+import { defineConfig, type OxlintConfig } from 'oxlint';
 
 export default defineConfig<OxlintConfig>({
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
@@ -72,6 +71,13 @@ export default defineConfig<OxlintConfig>({
     'eslint/no-var': 'error',
     'eslint/prefer-const': 'error',
     'eslint/prefer-template': 'error',
+    'eslint/sort-imports': [
+      'error',
+      {
+        ignoreDeclarationSort: true,
+        ignoreCase: true,
+      },
+    ],
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-cycle': 'error',
@@ -79,10 +85,23 @@ export default defineConfig<OxlintConfig>({
       'error',
       {
         considerQueryString: true,
+        preferInline: true,
       },
     ],
-    'typescript/consistent-type-exports': 'error',
-    'typescript/consistent-type-imports': 'error',
+    'typescript/consistent-type-exports': [
+      'error',
+      {
+        fixMixedExportsWithInlineTypeSpecifier: true,
+      },
+    ],
+    'typescript/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
+        disallowTypeAnnotations: true,
+      },
+    ],
     'typescript/no-empty-object-type': 'error',
     'typescript/no-explicit-any': 'error',
     'typescript/no-import-type-side-effects': 'error',
@@ -107,6 +126,13 @@ export default defineConfig<OxlintConfig>({
     'vitest/prefer-importing-vitest-globals': 'error',
   },
   overrides: [
+    {
+      files: ['**'],
+      excludeFiles: ['*.config.*', 'src/@types/**'],
+      rules: {
+        'import/no-default-export': 'error',
+      },
+    },
     {
       files: ['**'],
       excludeFiles: ['src/**'],

@@ -287,3 +287,10 @@ URL search-related names keep these meanings:
 - Feature-level `index.ts` public APIs and global barrel files SHOULD NOT be the baseline.
 - Small module entries MAY be used, but they must represent real module boundaries.
 - Imports MUST follow the dependency direction defined by this document.
+- Type-only imports MUST use top-level `import type` when the imported module provides only types to the current file.
+- Mixed value/type imports from the same module SHOULD use inline `type` specifiers, for example `import { type Value, value } from './value';`.
+- Type-only exports and re-exports MUST use top-level `export type`.
+- Mixed value/type exports and re-exports SHOULD use inline `type` specifiers, for example `export { type Value, value } from './value';`.
+- Named import specifiers SHOULD be sorted automatically by Oxlint; import declaration ordering is handled by Oxfmt.
+- Application source SHOULD use named exports. Default exports are allowed for tooling configuration, generated files, and external framework or library conventions.
+- Implementation modules SHOULD export at declaration sites. Explicit export lists SHOULD be reserved for module entry points or intentional public API selection.

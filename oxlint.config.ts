@@ -128,13 +128,6 @@ export default defineConfig<OxlintConfig>({
   overrides: [
     {
       files: ['**'],
-      excludeFiles: ['*.config.*', 'src/@types/**'],
-      rules: {
-        'import/no-default-export': 'error',
-      },
-    },
-    {
-      files: ['**'],
       excludeFiles: ['src/**'],
       env: {
         node: true,

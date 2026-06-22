@@ -1,7 +1,7 @@
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
 import pluginI18next from 'eslint-plugin-i18next';
-import { defineConfig, type OxlintConfig } from 'oxlint';
+import { type OxlintConfig, defineConfig } from 'oxlint';
 
 export default defineConfig<OxlintConfig>({
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
@@ -75,7 +75,6 @@ export default defineConfig<OxlintConfig>({
       'error',
       {
         ignoreDeclarationSort: true,
-        ignoreCase: true,
       },
     ],
     'import/first': 'error',

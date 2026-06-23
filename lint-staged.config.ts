@@ -1,11 +1,10 @@
-/**
- * @type {import('lint-staged').Configuration}
- */
+import type { Configuration } from 'lint-staged';
+
 export default {
   '*': [
     'oxfmt --no-error-on-unmatched-pattern',
     'autocorrect --fix',
-    'cspell lint --no-progress --no-must-find-files --dot --gitignore',
+    'cspell --no-progress --dot --gitignore --no-must-find-files',
     () => 'pnpm run i18n:types',
     () => 'pnpm run lint:i18n',
   ],
@@ -14,4 +13,4 @@ export default {
   '*.css': 'stylelint --fix',
   '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',
-};
+} satisfies Configuration;

@@ -56,7 +56,7 @@ export default defineConfig(({ mode }) => {
           lintCommand: 'oxlint',
         },
         stylelint: {
-          lintCommand: 'stylelint ./src/**/*.css',
+          lintCommand: 'stylelint "**/*.css"',
         },
       }),
     ],

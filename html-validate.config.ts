@@ -7,7 +7,6 @@ export default defineFlatConfig([
     ignores: ['**/coverage/**', '**/dist/**', '**/.next/**', '**/*.min.*'],
   },
   {
-    files: ['*.html'],
     elements: [html5],
   },
   recommended,

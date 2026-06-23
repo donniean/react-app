@@ -4,7 +4,7 @@ import { prettier, recommended } from 'html-validate/presets';
 
 export default defineFlatConfig([
   {
-    ignores: ['**/coverage/**', '**/dist/**', '**/.next/**', '**/*.min.*'],
+    ignores: ['**/.next/**', '**/*.min.*', '**/coverage/**', '**/dist/**'],
   },
   {
     elements: [html5],

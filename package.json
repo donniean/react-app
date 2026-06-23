@@ -38,7 +38,7 @@
     "lint:markdown:fix": "pnpm run lint:markdown --fix",
     "lint:oxlint": "oxlint",
     "lint:oxlint:fix": "oxlint --fix",
-    "lint:spellcheck": "cspell --no-progress --no-must-find-files --dot --gitignore .",
+    "lint:spellcheck": "cspell --no-progress --dot --gitignore .",
     "lint:styles": "stylelint \"**/*.css\"",
     "lint:styles:fix": "pnpm run lint:styles --fix",
     "ncu": "ncu --deep --format cooldown",

@@ -17,13 +17,10 @@ export default defineConfig({
     '.autocorrectignore',
     '.autocorrectrc',
     '.browserslistrc',
-    '.htmlvalidate',
-    '.htmlvalidateignore',
     '.huskyrc',
     '.markdownlintignore',
     '.ncurc',
     '.nvmrc',
-    '.stylelintignore',
     // Git
     'signoff',
     // glossary

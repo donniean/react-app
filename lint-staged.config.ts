@@ -1,7 +1,6 @@
-/**
- * @type {import('lint-staged').Configuration}
- */
-export default {
+import type { Configuration } from 'lint-staged';
+
+const config = {
   '*': [
     'oxfmt --no-error-on-unmatched-pattern',
     'autocorrect --fix',
@@ -14,4 +13,6 @@ export default {
   '*.css': 'stylelint --fix',
   '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',
-};
+} satisfies Configuration;
+
+export default config;

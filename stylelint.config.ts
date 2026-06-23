@@ -1,10 +1,12 @@
-/** @type {import('stylelint').Config} */
-export default {
+import type { Config } from 'stylelint';
+
+const config = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-css-modules',
     'stylelint-config-recess-order',
   ],
+  ignoreFiles: ['**/coverage/**', '**/dist/**', '**/.next/**', '**/*.min.*'],
   rules: {
     'color-named': [
       'never',
@@ -30,4 +32,6 @@ export default {
     ],
     'import-notation': null,
   },
-};
+} satisfies Config;
+
+export default config;

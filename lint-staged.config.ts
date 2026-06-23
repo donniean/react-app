@@ -1,6 +1,6 @@
 import type { Configuration } from 'lint-staged';
 
-const config = {
+export default {
   '*': [
     'oxfmt --no-error-on-unmatched-pattern',
     'autocorrect --fix',
@@ -14,5 +14,3 @@ const config = {
   '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',
 } satisfies Configuration;
-
-export default config;

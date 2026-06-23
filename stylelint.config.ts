@@ -1,6 +1,6 @@
 import type { Config } from 'stylelint';
 
-const config = {
+export default {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-css-modules',
@@ -33,5 +33,3 @@ const config = {
     'import-notation': null,
   },
 } satisfies Config;
-
-export default config;

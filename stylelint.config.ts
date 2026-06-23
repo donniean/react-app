@@ -6,7 +6,6 @@ export default {
     'stylelint-config-css-modules',
     'stylelint-config-recess-order',
   ],
-  ignoreFiles: ['**/coverage/**', '**/dist/**', '**/.next/**', '**/*.min.*'],
   rules: {
     'color-named': [
       'never',

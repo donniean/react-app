@@ -3,3 +3,5 @@
 fileTypes:
   mjs: javascript
   cjs: javascript
+  mts: javascript
+  cts: javascript

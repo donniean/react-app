@@ -85,7 +85,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "10.0.3",
     "cspell": "10.0.1",
-    "eslint-plugin-i18next": "6.1.4",
+    "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.5.3",
     "husky": "9.1.7",
     "i18next-cli": "1.64.2",

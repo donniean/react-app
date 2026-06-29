@@ -100,8 +100,8 @@ importers:
         specifier: 10.0.1
         version: 10.0.1
       eslint-plugin-i18next:
-        specifier: 6.1.4
-        version: 6.1.4
+        specifier: 6.1.5
+        version: 6.1.5
       html-validate:
         specifier: 11.5.3
         version: 11.5.3(@vitest/expect@4.1.9)(vitest@4.1.9)
@@ -2530,8 +2530,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-plugin-i18next@6.1.4:
-    resolution: {integrity: sha512-BekXQu1VaVFkREepQGsntBYoKuPsf89V16n/s2xpKMtsw0/lDseds1wBhj3RtO1dKnHsfTPaG+xul1vF0R7LEQ==}
+  eslint-plugin-i18next@6.1.5:
+    resolution: {integrity: sha512-xCTfstbK9ZpQ6UFT5S1s6zbZMhKn2o2jRSQYiU2UkV7wt8y1m3WjkUYGkGlipgRdFInYI9+LAqE+JQU/L73HmA==}
     engines: {node: '>=18.10.0'}
 
   eslint-scope@9.1.2:
@@ -3193,9 +3193,6 @@ packages:
 
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
-
-  lodash@4.18.1:
-    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-symbols@7.0.1:
     resolution: {integrity: sha512-ja1E3yCr9i/0hmBVaM0bfwDjnGy8I/s6PP4DFp+yP+a+mrHO4Rm7DtmnqROTUkHIkqffC84YY7AeqX6oFk0WFg==}
@@ -6301,9 +6298,8 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-i18next@6.1.4:
+  eslint-plugin-i18next@6.1.5:
     dependencies:
-      lodash: 4.18.1
       requireindex: 1.1.0
 
   eslint-scope@9.1.2:
@@ -6936,8 +6932,6 @@ snapshots:
   lodash.camelcase@4.3.0: {}
 
   lodash.truncate@4.4.2: {}
-
-  lodash@4.18.1: {}
 
   log-symbols@7.0.1:
     dependencies:

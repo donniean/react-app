@@ -70,7 +70,7 @@
     "@babel/core": "8.0.1",
     "@commitlint/cli": "21.1.0",
     "@commitlint/config-conventional": "21.2.0",
-    "@commitlint/types": "21.1.0",
+    "@commitlint/types": "21.2.0",
     "@rolldown/plugin-babel": "0.2.3",
     "@tailwindcss/vite": "4.3.2",
     "@tanstack/eslint-plugin-query": "5.101.2",

@@ -82,8 +82,8 @@ importers:
         specifier: 6.0.3
         version: 6.0.3(@rolldown/plugin-babel@0.2.3(@babel/core@8.0.1)(@babel/runtime@7.29.7)(rolldown@1.1.4)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0)))(babel-plugin-react-compiler@1.0.0)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
       '@vitest/coverage-v8':
-        specifier: 4.1.9
-        version: 4.1.9(vitest@4.1.10)
+        specifier: 4.1.10
+        version: 4.1.10(vitest@4.1.10)
       '@vitest/ui':
         specifier: 4.1.10
         version: 4.1.10(vitest@4.1.10)
@@ -164,7 +164,7 @@ importers:
         version: 5.2.0(typescript@6.0.3)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
       vitest:
         specifier: 4.1.10
-        version: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.9)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
+        version: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
 
 packages:
 
@@ -2066,11 +2066,11 @@ packages:
       babel-plugin-react-compiler:
         optional: true
 
-  '@vitest/coverage-v8@4.1.9':
-    resolution: {integrity: sha512-G9/lgqibheLVBDRuya45EbsEXTYcWoSG+TLg7i2axuzx0Eq62eXn+aWXyaVdV5vKvFSWd6ywcX8hA7la9Pvu8g==}
+  '@vitest/coverage-v8@4.1.10':
+    resolution: {integrity: sha512-IM49HmthevbgAO4anp1hwtoT9wYe59w0LR00gr+eagHE+ZJ5lK4sLPeO0ubgoJcwLk6dehU3R24N+FbEEKDc8g==}
     peerDependencies:
-      '@vitest/browser': 4.1.9
-      vitest: 4.1.9
+      '@vitest/browser': 4.1.10
+      vitest: 4.1.10
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
@@ -2092,9 +2092,6 @@ packages:
   '@vitest/pretty-format@4.1.10':
     resolution: {integrity: sha512-W1HsjSH4MXQ9YfmmhLAoIYf1HRfekQCGngeIgcei6MP5QQGWUe0gkopdZQaVCFO+JDJMrAJGwa5pRpNpvy4P8Q==}
 
-  '@vitest/pretty-format@4.1.9':
-    resolution: {integrity: sha512-s0iufns3iIFitdgm+YR7g1whCAaGtXz459VS9/PqyKDEEFgYIhsHOQmXgIgDuYCt7DeQmiZT0Qe2OA2p4ZPu5A==}
-
   '@vitest/runner@4.1.10':
     resolution: {integrity: sha512-IKI6kpIH+LmpROplyLwBBaCfMgOZOMsygVa6BARD6ahA04VRuJSa6OaVG7kRvSEMD870Vd91rSSw0eegtWyLGg==}
 
@@ -2111,9 +2108,6 @@ packages:
 
   '@vitest/utils@4.1.10':
     resolution: {integrity: sha512-fy9am/HWxbaGt/Sawrp90vt6Y6jQwf1RX77cz3uwoJwJVMli/e1IEwRPnMNJ7vKfPTwo0diXifkpPvwH9v7nGA==}
-
-  '@vitest/utils@4.1.9':
-    resolution: {integrity: sha512-A51o8ymO5PpqlWNnBP9ZHPXDIpuMtTLlGSjN7la4US+LJzoUMyhwjA5QXlm39JexgwHKW4Xjs8Z2d3dLCXOeuA==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -5822,10 +5816,10 @@ snapshots:
       '@rolldown/plugin-babel': 0.2.3(@babel/core@8.0.1)(@babel/runtime@7.29.7)(rolldown@1.1.4)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
       babel-plugin-react-compiler: 1.0.0
 
-  '@vitest/coverage-v8@4.1.9(vitest@4.1.10)':
+  '@vitest/coverage-v8@4.1.10(vitest@4.1.10)':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
-      '@vitest/utils': 4.1.9
+      '@vitest/utils': 4.1.10
       ast-v8-to-istanbul: 1.0.4
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
@@ -5834,7 +5828,7 @@ snapshots:
       obug: 2.1.3
       std-env: 4.1.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.9)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
 
   '@vitest/expect@4.1.10':
     dependencies:
@@ -5854,10 +5848,6 @@ snapshots:
       vite: 8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0)
 
   '@vitest/pretty-format@4.1.10':
-    dependencies:
-      tinyrainbow: 3.1.0
-
-  '@vitest/pretty-format@4.1.9':
     dependencies:
       tinyrainbow: 3.1.0
 
@@ -5884,17 +5874,11 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.0
-      vitest: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.9)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
 
   '@vitest/utils@4.1.10':
     dependencies:
       '@vitest/pretty-format': 4.1.10
-      convert-source-map: 2.0.0
-      tinyrainbow: 3.1.0
-
-  '@vitest/utils@4.1.9':
-    dependencies:
-      '@vitest/pretty-format': 4.1.9
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.0
 
@@ -6603,7 +6587,7 @@ snapshots:
       semver: 7.8.5
     optionalDependencies:
       '@vitest/expect': 4.1.10
-      vitest: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.9)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
+      vitest: 4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
 
   human-signals@8.0.1: {}
 
@@ -8011,7 +7995,7 @@ snapshots:
       stylus: 0.62.0
       yaml: 2.9.0
 
-  vitest@4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.9)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0)):
+  vitest@4.1.10(@types/node@24.13.2)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.10
       '@vitest/mocker': 4.1.10(vite@8.1.3(@types/node@24.13.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0)(yaml@2.9.0))
@@ -8035,7 +8019,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.13.2
-      '@vitest/coverage-v8': 4.1.9(vitest@4.1.10)
+      '@vitest/coverage-v8': 4.1.10(vitest@4.1.10)
       '@vitest/ui': 4.1.10(vitest@4.1.10)
     transitivePeerDependencies:
       - msw

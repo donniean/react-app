@@ -62,7 +62,7 @@
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "react-error-boundary": "6.1.2",
-    "react-i18next": "17.0.8",
+    "react-i18next": "17.0.9",
     "react-router": "8.2.0",
     "tailwind-merge": "3.6.0"
   },

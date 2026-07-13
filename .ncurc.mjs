@@ -1,6 +1,6 @@
 import { defineConfig } from 'npm-check-updates';
 
-const majorLockedDependencies = new Set(['@types/node']);
+const majorLockedDependencies = new Set(['@types/node', 'typescript']);
 
 export default defineConfig({
   target: (dependencyName) => {

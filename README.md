@@ -67,34 +67,6 @@ pnpm run build
 pnpm run preview
 ```
 
-## Cloudflare Workers
-
-Before deploying, update `name` in [`wrangler.jsonc`](wrangler.jsonc) for the
-project and authenticate Wrangler with the target Cloudflare account.
-
-Build and upload a preview version without changing the active production
-deployment:
-
-```bash
-pnpm run deploy:preview
-```
-
-Configure [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
-to deploy from the project's protected production branch. Workers Builds uses
-`wrangler deploy` for production branches and `wrangler versions upload` for
-non-production branches by default.
-
-For an explicit manual production deployment or recovery operation, build the
-project and run Wrangler directly:
-
-```bash
-pnpm run build
-pnpm exec wrangler deploy
-```
-
-`wrangler deploy` creates a version and immediately updates the active
-deployment. It is not intended to be the routine local development workflow.
-
 ## Lint & Format
 
 ```bash

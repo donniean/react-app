@@ -1,7 +1,5 @@
 # react-app
 
-test 1
-
 [![License: MIT](https://img.shields.io/github/license/donniean/react-app)](https://github.com/donniean/react-app/blob/main/LICENSE) [![CI](https://github.com/donniean/react-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/donniean/react-app/actions/workflows/ci.yaml)
 
 A public template repository for personal use. It provides reusable React starters, templates, examples, demos, and scaffolds. Projects created from this template are not limited to personal use and may be adapted for individual, team, or company use.

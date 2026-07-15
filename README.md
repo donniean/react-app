@@ -79,16 +79,21 @@ deployment:
 pnpm run deploy:preview
 ```
 
-Production deployment is restricted to a clean `main` branch. The command runs
-lint, test, and build checks before updating the active deployment:
+Configure [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
+to deploy from the project's protected production branch. Workers Builds uses
+`wrangler deploy` for production branches and `wrangler versions upload` for
+non-production branches by default.
+
+For an explicit manual production deployment or recovery operation, build the
+project and run Wrangler directly:
 
 ```bash
-pnpm run deploy:production
+pnpm run build
+pnpm exec wrangler deploy
 ```
 
-Running `wrangler deploy` directly bypasses the local branch and working-tree
-checks. Reserve direct Wrangler deployment for a protected CI/CD workflow or an
-explicit recovery operation.
+`wrangler deploy` creates a version and immediately updates the active
+deployment. It is not intended to be the routine local development workflow.
 
 ## Lint & Format
 

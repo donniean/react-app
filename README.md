@@ -67,6 +67,29 @@ pnpm run build
 pnpm run preview
 ```
 
+## Cloudflare Workers
+
+Before deploying, update `name` in [`wrangler.jsonc`](wrangler.jsonc) for the
+project and authenticate Wrangler with the target Cloudflare account.
+
+Build and upload a preview version without changing the active production
+deployment:
+
+```bash
+pnpm run deploy:preview
+```
+
+Production deployment is restricted to a clean `main` branch. The command runs
+lint, test, and build checks before updating the active deployment:
+
+```bash
+pnpm run deploy:production
+```
+
+Running `wrangler deploy` directly bypasses the local branch and working-tree
+checks. Reserve direct Wrangler deployment for a protected CI/CD workflow or an
+explicit recovery operation.
+
 ## Lint & Format
 
 ```bash

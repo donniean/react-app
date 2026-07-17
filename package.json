@@ -72,7 +72,7 @@
     "@commitlint/config-conventional": "21.2.0",
     "@commitlint/types": "21.2.0",
     "@rolldown/plugin-babel": "0.2.3",
-    "@tailwindcss/vite": "4.3.2",
+    "@tailwindcss/vite": "4.3.3",
     "@tanstack/eslint-plugin-query": "5.101.2",
     "@tanstack/eslint-plugin-router": "1.162.0",
     "@types/node": "24.13.3",

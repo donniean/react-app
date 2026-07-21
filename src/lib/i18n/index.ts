@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-// cSpell: ignore languagedetector Lngs
+// cSpell: ignore languagedetector
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
@@ -23,6 +23,7 @@ export const i18nInit = defaultI18n
   .init({
     debug: env.isDevelopment,
     fallbackLng,
+    // cSpell: ignore Lngs
     supportedLngs: supportedLanguages,
     load: 'currentOnly',
     ns: namespaces,

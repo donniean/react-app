@@ -35,8 +35,8 @@ export const i18nInit = defaultI18n
   .init({
     debug: env.isDevelopment,
     fallbackLng,
-    load: 'currentOnly',
     supportedLngs: supportedLanguages,
+    load: 'currentOnly',
     ns: namespaces,
     defaultNS: __I18N_DEFAULT_NAMESPACE__,
     keySeparator: false,

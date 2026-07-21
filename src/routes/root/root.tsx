@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import Logo from '@/assets/images/logo.svg?react';
 import { cn } from '@/utils/cn';
 
-// https://github.com/mrmckeb/typescript-plugin-css-modules/issues/222
 import styles from './root.module.css';
 
 export function Root() {

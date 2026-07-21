@@ -13,17 +13,7 @@
       "@/*": ["./src/*"]
     },
     "types": ["vite/client"],
-    "allowImportingTsExtensions": true,
-
-    /* Editor Support */
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "classnameTransform": "camelCase"
-        }
-      }
-    ]
+    "allowImportingTsExtensions": true
   },
   "include": ["src/**/*"]
 }

@@ -22,7 +22,7 @@
     "format:oxfmt": "oxfmt",
     "format:oxfmt:check": "oxfmt --check",
     "i18n:check": "pnpm run i18n:status && pnpm run i18n:extract --ci --dry-run && pnpm run i18n:types --ci && pnpm run i18n:lint",
-    "i18n:extract": "i18next-cli extract",
+    "i18n:extract": "i18next-cli extract --with-types",
     "i18n:lint": "i18next-cli lint",
     "i18n:status": "i18next-cli status",
     "i18n:sync": "i18next-cli sync",

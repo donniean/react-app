@@ -1,11 +1,11 @@
-const modules = import.meta.glob('../../locales/*/*.json');
-const resourcePaths = Object.keys(modules);
+const resourceModules = import.meta.glob('../../locales/*/*.json');
+const resourcePaths = Object.keys(resourceModules);
 
 const namespaces = [
   ...new Set(
     resourcePaths
-      .map((key) => {
-        const list = key.split('/');
+      .map((resourcePath) => {
+        const list = resourcePath.split('/');
         const fileName = list.at(-1);
 
         if (!fileName) {
@@ -24,7 +24,9 @@ const namespaces = [
 ].toSorted();
 
 const supportedLanguages = [
-  ...new Set(resourcePaths.map((key) => key.split('/').at(-2) ?? '').filter(Boolean)),
+  ...new Set(
+    resourcePaths.map((resourcePath) => resourcePath.split('/').at(-2) ?? '').filter(Boolean),
+  ),
 ].toSorted();
 
-export { modules, namespaces, supportedLanguages };
+export { namespaces, resourceModules, supportedLanguages };

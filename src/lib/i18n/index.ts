@@ -6,7 +6,7 @@ import { initReactI18next } from 'react-i18next';
 import { env } from '@/config/env';
 
 import { backend } from './backend';
-import { namespaces, supportedLanguages } from './utils';
+import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
 

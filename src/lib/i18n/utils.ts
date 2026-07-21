@@ -1,8 +1,9 @@
 const modules = import.meta.glob('../../locales/*/*.json');
+const resourcePaths = Object.keys(modules);
 
 const namespaces = [
   ...new Set(
-    Object.keys(modules)
+    resourcePaths
       .map((key) => {
         const list = key.split('/');
         const fileName = list.at(-1);
@@ -20,6 +21,10 @@ const namespaces = [
       })
       .filter(Boolean),
   ),
-];
+].toSorted();
 
-export { modules, namespaces };
+const supportedLanguages = [
+  ...new Set(resourcePaths.map((key) => key.split('/').at(-2) ?? '').filter(Boolean)),
+].toSorted();
+
+export { modules, namespaces, supportedLanguages };

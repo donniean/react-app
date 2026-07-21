@@ -6,9 +6,15 @@ import { initReactI18next } from 'react-i18next';
 import { env } from '@/config/env';
 
 import { backend } from './backend';
-import { namespaces } from './utils';
+import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
+
+const fallbackLng = {
+  zh: ['zh-Hans'],
+  'zh-CN': ['zh-Hans'],
+  default: [__I18N_DEFAULT_LOCALE__],
+};
 
 export const i18nInit = defaultI18n
   .use(backend)
@@ -16,17 +22,13 @@ export const i18nInit = defaultI18n
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    fallbackLng: {
-      zh: ['zh-Hans'],
-      'zh-CN': ['zh-Hans'],
-      default: [__I18N_DEFAULT_LOCALE__],
-    },
+    fallbackLng,
     // cSpell: ignore Lngs
-    nonExplicitSupportedLngs: true,
+    supportedLngs: supportedLanguages,
+    load: 'currentOnly',
     ns: namespaces,
     defaultNS: __I18N_DEFAULT_NAMESPACE__,
-    partialBundledLanguages: true,
-    saveMissing: true,
+    keySeparator: false,
     interpolation: {
       escapeValue: false,
     },

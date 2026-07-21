@@ -16,18 +16,6 @@ const fallbackLng = {
   default: [__I18N_DEFAULT_LOCALE__],
 };
 
-function resolveDetectedLanguage(language: string) {
-  const languageOnly = language.split('-').at(0);
-  const supportedLanguage = supportedLanguages.find(
-    (candidateLanguage) => candidateLanguage === language || candidateLanguage === languageOnly,
-  );
-  const fallbackLanguage = Object.entries(fallbackLng).find(
-    ([fallbackCode]) => fallbackCode === language || fallbackCode === languageOnly,
-  );
-
-  return supportedLanguage ?? fallbackLanguage?.[1].at(0) ?? language;
-}
-
 export const i18nInit = defaultI18n
   .use(backend)
   .use(LanguageDetector)
@@ -42,9 +30,6 @@ export const i18nInit = defaultI18n
     keySeparator: false,
     interpolation: {
       escapeValue: false,
-    },
-    detection: {
-      convertDetectedLanguage: resolveDetectedLanguage,
     },
     react: {
       useSuspense: true,

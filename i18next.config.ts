@@ -6,19 +6,19 @@ import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
 import { resolveRoot } from './config/paths';
 
 const localesPath = resolveRoot('src', 'locales');
-const locales = fs
-  .readdirSync(localesPath, { withFileTypes: true })
+const entries = fs.readdirSync(localesPath, { withFileTypes: true });
+const dirNames = entries
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
   .toSorted();
 
 const PREFERRED_PRIMARY_LANGUAGE = 'en' as const;
-const primaryLanguage = locales.includes(PREFERRED_PRIMARY_LANGUAGE)
+const primaryLanguage = dirNames.includes(PREFERRED_PRIMARY_LANGUAGE)
   ? PREFERRED_PRIMARY_LANGUAGE
   : DEFAULT_LOCALE;
 
 export default defineConfig({
-  locales,
+  locales: dirNames,
   extract: {
     input: ['src/**/*.{ts,tsx}'],
     output: 'src/locales/{{language}}/{{namespace}}.json',

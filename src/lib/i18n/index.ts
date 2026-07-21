@@ -28,10 +28,6 @@ function resolveDetectedLanguage(language: string) {
   return supportedLanguage ?? fallbackLanguage?.[1].at(0) ?? language;
 }
 
-defaultI18n.on('languageChanged', (language) => {
-  document.documentElement.lang = defaultI18n.resolvedLanguage ?? language;
-});
-
 export const i18nInit = defaultI18n
   .use(backend)
   .use(LanguageDetector)
@@ -39,11 +35,6 @@ export const i18nInit = defaultI18n
   .init({
     debug: env.isDevelopment,
     fallbackLng,
-    detection: {
-      // The document language describes rendered content; it is not a user preference source.
-      order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator'],
-      convertDetectedLanguage: resolveDetectedLanguage,
-    },
     load: 'currentOnly',
     supportedLngs: supportedLanguages,
     ns: namespaces,
@@ -51,6 +42,9 @@ export const i18nInit = defaultI18n
     keySeparator: false,
     interpolation: {
       escapeValue: false,
+    },
+    detection: {
+      convertDetectedLanguage: resolveDetectedLanguage,
     },
     react: {
       useSuspense: true,

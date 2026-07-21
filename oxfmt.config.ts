@@ -8,6 +8,7 @@ export default defineConfig({
     '.gemini/skills/**',
     '.github/skills/**',
     '**/*.min.*',
+    'src/@types/i18next-resources.d.ts',
   ],
   singleQuote: true,
   sortImports: true,

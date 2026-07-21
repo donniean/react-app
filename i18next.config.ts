@@ -7,7 +7,10 @@ import { resolveRoot } from './config/paths';
 
 const localesPath = resolveRoot('src', 'locales');
 const entries = fs.readdirSync(localesPath, { withFileTypes: true });
-const dirNames = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+const dirNames = entries
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+  .toSorted();
 
 const PREFERRED_PRIMARY_LANGUAGE = 'en' as const;
 const primaryLanguage = dirNames.includes(PREFERRED_PRIMARY_LANGUAGE)

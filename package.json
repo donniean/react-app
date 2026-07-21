@@ -96,7 +96,7 @@
     "oxfmt": "0.59.0",
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "0.25.0",
-    "stylelint": "17.14.0",
+    "stylelint": "17.14.1",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-recess-order": "7.7.0",
     "stylelint-config-standard": "40.0.0",
@@ -112,5 +112,5 @@
   "engines": {
     "node": ">=24.0.0 <25.0.0"
   },
-  "packageManager": "pnpm@11.15.0"
+  "packageManager": "pnpm@11.15.1"
 }

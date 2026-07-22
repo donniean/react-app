@@ -10,31 +10,17 @@ import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
 
-const fallbackLng = {
-  zh: ['zh-Hans'],
-  'zh-CN': ['zh-Hans'],
-  default: [__I18N_DEFAULT_LOCALE__],
-};
-
-function resolveDetectedLanguage(language: string) {
-  const languageOnly = language.split('-').at(0);
-  const supportedLanguage = supportedLanguages.find(
-    (candidateLanguage) => candidateLanguage === language || candidateLanguage === languageOnly,
-  );
-  const fallbackLanguage = Object.entries(fallbackLng).find(
-    ([fallbackCode]) => fallbackCode === language || fallbackCode === languageOnly,
-  );
-
-  return supportedLanguage ?? fallbackLanguage?.[1].at(0) ?? language;
-}
-
 export const i18nInit = defaultI18n
   .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    fallbackLng,
+    fallbackLng: {
+      zh: ['zh-Hans'],
+      'zh-CN': ['zh-Hans'],
+      default: [__I18N_DEFAULT_LOCALE__],
+    },
     // cSpell: ignore Lngs
     supportedLngs: supportedLanguages,
     load: 'currentOnly',
@@ -45,7 +31,28 @@ export const i18nInit = defaultI18n
       escapeValue: false,
     },
     detection: {
-      convertDetectedLanguage: resolveDetectedLanguage,
+      convertDetectedLanguage: (language) => {
+        let maxLocale: Intl.Locale;
+
+        try {
+          const locale = new Intl.Locale(language);
+          maxLocale = locale.maximize();
+        } catch {
+          return language;
+        }
+
+        const { language: lang, script } = maxLocale;
+
+        const targetLanguage = supportedLanguages.find(
+          (supportedLanguage) => supportedLanguage.toLocaleLowerCase() === lang.toLocaleLowerCase(),
+        );
+        const targetLanguageWithScript = supportedLanguages.find(
+          (supportedLanguage) =>
+            supportedLanguage.toLocaleLowerCase() === `${lang}-${script}`.toLocaleLowerCase(),
+        );
+
+        return targetLanguage ?? targetLanguageWithScript ?? language;
+      },
     },
     react: {
       useSuspense: true,

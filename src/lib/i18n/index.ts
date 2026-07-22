@@ -16,11 +16,12 @@ export const i18nInit = defaultI18n
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    fallbackLng: {
+    /* fallbackLng: {
       zh: ['zh-Hans'],
       'zh-CN': ['zh-Hans'],
       default: [__I18N_DEFAULT_LOCALE__],
-    },
+    }, */
+    fallbackLng: __I18N_DEFAULT_LOCALE__,
     // cSpell: ignore Lngs
     supportedLngs: supportedLanguages,
     load: 'currentOnly',

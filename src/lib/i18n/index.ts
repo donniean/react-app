@@ -6,10 +6,27 @@ import { initReactI18next } from 'react-i18next';
 import { env } from '@/config/env';
 
 import { backend } from './backend';
-import { resolveDetectedLanguage } from './resolve-language';
 import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
+
+const fallbackLng = {
+  zh: ['zh-Hans'],
+  'zh-CN': ['zh-Hans'],
+  default: [__I18N_DEFAULT_LOCALE__],
+};
+
+function resolveDetectedLanguage(language: string) {
+  const languageOnly = language.split('-').at(0);
+  const supportedLanguage = supportedLanguages.find(
+    (candidateLanguage) => candidateLanguage === language || candidateLanguage === languageOnly,
+  );
+  const fallbackLanguage = Object.entries(fallbackLng).find(
+    ([fallbackCode]) => fallbackCode === language || fallbackCode === languageOnly,
+  );
+
+  return supportedLanguage ?? fallbackLanguage?.[1].at(0) ?? language;
+}
 
 export const i18nInit = defaultI18n
   .use(backend)
@@ -17,7 +34,7 @@ export const i18nInit = defaultI18n
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    fallbackLng: __I18N_DEFAULT_LOCALE__,
+    fallbackLng,
     // cSpell: ignore Lngs
     supportedLngs: supportedLanguages,
     load: 'currentOnly',
@@ -28,7 +45,7 @@ export const i18nInit = defaultI18n
       escapeValue: false,
     },
     detection: {
-      convertDetectedLanguage: (language) => resolveDetectedLanguage(language, supportedLanguages),
+      convertDetectedLanguage: resolveDetectedLanguage,
     },
     react: {
       useSuspense: true,

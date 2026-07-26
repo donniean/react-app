@@ -6,6 +6,7 @@ import { initReactI18next } from 'react-i18next';
 import { env } from '@/config/env';
 
 import { backend } from './backend';
+import { resolveDetectedLanguage } from './resolve-detected-language';
 import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
@@ -31,28 +32,8 @@ export const i18nInit = defaultI18n
       escapeValue: false,
     },
     detection: {
-      convertDetectedLanguage: (language) => {
-        let maxLocale: Intl.Locale;
-
-        try {
-          const locale = new Intl.Locale(language);
-          maxLocale = locale.maximize();
-        } catch {
-          return language;
-        }
-
-        const { language: lang, script } = maxLocale;
-
-        const targetLanguage = supportedLanguages.find(
-          (supportedLanguage) => supportedLanguage.toLowerCase() === lang.toLowerCase(),
-        );
-        const targetLanguageWithScript = supportedLanguages.find(
-          (supportedLanguage) =>
-            supportedLanguage.toLowerCase() === `${lang}-${script}`.toLowerCase(),
-        );
-
-        return targetLanguageWithScript ?? targetLanguage ?? language;
-      },
+      convertDetectedLanguage: (language) =>
+        resolveDetectedLanguage({ language, supportedLanguages }),
     },
     react: {
       useSuspense: true,

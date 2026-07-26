@@ -10,17 +10,16 @@ import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
 
+const syncDocumentLanguage = () => {
+  document.documentElement.lang = defaultI18n.resolvedLanguage ?? __I18N_DEFAULT_LOCALE__;
+};
+
 export const i18nInit = defaultI18n
   .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    /* fallbackLng: {
-      zh: ['zh-Hans'],
-      'zh-CN': ['zh-Hans'],
-      default: [__I18N_DEFAULT_LOCALE__],
-    }, */
     fallbackLng: __I18N_DEFAULT_LOCALE__,
     // cSpell: ignore Lngs
     supportedLngs: supportedLanguages,
@@ -45,19 +44,25 @@ export const i18nInit = defaultI18n
         const { language: lang, script } = maxLocale;
 
         const targetLanguage = supportedLanguages.find(
-          (supportedLanguage) => supportedLanguage.toLocaleLowerCase() === lang.toLocaleLowerCase(),
+          (supportedLanguage) => supportedLanguage.toLowerCase() === lang.toLowerCase(),
         );
         const targetLanguageWithScript = supportedLanguages.find(
           (supportedLanguage) =>
-            supportedLanguage.toLocaleLowerCase() === `${lang}-${script}`.toLocaleLowerCase(),
+            supportedLanguage.toLowerCase() === `${lang}-${script}`.toLowerCase(),
         );
 
-        return targetLanguage ?? targetLanguageWithScript ?? language;
+        return targetLanguageWithScript ?? targetLanguage ?? language;
       },
     },
     react: {
       useSuspense: true,
     },
+  })
+  .then((translate) => {
+    syncDocumentLanguage();
+    defaultI18n.on('languageChanged', syncDocumentLanguage);
+
+    return translate;
   });
 
 export { defaultI18n as i18n };

@@ -6,14 +6,13 @@ import { initReactI18next } from 'react-i18next';
 import { env } from '@/config/env';
 
 import { backend } from './backend';
+import { resolveDetectedLanguage } from './resolve-detected-language';
 import { namespaces, supportedLanguages } from './resources';
 
 const defaultI18n = i18n;
 
-const fallbackLng = {
-  zh: ['zh-Hans'],
-  'zh-CN': ['zh-Hans'],
-  default: [__I18N_DEFAULT_LOCALE__],
+const syncDocumentLanguage = () => {
+  document.documentElement.lang = defaultI18n.resolvedLanguage ?? __I18N_DEFAULT_LOCALE__;
 };
 
 export const i18nInit = defaultI18n
@@ -22,7 +21,7 @@ export const i18nInit = defaultI18n
   .use(initReactI18next)
   .init({
     debug: env.isDevelopment,
-    fallbackLng,
+    fallbackLng: __I18N_DEFAULT_LOCALE__,
     // cSpell: ignore Lngs
     supportedLngs: supportedLanguages,
     load: 'currentOnly',
@@ -32,9 +31,19 @@ export const i18nInit = defaultI18n
     interpolation: {
       escapeValue: false,
     },
+    detection: {
+      convertDetectedLanguage: (language) =>
+        resolveDetectedLanguage({ language, supportedLanguages }),
+    },
     react: {
       useSuspense: true,
     },
+  })
+  .then((translate) => {
+    syncDocumentLanguage();
+    defaultI18n.on('languageChanged', syncDocumentLanguage);
+
+    return translate;
   });
 
 export { defaultI18n as i18n };

@@ -7,9 +7,18 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
+  "files.readonlyInclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "files.watcherExclude": {
+    "**/routeTree.gen.ts": true
+  },
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.localesPaths": ["src/locales/"],
   "i18n-ally.namespace": true,
   "js/ts.tsdk.path": "node_modules/typescript/lib",
-  "js/ts.tsdk.promptToUseWorkspaceVersion": true
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  "search.exclude": {
+    "**/routeTree.gen.ts": true
+  }
 }

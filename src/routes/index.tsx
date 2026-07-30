@@ -1,11 +1,12 @@
+import { createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/assets/images/logo.svg?react';
 import { cn } from '@/utils/cn';
 
-import styles from './root.module.css';
+import styles from './index.module.css';
 
-export function Root() {
+function Index() {
   const { t } = useTranslation(['common', 'glossary']);
 
   return (
@@ -20,3 +21,7 @@ export function Root() {
     </div>
   );
 }
+
+export const Route = createFileRoute('/')({
+  component: Index,
+});

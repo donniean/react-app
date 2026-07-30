@@ -1,7 +1,8 @@
+import { createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 
-export function NotFound() {
+function NotFound() {
   const { t } = useTranslation('errors');
 
   return (
@@ -16,3 +17,7 @@ export function NotFound() {
     </div>
   );
 }
+
+export const Route = createFileRoute('/errors/not-found')({
+  component: NotFound,
+});

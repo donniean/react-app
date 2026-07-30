@@ -1,22 +1,14 @@
+import { type ErrorComponentProps, useRouter } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
-import { isRouteErrorResponse, useRouteError } from 'react-router';
 
 import { env } from '@/config/env';
 
-export function RouteErrorBoundary() {
-  const error = useRouteError();
+export function RouteErrorFallback({ error }: Readonly<ErrorComponentProps>) {
+  const router = useRouter();
   const { t } = useTranslation('errors');
 
-  let description = '';
-  let stack: string | undefined;
-
-  if (isRouteErrorResponse(error)) {
-    const { status, statusText } = error;
-    description = `${String(status)} - ${statusText}`;
-  } else if (error instanceof Error) {
-    description = error.message;
-    stack = env.isDevelopment ? error.stack : undefined;
-  }
+  const description = error.message;
+  const stack = env.isDevelopment ? error.stack : undefined;
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4">
@@ -27,6 +19,15 @@ export function RouteErrorBoundary() {
           <code>{stack}</code>
         </pre>
       )}
+      <button
+        className="bg-primary hover:bg-primary/90 active:bg-primary/80 cursor-pointer rounded-md px-4 py-2 text-white shadow-sm transition-transform duration-150 active:scale-98"
+        type="button"
+        onClick={() => {
+          void router.invalidate();
+        }}
+      >
+        {t(($) => $['app.actions.retry'])}
+      </button>
     </div>
   );
 }

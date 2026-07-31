@@ -1,8 +1,6 @@
 allowBuilds:
-  '@parcel/watcher': true
   '@swc/core': true
   esbuild: true
-  sharp: true
   workerd: true
 engineStrict: true
 minimumReleaseAge: 1440

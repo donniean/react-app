@@ -1,3 +1,4 @@
 {
-  "hello": "你好 {{entity}}"
+  "hello": "你好 {{entity}}",
+  "loading": "加载中"
 }

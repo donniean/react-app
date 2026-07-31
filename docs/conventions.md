@@ -78,7 +78,8 @@ src/
 ├── styles/
 ├── testing/
 ├── utils/
-└── index.tsx
+├── index.tsx
+└── routeTree.gen.ts
 ```
 
 - `@types/`: global type declarations and tool-generated declarations.
@@ -101,6 +102,7 @@ src/
 - `testing/`: test utilities, custom render helpers, and test setup helpers.
 - `utils/`: generic utility functions that can be reused across projects.
 - `index.tsx`: React bootstrap entry point.
+- `routeTree.gen.ts`: TanStack Router generated application route tree.
 
 ## Naming
 
@@ -150,6 +152,8 @@ features/*/
 - `src/index.tsx` SHOULD only handle global side-effect imports and React root creation.
 - `src/app/` SHOULD own app composition, global providers, and global boundaries.
 - `src/routes/` SHOULD own route-level composition, route params, and route-level loading / error states.
+- Files and directories that define routes MUST follow the [TanStack Router file naming conventions](https://tanstack.com/router/latest/docs/routing/file-naming-conventions), because their names determine route paths and hierarchy.
+- The Vite plugin generates `src/routeTree.gen.ts` during development and builds. This file MUST be committed and MUST NOT be edited manually.
 - app / routes MAY compose features and shared code.
 - app / routes MUST NOT be the home for business resource models, feature-specific components, API request functions, or general-purpose UI components.
 

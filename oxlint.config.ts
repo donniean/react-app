@@ -4,6 +4,7 @@ import pluginI18next from 'eslint-plugin-i18next';
 import { type OxlintConfig, defineConfig } from 'oxlint';
 
 export default defineConfig<OxlintConfig>({
+  ignorePatterns: ['src/routeTree.gen.ts'],
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
   options: {
     denyWarnings: true,
@@ -164,6 +165,18 @@ export default defineConfig<OxlintConfig>({
         ...pluginQuery.configs['flat/recommended-strict'][0]?.rules,
         // https://github.com/TanStack/router/blob/main/packages/eslint-plugin-router/src/index.ts
         ...pluginRouter.configs['flat/recommended'][0]?.rules,
+      },
+    },
+    {
+      // Support TanStack Router route factory exports in Fast Refresh checks.
+      files: ['src/routes/**/*.tsx'],
+      rules: {
+        'react/only-export-components': [
+          'error',
+          {
+            customHOCs: ['createRootRoute', 'createRootRouteWithContext', 'createFileRoute'],
+          },
+        ],
       },
     },
     {

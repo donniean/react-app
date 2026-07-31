@@ -1,11 +1,18 @@
+import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { type ErrorComponentProps, useRouter } from '@tanstack/react-router';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { env } from '@/config/env';
 
 export function RouteErrorFallback({ error }: Readonly<ErrorComponentProps>) {
   const router = useRouter();
+  const queryErrorResetBoundary = useQueryErrorResetBoundary();
   const { t } = useTranslation('errors');
+
+  useEffect(() => {
+    queryErrorResetBoundary.reset();
+  }, [queryErrorResetBoundary]);
 
   const description = error.message;
   const stack = env.isDevelopment ? error.stack : undefined;

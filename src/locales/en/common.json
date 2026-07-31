@@ -1,3 +1,4 @@
 {
-  "hello": "Hello {{entity}}"
+  "hello": "Hello {{entity}}",
+  "loading": "Loading"
 }

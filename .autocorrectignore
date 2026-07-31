@@ -3,3 +3,4 @@
 **/yarn.lock
 **/*.min.*
 **/CHANGELOG.md
+src/lib/router/routeTree.gen.ts

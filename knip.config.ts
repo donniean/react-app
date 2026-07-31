@@ -5,7 +5,7 @@ export default {
   ignoreDependencies: ['wrangler'],
   ignoreFiles: ['src/components/layouts/base-layout.tsx'],
   ignoreIssues: {
-    'src/app/routeTree.gen.ts': ['types'],
+    'src/lib/router/routeTree.gen.ts': ['types'],
     'src/lib/i18n/index.ts': ['exports'],
   },
 } satisfies KnipConfig;

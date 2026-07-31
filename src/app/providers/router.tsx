@@ -2,13 +2,19 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 
 import { NotFound } from '@/components/errors/not-found';
 import { RouteErrorFallback } from '@/components/errors/route-error-fallback';
+import { AppLoader } from '@/components/ui/app-loader';
+import { queryClient } from '@/lib/react-query';
 
 import { routeTree } from '../routeTree.gen';
 
 const router = createRouter({
   routeTree,
-  defaultErrorComponent: RouteErrorFallback,
+  context: { queryClient },
+  defaultPendingComponent: AppLoader,
   defaultNotFoundComponent: NotFound,
+  defaultErrorComponent: RouteErrorFallback,
+  defaultPreload: 'intent',
+  defaultPreloadStaleTime: 0,
 });
 
 declare module '@tanstack/react-router' {

@@ -174,7 +174,7 @@ export default defineConfig<OxlintConfig>({
         'react/only-export-components': [
           'error',
           {
-            customHOCs: ['createRootRoute', 'createFileRoute'],
+            customHOCs: ['createRootRoute', 'createRootRouteWithContext', 'createFileRoute'],
           },
         ],
       },

@@ -9,7 +9,7 @@ export default {
     () => 'pnpm run lint:i18n',
   ],
   '*.{ts,tsx,mts,cts}': [() => 'tsc --build', 'vitest related --run'],
-  '*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}': 'oxlint --fix',
+  '*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}': 'oxlint --fix --no-error-on-unmatched-pattern',
   '*.css': 'stylelint --fix',
   '*.html': 'html-validate',
   '*.md': 'markdownlint --dot --fix',

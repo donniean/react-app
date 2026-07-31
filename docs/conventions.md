@@ -102,7 +102,7 @@ src/
 - `testing/`: test utilities, custom render helpers, and test setup helpers.
 - `utils/`: generic utility functions that can be reused across projects.
 - `index.tsx`: React bootstrap entry point.
-- `routeTree.gen.ts`: TanStack Router-generated application route tree.
+- `routeTree.gen.ts`: TanStack Router generated application route tree.
 
 ## Naming
 

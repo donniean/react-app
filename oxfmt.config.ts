@@ -9,7 +9,7 @@ export default defineConfig({
     '.github/skills/**',
     '**/*.min.*',
     'src/@types/i18next-resources.d.ts',
-    'src/lib/router/routeTree.gen.ts',
+    'src/routeTree.gen.ts',
   ],
   singleQuote: true,
   sortImports: true,

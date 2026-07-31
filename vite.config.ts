@@ -7,7 +7,6 @@ import { checker } from 'vite-plugin-checker';
 import svgr from 'vite-plugin-svgr';
 
 import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
-import { resolveRoot } from './config/paths';
 
 const cwd = process.cwd();
 
@@ -48,7 +47,6 @@ export default defineConfig(({ mode }) => {
       tanstackRouter({
         target: 'react',
         autoCodeSplitting: true,
-        generatedRouteTree: resolveRoot('src/lib/router/routeTree.gen.ts'),
       }),
       react(),
       babel({

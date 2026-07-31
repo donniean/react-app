@@ -3,7 +3,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { PropsWithChildren } from 'react';
 
 import { env } from '@/config/env';
-import { queryClient } from '@/lib/react-query';
+
+import { queryClient } from '../query-client';
 
 export function AppQueryProvider({ children }: Readonly<PropsWithChildren>) {
   return (

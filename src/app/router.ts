@@ -3,9 +3,9 @@ import { createRouter } from '@tanstack/react-router';
 import { NotFound } from '@/components/errors/not-found';
 import { RouteErrorFallback } from '@/components/errors/route-error-fallback';
 import { AppLoader } from '@/components/ui/app-loader';
-import { queryClient } from '@/lib/react-query';
+import { routeTree } from '@/routeTree.gen';
 
-import { routeTree } from './routeTree.gen';
+import { queryClient } from './query-client';
 
 export const router = createRouter({
   routeTree,

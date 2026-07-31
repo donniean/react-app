@@ -4,7 +4,7 @@ import pluginI18next from 'eslint-plugin-i18next';
 import { type OxlintConfig, defineConfig } from 'oxlint';
 
 export default defineConfig<OxlintConfig>({
-  ignorePatterns: ['src/lib/router/routeTree.gen.ts'],
+  ignorePatterns: ['src/routeTree.gen.ts'],
   // https://oxc.rs/docs/guide/usage/linter/config-file-reference.html#options
   options: {
     denyWarnings: true,

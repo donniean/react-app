@@ -77,6 +77,6 @@ export default defineConfig({
     '**/pnpm-lock.yaml',
     '**/pnpm-workspace.yaml',
     '**/yarn.lock',
-    'src/lib/router/routeTree.gen.ts',
+    'src/routeTree.gen.ts',
   ],
 });

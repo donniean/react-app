@@ -8,10 +8,10 @@
     "*.css": "tailwindcss"
   },
   "files.readonlyInclude": {
-    "src/lib/router/routeTree.gen.ts": true
+    "src/routeTree.gen.ts": true
   },
   "files.watcherExclude": {
-    "src/lib/router/routeTree.gen.ts": true
+    "src/routeTree.gen.ts": true
   },
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.localesPaths": ["src/locales/"],
@@ -19,6 +19,6 @@
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "search.exclude": {
-    "src/lib/router/routeTree.gen.ts": true
+    "src/routeTree.gen.ts": true
   }
 }

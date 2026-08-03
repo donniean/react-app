@@ -89,7 +89,7 @@
     "concurrently": "10.0.4",
     "cspell": "10.0.1",
     "eslint-plugin-i18next": "6.1.5",
-    "html-validate": "11.6.0",
+    "html-validate": "11.6.1",
     "husky": "9.1.7",
     "i18next-cli": "1.67.3",
     "knip": "6.31.0",

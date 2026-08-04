@@ -109,8 +109,8 @@ importers:
         specifier: 6.1.5
         version: 6.1.5
       html-validate:
-        specifier: 11.6.0
-        version: 11.6.0(@vitest/expect@4.1.10)(vitest@4.1.10)
+        specifier: 11.6.1
+        version: 11.6.1(@vitest/expect@4.1.10)(vitest@4.1.10)
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -127,8 +127,8 @@ importers:
         specifier: 0.49.1
         version: 0.49.1(supports-color@10.2.2)
       npm-check-updates:
-        specifier: 23.0.0
-        version: 23.0.0
+        specifier: 23.0.1
+        version: 23.0.1
       oxfmt:
         specifier: 0.61.0
         version: 0.61.0
@@ -2584,8 +2584,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.11.10:
-    resolution: {integrity: sha512-35JEvJ5/KKlbCHjMCsONI2w6HE88STjVdHk+C7d8LtcFxUjZR1KeLP9izofn2qs0KUxX5r4z73bwH/rd+JHacw==}
+  baseline-browser-mapping@2.11.11:
+    resolution: {integrity: sha512-/yImnXwyTvgMkhgekLHok/Rx5vO6E0BmStWlSqKWMVm2a2ITuZ1Tn+9bgLS+gZRdZmWtd8nxuhHpdmCUOWsTQQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -3144,8 +3144,8 @@ packages:
     resolution: {integrity: sha512-n6l5uca7/y5joxZ3LUePhzmBFUJ+U2YWzhMa8XUTecSeSlQiZdF5XAd/Q3/WUl0VsXgUwWi8I7CNIwdI5WN1SQ==}
     engines: {node: '>=20.10'}
 
-  html-validate@11.6.0:
-    resolution: {integrity: sha512-VKoRiWBqV9g5M1sb3H0WimxAM6UCNTv6JbovEmNEtBWKVK/W5fKCY++EM4shkS92FypBwnGMlBymeo9Tlyiqxw==}
+  html-validate@11.6.1:
+    resolution: {integrity: sha512-WKDTjw74Uo1eOLThlZUdov4VyobMNgEMuyhR76VyWk7jfmwxOXbid+vZqYuIFXwQXyXsXT50KfLBIPX5rGnxPQ==}
     engines: {node: ^22.22.0 || >= 24.8.0}
     hasBin: true
     peerDependencies:
@@ -3759,8 +3759,8 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  npm-check-updates@23.0.0:
-    resolution: {integrity: sha512-B7dvnnS4Tm/4YQghXjBgGBDuHsk88hqCmr4ZuCr0nscsPzf/QVMls5mT8ZUcHrcrFRBP1afB2KNuJo8Px55DrA==}
+  npm-check-updates@23.0.1:
+    resolution: {integrity: sha512-e4hu3Rq4waj7SnhzvqAc5UG557mfP5e3JIFFQd7Fg3RiRkJl8yR90NFoZ1GSWUT3S/QacJndJb+7dLQBPeH+iA==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0, npm: '>=10.0.0'}
     hasBin: true
 
@@ -6574,7 +6574,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.11.10: {}
+  baseline-browser-mapping@2.11.11: {}
 
   blake3-wasm@2.1.5: {}
 
@@ -6588,7 +6588,7 @@ snapshots:
 
   browserslist@4.28.7:
     dependencies:
-      baseline-browser-mapping: 2.11.10
+      baseline-browser-mapping: 2.11.11
       caniuse-lite: 1.0.30001806
       electron-to-chromium: 1.5.399
       node-releases: 2.0.51
@@ -7176,7 +7176,7 @@ snapshots:
 
   html-tags@5.1.0: {}
 
-  html-validate@11.6.0(@vitest/expect@4.1.10)(vitest@4.1.10):
+  html-validate@11.6.1(@vitest/expect@4.1.10)(vitest@4.1.10):
     dependencies:
       '@html-validate/stylish': 6.0.0
       '@sidvind/better-ajv-errors': 7.0.0(ajv@8.20.0)
@@ -7821,7 +7821,7 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  npm-check-updates@23.0.0: {}
+  npm-check-updates@23.0.1: {}
 
   npm-run-path@6.0.0:
     dependencies:

@@ -10,6 +10,7 @@
     /* Modules */
     "module": "preserve",
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "types": ["node"]
   },
   "include": ["config/**/*", "*.ts", "*.mts", "*.cts"]

@@ -1,3 +1,4 @@
+/* https://github.com/tsconfig/bases/blob/main/bases/node-lts.json */
 /* https://github.com/tsconfig/bases/blob/main/bases/node-ts.json */
 /* https://tsx.hirok.io/typescript#recommendation */
 /* https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/tsconfig.node.json */

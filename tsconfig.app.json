@@ -9,11 +9,12 @@
     /* Modules */
     "module": "esnext",
     "moduleResolution": "bundler",
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
+    "types": ["vite/client"],
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "types": ["vite/client"],
-    "allowImportingTsExtensions": true
+    }
   },
   "include": ["src/**/*"]
 }

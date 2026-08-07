@@ -6,7 +6,7 @@ import { defineConfig, loadEnv } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import svgr from 'vite-plugin-svgr';
 
-import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n';
+import { DEFAULT_LOCALE, DEFAULT_NAMESPACE } from './config/i18n.ts';
 
 const cwd = process.cwd();
 

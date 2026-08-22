@@ -89,7 +89,7 @@
     "concurrently": "10.0.5",
     "cspell": "10.0.1",
     "eslint-plugin-i18next": "6.1.5",
-    "html-validate": "11.8.0",
+    "html-validate": "11.9.0",
     "husky": "9.1.7",
     "i18next-cli": "1.71.0",
     "knip": "6.32.2",
@@ -109,7 +109,7 @@
     "vite-plugin-checker": "0.14.5",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "4.1.11",
-    "wrangler": "4.124.0"
+    "wrangler": "4.125.0"
   },
   "engines": {
     "node": ">=24.0.0 <25.0.0"

@@ -84,7 +84,7 @@
     "@vitest/ui": "4.1.11",
     "autocorrect-node": "2.14.0",
     "concurrently": "10.0.5",
-    "cspell": "10.1.0",
+    "cspell": "10.1.1",
     "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.10.0",
     "husky": "9.1.7",

@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "5.102.5",
-    "@tanstack/react-query-devtools": "5.102.4",
+    "@tanstack/react-query-devtools": "5.102.5",
     "@tanstack/react-router": "1.170.32",
     "@tanstack/react-router-devtools": "1.167.1",
     "clsx": "2.1.1",

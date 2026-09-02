@@ -65,7 +65,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-error-boundary": "6.1.4",
-    "react-i18next": "17.0.12",
+    "react-i18next": "17.0.13",
     "tailwind-merge": "3.6.0"
   },
   "devDependencies": {

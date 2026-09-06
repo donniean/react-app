@@ -84,11 +84,11 @@
     "@vitest/ui": "5.0.0",
     "autocorrect-node": "2.14.0",
     "concurrently": "10.0.5",
-    "cspell": "10.2.1",
+    "cspell": "10.2.2",
     "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.13.0",
     "husky": "9.1.7",
-    "i18next-cli": "1.73.0",
+    "i18next-cli": "1.73.1",
     "knip": "6.34.0",
     "lint-staged": "17.4.1",
     "markdownlint-cli": "0.49.1",
@@ -97,7 +97,7 @@
     "oxfmt": "0.66.0",
     "oxlint": "1.81.0",
     "oxlint-tsgolint": "7.0.2001",
-    "stylelint": "17.14.1",
+    "stylelint": "17.15.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-recess-order": "7.8.0",
     "stylelint-config-standard": "40.0.0",
@@ -112,5 +112,5 @@
   "engines": {
     "node": ">=24.0.0 <25.0.0"
   },
-  "packageManager": "pnpm@11.25.0"
+  "packageManager": "pnpm@12.3.4"
 }

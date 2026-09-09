@@ -14,8 +14,13 @@ export function RouteErrorFallback({ error }: Readonly<ErrorComponentProps>) {
     queryErrorResetBoundary.reset();
   }, [queryErrorResetBoundary]);
 
-  const description = error.message;
-  const stack = env.isDevelopment ? error.stack : undefined;
+  let description = '';
+  let stack: string | undefined;
+
+  if (error instanceof Error) {
+    description = error.message;
+    stack = env.isDevelopment ? error.stack : undefined;
+  }
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-y-4">

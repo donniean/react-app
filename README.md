@@ -96,7 +96,7 @@ Run a built image locally:
 pnpm run docker:run
 ```
 
-`docker:build` and `docker:build:multi` push images to Docker Hub. Before running them, confirm the target image, credentials, and publishing intent.
+`docker:build` and `docker:build:multi` push images to Docker Hub. Before running them, verify the target image, credentials, and publishing authorization. Authorization already given for that operation remains valid.
 
 [`docker.yaml`](.github/workflows/docker.yaml) builds and pushes the Docker image on pushes to `main`, tag pushes, or manual workflow dispatch.
 

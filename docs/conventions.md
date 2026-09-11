@@ -2,7 +2,7 @@
 
 This document defines frontend engineering conventions that affect long-term maintainability: code boundaries, dependency direction, directory structure, naming patterns, and implementation conventions.
 
-When this document conflicts with existing code, tool configuration, generated files, design sources, or other existing facts, the existing facts MUST take precedence. Treat such conflicts as documentation drift or a migration that still needs explicit confirmation. Existing implementations MUST NOT be changed only to match this document unless that is the explicit task.
+Use existing code, tool configuration, generated files, and design sources to establish current behavior. Resolve conflicts with this document within the requested scope: correct documentation drift or carry out an authorized migration. Ask for clarification only when the intended behavior or migration scope remains materially ambiguous. Existing implementations MUST NOT be changed solely to match this document unless that is the explicit task.
 
 The directories listed in this document are allowed structures, not required structures. Directories MUST be created only when there is a real need. Directories not listed here MAY be created when they have clear responsibilities and are consistent with the relevant framework, tooling, or common community practice.
 

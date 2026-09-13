@@ -107,7 +107,7 @@
     "vite-plugin-checker": "0.14.5",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "5.0.0",
-    "wrangler": "4.131.0"
+    "wrangler": "4.131.1"
   },
   "engines": {
     "node": ">=24.0.0 <25.0.0"

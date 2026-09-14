@@ -3,7 +3,6 @@
 ## Scope
 
 - Repository purpose, current directories, and common commands are documented in [README.md](README.md) as the single source of truth; this file contains only repository constraints for coding agents.
-- Use [docs/conventions.md](docs/conventions.md) as the single source of truth for source structure, naming, dependency direction, and implementation conventions.
 - Do not introduce server-side rendering (SSR), React Server Components, API routes, or full-stack framework conventions unless the user explicitly changes the goal.
 - Do not add a backend service implementation to this repository unless the user explicitly asks for one.
 - Projects created from this template are not limited to personal use; do not treat this repository's personal-use context as a fixed downstream project constraint.
@@ -11,8 +10,8 @@
 
 ## Conventions
 
-- Consult the relevant sections of [docs/conventions.md](docs/conventions.md) when changing source structure, naming, dependency direction, or implementation patterns.
-- Before changing TypeScript or JavaScript imports, identify the relevant `tsconfig.json` / `jsconfig.json` for the edited file and resolve its effective `compilerOptions`, including any configured `paths`, by following the `extends` chain when present; in solution-style TypeScript setups, use `references` only to find the leaf project config. Use relative imports within the same feature/module/package, and prefer existing configured path aliases for established cross-boundary imports, but only when all relevant tooling for that code path supports the same alias resolution.
+- Use the relevant sections of [docs/conventions.md](docs/conventions.md) as the single source of truth when changing source structure, naming, dependency direction, or implementation patterns.
+- When adding or changing import paths, resolve the edited file's effective `tsconfig.json` / `jsconfig.json`, following `extends` and using solution `references` to locate the leaf config. Reuse that result while the configuration is unchanged. Use relative paths within a feature/module/package and existing aliases across established boundaries only when the relevant tooling supports them.
 - When changes affect extracted text, translation keys, or locale resources, update the affected resources and types, run `pnpm run lint:i18n`, and inspect the generated diff. `pnpm run i18n:extract` includes type generation; use `pnpm run i18n:types` when only types need regeneration.
 
 ## Verification

@@ -66,7 +66,7 @@
     "react-dom": "19.3.0",
     "react-error-boundary": "6.1.5",
     "react-i18next": "17.0.13",
-    "tailwind-merge": "3.6.0"
+    "tailwind-merge": "3.7.0"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.2",

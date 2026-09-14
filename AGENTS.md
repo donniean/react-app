@@ -11,7 +11,7 @@
 
 ## Conventions
 
-- Before changing code, read [docs/conventions.md](docs/conventions.md).
+- Consult the relevant sections of [docs/conventions.md](docs/conventions.md) when changing source structure, naming, dependency direction, or implementation patterns.
 - Before changing TypeScript or JavaScript imports, identify the relevant `tsconfig.json` / `jsconfig.json` for the edited file and resolve its effective `compilerOptions`, including any configured `paths`, by following the `extends` chain when present; in solution-style TypeScript setups, use `references` only to find the leaf project config. Use relative imports within the same feature/module/package, and prefer existing configured path aliases for established cross-boundary imports, but only when all relevant tooling for that code path supports the same alias resolution.
 - When changes affect extracted text, translation keys, or locale resources, update the affected resources and types, run `pnpm run lint:i18n`, and inspect the generated diff. `pnpm run i18n:extract` includes type generation; use `pnpm run i18n:types` when only types need regeneration.
 

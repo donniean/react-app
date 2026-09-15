@@ -56,8 +56,8 @@
   "dependencies": {
     "@tanstack/react-query": "5.102.8",
     "@tanstack/react-query-devtools": "5.102.8",
-    "@tanstack/react-router": "1.170.35",
-    "@tanstack/react-router-devtools": "1.167.1",
+    "@tanstack/react-router": "1.170.36",
+    "@tanstack/react-router-devtools": "1.167.2",
     "clsx": "2.1.1",
     "i18next": "26.4.2",
     "i18next-browser-languagedetector": "8.2.1",
@@ -65,7 +65,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-error-boundary": "6.1.5",
-    "react-i18next": "17.0.13",
+    "react-i18next": "17.0.14",
     "tailwind-merge": "3.7.0"
   },
   "devDependencies": {
@@ -75,7 +75,7 @@
     "@tailwindcss/vite": "4.3.3",
     "@tanstack/eslint-plugin-query": "5.102.8",
     "@tanstack/eslint-plugin-router": "1.162.0",
-    "@tanstack/router-plugin": "1.168.37",
+    "@tanstack/router-plugin": "1.168.38",
     "@types/node": "24.13.4",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -84,7 +84,7 @@
     "@vitest/ui": "5.0.0",
     "autocorrect-node": "2.14.0",
     "concurrently": "10.0.5",
-    "cspell": "10.3.0",
+    "cspell": "10.3.1",
     "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.15.0",
     "husky": "9.1.7",

@@ -107,10 +107,10 @@
     "vite-plugin-checker": "0.14.5",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "5.0.1",
-    "wrangler": "4.136.2"
+    "wrangler": "4.136.3"
   },
   "engines": {
     "node": ">=24.0.0 <25.0.0"
   },
-  "packageManager": "pnpm@12.5.1"
+  "packageManager": "pnpm@12.6.0"
 }

@@ -157,6 +157,7 @@ export default defineConfig<OxlintConfig>({
         'import/no-unassigned-import': ['error', { allow: ['@/styles/globals.css'] }],
         'react/button-has-type': 'error',
         'react/no-danger': 'error',
+        'react/no-multi-comp': ['warn', { ignoreStateless: false }],
         'react/only-export-components': 'error',
         'react/react-in-jsx-scope': 'off',
         'react/rules-of-hooks': 'error',

@@ -164,6 +164,15 @@ features/*/
 
 ## Components
 
+### Component Files
+
+- Each file SHOULD define one React component. This applies to components throughout `src/`, including app, routes, and features.
+- A short, closely related helper component used only by the main component MAY be defined in the same file at module scope. It SHOULD move to its own file when its logic grows, it is reused, or it needs independent maintenance.
+- Oxlint's [`react/no-multi-comp`](https://oxc.rs/docs/guide/usage/linter/rules/react/no-multi-comp) checks this convention at `warn` level with `ignoreStateless: false`, so function components are included. The repository's `denyWarnings: true` makes warnings fail lint checks. A justified exception MUST use a narrowly scoped disable comment with an English explanation.
+- Component module exports MUST satisfy [`react/only-export-components`](https://oxc.rs/docs/guide/usage/linter/rules/react/only-export-components), configured at `error` level for Fast Refresh compatibility. This rule checks exports independently of component count. Exported hooks, utilities, context objects, and runtime constants SHOULD live in separate modules; type-only exports MAY remain alongside components. Route files use the configured TanStack Router factory exceptions.
+
+### Shared Components
+
 `src/components/` contains UI components reused across features and does not depend on feature internals.
 
 ```text

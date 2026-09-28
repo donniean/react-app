@@ -14,6 +14,7 @@ export default defineConfig({
   singleQuote: true,
   sortImports: true,
   sortTailwindcss: {
+    stylesheet: './src/styles/globals.css',
     functions: ['clsx', 'cn', 'cva', 'twMerge'],
   },
   sortPackageJson: {

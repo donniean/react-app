@@ -12,7 +12,7 @@ function Index() {
   return (
     <div className={cn('flex h-screen w-screen flex-col items-center justify-center gap-y-4 p-8')}>
       <Logo className={styles['logo']} height={128} width={128} />
-      <h1 className={'text-primary text-5xl'}>
+      <h1 className={'text-5xl text-primary'}>
         {t(($) => $.hello, {
           ns: 'common',
           entity: t(($) => $['term.react'], { ns: 'glossary' }),

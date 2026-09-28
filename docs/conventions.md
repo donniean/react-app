@@ -164,6 +164,14 @@ features/*/
 
 ## Components
 
+### Component Files
+
+- Each file SHOULD define one React component. This applies to components throughout `src/`, including app, routes, and features.
+- A short, closely related helper component used only by the main component MAY be defined in the same file at module scope. It SHOULD move to its own file when its logic grows, it is reused, or it needs independent maintenance.
+- Exported hooks, utilities, context objects, and runtime constants SHOULD live in separate modules; type-only exports MAY remain alongside components.
+
+### Shared Components
+
 `src/components/` contains UI components reused across features and does not depend on feature internals.
 
 ```text

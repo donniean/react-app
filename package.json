@@ -56,16 +56,16 @@
   "dependencies": {
     "@tanstack/react-query": "5.104.3",
     "@tanstack/react-query-devtools": "5.104.3",
-    "@tanstack/react-router": "1.170.44",
+    "@tanstack/react-router": "1.170.45",
     "@tanstack/react-router-devtools": "1.167.2",
     "clsx": "2.1.1",
-    "i18next": "26.4.6",
+    "i18next": "26.4.7",
     "i18next-browser-languagedetector": "8.2.1",
     "i18next-resources-to-backend": "1.2.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-error-boundary": "6.1.6",
-    "react-i18next": "17.0.18",
+    "react-i18next": "17.0.20",
     "tailwind-merge": "3.7.0"
   },
   "devDependencies": {
@@ -75,7 +75,7 @@
     "@tailwindcss/vite": "4.3.3",
     "@tanstack/eslint-plugin-query": "5.104.3",
     "@tanstack/eslint-plugin-router": "1.162.0",
-    "@tanstack/router-plugin": "1.168.46",
+    "@tanstack/router-plugin": "1.168.47",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -107,7 +107,7 @@
     "vite-plugin-checker": "0.14.5",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "5.0.5",
-    "wrangler": "4.151.0"
+    "wrangler": "4.151.1"
   },
   "engines": {
     "node": ">=24.0.0 <25.0.0"

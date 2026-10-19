@@ -18,6 +18,7 @@
   "i18n-ally.namespace": true,
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  "material-icon-theme.activeIconPack": "react",
   "search.exclude": {
     "src/routeTree.gen.ts": true
   }

@@ -157,6 +157,17 @@ features/*/
 - app / routes MAY compose features and shared code.
 - app / routes MUST NOT be the home for business resource models, feature-specific components, API request functions, or general-purpose UI components.
 
+### Navigation Query Parameters
+
+These conventions apply to application-defined page query parameters that carry dynamic navigation destinations. Protocol and framework contracts take precedence, followed by established project conventions.
+
+- `return_to` SHOULD specify the destination after completing an operation such as signing in, registering, verifying, or saving. It also applies to returning from a detail page or canceling an edit. The destination may be a previously visited page or the page the user originally intended to visit.
+- `redirect_to` SHOULD specify the caller-selected destination for a page whose purpose is to direct the user to that destination. The page may validate the destination, request confirmation, or require workspace selection before continuing.
+- Equivalent return flows SHOULD use the same parameter name across pages. When either name appears suitable for a return flow, `return_to` SHOULD be preferred.
+- Parameter names SHOULD follow the page or flow's responsibility. Prior visits, navigation timing, whether the destination is on the same site, and the use of client-side routing or HTTP redirects do not determine the name.
+- A page MAY accept both parameters when it has separate onward and return destinations, such as an external-link confirmation page: `redirect_to` identifies the onward destination, and `return_to` identifies the return destination.
+- Ordinary links SHOULD point directly to their destinations. Fixed destinations SHOULD live in route or flow configuration.
+
 ## Assets
 
 - SVGs used as React components SHOULD use `?react` imports.

@@ -124,6 +124,16 @@ src/
 - Code symbols directly related to form values SHOULD keep the `FormValues` / `formValues` / `FORM_VALUES` semantic segment, with casing adjusted to the symbol type and the existing naming style. Examples include `UserFormValues`, `userFormValues`, and `userFormValuesSchema`.
 - List items MAY use `<ResourceSingular>ListItem` only when the list item shape is actually different from the detail shape, for example `UserListItem` and `userListItem`.
 
+### Navigation Query Parameters
+
+These conventions apply when application-defined URL query parameters carry navigation destinations. Required protocol and framework API names take precedence, followed by established project conventions.
+
+- `return_to` SHOULD be the default for return flows, such as resuming the originally requested page after sign-in or returning to a list after viewing or editing an item.
+- `redirect_to` SHOULD identify the onward destination when a page's primary purpose is forwarding to a caller-selected target, such as a link confirmation page.
+- Equivalent flows SHOULD use consistent parameter names. When both descriptions fit a return flow, `return_to` SHOULD be preferred.
+- Parameter names SHOULD reflect the page or flow's responsibility rather than the navigation mechanism.
+- A page MAY accept both parameters when they represent distinct onward and return destinations.
+
 ## Features
 
 `features/*/` contains code private to a specific business feature. Directories inside a feature reuse the responsibilities of the same directory names under `src/`, but their scope is limited to that feature.

@@ -128,6 +128,8 @@ src/
 
 These conventions apply when application-defined URL query parameters carry navigation destinations. Required protocol and framework API names take precedence, followed by established project conventions.
 
+The same destination semantics apply to router state, component state, variables, function parameters, and object properties. Application-defined JavaScript / TypeScript names SHOULD use `camelCase`, such as `returnTo` and `redirectTo`, following established project conventions. Choose URL query parameters or state according to the flow's data transfer and persistence needs. Fields passed to protocols, third-party APIs, SDKs, or frameworks MUST retain their required names, including when represented as JavaScript / TypeScript object properties.
+
 - `return_to` SHOULD be the default for return flows, such as resuming the originally requested page after sign-in or returning to a list after viewing or editing an item.
 - `redirect_to` SHOULD identify the onward destination when a page's primary purpose is forwarding to a caller-selected target, such as a link confirmation page.
 - Equivalent flows SHOULD use consistent parameter names. When both descriptions fit a return flow, `return_to` SHOULD be preferred.

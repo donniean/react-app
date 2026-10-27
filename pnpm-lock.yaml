@@ -219,8 +219,8 @@ importers:
         specifier: 4.3.3
         version: 4.3.3(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
       '@tanstack/eslint-plugin-query':
-        specifier: 5.104.5
-        version: 5.104.5(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        specifier: 5.105.0
+        version: 5.105.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@tanstack/eslint-plugin-router':
         specifier: 1.162.0
         version: 1.162.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -2516,8 +2516,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tanstack/eslint-plugin-query@5.104.5':
-    resolution: {integrity: sha512-rUAV00UdfhUAn5qSzsO6IaE/rMG/K+qvYbQZh8Sm1Uc71H8f3jgYXFYHPL30mz+JadwmvqEBHhG5Q6gm08o1dA==}
+  '@tanstack/eslint-plugin-query@5.105.0':
+    resolution: {integrity: sha512-nQTKJa7RMzhHAl03fVchPDDgt341Onxj7MmZTNt754awyQzjCLKLM+Ki36Y6gwq8UBz8M/xDxEg8it/JOTWifQ==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: ^5.6.0 || ^6.0.0 || ^7.0.0
@@ -6557,7 +6557,7 @@ snapshots:
       tailwindcss: 4.3.3
       vite: 8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
 
-  '@tanstack/eslint-plugin-query@5.104.5(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+  '@tanstack/eslint-plugin-query@5.105.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)

@@ -124,6 +124,16 @@ src/
 - Code symbols directly related to form values SHOULD keep the `FormValues` / `formValues` / `FORM_VALUES` semantic segment, with casing adjusted to the symbol type and the existing naming style. Examples include `UserFormValues`, `userFormValues`, and `userFormValuesSchema`.
 - List items MAY use `<ResourceSingular>ListItem` only when the list item shape is actually different from the detail shape, for example `UserListItem` and `userListItem`.
 
+### Navigation Query Parameters
+
+These conventions apply when application-defined URL query parameters carry navigation destinations. Required protocol and framework API names take precedence, followed by established project conventions.
+
+- `return_to` SHOULD be the default for return flows, such as resuming the originally requested page after sign-in or returning to a list after viewing or editing an item.
+- `redirect_to` SHOULD identify the onward destination when a page's primary purpose is forwarding to a caller-selected target, such as a link confirmation page.
+- Equivalent flows SHOULD use consistent parameter names. When both descriptions fit a return flow, `return_to` SHOULD be preferred.
+- Parameter names SHOULD reflect the page or flow's responsibility rather than the navigation mechanism.
+- A page MAY accept both parameters when they represent distinct onward and return destinations.
+
 ## Features
 
 `features/*/` contains code private to a specific business feature. Directories inside a feature reuse the responsibilities of the same directory names under `src/`, but their scope is limited to that feature.
@@ -156,17 +166,6 @@ features/*/
 - The Vite plugin generates `src/routeTree.gen.ts` during development and builds. This file MUST be committed and MUST NOT be edited manually.
 - app / routes MAY compose features and shared code.
 - app / routes MUST NOT be the home for business resource models, feature-specific components, API request functions, or general-purpose UI components.
-
-### Navigation Query Parameters
-
-These conventions apply to application-defined page query parameters that carry dynamic navigation destinations. Protocol and framework contracts take precedence, followed by established project conventions.
-
-- `return_to` SHOULD specify the destination after completing an operation such as signing in, registering, verifying, or saving. It also applies to returning from a detail page or canceling an edit. The destination may be a previously visited page or the page the user originally intended to visit.
-- `redirect_to` SHOULD specify the caller-selected destination for a page whose purpose is to direct the user to that destination. The page may validate the destination, request confirmation, or require workspace selection before continuing.
-- Equivalent return flows SHOULD use the same parameter name across pages. When either name appears suitable for a return flow, `return_to` SHOULD be preferred.
-- Parameter names SHOULD follow the page or flow's responsibility. Prior visits, navigation timing, whether the destination is on the same site, and the use of client-side routing or HTTP redirects do not determine the name.
-- A page MAY accept both parameters when it has separate onward and return destinations, such as an external-link confirmation page: `redirect_to` identifies the onward destination, and `return_to` identifies the return destination.
-- Ordinary links SHOULD point directly to their destinations. Fixed destinations SHOULD live in route or flow configuration.
 
 ## Assets
 

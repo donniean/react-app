@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "5.105.0",
-    "@tanstack/react-query-devtools": "5.104.5",
+    "@tanstack/react-query-devtools": "5.105.0",
     "@tanstack/react-router": "1.170.46",
     "@tanstack/react-router-devtools": "1.167.2",
     "clsx": "2.1.1",
@@ -88,7 +88,7 @@
     "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.17.0",
     "husky": "9.1.7",
-    "i18next-cli": "1.80.4",
+    "i18next-cli": "1.80.5",
     "knip": "6.43.0",
     "lint-staged": "17.6.0",
     "markdownlint-cli": "0.50.0",
@@ -107,7 +107,7 @@
     "vite-plugin-checker": "0.14.5",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "5.0.5",
-    "wrangler": "4.152.0"
+    "wrangler": "4.153.0"
   },
   "engines": {
     "node": ">=24.0.0 <25.0.0"

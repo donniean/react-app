@@ -95,7 +95,7 @@
     "npm-check-updates": "23.1.1",
     "oxc-transform-react": "0.156.0",
     "oxfmt": "0.75.0",
-    "oxlint": "1.89.0",
+    "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "stylelint": "17.16.0",
     "stylelint-config-css-modules": "4.6.0",

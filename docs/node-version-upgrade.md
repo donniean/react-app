@@ -27,8 +27,6 @@ Update these files together when changing the Node.js major version:
   - `devDependencies.@types/node`
 - [`Dockerfile`](../Dockerfile): Build stage `FROM`
 
-The Docker build installs the pnpm version declared in `package.json` using npm. Node.js 25 and later do not bundle Corepack.
-
 These files should usually keep their existing behavior:
 
 - [`.github/workflows/ci.yaml`](../.github/workflows/ci.yaml): Reads Node.js from [`.nvmrc`](../.nvmrc).

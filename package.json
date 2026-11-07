@@ -54,18 +54,18 @@
     "typecheck": "tsc --build --clean && tsc --build"
   },
   "dependencies": {
-    "@tanstack/react-query": "5.105.3",
-    "@tanstack/react-query-devtools": "5.105.3",
+    "@tanstack/react-query": "5.106.1",
+    "@tanstack/react-query-devtools": "5.106.1",
     "@tanstack/react-router": "1.170.46",
     "@tanstack/react-router-devtools": "1.167.2",
     "clsx": "2.1.1",
-    "i18next": "26.7.1",
+    "i18next": "26.7.2",
     "i18next-browser-languagedetector": "8.3.0",
     "i18next-resources-to-backend": "1.2.4",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-error-boundary": "6.1.6",
-    "react-i18next": "17.1.11",
+    "react-i18next": "17.1.13",
     "tailwind-merge": "3.7.0"
   },
   "devDependencies": {
@@ -73,7 +73,7 @@
     "@commitlint/config-conventional": "21.2.4",
     "@commitlint/types": "21.2.3",
     "@tailwindcss/vite": "4.3.4",
-    "@tanstack/eslint-plugin-query": "5.105.3",
+    "@tanstack/eslint-plugin-query": "5.106.1",
     "@tanstack/eslint-plugin-router": "1.162.0",
     "@tanstack/router-plugin": "1.168.48",
     "@types/node": "26.6.6",
@@ -88,29 +88,29 @@
     "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.18.0",
     "husky": "9.1.7",
-    "i18next-cli": "1.82.1",
+    "i18next-cli": "1.85.1",
     "knip": "6.44.1",
     "lint-staged": "17.6.0",
     "markdownlint-cli": "0.50.0",
     "npm-check-updates": "23.1.1",
-    "oxc-transform-react": "0.156.0",
-    "oxfmt": "0.75.0",
-    "oxlint": "1.90.0",
-    "oxlint-tsgolint": "7.0.2005",
-    "stylelint": "17.16.0",
+    "oxc-transform-react": "0.157.0",
+    "oxfmt": "0.76.0",
+    "oxlint": "1.91.0",
+    "oxlint-tsgolint": "7.0.2006",
+    "stylelint": "18.0.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-recess-order": "7.10.0",
-    "stylelint-config-standard": "40.0.0",
+    "stylelint-config-standard": "41.0.0",
     "tailwindcss": "4.3.4",
     "typescript": "6.0.3",
-    "vite": "8.3.5",
+    "vite": "8.3.6",
     "vite-plugin-checker": "0.14.5",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "5.1.0",
-    "wrangler": "4.156.2"
+    "wrangler": "4.158.0"
   },
   "engines": {
     "node": ">=26.0.0 <27.0.0"
   },
-  "packageManager": "pnpm@12.16.1"
+  "packageManager": "pnpm@12.18.0"
 }

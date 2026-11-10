@@ -92,6 +92,7 @@
     "knip": "6.44.1",
     "lint-staged": "17.6.0",
     "markdownlint-cli": "0.50.0",
+    "meow": "14.1.0",
     "npm-check-updates": "23.1.1",
     "oxc-transform-react": "0.157.0",
     "oxfmt": "0.76.0",

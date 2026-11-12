@@ -13,7 +13,7 @@ A public template repository for personal use. It provides reusable React starte
 
 ## Requirements
 
-- The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json). See [Node.js version upgrade](docs/node-version-upgrade.md).
+- The Node.js version is defined by [`.nvmrc`](.nvmrc) and `engines.node` in [`package.json`](package.json). See [Upgrade Node.js](docs/how-to/upgrade-node.md).
 - The required pnpm version is pinned by the `packageManager` in [`package.json`](package.json).
 
 ## Install
@@ -39,7 +39,7 @@ After creating a project from this template, adjust these files for the actual p
 - [`index.html`](index.html): Document title, metadata, and root document content.
 - [`src/@types/vite-env.d.ts`](src/@types/vite-env.d.ts): Vite environment variable types and [TypeScript IntelliSense](https://vite.dev/guide/env-and-mode#intellisense-for-typescript).
 
-Replace, trim, or delete the sample pages, default logo, placeholder request wrapper, and sample copy under `src/` according to the product goal. See [docs/conventions.md](docs/conventions.md) for structure and implementation conventions.
+Replace, trim, or delete the sample pages, default logo, placeholder request wrapper, and sample copy under `src/` according to the product goal. See [engineering conventions](docs/conventions/README.md) for structure and implementation conventions.
 
 ### Environment Variables
 
@@ -84,9 +84,9 @@ pnpm run test:unit:watch
 pnpm run test:unit:ui
 ```
 
-## Conventions
+## Documentation
 
-Source structure, naming, dependency direction, and implementation conventions are documented in [docs/conventions.md](docs/conventions.md).
+Use the [documentation index](docs/README.md) to find engineering conventions and maintenance guides.
 
 ## Docker
 

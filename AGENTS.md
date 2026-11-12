@@ -10,7 +10,7 @@
 
 ## Conventions
 
-- Use the relevant sections of [docs/conventions.md](docs/conventions.md) as the single source of truth when changing source structure, naming, dependency direction, or implementation patterns.
+- When changing source structure, naming, dependency direction, or implementation patterns, first read the shared scope, normative keywords, and principles in [engineering conventions](docs/conventions/README.md). Then follow its reading guide to the relevant topic documents. These documents are the single source of truth for frontend engineering conventions.
 - When adding or changing import paths, resolve the edited file's effective `tsconfig.json` / `jsconfig.json`, following `extends` and using solution `references` to locate the leaf config. Reuse that result while the configuration is unchanged. Use relative paths within a feature/module/package and existing aliases across established boundaries only when the relevant tooling supports them.
 - When changes affect extracted text, translation keys, or locale resources, update the affected resources and types, run `pnpm run lint:i18n`, and inspect the generated diff. `pnpm run i18n:extract` includes type generation; use `pnpm run i18n:types` when only types need regeneration.
 

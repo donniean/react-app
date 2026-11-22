@@ -54,8 +54,8 @@
     "typecheck": "tsc --build --clean && tsc --build"
   },
   "dependencies": {
-    "@tanstack/react-query": "5.108.1",
-    "@tanstack/react-query-devtools": "5.108.1",
+    "@tanstack/react-query": "5.108.2",
+    "@tanstack/react-query-devtools": "5.108.2",
     "@tanstack/react-router": "1.170.46",
     "@tanstack/react-router-devtools": "1.167.4",
     "clsx": "2.1.1",
@@ -73,7 +73,7 @@
     "@commitlint/config-conventional": "21.2.4",
     "@commitlint/types": "21.2.3",
     "@tailwindcss/vite": "4.3.5",
-    "@tanstack/eslint-plugin-query": "5.108.1",
+    "@tanstack/eslint-plugin-query": "5.108.2",
     "@tanstack/eslint-plugin-router": "1.162.0",
     "@tanstack/router-plugin": "1.169.0",
     "@types/node": "26.6.6",
@@ -88,8 +88,8 @@
     "eslint-plugin-i18next": "6.1.5",
     "html-validate": "11.21.1",
     "husky": "9.1.7",
-    "i18next-cli": "1.91.3",
-    "knip": "6.46.1",
+    "i18next-cli": "1.93.0",
+    "knip": "6.47.0",
     "lint-staged": "17.6.1",
     "markdownlint-cli": "0.50.0",
     "meow": "14.1.0",
@@ -98,17 +98,17 @@
     "oxfmt": "0.79.0",
     "oxlint": "1.94.0",
     "oxlint-tsgolint": "7.0.2007",
-    "stylelint": "18.0.0",
+    "stylelint": "18.1.0",
     "stylelint-config-css-modules": "4.6.0",
     "stylelint-config-recess-order": "7.10.1",
-    "stylelint-config-standard": "41.0.0",
+    "stylelint-config-standard": "41.1.0",
     "tailwindcss": "4.3.5",
     "typescript": "6.0.3",
     "vite": "8.3.8",
     "vite-plugin-checker": "1.0.0",
     "vite-plugin-svgr": "5.2.0",
     "vitest": "5.1.1",
-    "wrangler": "4.165.0"
+    "wrangler": "4.166.0"
   },
   "engines": {
     "node": ">=26.0.0 <27.0.0"
